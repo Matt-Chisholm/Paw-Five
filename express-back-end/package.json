@@ -13,5 +13,8 @@
     "express": "^4.16.4",
     "nodemon": "^1.18.7",
     "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.3.0"
   }
 }
