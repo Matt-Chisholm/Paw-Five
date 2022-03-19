@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
- 
+import './Recorder.scss';
 import AudioReactRecorder, { RecordState } from 'audio-react-recorder';
 
 
@@ -50,16 +50,20 @@ export default function Recorder(props) {
   const recording = audioData;
  
     return (
-      <div>
-        <AudioReactRecorder state={recordState} onStop={onStop} />
+      <div class="recorder">
+        <h2>Record Your Training Sessions</h2>
+        <AudioReactRecorder state={recordState} onStop={onStop} backgroundColor={'rgb(255, 255, 255)'} />
+        <label>Playback</label>
         <audio
+        class="audiobar"
         controls
           src={recording ? recording.url : null}
         ></audio>
         <div>
-          <button onClick={()=>start()}>Start</button>
-          <button onClick={()=>pause()}>Pause</button>
-          <button onClick={()=>stop()}>Stop</button>
+          
+          <button class="btn" id="start-btn" onClick={()=>start()}>Start Training<img alt='' id="recording-btn" src="https://www.clipartmax.com/png/middle/15-151442_big-image-video-record-button.png" /></button>
+          <button class="btn" onClick={()=>pause()}>Pause </button>
+          <button class="btn" onClick={()=>stop()}>Stop Training</button>
         </div>
       </div>
     )

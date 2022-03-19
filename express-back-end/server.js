@@ -74,7 +74,7 @@ App.post("/upload", upload.single("myfile"), (req, res) => {
   var buffer = upFile.data;
 
   const url = "https://api.wit.ai/speech";
-  const witToken = process.env.WIT_clientAccessToken; //don't put your token inline
+  const witToken = process.env.WIT_serverAccessToken; //don't put your token inline
 
   axios
     .post(url, buffer, {

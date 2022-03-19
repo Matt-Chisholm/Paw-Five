@@ -5,6 +5,7 @@ import Example from './components/example';
 import NavBar from './components/NavBar';
 import Profile from './components/Profile';
 import Recorder from './components/Recorder';
+import Session from './components/Session';
 
 
 export default function App(props) {
@@ -18,10 +19,9 @@ export default function App(props) {
     <div className="App">
         <button className='log_in_btn' onClick={() => {setCookie("user_id", 1)}}>Log In</button>
         <h1>Paw Five</h1>
-        <Example />
         {tab==="Training" && <Recorder />}
-
         {tab==="Profile" && <Profile />}
+        
         <NavBar 
           tab={tab}
           tabs={tabs}
