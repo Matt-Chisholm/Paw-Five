@@ -74,7 +74,7 @@ App.post("/upload", upload.single("myfile"), (req, res) => {
   var buffer = upFile.data;
 
   const url = "https://api.wit.ai/speech";
-  const witToken = process.env.WIT_serverAccessToken; //don't put your token inline
+  const witToken = process.env.WIT_clientAccessToken; //don't put your token inline
 
   axios
     .post(url, buffer, {
@@ -91,7 +91,6 @@ App.post("/upload", upload.single("myfile"), (req, res) => {
     .then(res => {
       console.log("wit response: ", res); 
     })
-
     .catch(e => {
       console.log("error sending to wit: " + e);
       res.json({ error: e.message });
@@ -100,5 +99,5 @@ App.post("/upload", upload.single("myfile"), (req, res) => {
 
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console
-  console.log(`Express seems to be listening on port ${PORT} so that's pretty good 👍`);
+  console.  log(`Express seems to be listening on port ${PORT} so that's pretty good 👍`);
 });
