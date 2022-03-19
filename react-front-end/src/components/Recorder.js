@@ -41,7 +41,10 @@ export default function Recorder(props) {
       body: formData,
       mode: 'no-cors'
     };
-    return fetch(url, params).then(response => response.json());
+    return fetch(url, params)
+      .then(response => response.text())
+      .then(data => console.log(data))
+      .catch((err) => {console.log(err)});
     }
 
   const recording = audioData;
