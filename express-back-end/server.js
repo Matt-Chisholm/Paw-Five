@@ -21,6 +21,35 @@ App.get('/api/users', (req, res) => {
   })
 });
 
+App.get('/api/dogs', (req, res) => {
+  db.query('SELECT * FROM DOGS;')
+    .then( (x) =>  {
+    res.send(x.rows);
+  })
+  .catch( (err) => {
+    console.log(err);
+  })
+});
+
+App.get('/api/skills', (req, res) => {
+  db.query('SELECT * FROM SKILLS;')
+    .then( (x) =>  {
+    res.send(x.rows);
+  })
+  .catch( (err) => {
+    console.log(err);
+  })
+});
+
+App.get('/api/sessions', (req, res) => {
+  db.query('SELECT * FROM SESSIONS;')
+    .then( (x) =>  {
+    res.send(x.rows);
+  })
+  .catch( (err) => {
+    console.log(err);
+  })
+});
 
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console
