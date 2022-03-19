@@ -1,15 +1,20 @@
 import React from 'react';
 import './NavBar.scss';
+import NavBarItem from './NavBarItem';
 
 
-export default function NavBar() {
+export default function NavBar(props) {
+
+  const navBarList = props.tabs.map((tab, index) => <NavBarItem
+    key={index}
+    name={tab}
+    selected={tab === props.tab}
+    onChange={props.onChange}/>
+  )
   return (
     <nav>
         <ul>
-          <li>Home</li>
-          <li>Training</li>
-          <li>Switch Dog</li>
-          <li>Profile</li>
+          {navBarList}
         </ul>
       </nav>
   )
