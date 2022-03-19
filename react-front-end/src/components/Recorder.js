@@ -42,7 +42,7 @@ export default function Recorder(props) {
       mode: 'no-cors'
     };
     return fetch(url, params)
-      .then(response => response.json())
+      .then(response => response.text())
       .then(data => console.log(data))
       .catch((err) => {console.log(err)});
     }
