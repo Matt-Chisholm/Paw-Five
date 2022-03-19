@@ -8,11 +8,16 @@ export default function Home () {
 
   return (
     <div>
-      <head>
-        <p>Greetings</p>
-        <p>User Picture</p>
-      </head>
-      <body>
+      <div className="header">
+        <h2>Welcome User!</h2>
+        <div>
+          <img
+            className="user-logo"
+            src="images/face.png"
+          />
+        </div>
+      </div>
+      <div className='home-body'>
         <div>
           <p>Last training</p>
         </div>
@@ -28,7 +33,7 @@ export default function Home () {
         <div>
           <p>Tipbar</p>
         </div>
-      </body>
+      </div>
     </div>
     )
 }
