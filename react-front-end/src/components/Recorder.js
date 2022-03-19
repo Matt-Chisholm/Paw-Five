@@ -23,7 +23,24 @@ export default function Recorder(props) {
   const onStop = (data) => {
     setAudioData(data);
     console.log('Data', data);
+    send(data);
   };
+
+  const send = (dataBlob) => {
+    console.log("sendRequestToGlitch with data:");
+    console.log(dataBlob);
+  
+    var formData = new FormData();
+    formData.append("myfile", dataBlob);
+    //formData.append("sanity", "i am crazy?");
+  
+    const url = "/upload";
+    const params = {
+      method: "POST",
+      body: formData
+    };
+    return fetch(url, params).then(response => response.json());
+    }
 
   const recording = audioData;
  
