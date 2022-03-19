@@ -10,8 +10,9 @@ export default function App(props) {
     <div className="App">
         <h1>Paw Five</h1>
         <Example />
-        <NavBar />
         <Recorder />
+        <NavBar />
+
       </div>
   )
 }
