@@ -97,6 +97,9 @@ App.post("/upload", upload.single("myfile"), (req, res) => {
     });
 });
 
+const profileRoute = require("./routes/profile");
+App.use("/api/profile", profileRoute(db));
+
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.  log(`Express seems to be listening on port ${PORT} so that's pretty good 👍`);
