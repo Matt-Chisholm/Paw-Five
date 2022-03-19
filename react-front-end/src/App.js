@@ -5,7 +5,7 @@ import NavBar from './components/NavBar';
 import Recorder from './components/Recorder';
 export default function App(props) {
 
-  const tabs = ["Home", "Training", "Switch Dog", "Profile"];
+  const tabs = ["Home", "Training", "Profile"];
   const [tab, setTab] = useState("Home");
 
 

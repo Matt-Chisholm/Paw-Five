@@ -85,8 +85,11 @@ App.post("/upload", upload.single("myfile"), (req, res) => {
     })
 
     .then(witResponse => {
-      console.log("wit response: " + JSON.stringify(witResponse.data));
       res.json(witResponse.data);
+      return witResponse.data;
+    })
+    .then(res => {
+      console.log("wit response: ", res); 
     })
 
     .catch(e => {
