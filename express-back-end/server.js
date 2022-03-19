@@ -1,9 +1,10 @@
 const Express = require('express');
 const App = Express();
 const BodyParser = require('body-parser');
-const PORT = 3000;
+const PORT = 8000;
 const db = require('./database');
 
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 // Express Configuration
 App.use(BodyParser.urlencoded({ extended: false }));
 App.use(BodyParser.json());
