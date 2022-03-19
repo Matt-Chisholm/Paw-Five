@@ -10,9 +10,8 @@ App.use(BodyParser.json());
 App.use(Express.static('public'));
 
 // Sample GET route
-App.get('/api/data', (req, res) => {
+App.get('/api/users', (req, res) => {
   db.query('SELECT * FROM USERS;')
-
     .then( (x) =>  {
     res.send(x);
   })
