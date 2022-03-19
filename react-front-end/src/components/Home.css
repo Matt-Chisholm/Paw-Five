@@ -15,6 +15,18 @@ html {
   border: 2px solid #80f0ab;
   border-radius: 10px;
 }
+.home-summary {
+  width: 390px;
+  height: 290px;
+  background:#f08080;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.home-stats {
+  display: flexbox;
+  
+}
 
 .user-logo {
   width: 50px;

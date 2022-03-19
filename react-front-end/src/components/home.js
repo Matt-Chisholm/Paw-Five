@@ -21,13 +21,13 @@ export default function Home () {
         <div>
           <p>Last training</p>
         </div>
-        <div>
+        <div className='home-summary'>
           <h3>Summary</h3>
-          <div>
-            <p>stats1</p>
-            <p>stats2</p>
-            <p>stats3</p>
-            <p>stats4</p>
+          <div className='home-stats'>
+            <span>stats1</span>
+            <span>stats2</span>
+            <span>stats3</span>
+            <span>stats4</span>
           </div>
         </div>
         <div>
