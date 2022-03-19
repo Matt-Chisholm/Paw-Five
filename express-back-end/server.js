@@ -1,7 +1,7 @@
 const Express = require('express');
 const App = Express();
 const BodyParser = require('body-parser');
-const PORT = 3000;
+const PORT = 3001;
 const db = require('./database');
 
 // Express Configuration
@@ -9,11 +9,14 @@ App.use(BodyParser.urlencoded({ extended: false }));
 App.use(BodyParser.json());
 App.use(Express.static('public'));
 
-// Sample GET route
+// USERS GET route, get all users
 App.get('/api/users', (req, res) => {
   db.query('SELECT * FROM USERS;')
     .then( (x) =>  {
-    res.send(x);
+    res.send(x.rows);
+  })
+  .catch( (err) => {
+    console.log(err);
   })
 });
 
