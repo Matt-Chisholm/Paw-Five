@@ -1,0 +1,62 @@
+.avatar {
+  $avatar-size: 25vw;
+  width: $avatar-size;
+  height: $avatar-size;
+  border-radius: 50%;
+  margin-top: 1em;
+}
+
+.dog_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 30%;
+  border: 1px solid;
+  border-radius: 30%;
+  margin: 1em;
+  
+  h4 {
+    margin: 1em;
+  }
+  h4:first-child {
+    margin-bottom: 0;
+  }
+  h4:last-child {
+    margin-top: 0;
+  }
+}
+
+.dog_details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  
+  ul {
+    list-style: none;
+    width: 60%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    li.skill_details {
+      padding: 1%;
+      margin-bottom: 1%;
+      border: 1px solid black;
+
+      span.skill_name {
+        font-size: 1.5em;
+      }
+      span.skill_description {
+        font-size: 1em;
+      }
+    }
+  }
+}
