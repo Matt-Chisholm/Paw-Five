@@ -8,12 +8,6 @@ html {
   margin: 0;
 }
 
-.app {
-  width: 960px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 nav {
   position: fixed;
   bottom: 0;
@@ -25,23 +19,16 @@ nav ul {
   display: flex;
   justify-content: space-around;
   background-color: black;
-  margin-top: 20px;
 }
 
-nav ul li {
-  padding: 20px;
+nav ul li.tab__item {
+  padding: 1em;
   color: white;
   text-decoration: none;
-}
-
-.current {
-  border-bottom: 4px solid white;
-}
-
-h1 {
-  margin-bottom: 20px;
-}
-
-p {
-  margin-bottom: 15px;
+  &.tab__item--selected {
+    text-decoration-line: underline;
+    text-decoration-color: white;
+    text-decoration-thickness: 0.2em;
+    text-underline-offset: 0.2em;
+  }
 }
