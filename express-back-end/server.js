@@ -10,11 +10,14 @@ App.use(BodyParser.urlencoded({ extended: false }));
 App.use(BodyParser.json());
 App.use(Express.static('public'));
 
-// Sample GET route
+// USERS GET route, get all users
 App.get('/api/users', (req, res) => {
   db.query('SELECT * FROM USERS;')
     .then( (x) =>  {
-    res.send(x);
+    res.send(x.rows);
+  })
+  .catch( (err) => {
+    console.log(err);
   })
 });
 
