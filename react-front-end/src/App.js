@@ -22,7 +22,7 @@ export default function App(props) {
         {tab==="Home" && <Home />}
 
         {tab==="Training" && <Recorder />}
-        {tab==="Training" && <Session />}
+        {tab==="Training" && <Session cookies={cookies}/>}
 
         {tab==="Profile" && <Profile user_id={cookies["user_id"]}/>}
         <NavBar 
