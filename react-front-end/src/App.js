@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCookies } from 'react-cookie';
-import './App.css';
+import './App.scss';
 import NavBar from './components/NavBar';
 import Profile from './components/Profile';
 import Recorder from './components/Recorder';
