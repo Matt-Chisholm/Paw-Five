@@ -18,17 +18,23 @@ nav ul {
   list-style: none;
   display: flex;
   justify-content: space-around;
-  background-color: black;
+  background-color: rgb(54, 128, 75);
 }
 
 nav ul li.tab__item {
+  flex-grow: 1;
   padding: 1em;
   color: white;
   text-decoration: none;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(64, 180, 97);
+  }
   &.tab__item--selected {
     text-decoration-line: underline;
     text-decoration-color: white;
     text-decoration-thickness: 0.2em;
     text-underline-offset: 0.2em;
+    background-color: rgb(76, 108, 128);
   }
 }
