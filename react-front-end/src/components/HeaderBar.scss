@@ -1,0 +1,41 @@
+html {
+  box-sizing: border-box;
+}
+
+@import 'colors';
+@import 'fonts';
+
+header {
+  position: fixed;
+  bottom: top;
+  width: 100%;
+  background-color: $primary_2;
+  display: flex;
+  color: $primary_1;
+  font: {
+    family: $primary_font;
+    size: 1.2em;
+  }
+  .left {
+    border: {
+      style: dotted;
+      color: red;
+    }
+    display: flex;
+    justify-content: flex-end;
+    width: 60vw;
+    padding: 0.2em
+  }
+  .right {
+    border: {
+      style: dotted;
+      color: green;
+    }
+    display: flex;
+    justify-content: flex-end;
+    width: 40vw;
+    padding: 0.2em
+
+    
+  }
+}

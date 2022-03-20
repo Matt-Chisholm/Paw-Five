@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import Profile from './components/Profile';
 import Recorder from './components/Recorder';
 import Session from './components/Session';
+import HeaderBar from './components/HeaderBar';
 
 import Home from './components/Home';
 
@@ -17,6 +18,7 @@ export default function App(props) {
 
   return (
     <div className="App">
+        <HeaderBar />
         <button className='log_in_btn' onClick={() => {setCookie("user_id", 1)}}>Log In</button>
         
         {tab==="Home" && <Home />}

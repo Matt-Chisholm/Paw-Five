@@ -13,7 +13,7 @@ export default function Home () {
           <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/Planning/logo.png?raw=true" alt='' />
         </div>
         <div className="user-logo">
-          <img src="images/face.png"/>
+
         </div>
       </div>
       <div className='home-body'>
