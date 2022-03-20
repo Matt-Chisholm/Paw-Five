@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useCookies } from 'react-cookie';
 import './App.css';
-import Example from './components/example';
 import NavBar from './components/NavBar';
 import Profile from './components/Profile';
 import Recorder from './components/Recorder';
@@ -13,19 +12,18 @@ export default function App(props) {
   
   const tabs = ["Home", "Training", "Profile"];
   const [tab, setTab] = useState("Home");
-  const [cookie, setCookie, removeCookie] = useCookies(["user_id"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["user_id"]);
 
 
   return (
     <div className="App">
         <button className='log_in_btn' onClick={() => {setCookie("user_id", 1)}}>Log In</button>
         
-        {/* <Example /> */}
         {tab==="Home" && <Home />}
 
         {tab==="Training" && <Recorder />}
 
-        {tab==="Profile" && <Profile user_id={cookie["user_id"]}/>}
+        {tab==="Profile" && <Profile user_id={cookies["user_id"]}/>}
         <NavBar 
           tab={tab}
           tabs={tabs}
