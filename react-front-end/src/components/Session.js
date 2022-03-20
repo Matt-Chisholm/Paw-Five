@@ -13,7 +13,7 @@ export default function Session(props) {
       setSessions(response.data);
       console.log(response.data);
     });
-  }, []);
+  }, [cookies.user_id]);
   const timeago = moment(sessions.timestamp).fromNow();
   
   return (

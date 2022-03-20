@@ -99,6 +99,8 @@ App.post("/upload", upload.single("myfile"), (req, res) => {
 
 const profileRoute = require("./routes/profile");
 App.use("/api/profile", profileRoute(db));
+const sessionsRoute = require("./routes/sessions");
+App.use("/api/sessions", sessionsRoute(db));
 
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console
