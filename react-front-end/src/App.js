@@ -7,6 +7,7 @@ import Profile from './components/Profile';
 import Recorder from './components/Recorder';
 import Session from './components/Session';
 
+import Home from './components/Home';
 
 export default function App(props) {
   
@@ -20,6 +21,10 @@ export default function App(props) {
         <button className='log_in_btn' onClick={() => {setCookie("user_id", 1)}}>Log In</button>
         <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/Planning/logo.png?raw=true" alt='' />
         {/* <Example /> */}
+        <h1>Paw Five</h1>
+        <Example />
+        {tab==="Home" && <Home />}
+
         {tab==="Training" && <Recorder />}
 
         {tab==="Profile" && <Profile user_id={cookie["user_id"]}/>}

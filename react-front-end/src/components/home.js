@@ -1,0 +1,39 @@
+import React, { useState } from 'react';
+import './Home.css';
+
+export default function Home () {
+
+
+
+
+  return (
+    <div>
+      <div className="header">
+        <h2>Welcome User!</h2>
+        <div>
+          <img
+            className="user-logo"
+            src="images/face.png"
+          />
+        </div>
+      </div>
+      <div className='home-body'>
+        <div>
+          <p>Last training</p>
+        </div>
+        <div className='home-summary'>
+          <h3>Summary</h3>
+          <div className='home-stats'>
+            <span>stats1</span>
+            <span>stats2</span>
+            <span>stats3</span>
+            <span>stats4</span>
+          </div>
+        </div>
+        <div>
+          <p>Tipbar</p>
+        </div>
+      </div>
+    </div>
+    )
+}
