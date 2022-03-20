@@ -9,6 +9,9 @@ export default function Home () {
   return (
     <div>
       <div className="header">
+        <div className="app-logo">
+          <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/Planning/logo.png?raw=true" alt='' />
+        </div>
         <h2>Welcome User!</h2>
         <div>
           <img

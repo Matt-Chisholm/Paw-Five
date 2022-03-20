@@ -3,6 +3,9 @@ html {
 }
 
 .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 390px;
   background: #ffb6c1;
   border: 2px solid #f08080;
@@ -25,10 +28,12 @@ html {
 
 .home-stats {
   display: flex;
-  
-
 }
 
+.app-logo{
+  width: 50%;
+  height: 20%;
+}
 .user-logo {
   width: 50px;
   height: 50px
