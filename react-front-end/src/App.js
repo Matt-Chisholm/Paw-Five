@@ -6,7 +6,7 @@ import Profile from './components/Profile';
 import Recorder from './components/Recorder';
 import Session from './components/Session';
 
-import Home from './components/home';
+import Home from './components/Home';
 
 export default function App(props) {
   
