@@ -24,8 +24,9 @@ html {
 }
 
 .home-stats {
-  display: flexbox;
+  display: flex;
   
+
 }
 
 .user-logo {
