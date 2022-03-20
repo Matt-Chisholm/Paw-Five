@@ -19,14 +19,6 @@ export default function Profile(props) {
     });
   }, []);
 
-    // const skillsList = [];
-
-    // if (skills) {
-    //   skillsList = skills.map((skill, index) => <Skill
-    //     key={index}
-    //     name={skill.name}
-    //     description={skill.description} />)
-    // }
 
   return (
     <div>

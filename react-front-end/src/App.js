@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCookies } from 'react-cookie';
-import './App.css';
+import './App.scss';
 import NavBar from './components/NavBar';
 import Profile from './components/Profile';
 import Recorder from './components/Recorder';
@@ -22,7 +22,7 @@ export default function App(props) {
         {tab==="Home" && <Home />}
 
         {tab==="Training" && <Recorder />}
-        {tab==="Training" && <Session />}
+        {tab==="Training" && <Session cookies={cookies}/>}
 
         {tab==="Profile" && <Profile user_id={cookies["user_id"]}/>}
         <NavBar 
