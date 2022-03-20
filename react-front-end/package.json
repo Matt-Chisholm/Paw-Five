@@ -6,6 +6,7 @@
     "audio-react-recorder": "^1.0.4",
     "axios": "^0.18.1",
     "classnames": "^2.3.1",
+    "moment": "^2.29.1",
     "react": "^16.8.6",
     "react-cookie": "^4.1.1",
     "react-dom": "^16.8.6",
