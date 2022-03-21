@@ -2,3 +2,13 @@
   width: 30%;
   border-radius: 50%;
 }
+
+.session-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 40%;
+  border: 2px solid #f08080;
+  border-radius: 10px;
+}

@@ -49,6 +49,28 @@ export default function Recorder(props) {
 //     .catch(error => console.log("get error", error))
 // }
 
+const dogFinder = (witString) => {
+  let dog = '';
+  if (witString.includes("Birdie" || "birdie")) {
+    dog = 'Birdie';
+  }
+  if (witString.includes("Bailey" || "bailey")) {
+    dog = 'Bailey';
+  }
+  return dog;
+}
+
+const skillFinder = (witString) => {
+  let skill = '';
+  if (witString.includes("sit" || "Sit" || "set" || "Set")) {
+    skill = 'Sit';
+  }
+  if (witString.includes("Speak" || "speak")) {
+    skill = 'Speak';
+  }
+  return skill;
+}
+
 
 const send = (dataBlob) => {
   console.log("sendRequestToGlitch with data:");
@@ -69,8 +91,9 @@ const send = (dataBlob) => {
     })
     .then(witResponse => {
       console.log(witResponse.data, typeof witResponse.data);
-      setWitData(witResponse.data);
-      // return witResponse.data;
+      if (typeof witResponse.data === 'string') {
+        setWitData(witResponse.data);
+      }
     })
     .catch(error => {
       if (error.response){
@@ -92,6 +115,7 @@ const send = (dataBlob) => {
   const recording = audioData;
  
     return (
+      <div>
       <div className="recorder">
         <h2>Record Your Training Sessions</h2>
         <AudioReactRecorder state={recordState} onStop={onStop} backgroundColor={'rgb(255, 255, 255)'} />
@@ -101,12 +125,14 @@ const send = (dataBlob) => {
         controls
           src={recording ? recording.url : null}
         ></audio>
-        <span>{witData}</span>
         <div>
           <button className="btn" id="start-btn" onClick={()=>start()}>Start Training<img alt='' id="recording-btn" src="https://www.clipartmax.com/png/middle/15-151442_big-image-video-record-button.png" /></button>
           <button className="btn" onClick={()=>pause()}>Pause </button>
           <button className="btn" onClick={()=>stop()}>Stop Training</button>
         </div>
+      </div>
+      <h2>Dog you are training: {dogFinder(witData)}</h2>
+      <h2>Skill you are training: {skillFinder(witData)}</h2>
       </div>
     )
 };

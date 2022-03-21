@@ -17,11 +17,12 @@ export default function Session(props) {
   const timeago = moment(sessions.timestamp).fromNow();
   
   return (
-    <div>
-      <h2>{sessions.name}</h2>
+    <div class="session-container">
+      
       <img className="session-image" src={sessions.avatar} alt='' />
-      {sessions.description}
-      {timeago}
+      <h2>{sessions.name}</h2>
+      <h3>Skill trained: {sessions.description}</h3>
+      <h3>Session created: {timeago}</h3>
     </div>
   )
 }
