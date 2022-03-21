@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './Recorder.scss';
 import AudioReactRecorder, { RecordState } from 'audio-react-recorder';
-import axios from 'axios'
+import axios from 'axios';
+import Session from "./Session";
 
 
 export default function Recorder(props) {
   const [recordState, setRecordState] = useState(null)
   const [ audioData, setAudioData ] = useState(null)
-  const [ witData, setWitData ] = useState("nothing")
+  const [ witData, setWitData ] = useState("nothing");
 
    const start = () => {
     setRecordState(RecordState.START)
@@ -48,27 +49,32 @@ export default function Recorder(props) {
 //     })
 //     .catch(error => console.log("get error", error))
 // }
-
+let dog = '';
+let skill = '';
 const dogFinder = (witString) => {
-  let dog = '';
   if (witString.includes("Birdie" || "birdie")) {
+    console.log("dog set to birdie");
     dog = 'Birdie';
+    return dog;
   }
-  if (witString.includes("Bailey" || "bailey")) {
+  if (witString.includes("Bailee" || "bailey" || "Bailey")) {
+    console.log("dog set to bailey");
     dog = 'Bailey';
+    return dog;
   }
-  return dog;
 }
 
 const skillFinder = (witString) => {
-  let skill = '';
   if (witString.includes("sit" || "Sit" || "set" || "Set")) {
+    console.log("skill set to sit");
     skill = 'Sit';
+    return skill;
   }
   if (witString.includes("Speak" || "speak")) {
+    console.log("skill set to speak");
     skill = 'Speak';
+    return skill;
   }
-  return skill;
 }
 
 
@@ -133,6 +139,7 @@ const send = (dataBlob) => {
       </div>
       <h2>Dog you are training: {dogFinder(witData)}</h2>
       <h2>Skill you are training: {skillFinder(witData)}</h2>
+      {typeof witData === 'string' && <Session name={dogFinder(witData)} /> }
       </div>
     )
 };

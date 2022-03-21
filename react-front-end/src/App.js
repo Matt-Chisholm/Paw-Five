@@ -4,7 +4,7 @@ import './App.scss';
 import NavBar from './components/NavBar';
 import Profile from './components/Profile';
 import Recorder from './components/Recorder';
-import Session from './components/Session';
+// import Session from './components/Session';
 import HeaderBar from './components/HeaderBar';
 
 import Home from './components/Home';
@@ -24,7 +24,7 @@ export default function App(props) {
         {tab==="Home" && <Home />}
 
         {tab==="Training" && <Recorder />}
-        {tab==="Training" && <Session cookies={cookies}/>}
+        {/* {tab==="Training" && <Session cookies={cookies}/>} */}
 
         {tab==="Profile" && <Profile user_id={cookies["user_id"]}/>}
         <NavBar 

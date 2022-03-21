@@ -5,15 +5,14 @@ import moment from 'moment';
 import './Session.scss';
 
 export default function Session(props) {
-  const { cookies } = props;
 
   const [sessions, setSessions] = useState({description: ""});
   useEffect(() => {
-    axios.get(`/api/session/${cookies.user_id}`).then((response) => {
+    axios.get(`/api/session/${props.name}`).then((response) => {
       setSessions(response.data);
       console.log(response.data);
     });
-  }, [cookies.user_id]);
+  }, [props.name]);
   const timeago = moment(sessions.timestamp).fromNow();
   
   return (
