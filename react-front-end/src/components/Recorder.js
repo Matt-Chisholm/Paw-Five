@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './Recorder.scss';
 import AudioReactRecorder, { RecordState } from 'audio-react-recorder';
+import axios from 'axios'
 
 
 export default function Recorder(props) {
   const [recordState, setRecordState] = useState(null)
   const [ audioData, setAudioData ] = useState(null)
-  const [ witData, setWitData ] = useState(null)
+  const [ witData, setWitData ] = useState("nothing")
 
    const start = () => {
     setRecordState(RecordState.START)
@@ -23,47 +24,70 @@ export default function Recorder(props) {
   //audioData contains blob and blobUrl
   const onStop = (data) => {
     setAudioData(data);
-    console.log('Data', data);
-    send(data.blob);
+    console.log('Data onStop', data);
+    send(data.blob)
+    // .then(()=>
+    // requestWit()
+    // )
   };
-  
-  // TJ is testing out getting responses from fetch
-  const random = Math.floor(Math.random() * 101)
-  useEffect(() =>{
-    // Get request using fetch inside useEffect React hook
-    fetch("https://type.fit/api/quotes")
-      .then( response => {
-        return response.json();
-      })
-      .then( data =>{
-        const quote = data[random]
-        console.log("TJ quotes -----", data.indexOf(quote), quote);
-        setWitData(data);
-      })
-  }, []);
 
 
+// const requestWit = () =>{
+//   const witToken = process.env.WIT_serverAccessToken; //don't put your token inline
+//   const URL = "https://api.wit.ai/utterances?limit=10";
+//   const options = {headers: { Authorization: "Bearer " + witToken }};
+//   const send ="";
+//   return axios
+//     .get("https://api.wit.ai/utterances?limit=10", options)
+//     .then( results =>{
+//       console.log("get witData before set", witData);
+//       return setWitData(results)
+//     })
+//     .then( results => {
+//       console.log("get witData after set", witData);
+//     })
+//     .catch(error => console.log("get error", error))
+// }
 
-  const send = (dataBlob) => {
-    console.log("sendRequestToGlitch with data:");
-    console.log(dataBlob);
-  
-    var formData = new FormData();
-    formData.append("myfile", dataBlob);
-    //formData.append("sanity", "i am crazy?");
-    console.log("formData:", formData);
-  
-    const url = "http://localhost:8080/upload";
-    const params = {
-      method: "POST",
-      body: formData,
-      mode: 'no-cors'
-    };
-    return fetch(url, params)
-      .then(response => response.text())
-      .then(data => console.log(data))
-      .catch((err) => {console.log(err)});
-    }
+
+const send = (dataBlob) => {
+  console.log("sendRequestToGlitch with data:");
+  console.log("sending dataBlob",dataBlob);
+
+
+  var buffer = dataBlob;
+
+  const url = "https://api.wit.ai/speech";
+  const witToken = process.env.REACT_APP_WIT_serverAccessToken; //don't put your token inline
+
+  axios
+    .post(url, buffer, {
+      headers: {
+        Authorization: "Bearer " + witToken,
+        "Content-Type": "audio/wav"
+      }
+    })
+    .then(witResponse => {
+      console.log(witResponse.data, typeof witResponse.data);
+      setWitData(witResponse.data);
+      // return witResponse.data;
+    })
+    .catch(error => {
+      if (error.response){
+        console.log(error.response)
+        //do something
+
+        }else if(error.request){
+        console.log(error.request)
+        //do something else
+
+        }else if(error.message){
+        console.log(error.message)
+        //do something other than the other two
+
+        }
+    })
+  }
 
   const recording = audioData;
  
@@ -77,6 +101,7 @@ export default function Recorder(props) {
         controls
           src={recording ? recording.url : null}
         ></audio>
+        <span>{witData}</span>
         <div>
           <button className="btn" id="start-btn" onClick={()=>start()}>Start Training<img alt='' id="recording-btn" src="https://www.clipartmax.com/png/middle/15-151442_big-image-video-record-button.png" /></button>
           <button className="btn" onClick={()=>pause()}>Pause </button>
