@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Recorder.scss';
 import AudioReactRecorder, { RecordState } from 'audio-react-recorder';
 
@@ -6,6 +6,7 @@ import AudioReactRecorder, { RecordState } from 'audio-react-recorder';
 export default function Recorder(props) {
   const [recordState, setRecordState] = useState(null)
   const [ audioData, setAudioData ] = useState(null)
+  const [ witData, setWitData ] = useState(null)
 
    const start = () => {
     setRecordState(RecordState.START)
@@ -25,6 +26,23 @@ export default function Recorder(props) {
     console.log('Data', data);
     send(data.blob);
   };
+  
+  // TJ is testing out getting responses from fetch
+  const random = Math.floor(Math.random() * 101)
+  useEffect(() =>{
+    // Get request using fetch inside useEffect React hook
+    fetch("https://type.fit/api/quotes")
+      .then( response => {
+        return response.json();
+      })
+      .then( data =>{
+        const quote = data[random]
+        console.log("TJ quotes -----", data.indexOf(quote), quote);
+        setWitData(data);
+      })
+  }, []);
+
+
 
   const send = (dataBlob) => {
     console.log("sendRequestToGlitch with data:");
@@ -60,7 +78,6 @@ export default function Recorder(props) {
           src={recording ? recording.url : null}
         ></audio>
         <div>
-          
           <button className="btn" id="start-btn" onClick={()=>start()}>Start Training<img alt='' id="recording-btn" src="https://www.clipartmax.com/png/middle/15-151442_big-image-video-record-button.png" /></button>
           <button className="btn" onClick={()=>pause()}>Pause </button>
           <button className="btn" onClick={()=>stop()}>Stop Training</button>
