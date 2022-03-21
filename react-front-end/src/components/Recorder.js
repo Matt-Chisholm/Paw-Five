@@ -62,6 +62,11 @@ const dogFinder = (witString) => {
     dog = 'Bailey';
     return dog;
   }
+  if (witString.includes("Bolt" || "bolt" || "belt")) {
+    console.log("dog set to bolt");
+    dog = 'Bolt';
+    return dog;
+  }
 }
 
 const skillFinder = (witString) => {
