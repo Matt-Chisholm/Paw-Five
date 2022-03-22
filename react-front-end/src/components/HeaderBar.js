@@ -1,17 +1,15 @@
 import React from 'react';
 import './HeaderBar.scss';
-
+import setting from './images/setting.svg'
 
 export default function HeaderBar() {
 
   return (
     <header>
-      <section className='left'>
+      <div className="logo">
         PAWFIVE
-      </section>
-      <section className='right'>
-        <img src="images/setting.png"/>
-      </section>
+      </div>
+      <img className="setting" src={setting} />
     </header>
   )
 }

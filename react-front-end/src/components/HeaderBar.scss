@@ -6,38 +6,31 @@ html {
 @import 'fonts';
 
 header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: $primary_2;
   display: flex;
-  color: $primary_1;
-  height: 5vh;
   align-items: center;
+  background-color: $primary_2;
+  height: 6.4vh;
+  justify-content: center;
+  min-width: 375px;
+  padding: 0 13.1px;
   font: {
     family: $primary_font;
     size: 1.2em;
+    weight: 500;
   }
-  .left {
-    // border: {
-    //   style: dotted;
-    //   color: red;
-    // }
-    display: flex;
-    justify-content: flex-end;
-    width: 60vw;
-    padding: 0.2em
+  .logo {
+    text-align: center;
+    color: $primary_1;
+    letter-spacing: 2.7px;
+    min-height: 24px;
+    min-width: 94px;
   }
-  .right {
-    // border: {
-    //   style: dotted;
-    //   color: green;
-    // }
-    display: flex;
-    justify-content: flex-end;
-    width: 40vw;
-    padding: 0.2em
-
-    
+  .setting {
+    position: fixed;
+    right: 0;
+    height: 24px;
+    margin-bottom: 0.07px;
+    margin-right: 2vw;
+    width: 24px;
   }
 }
