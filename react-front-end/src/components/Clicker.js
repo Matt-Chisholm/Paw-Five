@@ -1,6 +1,6 @@
 import React from 'react';
 import useSound from 'use-sound';
-import audio from "../click.mp3";
+import audio from "../sounds/click.mp3";
 
 export default function Clicker() {
   
