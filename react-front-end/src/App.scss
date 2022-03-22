@@ -1,3 +1,6 @@
+@import './components/colors';
+@import './components/fonts';
+
 .App {
   text-align: center;
   min-width: 375px;
@@ -13,8 +16,9 @@
 .log_in_btn {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   width: 10%;
+  color:$primary_2;
 }
 
 .App-header {
