@@ -1,40 +1,40 @@
-import React, { useState } from 'react';
-import { useCookies } from 'react-cookie';
-import './App.scss';
-import NavBar from './components/NavBar';
-import Profile from './components/Profile';
-import Recorder from './components/Recorder';
+import React, { useState } from "react";
+import { useCookies } from "react-cookie";
+import "./App.scss";
+import NavBar from "./components/NavBar";
+import Profile from "./components/Profile";
+import Recorder from "./components/Recorder";
 // import Session from './components/Session';
-import HeaderBar from './components/HeaderBar';
+import HeaderBar from "./components/HeaderBar";
+import Tutorial from "./components/Tutorial";
 
-import Home from './components/Home';
+import Home from "./components/Home";
 
 export default function App(props) {
-  
   const tabs = ["Home", "Training", "Profile"];
   const [tab, setTab] = useState("Home");
   const [cookies, setCookie, removeCookie] = useCookies(["user_id"]);
 
-
   return (
     <div className="App">
-        <HeaderBar />
-        <button className='log_in_btn' onClick={() => {setCookie("user_id", 1)}}>Log In</button>
-        
-        {tab==="Home" && <Home />}
+      <HeaderBar />
+      <button
+        className="log_in_btn"
+        onClick={() => {
+          setCookie("user_id", 1);
+        }}
+      >
+        Log In
+      </button>
 
-        {tab==="Training" && <Recorder />}
-        {/* {tab==="Training" && <Session cookies={cookies}/>} */}
+      {tab === "Home" && <Home />}
 
-        {tab==="Profile" && <Profile user_id={cookies["user_id"]}/>}
-        <NavBar 
-          tab={tab}
-          tabs={tabs}
-          onChange={setTab}
-        />
+      {tab === "Training" && <Recorder />}
+      {tab === "Training" && <Tutorial />}
 
+      {tab === "Profile" && <Profile user_id={cookies["user_id"]} />}
+      <NavBar tab={tab} tabs={tabs} onChange={setTab} />
       </div>
-  )
+   
+  );
 }
-
-

@@ -1,5 +1,6 @@
-INSERT INTO sessions (dog_id, skill_id, description, timestamp, result) VALUES (1, 1, 'Sit', NOW()::timestamp, 'ok...');
-INSERT INTO sessions (dog_id, skill_id, description, timestamp, result) VALUES (2, 2, 'Sit', NOW()::timestamp, 'good');
-INSERT INTO sessions (dog_id, skill_id, description, timestamp, result) VALUES (3, 3, 'Sit', NOW()::timestamp, 'great!');
-
-SET timezone = 'America/Los_Angeles';
+INSERT INTO sessions (dog_id, skill_id, description, timestamp, result) VALUES (1, 1, 'Sit training', NOW()::timestamp, 'Great!');
+INSERT INTO sessions (dog_id, skill_id, description, timestamp, result) VALUES (1, 1, 'Sit training', NOW()::timestamp, 'Okay!');
+INSERT INTO sessions (dog_id, skill_id, description, timestamp, result) VALUES (1, 1, 'Sit training', NOW()::timestamp, 'Bad!');
+INSERT INTO sessions (dog_id, skill_id, description, timestamp, result) VALUES (2, 2, 'Speak', NOW()::timestamp, 'Good!');
+INSERT INTO sessions (dog_id, skill_id, description, timestamp, result) VALUES (2, 2, 'Speak', NOW()::timestamp, 'OK!');
+INSERT INTO sessions (dog_id, skill_id, description, timestamp, result) VALUES (2, 2, 'Speak', NOW()::timestamp, 'Great!');

@@ -34,6 +34,18 @@ App.get('/api/dogs', (req, res) => {
   })
 });
 
+
+App.get('/api/dog/:id', (req, res) => {
+  db.query('SELECT * FROM DOGS WHERE DOGS.ID = $1 ;')
+    .then( (x) =>  {
+    res.send(x.rows);
+  })
+  .catch( (err) => {
+    console.log(err);
+  })
+});
+
+
 App.get('/api/skills', (req, res) => {
   db.query('SELECT * FROM SKILLS;')
     .then( (x) =>  {
@@ -46,6 +58,16 @@ App.get('/api/skills', (req, res) => {
 
 App.get('/api/sessions', (req, res) => {
   db.query('SELECT * FROM SESSIONS;')
+    .then( (x) =>  {
+    res.send(x.rows);
+  })
+  .catch( (err) => {
+    console.log(err);
+  })
+});
+
+App.get('/api/tutorials', (req, res) => {
+  db.query('SELECT * FROM TUTORIALS;')
     .then( (x) =>  {
     res.send(x.rows);
   })
