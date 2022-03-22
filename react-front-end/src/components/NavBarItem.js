@@ -10,6 +10,8 @@ export default function NavBarItem(props) {
 
   return (
     <span className={tabClass} onClick={() => props.onChange(props.name)}>
+        <img src="../../public/images/setting.png"/>
+
       {props.name}
     </span>
   )
