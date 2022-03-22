@@ -9,7 +9,8 @@ export default function NavBarItem(props) {
   });
 
   return (
-    <li className={tabClass}
-      onClick={() => props.onChange(props.name)}>{props.name}</li>
+    <span className={tabClass} onClick={() => props.onChange(props.name)}>
+      {props.name}
+    </span>
   )
 }

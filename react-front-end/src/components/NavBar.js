@@ -13,9 +13,7 @@ export default function NavBar(props) {
   )
   return (
     <nav>
-        <ul>
-          {navBarList}
-        </ul>
-      </nav>
+      {navBarList}       
+    </nav>
   )
 }
