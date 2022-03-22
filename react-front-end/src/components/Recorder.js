@@ -4,6 +4,8 @@ import AudioReactRecorder, { RecordState } from 'audio-react-recorder';
 import axios from 'axios';
 import Session from "./Session";
 import Tutorial from './Tutorial';
+import playbtn from './images/play.png';
+import pause from './images/pause.png';
 
 
 export default function Recorder(props) {
@@ -116,8 +118,12 @@ const send = (dataBlob) => {
           src={recording ? recording.url : null}
         ></audio>
         <div>
-          {play === false && <button className="btn" onClick={()=>start()}>Start Training</button>}
-          {play === true && <button className="btn" onClick={()=>stop()}>Stop Training</button>}
+          {play === false && 
+          <img src={playbtn} onClick={()=>start()} />
+          }
+          {play === true && 
+          <img src={pause} onClick={()=>stop()} />
+          }
         </div>
         </div>
       </div>
