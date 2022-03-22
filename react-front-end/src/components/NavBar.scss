@@ -29,6 +29,17 @@ nav {
     border-radius: 15px;
     height: 6.6vh;
     width: 18.6vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    img {
+      width: 62px;
+      height: 50px;
+      mix-blend-mode: darken;
+      object-fit: cover;
+
+    }
   }
   .tab__item {
     padding: 1em;

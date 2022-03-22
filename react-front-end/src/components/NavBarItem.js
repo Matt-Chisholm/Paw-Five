@@ -1,6 +1,7 @@
 import React from 'react';
 import './NavBar.scss';
 import classNames from "classnames";
+import home from './images/home.png'
 
 
 export default function NavBarItem(props) {
@@ -10,9 +11,9 @@ export default function NavBarItem(props) {
 
   return (
     <span className={tabClass} onClick={() => props.onChange(props.name)}>
-        <img src="../../public/images/setting.png"/>
-
-      {props.name}
+      {props.name === "Home" && <img src={home} />}
+      {props.name === "Training" && <img src={home} />}
+      {props.name === "Profile" && <img src={home} />}
     </span>
   )
 }
