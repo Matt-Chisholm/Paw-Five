@@ -13,25 +13,26 @@ header {
   display: flex;
   color: $primary_1;
   height: 5vh;
+  align-items: center;
   font: {
     family: $primary_font;
     size: 1.2em;
   }
   .left {
-    border: {
-      style: dotted;
-      color: red;
-    }
+    // border: {
+    //   style: dotted;
+    //   color: red;
+    // }
     display: flex;
     justify-content: flex-end;
     width: 60vw;
     padding: 0.2em
   }
   .right {
-    border: {
-      style: dotted;
-      color: green;
-    }
+    // border: {
+    //   style: dotted;
+    //   color: green;
+    // }
     display: flex;
     justify-content: flex-end;
     width: 40vw;

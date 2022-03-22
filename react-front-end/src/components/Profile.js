@@ -40,15 +40,27 @@ export default function Profile(props) {
   const dogsLicenses = () => {
     return dogs.map((dog, index) => {
       return  <div className='license' key={index}>
-                <span className='dog_name'>{dog.name}</span>
-                <img className='avatar' src={dog.avatar} />
-                <span className='dog_breed'>{dog.breed}</span>
-                <label>Sessions:</label>
-                <span className='sessions'>{dogsStats[index].data.sessions}</span>
-                <label>Skills:</label>
-                <span className='skills'>{dogsStats[index].data.skills}</span>
-                <label>Memories:</label>
-                <span className='memories'>78</span>
+                <input className='dog_name' defaultValue={dog.name} />
+                <div className='dog_details'>
+                  <img className='avatar' src={dog.avatar} />
+                  <div className='dog_breed_and_stats'>
+                    <span className='dog_breed'>{dog.breed}</span>
+                    <div className='dog_stats'>
+                      <div className='stats_bubble'>
+                        <span className='bubble_data'>{dogsStats[index].data.sessions}</span>
+                        <label className='bubble_label'>sessions</label>
+                      </div>
+                      <div className='stats_bubble'>
+                        <span className='bubble_data'>{dogsStats[index].data.skills}</span>
+                        <label className='bubble_label'>skills</label>
+                      </div>
+                      <div className='stats_bubble'>
+                        <span className='bubble_data'>78</span>
+                        <label className='bubble_label'>memories</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
     });
   }
