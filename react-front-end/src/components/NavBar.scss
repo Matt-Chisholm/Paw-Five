@@ -23,29 +23,31 @@ nav {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  
+  span {
+    background-color: $primary_1;
+    border-radius: 15px;
+    height: 6.6vh;
+    width: 18.6vw;
+  }
+  .tab__item {
+    padding: 1em;
+    color: white;
+    text-decoration: none;  
+    &:hover {
+      cursor: pointer;
+      background-color: $primary_3;
+    }
+    &.tab__item--selected {
+      background-color: $primary_3;
+      border: {
+        color: $primary_1;
+        size: 1em;
+        style: dotted;
+        width: 0.2em;
+      }
+    }
+  }
 }
 
-nav span {
-  background-color: $primary_1;
-  border-radius: 15px;
-  height: 9.3vh;
-  width: 18.6vw;
-}
 
-nav ul li.tab__item {
-  flex-grow: 1;
-  padding: 1em;
-  color: white;
-  text-decoration: none;
-  &:hover {
-    cursor: pointer;
-    background-color: rgb(64, 180, 97);
-  }
-  &.tab__item--selected {
-    text-decoration-line: underline;
-    text-decoration-color: white;
-    text-decoration-thickness: 0.2em;
-    text-underline-offset: 0.2em;
-    background-color: rgb(76, 108, 128);
-  }
-}
