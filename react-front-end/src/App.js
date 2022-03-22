@@ -33,7 +33,6 @@ export default function App(props) {
 
 
       {tab === "Profile" && <Profile user_id={cookies["user_id"]} />}
-      <Clicker />
       <NavBar tab={tab} tabs={tabs} onChange={setTab} />
       </div>
    

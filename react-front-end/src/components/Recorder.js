@@ -125,9 +125,13 @@ const send = (dataBlob) => {
           <button className="btn" onClick={()=>stop()}>Stop Training</button>
         </div>
       </div>
-      <h2>Dog you are training: {dogFinder(witData)}</h2>
-      <h2>Skill you are training: {skillFinder(witData)}</h2>
-      {typeof witData === 'string' && <Session name={dogFinder(witData)} /> }
+      <div className='training-details'>
+      <h2 className='detail-title'>Current session details:</h2>
+      <h3 className='details'>Dog you are training: {dogFinder(witData)}</h3>
+      <h3 className='details'>Skill you are training: {skillFinder(witData)}</h3>
+      </div>
+
+      {dog.length > 2 && <Session name={dogFinder(witData)} /> }
       <button className='tut-button' onClick={()=>{setViewTut(!viewTut)}}>Tutorials</button>
       {viewTut === true && <Tutorial />}
 

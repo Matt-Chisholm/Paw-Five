@@ -19,7 +19,8 @@ export default function Session(props) {
     <div className="session-container">
       
       <img className="session-image" src={sessions.avatar} alt='' />
-      <h2>{sessions.name}</h2>
+      <h2 className='sesh-title'>Session</h2>
+      <h3>{sessions.name}</h3>
       <h3>Skill trained: {sessions.description}</h3>
       <h3>Session created: {timeago}</h3>
     </div>
