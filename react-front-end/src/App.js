@@ -15,6 +15,7 @@ export default function App(props) {
   const [tab, setTab] = useState("Home");
   const [cookies, setCookie, removeCookie] = useCookies(["user_id"]);
 
+
   return (
     <div className="App">
       <HeaderBar />
@@ -28,9 +29,8 @@ export default function App(props) {
       </button>
 
       {tab === "Home" && <Home />}
-
       {tab === "Training" && <Recorder />}
-      {tab === "Training" && <Tutorial />}
+
 
       {tab === "Profile" && <Profile user_id={cookies["user_id"]} />}
       <NavBar tab={tab} tabs={tabs} onChange={setTab} />

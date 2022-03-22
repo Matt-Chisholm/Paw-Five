@@ -3,12 +3,15 @@ import './Recorder.scss';
 import AudioReactRecorder, { RecordState } from 'audio-react-recorder';
 import axios from 'axios';
 import Session from "./Session";
+import Tutorial from './Tutorial';
 
 
 export default function Recorder(props) {
   const [recordState, setRecordState] = useState(null)
   const [ audioData, setAudioData ] = useState(null)
   const [ witData, setWitData ] = useState("nothing");
+  const [ viewTut, setViewTut] = useState(false);
+  
 
    const start = () => {
     setRecordState(RecordState.START)
@@ -27,28 +30,8 @@ export default function Recorder(props) {
     setAudioData(data);
     console.log('Data onStop', data);
     send(data.blob)
-    // .then(()=>
-    // requestWit()
-    // )
   };
 
-
-// const requestWit = () =>{
-//   const witToken = process.env.WIT_serverAccessToken; //don't put your token inline
-//   const URL = "https://api.wit.ai/utterances?limit=10";
-//   const options = {headers: { Authorization: "Bearer " + witToken }};
-//   const send ="";
-//   return axios
-//     .get("https://api.wit.ai/utterances?limit=10", options)
-//     .then( results =>{
-//       console.log("get witData before set", witData);
-//       return setWitData(results)
-//     })
-//     .then( results => {
-//       console.log("get witData after set", witData);
-//     })
-//     .catch(error => console.log("get error", error))
-// }
 let dog = '';
 let skill = '';
 const dogFinder = (witString) => {
@@ -145,6 +128,9 @@ const send = (dataBlob) => {
       <h2>Dog you are training: {dogFinder(witData)}</h2>
       <h2>Skill you are training: {skillFinder(witData)}</h2>
       {typeof witData === 'string' && <Session name={dogFinder(witData)} /> }
+      <button className='tut-button' onClick={()=>{setViewTut(!viewTut)}}>Tutorials</button>
+      {viewTut === true && <Tutorial />}
+
       </div>
     )
 };
