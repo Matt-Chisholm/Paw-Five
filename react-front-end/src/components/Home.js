@@ -8,6 +8,12 @@ export default function Home () {
 
   return (
     <div>
+      <div className='home-top'>
+        
+      </div>
+      <div className='home-bottom'>
+
+      </div>
     </div>
     )
 }
