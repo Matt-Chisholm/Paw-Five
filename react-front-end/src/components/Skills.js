@@ -17,8 +17,8 @@ export default function Skills(props) {
   // const completed = 80;
 
   let skillRows = () => {
-    return skills.map((skill) => {
-      return <div className='skills_rows'>
+    return skills.map((skill, index) => {
+      return <div key={index} className='skills_rows'>
         <div className='skill_details'>
           <label className='skill_label'>{skill.name}</label>
           <div className='progress_container'>
