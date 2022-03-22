@@ -1,3 +1,8 @@
+
+@import 'colors';
+@import 'fonts';
+
+
 html {
   box-sizing: border-box;
 }
@@ -12,29 +17,47 @@ nav {
   position: fixed;
   bottom: 0;
   width: 100%;
-}
-
-nav ul {
-  list-style: none;
+  height: 10.5vh;
+  background-color: $primary_2;
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
-  background-color: rgb(54, 128, 75);
+  align-items: center;
+  
+  span {
+    background-color: $primary_1;
+    border-radius: 15px;
+    height: 6.6vh;
+    width: 18.6vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    img {
+      width: 62px;
+      height: 50px;
+      mix-blend-mode: darken;
+      object-fit: cover;
+
+    }
+  }
+  .tab__item {
+    padding: 1em;
+    color: white;
+    &:hover {
+      cursor: pointer;
+      background-color: $primary_3;
+    }
+    &.tab__item--selected {
+      background-color: $primary_3;
+      border: {
+        color: $primary_1;
+        size: 1em;
+        style: dotted;
+        width: 0.2em;
+      }
+    }
+  }
 }
 
-nav ul li.tab__item {
-  flex-grow: 1;
-  padding: 1em;
-  color: white;
-  text-decoration: none;
-  &:hover {
-    cursor: pointer;
-    background-color: rgb(64, 180, 97);
-  }
-  &.tab__item--selected {
-    text-decoration-line: underline;
-    text-decoration-color: white;
-    text-decoration-thickness: 0.2em;
-    text-underline-offset: 0.2em;
-    background-color: rgb(76, 108, 128);
-  }
-}
+

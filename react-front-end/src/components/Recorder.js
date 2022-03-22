@@ -15,6 +15,10 @@ export default function Recorder(props) {
 
    const start = () => {
     setRecordState(RecordState.START)
+    setInterval (() => {
+      onStop()
+    }, 2000)
+
   };
   
   const pause = () => {
