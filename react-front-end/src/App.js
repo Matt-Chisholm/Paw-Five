@@ -7,7 +7,7 @@ import Recorder from "./components/Recorder";
 // import Session from './components/Session';
 import HeaderBar from "./components/HeaderBar";
 import Tutorial from "./components/Tutorial";
-
+import Clicker from "./components/Clicker";
 import Home from "./components/Home";
 
 export default function App(props) {
@@ -33,6 +33,7 @@ export default function App(props) {
 
 
       {tab === "Profile" && <Profile user_id={cookies["user_id"]} />}
+      <Clicker />
       <NavBar tab={tab} tabs={tabs} onChange={setTab} />
       </div>
    
