@@ -3,10 +3,18 @@ canvas {
   width: 25%;
 }
 
+.audiobar {
+  opacity: 0%;
+}
+
+.recording-view {
+  opacity: 0%;
+}
+
 .recorder {
-  background-color: honeydew;
-  background-blend-mode: lighten;
-  border-radius: 50%;
+  background: linear-gradient(180deg, #0DA3C4 0%, #FFD873 100%);
+  box-shadow: inset 0px -4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
   margin: 2em;
   width: 60%;
   display: flex;
@@ -14,8 +22,7 @@ canvas {
   align-items: center;
   margin-left: 20%;
   padding: 5%;
-  box-shadow: 0.1em 0.1em 0.6em;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 audio::-webkit-media-controls-panel {
@@ -53,14 +60,6 @@ audio::-webkit-media-controls-panel {
   outline-offset: 1px;
 }
 
-#recording-btn {
-  width: 20%;
-  height: auto;
-}
-
-#start-btn {
-  width: 20%;
-}
 
 .tut-button {
   background: rgba(255, 216, 115, 0.75);

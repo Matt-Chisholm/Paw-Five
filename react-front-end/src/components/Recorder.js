@@ -11,22 +11,18 @@ export default function Recorder(props) {
   const [ audioData, setAudioData ] = useState(null)
   const [ witData, setWitData ] = useState("nothing");
   const [ viewTut, setViewTut] = useState(false);
+  const [ play, setPlay ] = useState(false);
+  
   
 
    const start = () => {
-    setRecordState(RecordState.START)
-    setInterval (() => {
-      onStop()
-    }, 2000)
-
-  };
-  
-  const pause = () => {
-    setRecordState(RecordState.PAUSE)
+    setRecordState(RecordState.START);
+    setPlay(true);
   };
  
   const stop = () => {
     setRecordState(RecordState.STOP)
+    setPlay(false);
   };
  
   //audioData contains blob and blobUrl
@@ -57,7 +53,7 @@ const dogFinder = (witString) => {
 }
 
 const skillFinder = (witString) => {
-  if (witString.includes("sit" || "Sit" || "set" || "Set")) {
+  if (witString.includes("set" || "Sit" || "sit" || "Set")) {
     console.log("skill set to sit");
     skill = 'Sit';
     return skill;
@@ -73,8 +69,6 @@ const skillFinder = (witString) => {
 const send = (dataBlob) => {
   console.log("sendRequestToGlitch with data:");
   console.log("sending dataBlob",dataBlob);
-
-
   var buffer = dataBlob;
 
   const url = "https://api.wit.ai/speech";
@@ -105,7 +99,6 @@ const send = (dataBlob) => {
         }else if(error.message){
         console.log(error.message)
         //do something other than the other two
-
         }
     })
   }
@@ -115,18 +108,17 @@ const send = (dataBlob) => {
     return (
       <div>
       <div className="recorder">
-        <h2>Record Your Training Sessions</h2>
-        <AudioReactRecorder state={recordState} onStop={onStop} backgroundColor={'rgb(255, 255, 255)'} />
-        <label>Playback</label>
+        <div className='overlay'>
+        <AudioReactRecorder className="recording-view" state={recordState} onStop={onStop} backgroundColor={'rgb(255, 255, 255)'} />
         <audio
         className="audiobar"
         controls
           src={recording ? recording.url : null}
         ></audio>
         <div>
-          <button className="btn" id="start-btn" onClick={()=>start()}>Start Training<img alt='' id="recording-btn" src="https://www.clipartmax.com/png/middle/15-151442_big-image-video-record-button.png" /></button>
-          <button className="btn" onClick={()=>pause()}>Pause </button>
-          <button className="btn" onClick={()=>stop()}>Stop Training</button>
+          {play === false && <button className="btn" onClick={()=>start()}>Start Training</button>}
+          {play === true && <button className="btn" onClick={()=>stop()}>Stop Training</button>}
+        </div>
         </div>
       </div>
       <div className='training-details'>
@@ -138,7 +130,6 @@ const send = (dataBlob) => {
       {dog.length > 2 && <Session name={dogFinder(witData)} /> }
       <button className='tut-button' onClick={()=>{setViewTut(!viewTut)}}>Tutorials</button>
       {viewTut === true && <Tutorial />}
-
       </div>
     )
 };
