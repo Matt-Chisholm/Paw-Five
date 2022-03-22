@@ -16,16 +16,8 @@ export default function Recorder(props) {
   
 
    const start = () => {
-<<<<<<< HEAD
     setRecordState(RecordState.START);
     setPlay(true);
-=======
-    setRecordState(RecordState.START)
-  };
-  
-  const pause = () => {
-    setRecordState(RecordState.PAUSE)
->>>>>>> master
   };
  
   const stop = () => {
