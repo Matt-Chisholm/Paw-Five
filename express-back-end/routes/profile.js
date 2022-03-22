@@ -20,7 +20,7 @@ module.exports = (db) => {
   router.get("/skills/:id", (req, res) => {
     const dog_id = req.params.id;
     db.query(`
-      SELECT skills.name, description
+      SELECT skills.name, rating
       FROM skills
       JOIN dogs ON dogs.id = skills.dog_id
       WHERE dogs.id = $1;
