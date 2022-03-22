@@ -26,8 +26,10 @@ nav {
 }
 
 nav span {
-  list-style: none;
-  background-color: rgb(54, 128, 75);
+  background-color: $primary_1;
+  border-radius: 15px;
+  height: 9.3vh;
+  width: 18.6vw;
 }
 
 nav ul li.tab__item {
