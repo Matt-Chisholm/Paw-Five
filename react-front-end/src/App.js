@@ -18,6 +18,7 @@ export default function App(props) {
 
   return (
     <div className="App">
+
       <HeaderBar />
       <button
         className="log_in_btn"

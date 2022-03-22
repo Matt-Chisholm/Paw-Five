@@ -1,7 +1,7 @@
 import React from 'react';
 import './NavBar.scss';
 import NavBarItem from './NavBarItem';
-
+import home from './images/home.png'
 
 export default function NavBar(props) {
 
@@ -13,9 +13,7 @@ export default function NavBar(props) {
   )
   return (
     <nav>
-        <ul>
-          {navBarList}
-        </ul>
-      </nav>
+      {navBarList}       
+    </nav>
   )
 }
