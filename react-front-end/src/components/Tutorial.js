@@ -1,7 +1,7 @@
-import Axios from 'axios';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import './Tutorial.scss';
 
 export default function Tutorial() {
   const [tutorials, setTutorials] = useState([]);
