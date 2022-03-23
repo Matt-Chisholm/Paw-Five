@@ -3,19 +3,19 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
-  // router.get("/:name", (req, res) => {
-  //   const dogName = req.params.name;
-  //   db.query(`
-  //     SELECT sessions.dog_id, sessions.description, sessions.timestamp, dogs.name, dogs.avatar
-  //     FROM sessions
-  //     JOIN dogs ON dogs.user_id = sessions.dog_id
-  //     WHERE dogs.name = $1;
-  //   `, [dogName])
-  //     .then(result => {
-  //       res.send(result.rows[0]);
-  //     })
-  //     .catch(err => console.log("error", err));
-  // })
+  router.get("/:name", (req, res) => {
+    const dogName = req.params.name;
+    db.query(`
+      SELECT sessions.dog_name, sessions.result, sessions.timestamp, sessions.skill_name, dogs.avatar
+      FROM sessions
+      JOIN dogs ON dogs.user_id = sessions.dog_id
+      WHERE sessions.dog_name = $1;
+    `, [dogName])
+      .then(result => {
+        res.send(result.rows);
+      })
+      .catch(err => console.log("error", err));
+  })
 
   router.post("/new", (req, res) => {
     console.log(req.body);
