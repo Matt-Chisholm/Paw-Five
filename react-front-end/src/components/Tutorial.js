@@ -6,7 +6,6 @@ import classname from 'classnames'
 
 export default function Tutorial(props) {
   const [tutorials, setTutorials] = useState([]);
-  const [ selected, setSelected ] = useState( selected || "nothing") 
   
   useEffect(() => {
     axios.get(`/api/tutorials`).then((response) => {
@@ -42,8 +41,6 @@ export default function Tutorial(props) {
 			);
     });
   }
-      
-  // const resetSelected = () => {setSelected("nothing")};
 
   return (
     <div className='tut-container' 
