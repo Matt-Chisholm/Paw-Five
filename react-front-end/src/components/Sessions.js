@@ -5,14 +5,17 @@ import classNames from 'classnames';
 import moment from "moment";
 
 export default function Sessions(props) {
-  const [sessions, setSessions] = useState([]);
+  // const [sessions, setSessions] = useState([]);
+  const {setIsDetailsLoading, sessions} = props;
 
-  useEffect(() => {
-    axios.get(`/api/profile/sessions/${props.dog_id}`).then((response) => {
-      const sessions = response.data;
-      setSessions(sessions);
-    });
-  }, []);
+  // useEffect(() => {
+  //   setIsDetailsLoading(true);
+  //   axios.get(`/api/profile/sessions/${props.dog_id}`).then((response) => {
+  //     const sessions = response.data;
+  //     setSessions(sessions);
+  //     setIsDetailsLoading(false);
+  //   });
+  // }, []);
 
 
   let sessionRows = () => {
