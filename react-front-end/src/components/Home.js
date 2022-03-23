@@ -4,7 +4,11 @@ import axios from 'axios'
 import ring from './images/home-profile-ring.svg'
 
 export default function Home (props) {
-  const [ user, setUser ] = useState({}) 
+  const [ user, setUser ] = useState({
+    id: "",
+    username: "",
+    image: ""
+  }) 
   
 
   // // eventually get all the data. for now get all users.
@@ -14,7 +18,12 @@ export default function Home (props) {
         .then(success => {
           console.log("HOME COMPONENT success", success.data[0]);
           const currentUser = success.data[0];
-          setUser({currentUser});
+          // exclude sensitive info like password and email
+          setUser({
+            id: currentUser.id,
+            username: currentUser.username,
+            image: currentUser.image
+          });
         })
         .catch(error => {
           console.log("Home Component error", error);
@@ -37,7 +46,7 @@ export default function Home (props) {
       </div>
       
       <div className='home-bottom'>
-        {/* <p>OVER HERE {user.id}</p> */}
+        <p>OVER HERE {user.id}</p>
 
       </div>
     </div>
