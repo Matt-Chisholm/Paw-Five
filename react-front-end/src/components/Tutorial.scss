@@ -18,6 +18,7 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
   margin-top: 2vh;
   margin-bottom: 10vh;
   padding: 2%;
+  position: relative;
 }
 .video-responsive {
   
@@ -27,16 +28,39 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
     height:100%; 
     z-index: -1;
   } 
-}
-.video-responsive-selected {
-      iframe {
-        // width: 200%;
-        // height: 200%;
-        width: 853px;
-        height: 480px;
-        position: absolute;
-        background-color: white;
-        z-index: 2;
-      }
 
+  &-selected {
+    iframe {
+      width: 853px;
+      height: 480px;
+      position: absolute;
+      background-color: white;
+      align-self: center;
+      z-index: 2;
+      left: 25%;
+      font-style: transparent; 
+    }
+  }
+}
+
+@media only screen and (max-width: 1175px) {
+  // .tut-container {
+  //   background: black;
+  //   background-color: black;
+  //   width: 20%;
+  // }
+  .video-responsive-selected {
+    iframe {
+      width: 375px;
+      height: 480px;
+      top: 25%;
+      // position: absolute;
+      background-color: white;
+      align-self: center;
+      z-index: 1;
+
+      font-style: transparent;
+      
+    }
+}
 }
