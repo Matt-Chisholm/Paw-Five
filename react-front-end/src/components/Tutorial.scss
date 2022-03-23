@@ -18,16 +18,23 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
   margin-top: 2vh;
   margin-bottom: 10vh;
   padding: 2%;
-  .video-responsive {
-    width:"150";
-    height:"100"; 
-    
-    // previous dimensions:
-    // width="853"
-    // height="480"
-    iframe {
+}
+.video-responsive {
+  
+  iframe {
     border-radius: 5px;
+    width:100%;
+    height:100%; 
 
-    } 
-  }
+  } 
+}
+.video-responsive-selected {
+      // previous dimensions:
+      iframe {
+        width: 200%;
+        height: 200%;
+        // width: 853px;
+        // height: 480px;
+      }
+
 }
