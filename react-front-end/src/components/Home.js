@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Home.scss';
 import axios from 'axios'
+import useSound from 'use-sound';
 import ring from './images/home-profile-ring.svg'
+import audio from "../sounds/squeeze4.mp3"
 
 export default function Home (props) {
   const [ user, setUser ] = useState({
@@ -30,16 +32,17 @@ export default function Home (props) {
   }, []);
 
 
-
+  const [playClick] = useSound(
+    audio
+  )
 
 
   return (
     <div>
-      <div className='home-top'>
+      <div className='home-top' onClick={() => playClick()}>
         <img className='ring' src={ring} alt="home-profile-ring"/>
         <img className='user-image' src={user.image} />
       </div>
-      
       <div className='home-bottom'>
       </div>
     </div>
