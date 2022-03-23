@@ -4,6 +4,7 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
   width: 100%;
   padding-left: 5%;
   padding-right: 5%;
+  padding: 2%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -17,7 +18,6 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
   border-radius: 20px;
   margin-top: 2vh;
   margin-bottom: 10vh;
-  padding: 2%;
   position: relative;
 }
 .video-responsive {
@@ -27,7 +27,6 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
     width:100%;
     height:100%; 
     z-index: -1;
-
   } 
 
   &-selected {
@@ -49,24 +48,8 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
 @media only screen and (max-width: 775px) {
 
   .tut-container {
-    width: 100%;
-    padding-left: 5%;
-    padding-right: 5%;
-    display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: space-around;
-    gap: 20px;
-    background: $backgroundgrad_1;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-    margin-top: 2vh;
-    margin-bottom: 10vh;
-    padding: 2%;
-    position: relative;
   }
 
   .video-responsive-selected {

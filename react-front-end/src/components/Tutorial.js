@@ -40,7 +40,7 @@ export default function Tutorial(props) {
     <div>
       <button type='reset' onClick={()=>props.onChange("nothing")} >Reset</button>
       <div className='tut-container' >
-          {props.selected}
+          {/* {props.selected} */}
           {renderTutorials()}
       </div>
     </div>
