@@ -18,12 +18,6 @@ export default function Tutorial(props) {
   const renderTutorials = () => {
     return tutorials.map((tut, index) => {
       const selectedVideo = classname('video-responsive', {'video-responsive-selected': props.selected === index})
-      // const selectVideo = (index) => {
-      //   if (selected !== index) {
-      //     return setSelected(index)
-      //   }
-      //   setSelected("nothing")
-      // }
       return (
 				<>
 					<div key={index} className={selectedVideo} onClick={()=>props.onChange(index)}>
