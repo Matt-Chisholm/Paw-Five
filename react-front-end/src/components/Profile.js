@@ -122,6 +122,9 @@ export default function Profile(props) {
             <div>
               {detailsDisplay && <Skills dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} skills={skills} />}
               {detailsDisplay && <Sessions dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} sessions={sessions} />}
+              {detailsDisplay && <button className='exit-button' onClick={() => {
+                renderDogLicense(dogs[0])
+              }}>EXIT</button>}
             </div>
           }
         </div>
