@@ -27,7 +27,6 @@ module.exports = (db) => {
       WHERE users.id = $1;
     `, [userId])
     .then(result => {
-      console.log("success", result.rows);
       res.send(result.rows)
     })
     .catch(error => {
