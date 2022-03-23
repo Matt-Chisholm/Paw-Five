@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Home.scss';
 import ring from './images/home-profile-ring.svg'
 

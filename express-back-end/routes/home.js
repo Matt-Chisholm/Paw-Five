@@ -18,7 +18,7 @@ module.exports = (db) => {
     })
   });
 
-  // 
+  // get the user image
   router.get("/users/image/:id", (req, res) =>{
     const userId = req.params.id;
     db.query(`

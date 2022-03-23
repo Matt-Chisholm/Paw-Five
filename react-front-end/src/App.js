@@ -18,24 +18,16 @@ export default function App(props) {
 
   return (
     <div className="App">
-
       <HeaderBar />
-      <button
-        className="log_in_btn"
-        onClick={() => {
-          setCookie("user_id", 1);
-        }}
-      >
+      <button className="log_in_btn" onClick={() => {setCookie("user_id", 1);}}>
         Log In
       </button>
 
-      {tab === "Home" && <Home />}
+      {tab === "Home" && <Home user_id={cookies["user_id"]}/>}
       {tab === "Training" && <Recorder />}
-
 
       {tab === "Profile" && <Profile user_id={cookies["user_id"]} />}
       <NavBar tab={tab} tabs={tabs} onChange={setTab} />
       </div>
-   
   );
 }
