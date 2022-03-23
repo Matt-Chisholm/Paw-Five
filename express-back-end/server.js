@@ -124,7 +124,7 @@ App.use("/api/profile", profileRoute(db));
 const sessionRoute = require("./routes/session");
 App.use("/api/session", sessionRoute(db));
 const homeRoute = require("./routes/home");
-App.use("/api/home"), homeRoute(db);
+App.use("/api/home", homeRoute(db));
 
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console
