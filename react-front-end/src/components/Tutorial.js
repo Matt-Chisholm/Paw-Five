@@ -4,7 +4,7 @@ import axios from 'axios';
 import './Tutorial.scss';
 import classname from 'classnames'
 
-export default function Tutorial() {
+export default function Tutorial(props) {
   const [tutorials, setTutorials] = useState([]);
   const [ selected, setSelected ] = useState( selected || "nothing") 
   
@@ -18,16 +18,16 @@ export default function Tutorial() {
   
   const renderTutorials = () => {
     return tutorials.map((tut, index) => {
-      const selectedVideo = classname('video-responsive', {'video-responsive-selected': selected === index})
-      const selectVideo = (index) => {
-        if (selected !== index) {
-          return setSelected(index)
-        }
-        setSelected("nothing")
-      }
+      const selectedVideo = classname('video-responsive', {'video-responsive-selected': props.selected === index})
+      // const selectVideo = (index) => {
+      //   if (selected !== index) {
+      //     return setSelected(index)
+      //   }
+      //   setSelected("nothing")
+      // }
       return (
 				<>
-					<div key={index} className={selectedVideo} onClick={()=>selectVideo(index)}>
+					<div key={index} className={selectedVideo} onClick={()=>props.onChange(index)}>
 						<iframe
 							src={tut.video_path}
 							frameBorder='0'
@@ -43,12 +43,12 @@ export default function Tutorial() {
     });
   }
       
-  const resetSelected = () => {setSelected("nothing")};
+  // const resetSelected = () => {setSelected("nothing")};
 
   return (
     <div className='tut-container' 
     >
-        {selected}
+        {props.selected}
         {renderTutorials()}
     </div>
   )

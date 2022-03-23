@@ -16,6 +16,7 @@ export default function Recorder(props) {
   const [viewTut, setViewTut] = useState(false);
   const [play, setPlay] = useState(false);
   const [newSesh, setNewSesh] = useState(false);
+  const [selected, setSelected ] = useState( selected || "nothing")
 
   const start = () => {
     setRecordState(RecordState.START);
@@ -116,7 +117,10 @@ export default function Recorder(props) {
         >
         Tutorials
         </button>
-        {viewTut === true && <Tutorial />}
+        {viewTut === true && <Tutorial 
+          onChange={setSelected}
+          selected={selected}
+        />}
         {viewTut === false && 
       <div>
       <div className="recorder">
