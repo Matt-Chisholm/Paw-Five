@@ -10,9 +10,9 @@ export default function Home (props) {
   // // eventually get all the data. for now get all users.
   useEffect(() =>{
     axios
-      .get(`api/routes/home/users/${props.user_id}`)
+      .get(`api/home/users/${props.user_id}`)
         .then(success => {
-          console.log("HOME useEff", success);
+          console.log("HOME COMPONENT success", success);
           setUser(user)
         })
         .catch(error => {
