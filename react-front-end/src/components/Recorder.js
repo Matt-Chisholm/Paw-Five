@@ -7,6 +7,7 @@ import Tutorial from "./Tutorial";
 import playbtn from "./images/play.png";
 import pause from "./images/pause.png";
 import NewSession from "./NewSession";
+import arrow from "./images/arrow.png";
 
 export default function Recorder(props) {
   const [recordState, setRecordState] = useState(null);
@@ -59,7 +60,7 @@ export default function Recorder(props) {
       skill = "Sit";
       return skill;
     }
-    if (witString.includes("Speak" || "speak")) {
+    if (witString.includes("speak" || "Speak")) {
       console.log("skill set to speak");
       skill = "Speak";
       return skill;
@@ -137,6 +138,8 @@ export default function Recorder(props) {
           </div>
         </div>
       </div>
+      <img src={arrow} alt='' />
+      <h3 className="tap-above">Tap above to start training</h3>
       {newSesh === true && 
         <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} newSesh={newSesh} setNewSesh={()=> {setNewSesh(!newSesh)}} />
       }

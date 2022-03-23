@@ -12,7 +12,7 @@ canvas {
 }
 
 .recorder {
-  background: linear-gradient(180deg, #0DA3C4 0%, #FFD873 100%);
+  background: linear-gradient(180deg, #0da3c4 0%, #ffd873 100%);
   box-shadow: inset 0px -4px 10px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   margin: 2em;
@@ -60,12 +60,11 @@ audio::-webkit-media-controls-panel {
   outline-offset: 1px;
 }
 
-
 .tut-button {
   background: rgba(255, 216, 115, 0.75);
   box-shadow: inset 0px -3px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  font-family: 'Boogaloo', cursive;
+  font-family: "Boogaloo", cursive;
   font-style: normal;
   width: 35%;
   font-size: 1.5em;
@@ -78,7 +77,12 @@ audio::-webkit-media-controls-panel {
   align-items: center;
   border-radius: 40%;
   border-radius: 10px;
-  background: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255, 216, 115, 0.15) 84.37%, rgba(255, 216, 115, 0.15) 89.06%);
+  background: linear-gradient(
+    180deg,
+    rgba(13, 163, 196, 0.15) 0%,
+    rgba(255, 216, 115, 0.15) 84.37%,
+    rgba(255, 216, 115, 0.15) 89.06%
+  );
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
@@ -86,7 +90,7 @@ audio::-webkit-media-controls-panel {
 }
 
 .detail-title {
-  font-family: 'Boogaloo', cursive;
+  font-family: "Boogaloo", cursive;
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -100,11 +104,23 @@ audio::-webkit-media-controls-panel {
 }
 
 .details {
-  font-family: 'Boogaloo', cursive;
+  font-family: "Boogaloo", cursive;
   font-style: normal;
   mix-blend-mode: luminosity;
 }
 
 .recorder img {
   width: 20%;
+}
+
+.tap-above {
+  font-family: "Boogaloo", cursive;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  color: rgba(13, 163, 196, 0.5);
+  filter: blur(0.5px);
 }
