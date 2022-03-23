@@ -22,8 +22,20 @@ module.exports = (db) => {
     db.query(`
       SELECT skills.name, rating
       FROM skills
-      JOIN dogs ON dogs.id = skills.dog_id
-      WHERE dogs.id = $1;
+      WHERE dog_id = $1;
+    `, [dog_id])
+      .then(result => {
+        res.send(result.rows);
+      })
+      .catch(err => console.log("error", err));
+  });
+
+  router.get("/sessions/:id", (req, res) => {
+    const dog_id = req.params.id;
+    db.query(`
+      SELECT sessions.timestamp, sessions.result
+      FROM sessions
+      WHERE dog_id = $1;
     `, [dog_id])
       .then(result => {
         res.send(result.rows);
