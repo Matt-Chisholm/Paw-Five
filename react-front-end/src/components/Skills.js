@@ -32,14 +32,14 @@ export default function Skills(props) {
   return (
     <div className='skills'>
       <div id='skills_license'>
-      <h2>SKILLS</h2>
-      {skills.length > 5 && <span className='scroll_down_text'>Scroll down to see more</span>}
-      {skills.length > 5 &&  <div className="arrow">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-        </div>
-      }
+        <h2>SKILLS</h2>
+        {skills.length > 5 && <span className='scroll_down_text'>Scroll down to see more</span>}
+        {skills.length > 5 &&  <div className="arrow">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+          </div>
+        }
       </div>
       {skills.length > 0 && skillRows()}
     </div>
