@@ -70,7 +70,7 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
   }
 
   .video-responsive-selected {
-    
+
     iframe {
       width: 100%;
       height: 480px;
@@ -80,6 +80,7 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
       align-self: center;
       z-index: 1;
       left: 0%;
+      top: 20%;
     }
 }
 }
