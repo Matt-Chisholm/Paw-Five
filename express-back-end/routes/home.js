@@ -18,6 +18,24 @@ module.exports = (db) => {
     })
   });
 
+  // get the user based on login
+  router.get("/users/:id", (req, res) =>{
+    const userId = req.params.id;
+    db.query(`
+      SELECT * 
+      FROM users
+      WHERE users.id = $1;
+    `, [userId])
+    .then(result => {
+      res.send(result.rows)
+    })
+    .catch(error => {
+      console.log("error", error);
+      res.send(error)
+    })
+  });
+
+
   // get the user image
   router.get("/users/image/:id", (req, res) =>{
     const userId = req.params.id;
