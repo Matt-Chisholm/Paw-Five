@@ -53,7 +53,7 @@ export default function Sessions(props) {
         }
       </div>
       <ul className='sessions_list'>
-      {sessions.length > 0 && sessionRows()}
+      {sessions.length > 0 ? sessionRows() : <span className='scroll_down_text'>No sessions yet...</span>}
       </ul>
     </div>
   )

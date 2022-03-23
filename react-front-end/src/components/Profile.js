@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import './Profile.scss';
 import Skills from './Skills';
 import Sessions from './Sessions';
+import LoadingSpinner from './LoadingSpinner';
 
 
 export default function Profile(props) {
@@ -14,24 +15,28 @@ export default function Profile(props) {
 
 
   useEffect(() => {
+    props.setIsLoading(true);
     axios.get(`/api/profile/dog/${props.user_id}`).then((response) => {
       const dogs = response.data;
       setDogs(dogs);
+      props.setIsLoading(false);
     });
   }, []);
-
+  
   useEffect(() => {
+    props.setIsLoading(true);
     let promiseArray = [];
     dogs
-      .map(dog => {
-        let p = axios.get(`/api/profile/dog/stats/${dog.id}`)
-        promiseArray.push(p);
-      })
-
+    .map(dog => {
+      let p = axios.get(`/api/profile/dog/stats/${dog.id}`)
+      promiseArray.push(p);
+    })
+    
     Promise.all(promiseArray)
-      .then((res) => {
-        setDogStats([...res]);
-      })
+    .then((res) => {
+      setDogStats([...res]);
+      props.setIsLoading(false);
+    })
   }, [dogs]);
 
 
@@ -66,7 +71,9 @@ export default function Profile(props) {
 
   const renderDogLicense = (dog) => {
     if (dogs.length === 1) {
+      props.setIsLoading(true);
       axios.get(`/api/profile/dog/${props.user_id}`).then((response) => {
+        props.setIsLoading(false);
         const dogs = response.data;
         setDogs(dogs);
       });
@@ -80,12 +87,16 @@ export default function Profile(props) {
 
 
   return (
-    <div>
-      <div id='profile'>
-        {(dogs.length > 0 && dogsStats.length > 0) && dogsLicenses(dogs)}
-      </div>
-        {detailsDisplay && <Skills dog_id={dogs[0].id}/>}
-        {detailsDisplay && <Sessions dog_id={dogs[0].id}/>}
-    </div>
+    <>
+      {props.isLoading ? <div className='loading_spinner'><LoadingSpinner /></div> :
+        <div>
+          <div id='profile'>
+            {(dogs.length > 0 && dogsStats.length > 0) && dogsLicenses(dogs)}
+          </div>
+          {detailsDisplay && <Skills dog_id={dogs[0].id}/>}
+          {detailsDisplay && <Sessions dog_id={dogs[0].id}/>}
+        </div>
+      }
+    </>
   )
 }

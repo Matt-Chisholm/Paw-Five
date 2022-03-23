@@ -41,7 +41,7 @@ export default function Skills(props) {
           </div>
         }
       </div>
-      {skills.length > 0 && skillRows()}
+      {skills.length > 0 ? skillRows() : <span className='no_skills scroll_down_text'>No Skills achieved yet...</span>}
     </div>
   )
 }
