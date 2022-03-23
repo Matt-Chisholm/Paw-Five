@@ -10,8 +10,16 @@ export default function Home () {
   return (
     <div>
       <div className='home-top'>
-        <img src={ring} alt="home-profile-ring"/>
+        
+        <span className='home-avatar'>
+          <span className='placeholder-circle'></span> 
+          {/* <span className='ring'>
+            <img src={ring} alt="home-profile-ring"/>
+          </span> */}
+        </span>
+      
       </div>
+      
       <div className='home-bottom'>
 
       </div>

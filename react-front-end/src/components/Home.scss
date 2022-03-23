@@ -15,8 +15,26 @@ html {
 .home-top {
   height: 22vh;
   min-width: 375px;
+  display: flex;
+  justify-content: center;
 }
 .home-bottom {
   height: 61vh;
   min-width: 375px;
+}
+.home-avatar {
+  // position: relative;
+}
+
+.ring {
+  // position: absolute;
+}
+
+.placeholder-circle {
+  // position: absolute;
+  height: 308px;
+  width: 308px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
 }
