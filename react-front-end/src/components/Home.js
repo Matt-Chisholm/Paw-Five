@@ -10,8 +10,7 @@ export default function Home (props) {
     image: ""
   }) 
   
-
-  // // eventually get all the data. for now get all users.
+  // get current user id, name, and image
   useEffect(() =>{
     axios
       .get(`api/home/users/${props.user_id}`)
@@ -38,6 +37,7 @@ export default function Home (props) {
     <div>
       <div className='home-top'>
         <span className='home-avatar'>
+          <img src={user.image} />
           {/* <span className='placeholder-circle'></span>  */}
           {/* <span className='ring'>
             <img src={ring} alt="home-profile-ring"/>
@@ -46,8 +46,6 @@ export default function Home (props) {
       </div>
       
       <div className='home-bottom'>
-        <p>OVER HERE {user.id}</p>
-
       </div>
     </div>
     )
