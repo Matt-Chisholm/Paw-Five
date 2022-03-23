@@ -15,29 +15,28 @@ export default function Tutorial() {
 
   const renderTutorials = () => {
     return tutorials.map((tut, index) => {
-      return  <div key={index}>
-                <div>
-                <h2>{tut.description}</h2>
-                  <div className="video-responsive">
-                < iframe
-                  src={tut.video_path}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="tutorial"
-                  poster=""
-                />
-             </div>
-            </div>
-              </div>
+      return (
+				<>
+					<div key={index} className='video-responsive'>
+						<iframe
+							src={tut.video_path}
+							frameBorder='0'
+							allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+							allowFullScreen
+							title='tutorial'
+							poster=''
+              />
+              <h3>{tut.description}</h3>
+					</div>
+				</>
+			);
     });
   }
       
   return (
     <div className='tut-container'>
-      <div><h1>Tutorials:</h1>
+
         {renderTutorials()}
-      </div>
     </div>
   )
 }
