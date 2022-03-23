@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./Sessions.scss"
 import classNames from 'classnames';
+import moment from "moment";
 
 export default function Sessions(props) {
   const [sessions, setSessions] = useState([]);
@@ -19,9 +20,10 @@ export default function Sessions(props) {
       const okClass = classNames('result', {'selected': session.result.toLowerCase() === 'ok...'});
       const goodClass = classNames('result', {'selected': session.result.toLowerCase() === 'good'});
       const greatClass = classNames('result', {'selected': session.result.toLowerCase() === 'great!'});
+      const timeago = moment(session.timestamp).fromNow();
       return <li key={index} className='session_row'>
         <div className='timestamp_component'>
-          <span>{session.timestamp.split('.')[0].split('T').join(' ')}</span>
+          <span>{timeago}</span>
         </div>
         <div className='results_component'>
           <div className={okClass}>
