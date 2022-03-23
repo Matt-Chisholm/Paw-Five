@@ -13,9 +13,11 @@ export default function Home (props) {
       .get(`api/routes/home/users/${props.user_id}`)
         .then(success => {
           console.log("HOME useEff", success);
-          // setUser()
+          setUser(user)
         })
-        .catch(); 
+        .catch(error => {
+          console.log("Home Component error", error);
+        }); 
   }, []);
 
 
@@ -32,7 +34,7 @@ export default function Home (props) {
             <img src={ring} alt="home-profile-ring"/>
           </span> */}
         </span>
-      
+        
       </div>
       
       <div className='home-bottom'>
