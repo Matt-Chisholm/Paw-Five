@@ -16,6 +16,7 @@ export default function Recorder(props) {
   const [viewTut, setViewTut] = useState(false);
   const [play, setPlay] = useState(false);
   const [newSesh, setNewSesh] = useState(false);
+  const [viewSesh, setViewSesh] = useState(false);
 
   const start = () => {
     setRecordState(RecordState.START);
@@ -144,7 +145,7 @@ export default function Recorder(props) {
         <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} newSesh={newSesh} setNewSesh={()=> {setNewSesh(!newSesh)}} />
       }
 
-      {dog.length > 2 && <Session name={dogFinder(witData)} />}
+      <Session name={dogFinder(witData)} />
      
       </div>}
     </div>

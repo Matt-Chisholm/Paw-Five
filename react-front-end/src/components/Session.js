@@ -22,9 +22,10 @@ export default function Session(props) {
       return (
         <div>
           
-          <div className="session-container">
+          <div className="session-container" key={sesh.name}>
             <img className="session-image" src={sesh.avatar} alt="" />
             <h2 className="sesh-title">Session</h2>
+            <h3>Dog Name: {sesh.dog_name}</h3>
             <h3>From: {timeago}</h3>
             <h3>{sesh.name}</h3>
             <h3>Skill trained: {sesh.skill_name}</h3>
