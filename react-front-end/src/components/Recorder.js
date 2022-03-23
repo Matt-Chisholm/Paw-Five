@@ -16,7 +16,7 @@ export default function Recorder(props) {
   const [viewTut, setViewTut] = useState(false);
   const [play, setPlay] = useState(false);
   const [newSesh, setNewSesh] = useState(false);
-  const [viewSesh, setViewSesh] = useState(false);
+  const [selected, setSelected ] = useState( selected || "nothing")
 
   const start = () => {
     setRecordState(RecordState.START);
@@ -107,46 +107,48 @@ export default function Recorder(props) {
 
   const recording = audioData;
 
+  // viewport
   return (
     <div>
-       <button
+      <button
         className="tut-button"
         onClick={() => {
           setViewTut(!viewTut);
         }}
-        >
-        Tutorials
-        </button>
-        {viewTut === true && <Tutorial />}
-        {viewTut === false && 
-      <div>
-      <div className="recorder">
-        <div className="overlay">
-          <AudioReactRecorder
-            className="recording-view"
-            state={recordState}
-            onStop={onStop}
-            backgroundColor={"rgb(255, 255, 255)"}
-          />
-          <audio
-            className="audiobar"
-            controls
-            src={recording ? recording.url : null}
-          ></audio>
-          <div>
-            {play === false && <img src={playbtn} onClick={() => start()} />}
-            {play === true && <img src={pause} onClick={() => stop()} />}
+      >
+      Tutorials
+      </button>
+        {viewTut === true && <Tutorial 
+          onChange={setSelected}
+          selected={selected}
+      />}
+      {viewTut === false && 
+        <div>
+          <div className="recorder">
+            <div className="overlay">
+              <AudioReactRecorder
+                className="recording-view"
+                state={recordState}
+                onStop={onStop}
+                backgroundColor={"rgb(255, 255, 255)"}
+              />
+              <audio
+                className="audiobar"
+                controls
+                src={recording ? recording.url : null}
+              ></audio>
+              <div>
+                {play === false && <img src={playbtn} onClick={() => start()} />}
+                {play === true && <img src={pause} onClick={() => stop()} />}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <img src={arrow} alt='' />
-      <h3 className="tap-above">Tap above to start training</h3>
-      {newSesh === true && 
-        <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} newSesh={newSesh} setNewSesh={()=> {setNewSesh(!newSesh)}} />
-      }
-
-      <Session name={dogFinder(witData)} />
-     
+        <img src={arrow} alt='' />
+        <h3 className="tap-above">Tap above to start training</h3>
+        {newSesh === true && 
+          <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} newSesh={newSesh} setNewSesh={()=> {setNewSesh(!newSesh)}} />
+        }
+        {dog.length > 2 && <Session name={dogFinder(witData)} />}
       </div>}
     </div>
   );
