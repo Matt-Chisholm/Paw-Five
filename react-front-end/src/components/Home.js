@@ -36,13 +36,8 @@ export default function Home (props) {
   return (
     <div>
       <div className='home-top'>
-        <span className='home-avatar'>
-          <img src={user.image} />
-          {/* <span className='placeholder-circle'></span>  */}
-          {/* <span className='ring'>
-            <img src={ring} alt="home-profile-ring"/>
-          </span> */}
-        </span>
+        <img className='ring' src={ring} alt="home-profile-ring"/>
+        <img className='user-image' src={user.image} />
       </div>
       
       <div className='home-bottom'>
