@@ -1,6 +1,3 @@
-INSERT INTO sessions (dog_id, skill_id, description, timestamp, result) VALUES (1, 1, 'Sit training', NOW()::timestamp, 'Great!');
-INSERT INTO sessions (dog_id, skill_id, description, timestamp, result) VALUES (2, 1, 'Sit training', NOW()::timestamp, 'Okay!');
-INSERT INTO sessions (dog_id, skill_id, description, timestamp, result) VALUES (3, 1, 'Sit training', NOW()::timestamp, 'Bad!');
-INSERT INTO sessions (dog_id, skill_id, description, timestamp, result) VALUES (1, 2, 'Speak', NOW()::timestamp, 'Good!');
-INSERT INTO sessions (dog_id, skill_id, description, timestamp, result) VALUES (2, 2, 'Speak', NOW()::timestamp, 'OK!');
-INSERT INTO sessions (dog_id, skill_id, description, timestamp, result) VALUES (3, 2, 'Speak', NOW()::timestamp, 'Great!');
+INSERT INTO sessions (id, dog_id, dog_name, skill_name, timestamp, result) VALUES (1, 1, 'Bailey', 'Sit', NOW()::timestamp, 'Great!');
+INSERT INTO sessions (id, dog_id, dog_name, skill_name, timestamp, result) VALUES (2, 1, 'Birdie', 'Sit', NOW()::timestamp, 'Okay..');
+INSERT INTO sessions (id, dog_id, dog_name, skill_name, timestamp, result) VALUES (3, 1, 'Bolt', 'Sit', NOW()::timestamp, 'Good!');
