@@ -11,6 +11,10 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+
+    .scroll_down_text {
+      font-size: 1.3em;
+    }
   }
 
   #sessions_license {

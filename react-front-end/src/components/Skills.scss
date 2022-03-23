@@ -8,6 +8,10 @@
   height: 26vh;
   overflow-y: scroll;
 
+  .no_skills.scroll_down_text {
+    font-size: 1em;
+  }
+
   #skills_license {
     display: flex;
     flex-direction: row;

@@ -14,6 +14,7 @@ export default function App(props) {
   const tabs = ["Home", "Training", "Profile"];
   const [tab, setTab] = useState("Home");
   const [cookies, setCookie, removeCookie] = useCookies(["user_id"]);
+  const [isLoading, setIsLoading] = useState(false);
 
 
   return (
@@ -26,7 +27,7 @@ export default function App(props) {
       {tab === "Home" && <Home user_id={cookies["user_id"]}/>}
       {tab === "Training" && <Recorder />}
 
-      {tab === "Profile" && <Profile user_id={cookies["user_id"]} />}
+      {tab === "Profile" && <Profile user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={(p) => setIsLoading(p)}/>}
       <NavBar tab={tab} tabs={tabs} onChange={setTab} />
       </div>
   );
