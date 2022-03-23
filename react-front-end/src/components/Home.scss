@@ -25,12 +25,14 @@ html {
 }
 .user-image {
   // position: relative;
+  margin-top: 3.6vh;
   height: 285px;
   width: 285px;
   border-radius: 50%;
   z-index: 1;
 }
 .ring {
+  margin-top: 3.6vh;
   position: absolute;
   z-index: 2;
 }
