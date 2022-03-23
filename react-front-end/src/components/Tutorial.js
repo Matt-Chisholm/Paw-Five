@@ -35,7 +35,6 @@ export default function Tutorial() {
       
   return (
     <div className='tut-container'>
-
         {renderTutorials()}
     </div>
   )
