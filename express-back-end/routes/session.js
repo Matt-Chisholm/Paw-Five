@@ -12,6 +12,7 @@ module.exports = (db) => {
       WHERE sessions.dog_name = $1;
     `, [dogName])
       .then(result => {
+        console.log(result.rows);
         res.send(result.rows);
       })
       .catch(err => console.log("error", err));

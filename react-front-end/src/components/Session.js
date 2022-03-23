@@ -9,9 +9,7 @@ export default function Session(props) {
   useEffect(() => {
     axios.get(`/api/session/${props.name}`).then((response) => {
       setSessions(response.data);
-      console.log("HERE", typeof sessions)
-      console.log(response.data);
-      console.log(response);
+      console.log("SESSIONS", response.data);
     });
   }, [props.name]);
 

@@ -56,7 +56,7 @@ export default function Recorder(props) {
   };
 
   const skillFinder = (witString) => {
-    if (witString.includes("set" || "Sit" || "sit" || "Set")) {
+    if (witString.includes("sit" || "Sit" || "sit" || "Set")) {
       console.log("skill set to sit");
       skill = "Sit";
       return skill;

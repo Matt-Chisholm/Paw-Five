@@ -47,7 +47,7 @@ export default function NewSession(props) {
               setResult(event.target.value);
               event.preventDefault();
             }} />
-            <button type="submit" className='tut-button' onClick={(event)=>{newSession(); event.preventDefault(); props.setNewSesh()}}>Done Training</button>
+            <button type="submit" className='tut-button' onClick={(event)=>{newSession(); event.preventDefault(); props.setNewSesh();}}>Done Training</button>
           </form>
           
         </div>
