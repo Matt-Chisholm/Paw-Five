@@ -7,6 +7,7 @@ import classname from 'classnames'
 export default function Tutorial() {
   const [tutorials, setTutorials] = useState([]);
   const [ selected, setSelected ] = useState( selected || "nothing") 
+  
   useEffect(() => {
     axios.get(`/api/tutorials`).then((response) => {
       console.log(response.data);
@@ -14,16 +15,15 @@ export default function Tutorial() {
     });
   }, []);
 
-  // what defines selected? when the key equals to the selected
-  //  on click => setSelected to key. if key matches to selected, then change class
   
-  // crate classname if selected change dimensions
-  const selectedVideo = classname('video-responsive', {'video-responsive-selected': selected === 0})
   const renderTutorials = () => {
     return tutorials.map((tut, index) => {
+      const selectedVideo = classname('video-responsive', {'video-responsive-selected': selected === index})
       const selectVideo = (index) => {
-        console.log("TJ");
-        setSelected(index)
+        if (selected !== index) {
+          return setSelected(index)
+        }
+        setSelected("nothing")
       }
       return (
 				<>
@@ -43,8 +43,11 @@ export default function Tutorial() {
     });
   }
       
+  const resetSelected = () => {setSelected("nothing")};
+
   return (
-    <div className='tut-container'>
+    <div className='tut-container' 
+    >
         {selected}
         {renderTutorials()}
     </div>

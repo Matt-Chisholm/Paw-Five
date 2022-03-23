@@ -25,16 +25,18 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
     border-radius: 5px;
     width:100%;
     height:100%; 
-
+    z-index: -1;
   } 
 }
 .video-responsive-selected {
-      // previous dimensions:
       iframe {
-        width: 200%;
-        height: 200%;
-        // width: 853px;
-        // height: 480px;
+        // width: 200%;
+        // height: 200%;
+        width: 853px;
+        height: 480px;
+        position: absolute;
+        background-color: white;
+        z-index: 2;
       }
 
 }
