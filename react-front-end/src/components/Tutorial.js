@@ -16,7 +16,7 @@ export default function Tutorial() {
   const renderTutorials = () => {
     return tutorials.map((tut, index) => {
       return  <div className='tut-container' key={index}>
-                <h1>{tut.description}</h1>
+                <h2>{tut.description}</h2>
                 <div>
                   <div className="video-responsive">
                 < iframe

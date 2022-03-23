@@ -24,7 +24,6 @@ export default function Recorder(props) {
   const stop = () => {
     setRecordState(RecordState.STOP);
     setPlay(false);
-    setNewSesh(true);
   };
 
   //audioData contains blob and blobUrl
@@ -87,6 +86,7 @@ export default function Recorder(props) {
         console.log(witResponse.data, typeof witResponse.data);
         if (typeof witResponse.data === "string") {
           setWitData(witResponse.data);
+          setNewSesh(true);
         }
       })
       .catch((error) => {
@@ -107,6 +107,17 @@ export default function Recorder(props) {
 
   return (
     <div>
+       <button
+        className="tut-button"
+        onClick={() => {
+          setViewTut(!viewTut);
+        }}
+        >
+        Tutorials
+        </button>
+        {viewTut === true && <Tutorial />}
+        {viewTut === false && 
+      <div>
       <div className="recorder">
         <div className="overlay">
           <AudioReactRecorder
@@ -131,15 +142,8 @@ export default function Recorder(props) {
       }
 
       {dog.length > 2 && <Session name={dogFinder(witData)} />}
-      <button
-        className="tut-button"
-        onClick={() => {
-          setViewTut(!viewTut);
-        }}
-      >
-        Tutorials
-      </button>
-      {viewTut === true && <Tutorial />}
+     
+      </div>}
     </div>
   );
 }
