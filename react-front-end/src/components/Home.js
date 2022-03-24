@@ -8,19 +8,18 @@ import Rainbow from './Rainbow';
 import HomeNavigationBar from './HomeNavigationBar/HomeNavigationBar';
 import Health from './HomeNavigationBar/Health';
 import Memuries from './HomeNavigationBar/Memuries';
-import News from './HomeNavigationBar/News';
 import Social from './HomeNavigationBar/Social';
 import Stats from './HomeNavigationBar/Stats';
 
 
 export default function Home (props) {
-  const [selected, setSelected] = useState("Welcome");
+  const [selected, setSelected] = useState("Stats");
   const [ user, setUser ] = useState({
     id: "",
     username: "",
     image: ""
   }) 
-  const tabs = ["Welcome", "Stats", "Health", "Social", "News", "Memuries"];
+  const tabs = ["Stats", "Health", "Social", "Memuries"];
   
   // get current user id, name, and image
   useEffect(() =>{
@@ -52,7 +51,7 @@ export default function Home (props) {
   return (
     <div>
       <HomeNavigationBar tab={selected} tabs={tabs} onChange={setSelected}/>
-      {selected === "Welcome" && 
+      {selected === "Stats" && 
         <>
           <div className='home-top' >
             <img className='ring' src={ring} alt="home-profile-ring" onClick={() => playClick()}/>
@@ -65,10 +64,8 @@ export default function Home (props) {
           </div>
         </>
       }
-      {selected === "Stats" && <Stats />}
       {selected === "Health" && <Health />}
       {selected === "Social" && <Social />}
-      {selected === "News" && <News />}
       {selected === "Memuries" && <Memuries />}
 
       
