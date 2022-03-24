@@ -55,7 +55,6 @@ module.exports = (db) => {
  // search for any session that were created today
  router.get("/session/:id", (req, res) => {
   const date = req.params.id.toString();
-  console.log("TJ HELLO", typeof date);
   db.query(`
   SELECT COUNT(*)
   FROM sessions
@@ -70,7 +69,7 @@ module.exports = (db) => {
   })
 })
 
-  // get days of the week and values for rainbow charts
+  // get days of the week and values for rainbow chart
   router.get("/days", (req, res) => {
     db.query(`
       SELECT * 
@@ -85,14 +84,18 @@ module.exports = (db) => {
     })
   })
 
-  router.post("days/:id", (req, res) => {
+  //TODO
+  // update days table for rainbow chart
+  router.post("/session/:id", (req, res) => {
+    console.log("TJ HELLO");
     const id = req.params.id;
     db.query(`
-      UPDATE uv
-      FROM DAYS
-      WHERE name = $1;
+    UPDATE days
+    SET uv = 100
+    WHERE name = $1;
     `, [id])
     .then(result => {
+      console.log("TJ", id);
       res.send(result.rows)
     })
     .catch(error => {

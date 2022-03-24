@@ -40,31 +40,34 @@ export default function Rainbow (){
   // setting state: the day of the week
   const now = new Date();
   const daysOfTheWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-  const todayDate = `${now.getFullYear()}-${(now.getMonth() + 1) < 10 && 0}${now.getMonth() + 1}-${now.getDate()}`
+  const todaysDate = `${now.getFullYear()}-${(now.getMonth() + 1) < 10 && 0}${now.getMonth() + 1}-${now.getDate()}`
   useEffect(() => {
     setDay(daysOfTheWeek[now.getDay()].toLowerCase());    
-    console.log("TJ day of the week", todayDate)
+    console.log("TJ day of the week", todaysDate)
   }, []);
 
   // getting the sessions of today, if any
   useEffect(() => {
+    
     axios
-      .get(`api/home/session/${todayDate}`)
+      .get(`api/home/session/${todaysDate}`)
       .then((didTrainToday) => {
         if (!didTrainToday) {
           return;
         }
+        console.log("TH", day);
       })
       .then( () => {
+        // update days table to show in rainbow chart
         axios
-          .post('')
-          .then()
+          .post(`api/home/session/${day}`)
+          .then(success => {
+            console.log("TJ success rainbow component useE3", success);
+          })
           .catch(error => {
             console.log("rainbow component error useEffect 3", error);
           })
-      }
-
-      )
+      })
       .catch(error => {
         console.log("error in Rainbow Component useEffect2: ", error);
       });
