@@ -20,7 +20,8 @@ export default function Rainbow (){
  const [days, setDays] = useState([]);
  const [ day, setDay ] = useState("");
 
-  const data = [];
+
+  // get database of days for rainbow chart
   useEffect(()=>{
     axios
       .get('api/home/days')
@@ -42,13 +43,14 @@ export default function Rainbow (){
   // }
   // getDate();
 
+  // setting state: the day of the week
+  const daysOfTheWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  useEffect(() => {
+    const now = new Date();
+    setDay(daysOfTheWeek[now.getDay()].toLowerCase());
+    console.log("TJ day of the week", day);
+  }, []);
 
-const daysOfTheWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-useEffect(() => {
-  const now = new Date();
-  setDay(daysOfTheWeek[now.getDay()]);
-  console.log("TJ day of the week", day);
-}, []);
 
 
 
