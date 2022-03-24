@@ -11,7 +11,7 @@ export default function Profile(props) {
   const [dogs, setDogs] = useState([]);
   const [dogsStats, setDogStats] = useState([]);
   const [detailsDisplay, setDetailsDisplay] = useState(false);
-  const [isDetailsLoading, setIsDetailsLoading] = useState(true);
+  const [isDetailsLoading, setIsDetailsLoading] = useState(false);
   const [skills, setSkills] = useState([]);
   const [sessions, setSessions] = useState([]);
 
