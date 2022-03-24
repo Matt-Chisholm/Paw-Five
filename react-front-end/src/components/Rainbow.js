@@ -62,6 +62,8 @@ const data = [
 export default function Rainbow (){
 
   // get days for radialbarchart
+
+  // const data = [];
   useEffect(()=>{
     axios
       .get('api/home/days')
