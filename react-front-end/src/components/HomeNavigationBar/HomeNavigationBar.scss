@@ -1,7 +1,33 @@
+@import '../colors';
+@import '../fonts';
+
+
 .homeNavigationBar {
-  background-color: red;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  .tab__item {
+    padding: 1em;
+    color: $primary_2;
+    &:hover {
+      cursor: pointer;
+      background-color: $primary_3;
+    }
+    &.tab__item--selected {
+      background-color: $primary_2;
+      text-decoration: {
+        line: underline;
+        color: $primary_2;
+      } 
+
+      border: {
+        color: $primary_1;
+        size: 1em;
+        // style: dotted;
+        width: 0.2em;
+      }
+    }
+  }
 
 }
