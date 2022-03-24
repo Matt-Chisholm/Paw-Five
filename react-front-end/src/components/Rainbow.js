@@ -56,7 +56,12 @@ export default function Rainbow (){
         }
       })
       .then( () => {
-        
+        axios
+          .post('')
+          .then()
+          .catch(error => {
+            console.log("rainbow component error useEffect 3", error);
+          })
       }
 
       )

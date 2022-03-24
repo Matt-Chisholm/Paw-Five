@@ -85,7 +85,21 @@ module.exports = (db) => {
     })
   })
 
- 
+  router.post("days/:id", (req, res) => {
+    const id = req.params.id;
+    db.query(`
+      UPDATE uv
+      FROM DAYS
+      WHERE name = $1;
+    `, [id])
+    .then(result => {
+      res.send(result.rows)
+    })
+    .catch(error => {
+      console.log("query error", error);
+      res.send(error)
+    })
+  })
 
   return router;
 };
