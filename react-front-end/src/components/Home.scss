@@ -33,6 +33,10 @@ html {
   }
   // opacity: 16%;
   border-radius: 20px;
+  article {
+    display: flex;
+    justify-content: center;
+  }
 }
 .user-image {
   // position: relative;

@@ -49,23 +49,21 @@ export default function Rainbow (){
   // VIEW
   return (
     <div>
-      <p>
-        HELLO{day}
-        </p>
+      {/* <p> HELLO {day}</p> */}
       <RadialBarChart
-      className="radialBarChart"
-      width={730}
-      height={470}
-      // height={270}
-      // cx={150}
-      cy={100}
-      innerRadius={150}
-      outerRadius={350}
-      barSize={70}
-      data={days}
-      startAngle={180}
-      endAngle={360}
-    >
+        className="radialBarChart"
+        width={730}
+        height={300}
+        // height={270}
+        // cx={150}
+        cy={0}
+        innerRadius={150}
+        outerRadius={350}
+        barSize={70}
+        data={days}
+        startAngle={180}
+        endAngle={360}
+      >
       <RadialBar
         minAngle={15}
         label={{ position: "insideStart", fill: `#${days.fill}` }}
@@ -74,7 +72,7 @@ export default function Rainbow (){
         dataKey="uv"
       />
       <Legend
-        iconSize={10}
+        iconSize={20}
         width={120}
         height={140}
         layout="vertical"

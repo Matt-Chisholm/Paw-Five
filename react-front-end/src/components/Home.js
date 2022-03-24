@@ -46,7 +46,9 @@ export default function Home (props) {
         <img className='user-image' src={user.image} />
       </div>
       <div className='home-bottom'>
-        <Rainbow />
+        <article>
+          <Rainbow />
+        </article>
       </div>
     </div>
     )
