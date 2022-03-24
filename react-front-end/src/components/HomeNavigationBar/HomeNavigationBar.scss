@@ -1,4 +1,7 @@
 .homeNavigationBar {
-  background-color: black;
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
 }

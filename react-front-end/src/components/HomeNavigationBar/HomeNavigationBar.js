@@ -19,7 +19,6 @@ export default function HomeNavigationBar(props) {
   return (
     
     <nav className="homeNavigationBar">
-      HOMENAVBar 
       {HomeNavigationList}
     </nav>
   );

@@ -46,10 +46,7 @@ export default function Home (props) {
   // VIEW
   return (
     <div>
-      <nav>
-
       <HomeNavigationBar tab={selected} tabs={tabs} onChange={setSelected}/>
-      </nav>
       {/* {tab === "Stats" && <Stats />}
       {tab === "Health" && <Health />}
       {tab === "Social" && <Social />}
