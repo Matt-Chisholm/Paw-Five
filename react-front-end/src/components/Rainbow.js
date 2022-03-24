@@ -1,12 +1,12 @@
-import react from 'react'
-import { RadialBarChart, RadialBar, Legend } from "recharts";
+import react, { useEffect } from 'react'
+import { RadialBarChart, RadialBar, Legend, Tooltip, ResponsiveContainer } from "recharts";
 import './Rainbow.scss'
-
+import axios from 'axios'
 
 // temporary data
 const data = [
   {
-    name: "18-24",
+    name: "Monday",
     uv: 31.47,
     pv: 2400,
     fill: "#8884d8"
@@ -48,23 +48,48 @@ const data = [
     fill: "#ffc658"
   }
 ];
+/*
+1. get chart working
+2. make data for week
+    - id, name, status
+3. make a route
+4. connect route to request here
+5. make a state containing the days
+6. create function to match today's date to the day
+
+*/
 
 export default function Rainbow (){
+
+  useEffect(()=>{
+    axios
+      .get('/days', (req, res) =>{
+
+      })
+      .then(success => {
+        console.log("TJ success", success);
+      })
+      .catch()
+  },[])
+const getDaysofWeek = {
+
+}
 
   return (
     <div>
       <RadialBarChart
       className="radialBarChart"
       width={730}
-      height={570}
+      height={470}
       // height={270}
       // cx={150}
-      cy={0}
-      innerRadius={140}
+      cy={100}
+      innerRadius={150}
       outerRadius={350}
-      barSize={60}
+      barSize={70}
       data={data}
       startAngle={180}
+      endAngle={360}
     >
       <RadialBar
         minAngle={15}
@@ -73,14 +98,15 @@ export default function Rainbow (){
         clockWise
         dataKey="uv"
       />
-      {/* <Legend
+      <Legend
         iconSize={10}
         width={120}
         height={140}
         layout="vertical"
         verticalAlign="middle"
         // wrapperStyle={style}
-      /> */}
+      />
+      <Tooltip/>
       </RadialBarChart>
     </div>
   )
