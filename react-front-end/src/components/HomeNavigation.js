@@ -4,23 +4,17 @@ import "./HomeNavigation.scss";
 
 
 export default function HomeNavigation(props) {
-  const tabs = ["Stats", "Health", "Pawstory", "Memuries"];
-  const [tab, setTab] = useState("Home");
-  const [cookies, setCookie, removeCookie] = useCookies(["user_id"]);
-  const [isLoading, setIsLoading] = useState(false);
+  const tabs = ["Stats", "Health", "Social", "News", "Memuries"];
+  const [tab, setTab] = useState("Stats");
 
 
   return (
     <div className="App">
-      <HeaderBar />
-      <button className="log_in_btn" onClick={() => {setCookie("user_id", 1);}}>
-        Log In
-      </button>
-      {tab === "Home" && <Home user_id={cookies["user_id"]}/>}
-      {tab === "Training" && <Recorder />}
-
-      {tab === "Profile" && <Profile user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={(p) => setIsLoading(p)}/>}
-      <NavBar tab={tab} tabs={tabs} onChange={setTab} />
-      </div>
+      {tab === "Stats" && <Stats />}
+      {tab === "Health" && <Health />}
+      {tab === "Social" && <Social />}
+      {tab === "News" && <News />}
+      {tab === "Memuries" && <Memuries />}
+    </div>
   );
 }
