@@ -12,7 +12,7 @@ export default function NavBar(props) {
     onChange={props.onChange}/>
   )
   return (
-    <nav>
+    <nav className='mainNavBar'>
       {navBarList}       
     </nav>
   )
