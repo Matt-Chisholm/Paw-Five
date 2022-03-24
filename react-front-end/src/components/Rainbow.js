@@ -61,19 +61,22 @@ const data = [
 
 export default function Rainbow (){
 
+  // get days for radialbarchart
   useEffect(()=>{
     axios
-      .get('/days', (req, res) =>{
-
-      })
+      .get('api/home/days')
       .then(success => {
         console.log("TJ success", success);
       })
-      .catch()
+      .catch(error => {
+        console.log("error in Rainbow Component useEffect: ", error);
+      })
   },[])
-const getDaysofWeek = {
 
-}
+  
+// const getDaysofWeek = {
+
+// }
 
   return (
     <div>

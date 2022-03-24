@@ -35,7 +35,6 @@ module.exports = (db) => {
     })
   });
 
-
   // get the user image
   router.get("/users/image/:id", (req, res) =>{
     const userId = req.params.id;
@@ -53,6 +52,21 @@ module.exports = (db) => {
       res.send(error)
     })
   });
+
+  // get days of the week and values for rainbow charts
+  router.get("/days", (req, res) => {
+    db.query(`
+      SELECT * 
+      FROM days;
+    `)
+    .then(result => {
+      res.send(result.rows)
+    })
+    .catch(error => {
+      console.log("query error", error);
+      res.send(error)
+    })
+  })
 
   return router;
 };
