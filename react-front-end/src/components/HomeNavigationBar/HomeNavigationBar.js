@@ -4,8 +4,13 @@ import HomeNavigationBarItem from "./HomeNavigationBarItem"
 
 export default function HomeNavigationBar(props) {
 
-  const generateHomeNavItems = props.tabs.map((tab, index) =>{
-    return <HomeNavigationBarItem key={index} name={tab} selected={tab === props.tab}>
+  const HomeNavigationList = props.tabs.map((tab, index) =>{
+    return <HomeNavigationBarItem 
+    key={index} 
+    name={tab} 
+    selected={tab === props.selected}
+    setSelected={props.onChange}
+    >
       HELLO + {tab}
     </HomeNavigationBarItem>
   });
@@ -13,7 +18,7 @@ export default function HomeNavigationBar(props) {
 
   return (
     <div className="homeNavigationBar">
-      {generateHomeNavItems}
+      {HomeNavigationList}
     </div>
   );
 }

@@ -46,12 +46,12 @@ export default function Home (props) {
   // VIEW
   return (
     <div>
-      <HomeNavigationBar tab={tab} tabs={tabs} onChange={setTab}/>
-      {tab === "Stats" && <Stats />}
+      <HomeNavigationBar tab={selected} tabs={tabs} onChange={setSelected}/>
+      {/* {tab === "Stats" && <Stats />}
       {tab === "Health" && <Health />}
       {tab === "Social" && <Social />}
       {tab === "News" && <News />}
-      {tab === "Memuries" && <Memuries />}
+      {tab === "Memuries" && <Memuries />} */}
 
       <div className='home-top' >
         <img className='ring' src={ring} alt="home-profile-ring" onClick={() => playClick()}/>
