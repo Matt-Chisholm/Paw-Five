@@ -62,8 +62,7 @@ module.exports = (db) => {
   WHERE CAST (timestamp AS DATE) = $1;
   `, [date.toString()])
   .then(result => {
-    console.log("TJ route ", result);
-    res.send(result)
+    res.send(result.rows[0].count)
   })
   .catch(error => {
     console.log("rainbow component error", error);

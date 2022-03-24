@@ -50,9 +50,16 @@ export default function Rainbow (){
   useEffect(() => {
     axios
       .get(`api/home/session/${todayDate}`)
-      .then((success) => {
-        console.log("TJ success Rainbow Component useEffect2", success);
+      .then((didTrainToday) => {
+        if (!didTrainToday) {
+          return;
+        }
       })
+      .then( () => {
+        
+      }
+
+      )
       .catch(error => {
         console.log("error in Rainbow Component useEffect2: ", error);
       });
