@@ -61,6 +61,10 @@ html {
 	transform: scale(1);
   animation: pulse 2s infinite;
 
+  &:hover {
+    cursor: pointer;
+  }
+
 }
 
 @keyframes pulse {
