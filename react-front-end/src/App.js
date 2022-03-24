@@ -9,6 +9,7 @@ import HeaderBar from "./components/HeaderBar";
 import Tutorial from "./components/Tutorial";
 import Clicker from "./components/Clicker";
 import Squeaker from "./components/Squeaker";
+import LogIn from "./components/LogIn";
 
 import Home from "./components/Home";
 
@@ -21,15 +22,16 @@ export default function App(props) {
 
   return (
     <div className="App">
-      <HeaderBar />
-      <button className="log_in_btn" onClick={() => {setCookie("user_id", 1);}}>
-        Log In
-      </button>
-      {tab === "Home" && <Home user_id={cookies["user_id"]}/>}
-      {tab === "Training" && <Recorder />}
+      {cookies["user_id"] ?
+        <div className="App">
+          <HeaderBar />
+          {tab === "Home" && <Home user_id={cookies["user_id"]}/>}
+          {tab === "Training" && <Recorder />}
 
-      {tab === "Profile" && <Profile user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={(p) => setIsLoading(p)}/>}
-      <NavBar tab={tab} tabs={tabs} onChange={setTab} />
+          {tab === "Profile" && <Profile user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={(p) => setIsLoading(p)}/>}
+          <NavBar tab={tab} tabs={tabs} onChange={setTab} />
+        </div> : <LogIn setCookie={setCookie} />
+      }
       </div>
   );
 }
