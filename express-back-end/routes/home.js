@@ -84,10 +84,8 @@ module.exports = (db) => {
     })
   })
 
-  //TODO
   // update days table for rainbow chart
   router.post("/session/:id", (req, res) => {
-    console.log("TJ HELLO");
     const id = req.params.id;
     db.query(`
     UPDATE days
@@ -95,7 +93,6 @@ module.exports = (db) => {
     WHERE name = $1;
     `, [id])
     .then(result => {
-      console.log("TJ", id);
       res.send(result.rows)
     })
     .catch(error => {
