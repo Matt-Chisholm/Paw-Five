@@ -1,3 +1,7 @@
-INSERT INTO tutorials (id, description, timestamp, video_path) VALUES (1, 'Trying to sit, being stubborn.', NOW()::timestamp, 'https://www.kapwing.com/e/62393b57313570006d1eff18');
-INSERT INTO tutorials (id, description, timestamp, video_path) VALUES (2, 'Bailey is a beautiful singer.', NOW()::timestamp, 'https://www.kapwing.com/e/623942171c877700c4a93070');
-INSERT INTO tutorials (id, description, timestamp, video_path) VALUES (3, 'Have you seen Squid Game?', NOW()::timestamp, 'https://www.kapwing.com/e/6239432f2d096200f105ca0b');
+INSERT INTO days (day, uv, pv, fill) VALUES ('monday', 31, 2000, '8884d8');
+INSERT INTO days (day, uv, pv, fill) VALUES ('tuesday', 0, 2000, '83a6ed');
+INSERT INTO days (day, uv, pv, fill) VALUES ('wednesday', 0, 2000, '8dd1e1');
+INSERT INTO days (day, uv, pv, fill) VALUES ('thursday', 0, 2000, '82ca9d');
+INSERT INTO days (day, uv, pv, fill) VALUES ('friday', 0, 2000, 'a4de6c');
+INSERT INTO days (day, uv, pv, fill) VALUES ('saturday', 0, 2000, 'd0ed57');
+INSERT INTO days (day, uv, pv, fill) VALUES ('sunday', 0, 2000, 'ffc658');

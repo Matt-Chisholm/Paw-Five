@@ -41,8 +41,8 @@ export default function Home (props) {
   // view
   return (
     <div>
-      <div className='home-top' onClick={() => playClick()}>
-        <img className='ring' src={ring} alt="home-profile-ring"/>
+      <div className='home-top' >
+        <img className='ring' src={ring} alt="home-profile-ring" onClick={() => playClick()}/>
         <img className='user-image' src={user.image} />
       </div>
       <div className='home-bottom'>

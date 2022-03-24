@@ -6,6 +6,7 @@ import axios from 'axios'
 // temporary data
 const data = [
   {
+    id: 1,
     name: "Monday",
     uv: 31.47,
     pv: 2400,
@@ -61,14 +62,14 @@ const data = [
 
 export default function Rainbow (){
 
-  // get days for radialbarchart
-
   // const data = [];
   useEffect(()=>{
     axios
       .get('api/home/days')
       .then(success => {
         console.log("TJ success", success);
+        data.push(success.data);
+        console.log("TJ success data pushed?", data);
       })
       .catch(error => {
         console.log("error in Rainbow Component useEffect: ", error);
