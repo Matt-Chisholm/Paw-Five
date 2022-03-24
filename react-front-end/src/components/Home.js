@@ -31,12 +31,14 @@ export default function Home (props) {
         }); 
   }, []);
 
-
+  // For squaker sound on user image
   const [playClick] = useSound(
     audio
   )
 
+  
 
+  // view
   return (
     <div>
       <div className='home-top' onClick={() => playClick()}>
