@@ -6,6 +6,11 @@ import ring from './images/home-profile-ring.svg'
 import audio from "../sounds/squeeze4.mp3"
 import Rainbow from './Rainbow';
 import HomeNavigationBar from './HomeNavigationBar/HomeNavigationBar';
+import Health from './HomeNavigationBar/Health';
+import Memuries from './HomeNavigationBar/Memuries';
+import News from './HomeNavigationBar/News';
+import Social from './HomeNavigationBar/Social';
+import Stats from './HomeNavigationBar/Stats';
 
 
 export default function Home (props) {
@@ -50,21 +55,26 @@ export default function Home (props) {
 
       <HomeNavigationBar tab={selected} tabs={tabs} onChange={setSelected}/>
       </nav>
-      {/* {tab === "Stats" && <Stats />}
-      {tab === "Health" && <Health />}
-      {tab === "Social" && <Social />}
-      {tab === "News" && <News />}
-      {tab === "Memuries" && <Memuries />} */}
+      {selected === "Welcome" && 
+        <>
+          <div className='home-top' >
+            <img className='ring' src={ring} alt="home-profile-ring" onClick={() => playClick()}/>
+            <img className='user-image' src={user.image} />
+          </div>
+          <div className='home-bottom'>
+            <article>
+              <Rainbow />
+            </article>
+          </div>
+        </>
+      }
+      {selected === "Stats" && <Stats />}
+      {selected === "Health" && <Health />}
+      {selected === "Social" && <Social />}
+      {selected === "News" && <News />}
+      {selected === "Memuries" && <Memuries />}
 
-      <div className='home-top' >
-        <img className='ring' src={ring} alt="home-profile-ring" onClick={() => playClick()}/>
-        <img className='user-image' src={user.image} />
-      </div>
-      <div className='home-bottom'>
-        <article>
-          <Rainbow />
-        </article>
-      </div>
+      
     </div>
     )
 }
