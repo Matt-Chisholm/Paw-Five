@@ -46,7 +46,7 @@ export default function Rainbow (){
 
 
 
-  // view
+  // VIEW
   return (
     <div>
       <p>
@@ -87,3 +87,11 @@ export default function Rainbow (){
   )
 
 }
+
+/*
+NOTE
+a. Any charts from RECHARTS, like RadialBarChart, library are very dependant on 
+in-line styling and mostly will not accept stylesheets
+
+
+*/
