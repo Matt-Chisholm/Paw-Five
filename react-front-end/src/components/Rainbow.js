@@ -48,7 +48,17 @@ export default function Rainbow (){
   useEffect(() => {
     const now = new Date();
     setDay(daysOfTheWeek[now.getDay()].toLowerCase());
-    console.log("TJ day of the week", day);
+    
+    console.log(
+      "TJ day of the week", 
+      `${now.getFullYear()}-${(now.getMonth() + 1) < 10 && 0}${now.getMonth()}-${now.getDate()}`
+      )
+    
+      axios
+      .get()
+      .then((success) => {
+
+      })
   }, []);
 
 
