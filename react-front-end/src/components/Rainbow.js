@@ -3,19 +3,6 @@ import { RadialBarChart, RadialBar, Legend, Tooltip, ResponsiveContainer } from 
 import './Rainbow.scss'
 import axios from 'axios'
 
-/*
-1. get chart working
-2. make data for week
-    - id, name, status
-3. make a route
-4. connect route to request here
-5. make a state containing the days
-6. create function to match today's date to the day
-
-- if today's date matches, time stamp of session, update the db. how to select which row?
-- get the date now and match the 
-*/
-
 export default function Rainbow (){
  const [days, setDays] = useState([]);
  const [ day, setDay ] = useState("");
@@ -48,7 +35,6 @@ export default function Rainbow (){
 
   // getting the sessions of today, if any
   useEffect(() => {
-    
     axios
       .get(`api/home/session/${todaysDate}`)
       .then((didTrainToday) => {
@@ -71,7 +57,7 @@ export default function Rainbow (){
       .catch(error => {
         console.log("error in Rainbow Component useEffect2: ", error);
       });
-  }, []);
+  }, [day]);
 
 
 
