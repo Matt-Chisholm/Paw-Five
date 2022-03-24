@@ -45,7 +45,6 @@ module.exports = (db) => {
     `, [userId])
     .then(result => {
       res.send(result.rows)
-      console.log("query", result);
     })
     .catch(error => {
       console.log("query error", error);
@@ -60,6 +59,24 @@ module.exports = (db) => {
       FROM days;
     `)
     .then(result => {
+      res.send(result.rows)
+    })
+    .catch(error => {
+      console.log("query error", error);
+      res.send(error)
+    })
+  })
+
+  // search for any session that were created today
+  router.get("/days/:id", (req, res) => {
+    const date = req.params.id;
+    db.query(`
+    SELECT * 
+    FROM sessions
+    WHERE timestamp LIKE '$1%'
+    `, [date])
+    .then(result => {
+      console.log("TJ route ", result);
       res.send(result.rows)
     })
     .catch(error => {

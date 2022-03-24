@@ -37,30 +37,29 @@ export default function Rainbow (){
       };
   },[])
   
-  // const getDate = () => {
-  //   const date = new Date()
-  //   console.log("getDate", date);
-  // }
-  // getDate();
-
   // setting state: the day of the week
+  const now = new Date();
   const daysOfTheWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const todayDate = `${now.getFullYear()}-${(now.getMonth() + 1) < 10 && 0}${now.getMonth()}-${now.getDate()}`
   useEffect(() => {
-    const now = new Date();
-    setDay(daysOfTheWeek[now.getDay()].toLowerCase());
-    
+    setDay(daysOfTheWeek[now.getDay()].toLowerCase());    
     console.log(
       "TJ day of the week", 
-      `${now.getFullYear()}-${(now.getMonth() + 1) < 10 && 0}${now.getMonth()}-${now.getDate()}`
+        todayDate
       )
     
-      axios
-      .get()
-      .then((success) => {
-
-      })
   }, []);
 
+  useEffect(() => {
+  axios
+  .get(`api/home/days/`)
+  .then((success) => {
+    console.log("TJ success", success);
+  })
+  .catch(error => {
+    console.log("error in Rainbow Component useEffect2: ", error);
+  });
+  }, []);
 
 
 
