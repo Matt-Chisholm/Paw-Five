@@ -1,10 +1,10 @@
-import react, { useEffect } from 'react'
+import react, { useEffect, useState } from 'react'
 import { RadialBarChart, RadialBar, Legend, Tooltip, ResponsiveContainer } from "recharts";
 import './Rainbow.scss'
 import axios from 'axios'
 
 // temporary data
-const data = [
+const daata = [
   {
     id: 1,
     name: "Monday",
@@ -61,19 +61,24 @@ const data = [
 */
 
 export default function Rainbow (){
+ const [days, setDays] = useState([]);
 
-  // const data = [];
+  const data = [];
   useEffect(()=>{
     axios
       .get('api/home/days')
       .then(success => {
         console.log("TJ success", success);
-        data.push(success.data);
+        setDays(success.data);
         console.log("TJ success data pushed?", data);
       })
       .catch(error => {
         console.log("error in Rainbow Component useEffect: ", error);
-      })
+      });
+
+      return () => {
+        setDays([]);
+      };
   },[])
 
   
@@ -93,13 +98,13 @@ const test = 'fff';
       innerRadius={150}
       outerRadius={350}
       barSize={70}
-      data={data}
+      data={days}
       startAngle={180}
       endAngle={360}
     >
       <RadialBar
         minAngle={15}
-        label={{ position: "insideStart", fill: `#${test}` }}
+        label={{ position: "insideStart", fill: `#${days.fill}` }}
         background
         clockWise
         dataKey="uv"
