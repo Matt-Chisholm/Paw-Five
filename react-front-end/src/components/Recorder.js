@@ -39,17 +39,17 @@ export default function Recorder(props) {
   let dog = "";
   let skill = "";
   const dogFinder = (witString) => {
-    if (witString.includes("Birdie")) {
+    if (witString.includes("Birdie") || witString.includes("birdie")) {
       console.log("dog set to birdie");
       dog = "Birdie";
       return dog;
     }
-    if (witString.includes("Bailee")) {
+    if (witString.includes("Bailee") || witString.includes("bailee") || witString.includes("Bailey") || witString.includes("bailey")) {
       console.log("dog set to bailey");
       dog = "Bailey";
       return dog;
     }
-    if (witString.includes("Bolt")) {
+    if (witString.includes("Bolt") || witString.includes("bolt")) {
       console.log("dog set to bolt");
       dog = "Bolt";
       return dog;
@@ -57,7 +57,7 @@ export default function Recorder(props) {
   };
 
   const skillFinder = (witString) => {
-    if (witString.includes("sit") || witString.includes("set")) {
+    if (witString.includes("sit") || witString.includes("set") || witString.includes("Sit") || witString.includes("Set")) {
       console.log("skill set to sit");
       skill = "Sit";
       return skill;
