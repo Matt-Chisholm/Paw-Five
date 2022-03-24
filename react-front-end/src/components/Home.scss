@@ -1,3 +1,6 @@
+@import 'colors';
+@import 'fonts';
+
 html {
   box-sizing: border-box;
 }
@@ -13,15 +16,23 @@ html {
 }
 
 .home-top {
-  height: 22vh;
+  min-height: 22vh;
   min-width: 375px;
   width: 100%;
   display: flex;
   justify-content: center;
 }
 .home-bottom {
-  height: 61vh;
-  min-width: 375px;
+  min: {
+    height: 61vh;
+    width: 375px;
+  } 
+  background: {
+    color: $primary_2;
+    image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
+  }
+  opacity: 16%;
+  border-radius: 20px;
 }
 .user-image {
   // position: relative;
