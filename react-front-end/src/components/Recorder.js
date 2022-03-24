@@ -17,6 +17,7 @@ export default function Recorder(props) {
   const [play, setPlay] = useState(false);
   const [newSesh, setNewSesh] = useState(false);
   const [selected, setSelected ] = useState( selected || "nothing")
+  const [dogID, setDogID] = useState();
 
   const start = () => {
     setRecordState(RecordState.START);
@@ -38,17 +39,17 @@ export default function Recorder(props) {
   let dog = "";
   let skill = "";
   const dogFinder = (witString) => {
-    if (witString.includes("Birdie" || "birdie")) {
+    if (witString.includes("Birdie")) {
       console.log("dog set to birdie");
       dog = "Birdie";
       return dog;
     }
-    if (witString.includes("Bailee" || "bailey" || "Bailey")) {
+    if (witString.includes("Bailee")) {
       console.log("dog set to bailey");
       dog = "Bailey";
       return dog;
     }
-    if (witString.includes("Bolt" || "bolt" || "belt")) {
+    if (witString.includes("Bolt")) {
       console.log("dog set to bolt");
       dog = "Bolt";
       return dog;
@@ -56,20 +57,19 @@ export default function Recorder(props) {
   };
 
   const skillFinder = (witString) => {
-    if (witString.includes("sit" || "Sit" || "sit" || "Set")) {
+    if (witString.includes("sit") || witString.includes("set")) {
       console.log("skill set to sit");
       skill = "Sit";
       return skill;
     }
-    if (witString.includes("speak" || "Speak")) {
-      console.log("skill set to speak");
-      skill = "Speak";
+    if (witString.includes("bark") || witString.includes("Bark")) {
+      console.log("skill set to bark");
+      skill = "Bark";
       return skill;
     }
   };
 
   const send = (dataBlob) => {
-    console.log("sendRequestToGlitch with data:");
     console.log("sending dataBlob", dataBlob);
     var buffer = dataBlob;
 
@@ -106,6 +106,13 @@ export default function Recorder(props) {
   };
 
   const recording = audioData;
+
+  useEffect(() => {
+    axios.get(`/api/session/${dog}`).then((response) => {
+      setDogID(response.data[0]['id']);
+      console.log("Dog id", response.data[0]['id'],'dogID:', dogID);
+    });
+  }, [dog]);
 
   // viewport
   return (
@@ -144,9 +151,10 @@ export default function Recorder(props) {
             </div>
           </div>
         <img src={arrow} alt='' />
-        <h3 className="tap-above">Tap above to start training</h3>
+        <h3 className="tap-above">Tap above to start training!</h3>
+        <h3 className="tap-above">Please tell us your dog's name and the skill you are training.</h3>
         {newSesh === true && 
-          <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} newSesh={newSesh} setNewSesh={()=> {setNewSesh(!newSesh)}} />
+          <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} id={dogID} newSesh={newSesh} setNewSesh={()=> {setNewSesh(!newSesh)}} />
         }
         {dog.length > 2 && <Session name={dogFinder(witData)} />}
       </div>}

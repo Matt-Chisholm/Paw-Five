@@ -6,21 +6,28 @@ import "./Session.scss";
 
 export default function Session(props) {
   const [sessions, setSessions] = useState([]);
+  const [dogID, setDogID] = useState();
   useEffect(() => {
     axios.get(`/api/session/${props.name}`).then((response) => {
+      setDogID(response.data[0].id);
+      console.log("Dog id", response.data);
+    });
+  }, [props.name]);
+  useEffect(() => {
+    axios.get(`/api/session/${props.name}/${dogID}`).then((response) => {
       setSessions(response.data);
       console.log("SESSIONS", response.data);
     });
-  }, [props.name]);
+  }, [dogID]);
 
   const renderSessions = (sessions) => {
     
     return sessions.reverse().map((sesh, index) => {
       const timeago = moment(sesh.timestamp).fromNow();
       return (
-        <div>
+        <div key={sesh.name}>
           
-          <div className="session-container" key={sesh.name}>
+          <div className="session-container">
             <img className="session-image" src={sesh.avatar} alt="" />
             <h2 className="sesh-title">Session</h2>
             <h3>Dog Name: {sesh.dog_name}</h3>

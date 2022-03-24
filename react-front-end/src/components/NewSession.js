@@ -6,12 +6,22 @@ import "./Recorder.scss";
 export default function NewSession(props) {
   const [post, setPost] = useState(false);
   const [result, setResult] = useState();
+  const [dogID, setDogID] = useState();
+
+  const getDogID = () => {
+    axios.get(`/api/session/${props.dog}`).then((response) => {
+      setDogID(response.data[0]['id']);
+      console.log("DOG ID IS:", dogID )
+    });
+  }
+  getDogID();
 
   const newSession = () => {
     axios.post(`/api/session/new`, 
     {dog:props.dog,
     skill:props.skill,
-    result: result
+    result: result,
+    id: dogID
      })
       .then((response) => {
         console.log(response);
@@ -41,6 +51,10 @@ export default function NewSession(props) {
           <h3 className="details">
             Skill you are training: {props.skill}
           </h3>
+          <h3 className="details">
+            Dog ID: {dogID}
+          </h3>
+
           <form>
             <h3 className='details'>Let us know how it goes:</h3>
             <input type="text" id="result" name="result" onChange={(event) => {
