@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./HomeNavigationBar.scss";
-import HomeNavigationBarItem from "./HomeNavigationBarItem"
+import HomeNavigationBarItem from "./HomeNavigationBarItem";
 
 export default function HomeNavigationBar(props) {
 
@@ -10,15 +10,17 @@ export default function HomeNavigationBar(props) {
     name={tab} 
     selected={tab === props.selected}
     setSelected={props.onChange}
-    >
-      HELLO + {tab}
-    </HomeNavigationBarItem>
+    />
+      {/* HELLO + {tab}
+    </HomeNavigationBarItem> */}
   });
 
 
   return (
-    <div className="homeNavigationBar">
+    
+    <nav className="homeNavigationBar">
+      HOMENAVBar 
       {HomeNavigationList}
-    </div>
+    </nav>
   );
 }

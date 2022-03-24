@@ -9,6 +9,7 @@ export default function HomeNavigationBarItem(props) {
 
   return (
     <span className={tabClass} onClick={() => props.setSelected(props.name)}>
+      HELLO
     </span>
   )
 }
