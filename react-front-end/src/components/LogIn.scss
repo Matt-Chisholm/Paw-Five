@@ -1,0 +1,115 @@
+@import 'colors';
+@import 'fonts';
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: $primary_2;
+
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .log_in_btn {
+    width: 30%;
+    font-size: 2em;
+    margin-bottom: 10%;
+    background-color: #31eaea;
+    border: none;
+    color: azure;
+    border-radius: 20px;
+    font-family: 'Oswald', sans-serif;
+
+    &.uncovered {
+      z-index: 1;
+    }
+  }
+
+  .logo {
+    text-align: center;
+    color: $primary_1;
+    letter-spacing: 2.7px;
+    width: 50%;
+    font-size: 3em;
+    margin-bottom: 10%;
+
+    &.uncovered {
+      z-index: 1;
+    }
+  }
+
+  .footprint {
+    position: absolute;
+		width: 40vw;
+		height: 40vw;
+    
+    &#foot_1 {
+      bottom: 50vh;
+      left: 15vw;
+      -webkit-animation-duration: 0.25s;
+    }
+    &#foot_2 {
+      bottom: 43vh;
+      right: 15vw;
+      -webkit-animation-duration: 0.35s;
+    }
+    &#foot_3 {
+      bottom: 40vh;
+      right: 33vw;
+      -webkit-animation-duration: 0.45s;
+    }
+    &#foot_4 {
+      bottom: 55vh;
+      right: 10vw;
+      -webkit-animation-duration: 0.55s;
+    }
+    &#foot_5 {
+      bottom: 35vh;
+      right: 60vw;
+      -webkit-animation-duration: 0.55s;
+    }
+
+    &.cover {
+      -webkit-animation-name: slam-animation;
+      -webkit-animation-direction: normal;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-fill-mode: forwards;
+    }
+
+    &.uncover {
+      -webkit-animation-name: back-slam-animation;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-direction: normal;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-fill-mode: forwards;
+    }
+	}
+
+  
+  @-webkit-keyframes slam-animation {
+    0% {
+      opacity: 0;
+      -webkit-transform: scale(10);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: rotate(-30deg) scale(1);
+    }
+  }
+
+  @-webkit-keyframes back-slam-animation {
+    0% {
+      opacity: 1;
+      -webkit-transform: rotate(-30deg) scale(1);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: scale(10);
+    }
+  }
+
+}
