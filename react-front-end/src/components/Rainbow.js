@@ -3,52 +3,6 @@ import { RadialBarChart, RadialBar, Legend, Tooltip, ResponsiveContainer } from 
 import './Rainbow.scss'
 import axios from 'axios'
 
-// temporary data
-const daata = [
-  {
-    id: 1,
-    name: "Monday",
-    uv: 31.47,
-    pv: 2400,
-    fill: "#8884d8"
-  },
-  {
-    name: "25-29",
-    uv: 26.69,
-    pv: 4567,
-    fill: "#83a6ed"
-  },
-  {
-    name: "30-34",
-    uv: 15.69,
-    pv: 1398,
-    fill: "#8dd1e1"
-  },
-  {
-    name: "35-39",
-    uv: 8.22,
-    pv: 9800,
-    fill: "#82ca9d"
-  },
-  {
-    name: "40-49",
-    uv: 8.63,
-    pv: 3908,
-    fill: "#a4de6c"
-  },
-  {
-    name: "50+",
-    uv: 2.63,
-    pv: 4800,
-    fill: "#d0ed57"
-  },
-  {
-    name: "unknow",
-    uv: 6.67,
-    pv: 4800,
-    fill: "#ffc658"
-  }
-];
 /*
 1. get chart working
 2. make data for week
@@ -58,19 +12,20 @@ const daata = [
 5. make a state containing the days
 6. create function to match today's date to the day
 
+- if today's date matches, time stamp of session, update the db. how to select which row?
+- get the date now and match the 
 */
 
 export default function Rainbow (){
  const [days, setDays] = useState([]);
+ const [ day, setDay ] = useState("");
 
   const data = [];
   useEffect(()=>{
     axios
       .get('api/home/days')
       .then(success => {
-        console.log("TJ success", success);
         setDays(success.data);
-        console.log("TJ success data pushed?", data);
       })
       .catch(error => {
         console.log("error in Rainbow Component useEffect: ", error);
@@ -80,14 +35,29 @@ export default function Rainbow (){
         setDays([]);
       };
   },[])
-
   
-// const getDaysofWeek = {
+  // const getDate = () => {
+  //   const date = new Date()
+  //   console.log("getDate", date);
+  // }
+  // getDate();
 
-// }
-const test = 'fff';
+
+const daysOfTheWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+useEffect(() => {
+  const now = new Date();
+  setDay(daysOfTheWeek[now.getDay()]);
+  console.log("TJ day of the week", day);
+}, []);
+
+
+
+  // view
   return (
     <div>
+      <p>
+        HELLO{day}
+        </p>
       <RadialBarChart
       className="radialBarChart"
       width={730}
