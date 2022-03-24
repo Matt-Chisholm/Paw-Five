@@ -11,8 +11,6 @@ export default function HomeNavigationBar(props) {
     selected={tab === props.tab}
     setSelected={props.onChange}
     />
-      {/* HELLO + {tab}
-    </HomeNavigationBarItem> */}
   });
 
 

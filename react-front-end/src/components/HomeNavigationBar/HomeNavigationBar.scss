@@ -5,27 +5,33 @@
 .homeNavigationBar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  font: {
+    family :$primary_font;
+    weight:lighter;
+    size: medium;
+  }
 
   .tab__item {
     padding: 1em;
     color: $primary_2;
+    border-radius: 20%;
     &:hover {
       cursor: pointer;
       background-color: $primary_3;
-    }
-    &.tab__item--selected {
-      background-color: $primary_2;
       text-decoration: {
         line: underline;
         color: $primary_2;
       } 
+    }
+    &.tab__item--selected {
+      background-color: $primary_3;
 
       border: {
         color: $primary_1;
         size: 1em;
-        // style: dotted;
-        width: 0.2em;
+        style: dotted;
+        width: 0.1em;
       }
     }
   }
