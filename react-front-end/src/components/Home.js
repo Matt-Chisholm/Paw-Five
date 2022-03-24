@@ -27,7 +27,7 @@ export default function Home (props) {
           });
         })
         .catch(error => {
-          console.log("Home Component error", error);
+          console.log("Home Component error, check if cookies are set", error);
         }); 
   }, []);
 
