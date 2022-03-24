@@ -1,62 +1,47 @@
-import react, { useEffect, useState } from 'react'
-import { RadialBarChart, RadialBar, Legend, Tooltip, ResponsiveContainer } from "recharts";
+import { useEffect, useState } from 'react'
+import { RadialBarChart, RadialBar, Legend, Tooltip } from "recharts";
 import './Rainbow.scss'
 import axios from 'axios'
 
 export default function Rainbow (){
- const [days, setDays] = useState([]);
- const [ day, setDay ] = useState("");
-
-
-  // get database of days for rainbow chart
-  useEffect(()=>{
-    axios
-      .get('api/home/days')
-      .then(success => {
-        setDays(success.data);
-      })
-      .catch(error => {
-        console.log("error in Rainbow Component useEffect: ", error);
-      });
-
-      return () => {
-        setDays([]);
-      };
-  },[])
-  
-  // setting state: the day of the week
+  const [days, setDays] = useState([]);
+  const [ day, setDay ] = useState("");
+ 
+  // CONSTANTS
   const now = new Date();
   const daysOfTheWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   const todaysDate = `${now.getFullYear()}-${(now.getMonth() + 1) < 10 && 0}${now.getMonth() + 1}-${now.getDate()}`
-  useEffect(() => {
-    setDay(daysOfTheWeek[now.getDay()].toLowerCase());    
-    console.log("TJ day of the week", todaysDate)
-  }, []);
 
-  // getting the sessions of today, if any
-  useEffect(() => {
+  // GETS DATABASE FOR DAY*S* STATE (dep: RadialBarChart)
+  useEffect(()=>{
     axios
-      .get(`api/home/session/${todaysDate}`)
-      .then((didTrainToday) => {
-        if (!didTrainToday) {
-          return;
-        }
-        console.log("TH", day);
-      })
-      .then( () => {
-        // update days table to show in rainbow chart
-        axios
-          .post(`api/home/session/${day}`)
-          .then(success => {
-            console.log("TJ success rainbow component useE3", success);
-          })
-          .catch(error => {
-            console.log("rainbow component error useEffect 3", error);
-          })
-      })
-      .catch(error => {
+      .get('api/home/days')
+      .then(success => setDays(success.data))
+      .catch(error => console.log("error in Rainbow Comp useE1: ", error));
+      return () => setDays([]);
+  }, [])
+  
+  // 1. SETS TODAY DAY OF THE WEEK, e.g. 'monday'
+  // 2. GETS SESSIONS FOR DAY*S* STATE (dep: RadialBarChart)
+  useEffect(() => {
+    setDay(daysOfTheWeek[now.getDay()].toLowerCase())
+    if (day) {
+      axios
+        .get(`api/home/session/${todaysDate}`)
+        .then((didTrainToday) => {
+          if (!didTrainToday) return;
+        })
+        // 3. UPDATES DB: DAY TABLE, (dep: RadialBarChart values)
+        .then(() => {
+          axios
+            .post(`api/home/session/${day}`)
+            .then(success => {return;})
+            .catch(error => {return;})
+        })
+        .catch(error => {
         console.log("error in Rainbow Component useEffect2: ", error);
       });
+    }
   }, [day]);
 
 
