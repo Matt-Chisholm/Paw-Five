@@ -1,6 +1,18 @@
 @import 'colors';
 
-.radialBarChart {
-  width: 100%;
-  display: -webkit-inline-box;
+// .radialBarChart {
+
+// }
+
+
+div.recharts-legend-wrapper [style] {
+  // display: flex;
+  // flex-direction: column;
+  position: initial;
+  left: initial;
+  top: initial;
+  width: initial;
+  height: initial;
+  // color: black;
 }
+

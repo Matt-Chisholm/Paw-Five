@@ -53,30 +53,30 @@ export default function Rainbow (){
       <RadialBarChart
         className="radialBarChart"
         width={730}
-        height={300}
+        height={400}
         // height={270}
         // cx={150}
-        cy={0}
-        innerRadius={150}
+        cy={-30}
+        innerRadius={60}
         outerRadius={350}
-        barSize={70}
+        barSize={80}
         data={days}
-        startAngle={180}
+        startAngle={0}
         endAngle={360}
       >
       <RadialBar
-        minAngle={15}
+        minAngle={23}
         label={{ position: "insideStart", fill: `#${days.fill}` }}
         background
         clockWise
         dataKey="uv"
       />
       <Legend
-        iconSize={20}
-        width={120}
-        height={140}
-        layout="vertical"
-        verticalAlign="middle"
+        iconSize={50}
+        width={150}
+        height={100}
+        layout="horizontal"
+        verticalAlign="top"
         // wrapperStyle={style}
       />
       <Tooltip/>
