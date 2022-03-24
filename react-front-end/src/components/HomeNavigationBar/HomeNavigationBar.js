@@ -8,18 +8,15 @@ export default function HomeNavigationBar(props) {
     return <HomeNavigationBarItem 
     key={index} 
     name={tab} 
-    selected={tab === props.selected}
+    selected={tab === props.tab}
     setSelected={props.onChange}
     />
-      {/* HELLO + {tab}
-    </HomeNavigationBarItem> */}
   });
 
 
   return (
     
     <nav className="homeNavigationBar">
-      HOMENAVBar 
       {HomeNavigationList}
     </nav>
   );

@@ -52,7 +52,7 @@ export default function Rainbow (){
       {/* <p> HELLO {day}</p> */}
       <RadialBarChart
         className="radialBarChart"
-        width={730}
+        width={375}
         height={400}
         // height={270}
         // cx={150}
