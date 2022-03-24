@@ -14,13 +14,13 @@ import Stats from './HomeNavigationBar/Stats';
 
 
 export default function Home (props) {
-  const [selected, setSelected] = useState("Stats");
+  const [selected, setSelected] = useState("Welcome");
   const [ user, setUser ] = useState({
     id: "",
     username: "",
     image: ""
   }) 
-  const tabs = ["Stats", "Health", "Social", "News", "Memuries"];
+  const tabs = ["Welcome", "Stats", "Health", "Social", "News", "Memuries"];
   
   // get current user id, name, and image
   useEffect(() =>{
