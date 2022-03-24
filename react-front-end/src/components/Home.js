@@ -4,7 +4,7 @@ import axios from 'axios'
 import useSound from 'use-sound';
 import ring from './images/home-profile-ring.svg'
 import audio from "../sounds/squeeze4.mp3"
-
+import Rainbow from './Rainbow';
 export default function Home (props) {
   const [ user, setUser ] = useState({
     id: "",
@@ -27,23 +27,28 @@ export default function Home (props) {
           });
         })
         .catch(error => {
-          console.log("Home Component error", error);
+          console.log("Home Component error, check if cookies are set", error);
         }); 
   }, []);
 
-
+  // For squaker sound on user image
   const [playClick] = useSound(
     audio
   )
 
+  
 
+  // view
   return (
     <div>
-      <div className='home-top' onClick={() => playClick()}>
-        <img className='ring' src={ring} alt="home-profile-ring"/>
+      <div className='home-top' >
+        <img className='ring' src={ring} alt="home-profile-ring" onClick={() => playClick()}/>
         <img className='user-image' src={user.image} />
       </div>
       <div className='home-bottom'>
+        <article>
+          <Rainbow />
+        </article>
       </div>
     </div>
     )
