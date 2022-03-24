@@ -8,6 +8,8 @@ import Recorder from "./components/Recorder";
 import HeaderBar from "./components/HeaderBar";
 import Tutorial from "./components/Tutorial";
 import Clicker from "./components/Clicker";
+import Squeaker from "./components/Squeaker";
+
 import Home from "./components/Home";
 
 export default function App(props) {
@@ -23,7 +25,6 @@ export default function App(props) {
       <button className="log_in_btn" onClick={() => {setCookie("user_id", 1);}}>
         Log In
       </button>
-
       {tab === "Home" && <Home user_id={cookies["user_id"]}/>}
       {tab === "Training" && <Recorder />}
 

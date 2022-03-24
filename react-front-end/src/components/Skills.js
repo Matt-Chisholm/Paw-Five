@@ -3,14 +3,18 @@ import axios from 'axios';
 import "./Skills.scss"
 
 export default function Skills(props) {
-  const [skills, setSkills] = useState([]);
+  // const [skills, setSkills] = useState([]);
+  const {setIsDetailsLoading, skills} = props;
 
-  useEffect(() => {
-    axios.get(`/api/profile/skills/${props.dog_id}`).then((response) => {
-      const percents = response.data;
-      setSkills(percents);
-    });
-  }, []);
+
+  // useEffect(() => {
+  //   setIsDetailsLoading(true);
+  //   axios.get(`/api/profile/skills/${props.dog_id}`).then((response) => {
+  //     const percents = response.data;
+  //     setSkills(percents);
+  //     setIsDetailsLoading(false);
+  //   });
+  // }, []);
 
 
   let skillRows = () => {

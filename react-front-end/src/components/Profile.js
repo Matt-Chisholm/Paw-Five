@@ -11,6 +11,9 @@ export default function Profile(props) {
   const [dogs, setDogs] = useState([]);
   const [dogsStats, setDogStats] = useState([]);
   const [detailsDisplay, setDetailsDisplay] = useState(false);
+  const [isDetailsLoading, setIsDetailsLoading] = useState(false);
+  const [skills, setSkills] = useState([]);
+  const [sessions, setSessions] = useState([]);
 
 
 
@@ -22,22 +25,44 @@ export default function Profile(props) {
       props.setIsLoading(false);
     });
   }, []);
-  
+
   useEffect(() => {
     props.setIsLoading(true);
     let promiseArray = [];
     dogs
-    .map(dog => {
-      let p = axios.get(`/api/profile/dog/stats/${dog.id}`)
-      promiseArray.push(p);
-    })
-    
+      .map(dog => {
+        let p = axios.get(`/api/profile/dog/stats/${dog.id}`)
+        promiseArray.push(p);
+      })
+
     Promise.all(promiseArray)
-    .then((res) => {
-      setDogStats([...res]);
-      props.setIsLoading(false);
-    })
+      .then((res) => {
+        setDogStats([...res]);
+        props.setIsLoading(false);
+      })
   }, [dogs]);
+
+  useEffect(() => {
+    if (detailsDisplay) {
+      setIsDetailsLoading(true);
+      axios.get(`/api/profile/skills/${dogs[0].id}`).then((response) => {
+        const percents = response.data;
+        setSkills(percents);
+        setIsDetailsLoading(false);
+      });
+    }
+  }, [detailsDisplay]);
+
+  useEffect(() => {
+    if (detailsDisplay) {
+      setIsDetailsLoading(true);
+      axios.get(`/api/profile/sessions/${dogs[0].id}`).then((response) => {
+        const sessions = response.data;
+        setSessions(sessions);
+        setIsDetailsLoading(false);
+      });
+    }
+  }, [detailsDisplay]);
 
 
 
@@ -93,8 +118,15 @@ export default function Profile(props) {
           <div id='profile'>
             {(dogs.length > 0 && dogsStats.length > 0) && dogsLicenses(dogs)}
           </div>
-          {detailsDisplay && <Skills dog_id={dogs[0].id}/>}
-          {detailsDisplay && <Sessions dog_id={dogs[0].id}/>}
+          {props.isDetailsLoading || isDetailsLoading ? <div className='loading_spinner'><LoadingSpinner /></div> :
+            <div>
+              {detailsDisplay && <Skills dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} skills={skills} />}
+              {detailsDisplay && <Sessions dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} sessions={sessions} />}
+              {detailsDisplay && <button className='exit-button' onClick={() => {
+                renderDogLicense(dogs[0])
+              }}>EXIT</button>}
+            </div>
+          }
         </div>
       }
     </>
