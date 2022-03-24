@@ -55,14 +55,16 @@ export default function Rainbow (){
     <div>
       <RadialBarChart
       className="radialBarChart"
-      width={500}
-      height={300}
-      cx={150}
-      cy={150}
-      innerRadius={20}
-      outerRadius={140}
-      barSize={10}
+      width={730}
+      height={570}
+      // height={270}
+      // cx={150}
+      cy={0}
+      innerRadius={140}
+      outerRadius={350}
+      barSize={60}
       data={data}
+      startAngle={180}
     >
       <RadialBar
         minAngle={15}
@@ -71,14 +73,14 @@ export default function Rainbow (){
         clockWise
         dataKey="uv"
       />
-      <Legend
+      {/* <Legend
         iconSize={10}
         width={120}
         height={140}
         layout="vertical"
         verticalAlign="middle"
         // wrapperStyle={style}
-      />
+      /> */}
       </RadialBarChart>
     </div>
   )
