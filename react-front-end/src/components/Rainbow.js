@@ -79,7 +79,7 @@ export default function Rainbow (){
 // const getDaysofWeek = {
 
 // }
-
+const test = 'fff';
   return (
     <div>
       <RadialBarChart
@@ -98,7 +98,7 @@ export default function Rainbow (){
     >
       <RadialBar
         minAngle={15}
-        label={{ position: "insideStart", fill: "#fff" }}
+        label={{ position: "insideStart", fill: `#${test}` }}
         background
         clockWise
         dataKey="uv"
