@@ -1,4 +1,5 @@
 import react from "react";
+import "./TutorialDetails.scss";
 
 
 export default function TutorialDetails(props) {

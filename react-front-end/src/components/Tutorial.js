@@ -53,11 +53,7 @@ export default function Tutorial(props) {
 
   return (
     <div>
-<<<<<<< HEAD
-      <button className='reset-button' type='reset' onClick={()=>props.onChange("nothing")} >Reset</button>
-=======
       {/* <button type='reset' onClick={()=>props.onChange("nothing")} >Reset</button> */}
->>>>>>> master
       <div className='tut-container' >
           {/* {props.selected} */}
           {selectedTutorial ? <TutorialDetails tutorial_id={selectedTutorial} onChange={() => setSelectedTutorial(null)} /> : renderTutorials()}
