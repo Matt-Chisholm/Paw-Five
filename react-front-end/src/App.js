@@ -21,7 +21,7 @@ export default function App(props) {
 
 
   return (
-    <div className="App">
+    <>
       {cookies["user_id"] ?
         <div className="App">
           <HeaderBar />
@@ -32,6 +32,6 @@ export default function App(props) {
           <NavBar tab={tab} tabs={tabs} onChange={setTab} />
         </div> : <LogIn setCookie={setCookie} />
       }
-      </div>
+    </>
   );
 }
