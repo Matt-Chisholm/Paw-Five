@@ -38,12 +38,60 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
 }
 .title {
   height: 7.3vh;
+  min-height: 1vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  white-space: normal;
   background-color: blue;
+  
+  // font
+  padding-right: 6.5em;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  color: rgba(0, 0, 0, 0.65);
+
+  font: {
+    family: "Futura";
+    style: normal;
+    weight: 700;
+    size: 2.5em;
+  }
 }
 .level {
   height: 4.7vh;
   background-color: green;
 }
+@media only screen and (max-width: 775px) {
+
+  .tut-container {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .title {
+    height: 7.3vh;
+    min-height: 1vh;
+    letter-spacing: 3.70px;
+  
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    white-space: normal;
+    background-color: blue;
+    padding-right: 1.3em;
+    
+    font: {
+      family: "Futura-Bold";
+      style: normal;
+      weight: 700;
+      size: 1.3em;
+    }
+  }
+}
+
 
 
 .video-responsive {
@@ -102,5 +150,7 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
       left: 0%;
       top: 20%;
     }
-}
+  }
+
+
 }
