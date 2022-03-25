@@ -145,7 +145,6 @@ export default function Recorder(props) {
   // VIEW
   return (
     <div className="training-page">
-      <p>{viewTut}</p>
       <button
         className="tut-button"
         onClick={() => {

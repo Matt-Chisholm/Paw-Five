@@ -16,24 +16,37 @@ export default function TutorialDetails(props) {
       });
   }, []);
 
+  const renderedSteps = () => tutorial.description.map((step, index) => {
+    return <p key={index} className="tutorial-step">
+      {index + 1}. {step}
+    </p>
+  });
+
   return (
-    <div className="tutorial-details">
-      <div
-        className={`tutorial-item ${tutorial.level}`}
-      >
-        <div className="icon">
-          {/* {tutorial.icon} */}
-          <img className="img-icon" src={sit} />
+    <>
+      {tutorial.description &&
+        <div className="tutorial-details">
+          <div
+            className={`tutorial-item ${tutorial.level}`}
+          >
+            <div className="icon">
+              {/* {tutorial.icon} */}
+              <img className="img-icon" src={sit} />
+            </div>
+            <div className="right-side">
+              <div className="title">
+                {tutorial.name}
+              </div>
+              <div className="level">
+                <p>Level: {tutorial.level}</p>
+              </div>
+            </div >
+          </div>
+          <div className="tutorial-steps">
+            {renderedSteps()}
+          </div>
         </div>
-        <div className="right-side">
-          <div className="title">
-            {tutorial.name}
-          </div>
-          <div className="level">
-            <p>Level: {tutorial.level}</p>
-          </div>
-        </div >
-      </div>
-    </div>
+      }
+    </>
   )
 }
