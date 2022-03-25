@@ -32,7 +32,9 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
   position: relative;
 }
 
-// each tutorial box in the tutorial container
+//
+// tutorial box in the tutorial container
+//
 .tutorial-item {
   width: 73vw;
   height: 12vh;
@@ -42,7 +44,23 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
 .icon {
   width: 20vw;
   height: 12vh;
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 8vw;
+    height: auto;
+  }
 }
+@media only screen and (max-width: 775px) {
+  .icon {
+    img {
+      width: auto;
+    }
+  }
+}
+
+
+
 .right-side {
   width: 53vw;  
 }

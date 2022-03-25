@@ -1,5 +1,7 @@
 import react from "react";
-import classNames from "classnames";
+import sit from "./images/sit.svg";
+
+
 export default function TutorialItem(props) {
   return (
     <div 
@@ -8,6 +10,7 @@ export default function TutorialItem(props) {
     >
       <div className="icon">
         {/* {props.icon} */}
+        <img className="img-icon" src={sit}/>
       </div>
       <div className="right-side">
         <div className="title">
