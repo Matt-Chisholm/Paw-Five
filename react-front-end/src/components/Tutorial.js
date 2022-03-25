@@ -45,9 +45,15 @@ export default function Tutorial(props) {
 
   {/* name, level, description, icon, video */}
   const renderTutorials = () => {
-    return tutorials.map((tut, index) => {
+    return tutorials.map((tut) => {
       return (
-            <TutorialItem key={index} tutorial_id={tut.id} onChange={setSelectedTutorial} /> 
+            <TutorialItem 
+              tutorial_id={tut.id} 
+              name={tut.name} 
+              level={tut.level}
+              icon={tut.icon}
+              onChange={setSelectedTutorial} 
+            /> 
 			);
     });
   }
