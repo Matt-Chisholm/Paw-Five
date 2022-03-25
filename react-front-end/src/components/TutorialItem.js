@@ -1,9 +1,11 @@
 import react from "react";
-
+import classNames from "classnames";
 export default function TutorialItem(props) {
-console.log("tutorialitems props", props);
   return (
-    <div className="tutorial-item" onClick={() => props.onChange(props.tutorial_id)}>
+    <div 
+    className={`tutorial-item ${props.level}`}
+    onClick={() => props.onChange(props.tutorial_id)}
+    >
       <div className="icon">
         {/* {props.icon} */}
       </div>
