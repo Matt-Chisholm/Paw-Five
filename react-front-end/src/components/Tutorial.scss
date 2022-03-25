@@ -15,9 +15,7 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
 .tut-container {
   width: 100%;
   height: 100%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding: 2%;
+  padding: 2%, 7%, 7%, 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,6 +39,8 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
   border-radius: 20px;
   display: flex;
 }
+
+// FOR ICON IN TUTORIAL ITEM BOX. used 40px/40px svg
 .icon {
   width: 20vw;
   height: 12vh;
