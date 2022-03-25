@@ -38,7 +38,7 @@ export default function Tutorial(props) {
 
   return (
     <div>
-      <button type='reset' onClick={()=>props.onChange("nothing")} >Reset</button>
+      <button className='reset-button' type='reset' onClick={()=>props.onChange("nothing")} >Reset</button>
       <div className='tut-container' >
           {/* {props.selected} */}
           {renderTutorials()}

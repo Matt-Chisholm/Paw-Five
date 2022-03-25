@@ -13,6 +13,11 @@ App.use(BodyParser.urlencoded({ extended: false }));
 App.use(BodyParser.json());
 App.use(Express.static('public'));
 
+App.get('/cors', (req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.send({ "msg": "This has CORS enabled 🎈" })
+  })
+
 // USERS GET route, get all users
 App.get('/api/users', (req, res) => {
   db.query('SELECT * FROM USERS;')
@@ -76,6 +81,21 @@ App.get('/api/tutorials', (req, res) => {
   })
 });
 
+App.get('/latest', (req, res) => {
+  db.query(
+    `SELECT sessions.dog_name, sessions.result, sessions.timestamp, sessions.skill_name, dogs.avatar
+  FROM sessions
+  JOIN dogs ON dogs.id = sessions.dog_id
+  ORDER BY sessions.timestamp DESC
+  LIMIT 1;`
+  )
+    .then((result) => {
+      res.send(result.rows[0]);
+    })
+    .catch((err) => console.log("error in newest", err));
+});
+
+
 App.use(fileUpload({}));
 
 // const upload = multer({
@@ -123,8 +143,6 @@ const profileRoute = require("./routes/profile");
 App.use("/api/profile", profileRoute(db));
 const sessionRoute = require("./routes/session");
 App.use("/api/session", sessionRoute(db));
-const homeRoute = require("./routes/home");
-App.use("/api/home", homeRoute(db));
 
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console

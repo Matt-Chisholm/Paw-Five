@@ -8,6 +8,7 @@ import playbtn from "./images/play.png";
 import pause from "./images/pause.png";
 import NewSession from "./NewSession";
 import arrow from "./images/arrow.png";
+import CreatedSession from "./CreatedSession";
 
 export default function Recorder(props) {
   const [recordState, setRecordState] = useState(null);
@@ -16,6 +17,7 @@ export default function Recorder(props) {
   const [viewTut, setViewTut] = useState(false);
   const [play, setPlay] = useState(false);
   const [newSesh, setNewSesh] = useState(false);
+  const [showNewSesh, setShowNewSesh] = useState(false);
   const [selected, setSelected ] = useState( selected || "nothing")
   const [dogID, setDogID] = useState();
 
@@ -36,7 +38,7 @@ export default function Recorder(props) {
     send(data.blob);
   };
 
-  let dog = "";
+  let dog = "Birdie";
   let skill = "";
   const dogFinder = (witString) => {
     if (witString.includes("Birdie") || witString.includes("birdie")) {
@@ -154,8 +156,9 @@ export default function Recorder(props) {
         <h3 className="tap-above">Tap above to start training!</h3>
         <h3 className="tap-above">Please tell us your dog's name and the skill you are training.</h3>
         {newSesh === true && 
-          <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} id={dogID} newSesh={newSesh} setNewSesh={()=> {setNewSesh(!newSesh)}} />
+          <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} id={dogID} newSesh={newSesh} setNewSesh={()=> {setNewSesh(!newSesh)}} showNewSesh={showNewSesh} setShowNewSesh={()=>{setShowNewSesh(true)}} />
         }
+        {showNewSesh === true && <CreatedSession />}
         {dog.length > 2 && <Session name={dogFinder(witData)} />}
       </div>}
     </div>

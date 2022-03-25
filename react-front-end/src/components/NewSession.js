@@ -1,6 +1,6 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import axios from "axios";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import "./Recorder.scss";
 
 export default function NewSession(props) {
@@ -10,21 +10,23 @@ export default function NewSession(props) {
 
   const getDogID = () => {
     axios.get(`/api/session/${props.dog}`).then((response) => {
-      setDogID(response.data[0]['id']);
-      console.log("DOG ID IS:", dogID )
+      setDogID(response.data[0]["id"]);
+      console.log("DOG ID IS:", dogID);
     });
-  }
+  };
   getDogID();
 
   const newSession = () => {
-    axios.post(`/api/session/new`, 
-    {dog:props.dog,
-    skill:props.skill,
-    result: result,
-    id: dogID
-     })
+    axios
+      .post(`/api/session/new`, {
+        dog: props.dog,
+        skill: props.skill,
+        result: result,
+        id: dogID,
+      })
       .then((response) => {
         console.log(response);
+        props.setShowNewSesh();
       })
       .catch((error) => {
         if (error.response) {
@@ -38,32 +40,38 @@ export default function NewSession(props) {
           //do something other than the other two
         }
       });
-    }
-
-  
+  };
 
   return (
     <div className="training-details">
-          <h2 className="detail-title">Started New Session:</h2>
-          <h3 className="details">
-            Dog you are training: {props.dog}
-          </h3>
-          <h3 className="details">
-            Skill you are training: {props.skill}
-          </h3>
-          <h3 className="details">
-            Dog ID: {dogID}
-          </h3>
+      <h2 className="detail-title">Started New Session:</h2>
+      <h3 className="details">Dog you are training: {props.dog}</h3>
+      <h3 className="details">Skill you are training: {props.skill}</h3>
+      <h3 className="details">Dog ID: {dogID}</h3>
 
-          <form>
-            <h3 className='details'>Let us know how it goes:</h3>
-            <input type="text" id="result" name="result" onChange={(event) => {
-              setResult(event.target.value);
-              event.preventDefault();
-            }} />
-            <button type="submit" className='tut-button' onClick={(event)=>{newSession(); event.preventDefault(); props.setNewSesh();}}>Done Training</button>
-          </form>
-          
-        </div>
-  )
+      <form>
+        <h3 className="details">Let us know how it goes:</h3>
+        <input
+          type="text"
+          id="result"
+          name="result"
+          onChange={(event) => {
+            setResult(event.target.value);
+            event.preventDefault();
+          }}
+        />
+        <button
+          type="submit"
+          className="tut-button"
+          onClick={(event) => {
+            newSession();
+            event.preventDefault();
+            props.setNewSesh();
+          }}
+        >
+          Done Training
+        </button>
+      </form>
+    </div>
+  );
 }
