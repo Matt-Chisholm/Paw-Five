@@ -1,14 +1,19 @@
+// DEPENDANCIES
 import React, { useState, useEffect } from "react";
-import "./Recorder.scss";
 import AudioReactRecorder, { RecordState } from "audio-react-recorder";
 import axios from "axios";
+// STYLESHEETS
+import "./Recorder.scss";
+// COMPONENTS
 import Session from "./Session";
 import Tutorial from "./Tutorial";
+import CreatedSession from "./CreatedSession";
+// MEDIA
 import playbtn from "./images/play.png";
 import pause from "./images/pause.png";
 import NewSession from "./NewSession";
 import arrow from "./images/arrow.png";
-import CreatedSession from "./CreatedSession";
+import pawTeam from "./images/pawteam.png"
 
 export default function Recorder(props) {
   const [recordState, setRecordState] = useState(null);
@@ -117,9 +122,10 @@ export default function Recorder(props) {
     });
   }, [dog]);
 
-  // viewport
+  // VIEW
   return (
-    <div class="training-page">
+    <div className="training-page">
+
       <button
         className="tut-button"
         onClick={() => {
@@ -129,31 +135,33 @@ export default function Recorder(props) {
       >
       {tutorialsButtonText}
       </button>
-        {viewTut === true && <Tutorial 
-          onChange={setSelected}
-          selected={selected}
+
+      {viewTut === true && 
+      <Tutorial 
+        onChange={setSelected}
+        selected={selected}
       />}
       {viewTut === false && 
-        <div>
-          <div className="recorder">
-            <div className="overlay">
-              <AudioReactRecorder
-                className="recording-view"
-                state={recordState}
-                onStop={onStop}
-                backgroundColor={"rgb(255, 255, 255)"}
-              />
-              <audio
-                className="audiobar"
-                controls
-                src={recording ? recording.url : null}
-              ></audio>
-              <div>
-                {play === false && <img src={playbtn} onClick={() => start()} />}
-                {play === true && <img src={pause} onClick={() => stop()} />}
-              </div>
+      <div>
+        <div className="recorder">
+          <div className="overlay">
+            <audio
+              className="audiobar"
+              controls
+              src={recording ? recording.url : null}
+            ></audio>
+            <AudioReactRecorder
+              className="recording-view"
+              state={recordState}
+              onStop={onStop}
+              backgroundColor={"rgb(255, 255, 255)"}
+            />
+            <div>
+              {play === false && <img className="record-button" src={playbtn} onClick={() => start()} />}
+              {play === true && <img className="record-button" src={pause} onClick={() => stop()} />}
             </div>
           </div>
+        </div>
         <img src={arrow} alt='' />
         <h3 className="tap-above">Tap above to start training!</h3>
         <h3 className="tap-above">Please tell us your dog's name and the skill you are training.</h3>
@@ -163,6 +171,8 @@ export default function Recorder(props) {
         {showNewSesh === true && <CreatedSession />}
         {dog.length > 2 && <Session name={dogFinder(witData)} />}
       </div>}
+
     </div>
   );
+
 }

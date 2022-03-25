@@ -11,7 +11,7 @@ export default function Session(props) {
     axios.get(`/api/session/${props.name}`).then((response) => {
       setDogID(response.data[0].id);
       console.log("Dog id", response.data);
-    });
+    }).catch(error => {console.log("error in Session.js Component useEf1:", error);});
   }, [props.name]);
   useEffect(() => {
     axios.get(`/api/session/${props.name}/${dogID}`).then((response) => {

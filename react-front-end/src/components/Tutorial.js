@@ -12,9 +12,13 @@ export default function Tutorial(props) {
   
   useEffect(() => {
     axios.get(`/api/tutorials`).then((response) => {
-      console.log(response.data);
+      console.log("success from Tutorial.js component useEffect:", response.data);
       setTutorials(response.data);
-    });
+    })
+    .catch(error => {
+      console.log("error from Tutorial.js component useEffect: ", error);
+    })
+    ;
   }, []);
 
   
@@ -39,25 +43,28 @@ export default function Tutorial(props) {
   //   });
   // }
 
+  {/* name, level, description, icon, video */}
   const renderTutorials = () => {
-    return tutorials.map((tut, index) => {
+    return tutorials.map((tut) => {
       return (
-				<>
-					<div key={index} className="tutorial">
-            <TutorialItem tutorial_id={tut.id} onChange={setSelectedTutorial} /> {/* name, level, description, icon, video */}
-					</div>
-				</>
+            <TutorialItem 
+              tutorial_id={tut.id} 
+              name={tut.name} 
+              level={tut.level}
+              icon={tut.icon}
+              onChange={setSelectedTutorial} 
+            /> 
 			);
     });
   }
 
+  // VIEW
   return (
-    <div>
-      {/* <button type='reset' onClick={()=>props.onChange("nothing")} >Reset</button> */}
-      <div className='tut-container' >
-          {/* {props.selected} */}
-          {selectedTutorial ? <TutorialDetails tutorial_id={selectedTutorial} onChange={() => setSelectedTutorial(null)} /> : renderTutorials()}
+      <div className='tut-container'>
+
+        {selectedTutorial ? <TutorialDetails tutorial_id={selectedTutorial} onChange={() => setSelectedTutorial(null)} /> : renderTutorials()}
       </div>
-    </div>
   )
 }
+
+/* <button type='reset' onClick={()=>props.onChange("nothing")} >Reset</button> */

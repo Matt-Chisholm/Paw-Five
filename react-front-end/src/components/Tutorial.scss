@@ -1,25 +1,157 @@
 $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255, 216, 115, 0.15) 84.37%, rgba(255, 216, 115, 0.15) 89.06%);
 
+// CONDITIONAL COLORS FOR TUTORIAL ITEMS
+.easy {
+  background: linear-gradient(180deg, rgba(13, 196, 121, 0.52) 0%, #FFD873 100%);
+}
+.medium {
+  background: linear-gradient(180deg, rgba(196, 13, 13, 0.52) 0%, #FFD873 100%);
+}
+.expert {
+  background: linear-gradient(180deg, rgba(13, 20, 196, 0.52) 0%, #FFD873 100%);
+}
+
+
 .tut-container {
   width: 100%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding: 2%;
+  height: 100%;
+  padding: 2%, 7%, 7%, 2%;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   align-content: space-around;
   gap: 20px;
+  border-radius: 20px;
   background: $backgroundgrad_1;
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
   margin-top: 2vh;
   margin-bottom: 10vh;
   position: relative;
 }
+
+//
+// tutorial box in the tutorial container
+//
+.tutorial-item {
+  width: 73vw;
+  height: 12vh;
+  border-radius: 20px;
+  display: flex;
+}
+
+// FOR ICON IN TUTORIAL ITEM BOX. used 40px/40px svg
+.icon {
+  width: 20vw;
+  height: 12vh;
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 8vw;
+    height: auto;
+  }
+}
+@media only screen and (max-width: 775px) {
+  .icon {
+    img {
+      width: auto;
+    }
+  }
+}
+
+
+
+.right-side {
+  width: 53vw;  
+}
+.title {
+  height: 7.3vh;
+  min-height: 1vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  white-space: normal;
+  
+  // font
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  color: rgba(0, 0, 0, 0.65);
+  padding-right: 6.5em;
+  font: {
+    family: "Futura";
+    style: normal;
+    weight: 700;
+    size: 2.5em;
+  }
+}
+
+@media only screen and (max-width: 775px) {
+  .tut-container {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .title {
+    height: 7.3vh;
+    min-height: 1vh;
+    letter-spacing: 3.70px;
+  
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    white-space: normal;
+    padding-right: 1.3em;
+    font: {
+      family: "Futura-Bold";
+      style: normal;
+      weight: 700;
+      size: 1.3em;
+    }
+  }
+}
+
+// TEXT IN TUTORIAL ITEM. EXAMPLE: "LEVEL: EASY"
+.level {
+  height: 4.7vh;
+  display: flex;
+  flex-direction: row-reverse;
+  color: rgba(0, 0, 0, 10);
+
+  // font
+  line-height: 16px;
+  letter-spacing: 0.15em;
+  padding-right: 2.5em;
+  font: {
+    family: 'Futura';
+    style: italic;
+    weight: 500;
+    size: 1.6em;
+  }
+}
+@media only screen and (max-width: 775px) {
+  .level {
+    height: 4.7vh;
+    display: flex;
+    flex-direction: row-reverse;
+    color: rgba(0, 0, 0, 10);
+  
+    // font
+    line-height: 16px;
+    letter-spacing: 0.15em;
+    padding-right: 0.8em;
+    font: {
+      family: 'Futura';
+      style: italic;
+      weight: 400;
+      size: 0.8em;
+    }
+  }
+}
+
+
+
 .video-responsive {
   
   iframe {
@@ -76,5 +208,7 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
       left: 0%;
       top: 20%;
     }
-}
+  }
+
+
 }
