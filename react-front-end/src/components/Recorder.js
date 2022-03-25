@@ -44,7 +44,7 @@ export default function Recorder(props) {
     send(data.blob);
   };
 
-  let dog = "Birdie";
+  let dog = "";
   let skill = "";
   const dogFinder = (witString) => {
     if (witString.includes("Birdie") || witString.includes("birdie")) {
@@ -165,7 +165,7 @@ export default function Recorder(props) {
         <img src={arrow} alt='' />
         <h3 className="tap-above">Tap above to start training!</h3>
         <h3 className="tap-above">Please tell us your dog's name and the skill you are training.</h3>
-        {newSesh === true && 
+        {newSesh === true && dog.length > 2 &&
           <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} id={dogID} newSesh={newSesh} setNewSesh={()=> {setNewSesh(!newSesh)}} showNewSesh={showNewSesh} setShowNewSesh={()=>{setShowNewSesh(true)}} />
         }
         {showNewSesh === true && <CreatedSession />}
