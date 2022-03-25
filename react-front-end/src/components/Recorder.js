@@ -140,27 +140,19 @@ export default function Recorder(props) {
       />}
       {viewTut === false && 
         <div>
-          <div className="recorder" 
-          // imageStyle={{opacity:0.5}}
-          // style={{ 
-          //   // background: 'linear-gradient(180deg, #0da3c4 0%, #ffd873 100%);', 
-          //   backgroundImage: `url(${pawTeam})`,  
-          //   backgroundRepeat:"no-repeat",
-          //   backgroundSize:"contain", 
-          // }}
-          >
+          <div className="recorder">
             <div className="overlay">
+              <audio
+                className="audiobar"
+                controls
+                src={recording ? recording.url : null}
+              ></audio>
               <AudioReactRecorder
                 className="recording-view"
                 state={recordState}
                 onStop={onStop}
                 backgroundColor={"rgb(255, 255, 255)"}
               />
-              <audio
-                className="audiobar"
-                controls
-                src={recording ? recording.url : null}
-              ></audio>
               <div>
                 {play === false && <img src={playbtn} onClick={() => start()} />}
                 {play === true && <img src={pause} onClick={() => stop()} />}
