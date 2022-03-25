@@ -125,6 +125,7 @@ export default function Recorder(props) {
   // VIEW
   return (
     <div className="training-page">
+
       <button
         className="tut-button"
         onClick={() => {
@@ -134,31 +135,33 @@ export default function Recorder(props) {
       >
       {tutorialsButtonText}
       </button>
-        {viewTut === true && <Tutorial 
-          onChange={setSelected}
-          selected={selected}
+
+      {viewTut === true && 
+      <Tutorial 
+        onChange={setSelected}
+        selected={selected}
       />}
       {viewTut === false && 
-        <div>
-          <div className="recorder">
-            <div className="overlay">
-              <audio
-                className="audiobar"
-                controls
-                src={recording ? recording.url : null}
-              ></audio>
-              <AudioReactRecorder
-                className="recording-view"
-                state={recordState}
-                onStop={onStop}
-                backgroundColor={"rgb(255, 255, 255)"}
-              />
-              <div>
-                {play === false && <img src={playbtn} onClick={() => start()} />}
-                {play === true && <img src={pause} onClick={() => stop()} />}
-              </div>
+      <div>
+        <div className="recorder">
+          <div className="overlay">
+            <audio
+              className="audiobar"
+              controls
+              src={recording ? recording.url : null}
+            ></audio>
+            <AudioReactRecorder
+              className="recording-view"
+              state={recordState}
+              onStop={onStop}
+              backgroundColor={"rgb(255, 255, 255)"}
+            />
+            <div>
+              {play === false && <img src={playbtn} onClick={() => start()} />}
+              {play === true && <img src={pause} onClick={() => stop()} />}
             </div>
           </div>
+        </div>
         <img src={arrow} alt='' />
         <h3 className="tap-above">Tap above to start training!</h3>
         <h3 className="tap-above">Please tell us your dog's name and the skill you are training.</h3>
@@ -168,6 +171,8 @@ export default function Recorder(props) {
         {showNewSesh === true && <CreatedSession />}
         {dog.length > 2 && <Session name={dogFinder(witData)} />}
       </div>}
+
     </div>
   );
+
 }
