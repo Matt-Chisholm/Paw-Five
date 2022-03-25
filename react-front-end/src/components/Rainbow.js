@@ -46,8 +46,6 @@ export default function Rainbow (){
   }, [day]);
 
 
-function test() {
-}
   // VIEW
   return (
     <div>
@@ -72,26 +70,17 @@ function test() {
           fill: `#FFD873`, 
           dataKey: "name",
           fontFamily: "Futura",
+          fontSize: "1.5em",
         }}
         background
         clockWise
         dataKey="uv"
       >
-</RadialBar>
-
-      {/* <Label>
-        130
-        </Label> */}
-      {/* <Legend
-        iconSize={50}
-        width={150}
-        height={100}
-        layout="horizontal"
-        verticalAlign="top"
-        // wrapperStyle={style}
-      /> */}
-      <Tooltip/>
-      </RadialBarChart>
+      </RadialBar>
+      <Tooltip
+      
+      />
+    </RadialBarChart>
     </div>
   );
 
