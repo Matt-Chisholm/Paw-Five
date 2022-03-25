@@ -43,25 +43,22 @@ export default function Tutorial(props) {
   //   });
   // }
 
+  {/* name, level, description, icon, video */}
   const renderTutorials = () => {
     return tutorials.map((tut, index) => {
       return (
-					<div key={index} className="tutorial">
-            <TutorialItem tutorial_id={tut.id} onChange={setSelectedTutorial} /> {/* name, level, description, icon, video */}
-					</div>
+            <TutorialItem key={index} tutorial_id={tut.id} onChange={setSelectedTutorial} /> 
 			);
     });
   }
 
   // VIEW
   return (
-    <div>
-      {/* <button type='reset' onClick={()=>props.onChange("nothing")} >Reset</button> */}
-      <div className='tut-container' >
-        
-          {/* {props.selected} */}
-          {selectedTutorial ? <TutorialDetails tutorial_id={selectedTutorial} onChange={() => setSelectedTutorial(null)} /> : renderTutorials()}
+      <div className='tut-container'>
+
+        {selectedTutorial ? <TutorialDetails tutorial_id={selectedTutorial} onChange={() => setSelectedTutorial(null)} /> : renderTutorials()}
       </div>
-    </div>
   )
 }
+
+/* <button type='reset' onClick={()=>props.onChange("nothing")} >Reset</button> */
