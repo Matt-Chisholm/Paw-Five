@@ -20,7 +20,6 @@ export default function Tutorial(props) {
       ;
   }, []);
 
-
   const renderTutorials = () => {
     return tutorials.map((tut, index) => {
       return (

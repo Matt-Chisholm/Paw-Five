@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react'
-import { RadialBarChart, RadialBar, Legend, Tooltip } from "recharts";
+import { RadialBarChart, RadialBar, Tooltip, Label, LabelList, ResponsiveContainer } from "recharts";
 import './Rainbow.scss'
 import axios from 'axios'
 
 export default function Rainbow (){
-  const [days, setDays] = useState([]);
+  const [days, setDays] = useState([]); // days, with an 's'
+  // days example: [{id: 1, name: 'monday', uv: 100, pv: 2000, fill: '#8884d8', ...]
   const [ day, setDay ] = useState("");
  
+  const [ viewPort, setViewPort ] = useState(null);
+  const [ mobileView, setMobileView ] = useState("true");
+  const [ rainbowWidth, setRainbowWidth ] = useState(380);
+  
+  
   // CONSTANTS
   const now = new Date();
   const daysOfTheWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -44,15 +50,22 @@ export default function Rainbow (){
     }
   }, [day]);
 
+  useEffect(()=> {
+    if (window.innerWidth > 775) {
+      return setRainbowWidth(900);
+    };
+  }, [])
 
 
   // VIEW
   return (
     <div>
-      {/* <p> HELLO {day}</p> */}
+    {/* <ResponsiveContainer width={'99%'} height={345}> */}
+  
       <RadialBarChart
         className="radialBarChart"
-        width={375}
+        // viewBox={{x: "100%", y: "100%"}}
+        width={rainbowWidth}
         height={400}
         // height={270}
         // cx={150}
@@ -61,30 +74,35 @@ export default function Rainbow (){
         outerRadius={350}
         barSize={80}
         data={days}
-        startAngle={0}
+        startAngle={180}
         endAngle={360}
       >
       <RadialBar
-        minAngle={23}
-        label={{ position: "insideStart", fill: `#${days.fill}` }}
+        // minAngle={23}
+        label={{ 
+          position: "inside",
+          offset: 1, 
+          fill: `#FFD873`, 
+          dataKey: "name",
+          fontFamily: "Futura",
+          fontSize: "1.5em",
+        }}
         background
         clockWise
         dataKey="uv"
+        animationEasing='ease-out'
+      >
+      </RadialBar>
+      <Tooltip
+      
       />
-      <Legend
-        iconSize={50}
-        width={150}
-        height={100}
-        layout="horizontal"
-        verticalAlign="top"
-        // wrapperStyle={style}
-      />
-      <Tooltip/>
-      </RadialBarChart>
-    </div>
-  )
+    </RadialBarChart>
+    {/* </ResponsiveContainer> */}
 
-}
+    </div>
+  );
+
+};
 
 /*
 NOTE
