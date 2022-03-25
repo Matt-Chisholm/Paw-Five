@@ -1,14 +1,19 @@
+// DEPENDANCIES
 import React, { useState, useEffect } from "react";
-import "./Recorder.scss";
 import AudioReactRecorder, { RecordState } from "audio-react-recorder";
 import axios from "axios";
+// STYLESHEETS
+import "./Recorder.scss";
+// COMPONENTS
 import Session from "./Session";
 import Tutorial from "./Tutorial";
+import CreatedSession from "./CreatedSession";
+// MEDIA
 import playbtn from "./images/play.png";
 import pause from "./images/pause.png";
 import NewSession from "./NewSession";
 import arrow from "./images/arrow.png";
-import CreatedSession from "./CreatedSession";
+import pawTeam from "./images/pawteam.png"
 
 export default function Recorder(props) {
   const [recordState, setRecordState] = useState(null);
@@ -117,7 +122,7 @@ export default function Recorder(props) {
     });
   }, [dog]);
 
-  // viewport
+  // VIEW
   return (
     <div className="training-page">
       <button
@@ -135,7 +140,15 @@ export default function Recorder(props) {
       />}
       {viewTut === false && 
         <div>
-          <div className="recorder">
+          <div className="recorder" 
+          // imageStyle={{opacity:0.5}}
+          // style={{ 
+          //   // background: 'linear-gradient(180deg, #0da3c4 0%, #ffd873 100%);', 
+          //   backgroundImage: `url(${pawTeam})`,  
+          //   backgroundRepeat:"no-repeat",
+          //   backgroundSize:"contain", 
+          // }}
+          >
             <div className="overlay">
               <AudioReactRecorder
                 className="recording-view"
