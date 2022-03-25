@@ -1,4 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap');
+
 .tutorial-details {
   background: linear-gradient(180deg, rgba(214, 214, 214, 0.53) 0%, rgba(214, 214, 214, 0) 100%);
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .tutorial-item {
+    width: 95%;
+
+    .level {
+      height: 4.7vh;
+      display: flex;
+      justify-content: center;
+
+      // font
+      letter-spacing: 0.15em;
+      padding-right: 2.5em;
+      padding-top: 0.7em;
+
+      font: {
+        size: 1em;
+      }
+    }
+
+    .right-side {
+      width: 70%;
+    }
+  }
+
+  .tutororial-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    padding: 5%;
+  }
+
+  .tutorial-step {
+    background: rgba(13, 163, 196, 0.3);
+    border-radius: 20px;
+    margin: 2.5%;
+
+    font-family: 'Merriweather', serif;
+    font-size: 1em;
+    line-height: 1.5em;
+    letter-spacing: 0.2em;
+    text-align: left;
+    padding: 2.5%;
+    padding-right: 0;
+
+    color: #000000;
+  }
 }

@@ -49,7 +49,7 @@ export default function Home (props) {
 
   // VIEW
   return (
-    <div>
+    <div className='homeComponent'>
       <HomeNavigationBar tab={selected} tabs={tabs} onChange={setSelected}/>
       {selected === "Stats" && 
         <>
