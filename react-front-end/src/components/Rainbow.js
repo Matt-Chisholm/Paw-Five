@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { RadialBarChart, RadialBar, Legend, Tooltip, Label, LabelList } from "recharts";
+import { RadialBarChart, RadialBar, Tooltip, Label, LabelList, ResponsiveContainer } from "recharts";
 import './Rainbow.scss'
 import axios from 'axios'
 
@@ -8,6 +8,11 @@ export default function Rainbow (){
   // days example: [{id: 1, name: 'monday', uv: 100, pv: 2000, fill: '#8884d8', ...]
   const [ day, setDay ] = useState("");
  
+  const [ viewPort, setViewPort ] = useState(null);
+  const [ mobileView, setMobileView ] = useState("true");
+  const [ rainbowWidth, setRainbowWidth ] = useState(380);
+  
+  
   // CONSTANTS
   const now = new Date();
   const daysOfTheWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -45,13 +50,22 @@ export default function Rainbow (){
     }
   }, [day]);
 
+  useEffect(()=> {
+    if (window.innerWidth > 775) {
+      return setRainbowWidth(900);
+    };
+  }, [])
+
 
   // VIEW
   return (
     <div>
+    {/* <ResponsiveContainer width={'99%'} height={345}> */}
+  
       <RadialBarChart
         className="radialBarChart"
-        width={380}
+        // viewBox={{x: "100%", y: "100%"}}
+        width={rainbowWidth}
         height={400}
         // height={270}
         // cx={150}
@@ -60,13 +74,14 @@ export default function Rainbow (){
         outerRadius={350}
         barSize={80}
         data={days}
-        startAngle={200}
-        endAngle={340}
+        startAngle={180}
+        endAngle={360}
       >
       <RadialBar
         // minAngle={23}
         label={{ 
-          position: "insideBottom", 
+          position: "inside",
+          offset: 1, 
           fill: `#FFD873`, 
           dataKey: "name",
           fontFamily: "Futura",
@@ -75,12 +90,15 @@ export default function Rainbow (){
         background
         clockWise
         dataKey="uv"
+        animationEasing='ease-out'
       >
       </RadialBar>
       <Tooltip
       
       />
     </RadialBarChart>
+    {/* </ResponsiveContainer> */}
+
     </div>
   );
 
