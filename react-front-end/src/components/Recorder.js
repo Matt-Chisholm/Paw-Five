@@ -157,8 +157,8 @@ export default function Recorder(props) {
               backgroundColor={"rgb(255, 255, 255)"}
             />
             <div>
-              {play === false && <img src={playbtn} onClick={() => start()} />}
-              {play === true && <img src={pause} onClick={() => stop()} />}
+              {play === false && <img className="record-button" src={playbtn} onClick={() => start()} />}
+              {play === true && <img className="record-button" src={pause} onClick={() => stop()} />}
             </div>
           </div>
         </div>

@@ -1,5 +1,7 @@
 // TRAINING PAGE
 //
+@import 'fonts';
+@import 'colors';
 
 .training-page {
   margin-top: 2vh;
@@ -43,6 +45,7 @@
   opacity: 0%;
 }
 
+// MEDIA RECORDER/PLAYER CONTAINER, flexbox not working due to parent div, maybe.
 .recorder {
   background: center / contain no-repeat url("./images/pawteam.png"), 
     linear-gradient(180deg, #0da3c4 0%, #ffd873 100%);
@@ -58,21 +61,44 @@
   padding: 5%;
   margin-top: 10%;
 }
-
+// recorder element
 .overlay {
   display: flex;
   flex-direction: column;
-  
 }
+// recorder element
 .audio-react-recorder__canvas {
   width: 92%;
   height: 50px;
   opacity: 50%;
 }
+// recorder element
 audio::-webkit-media-controls-panel {
   background-color: honeydew;
 }
 
+.record-button {
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 $primary_3;
+	transform: scale(1);
+  animation: pulse 1.2s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 $primary_2;
+  }
+  
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px $primary_3;
+  }
+  
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 $primary_2;
+  }
+}
 .btn {
   outline: 0;
   grid-gap: 8px;
@@ -99,11 +125,9 @@ audio::-webkit-media-controls-panel {
   box-shadow: 4px 4px 0 #000;
   transform: translate(-4px, -4px);
 }
-
 .btn:focus-visible {
   outline-offset: 1px;
 }
-
 
 
 .training-details {
@@ -148,16 +172,17 @@ audio::-webkit-media-controls-panel {
 .recorder img {
   width: 30%;
 }
-@media only screen and (max-width: 775px) {
 
+@media only screen and (max-width: 775px) {
   .overlay {
     width: 80%;
   }
   .recorder img {
     width: 40%;
   }
-
 }
+
+
 .tap-above {
   font-family: "Boogaloo", cursive;
   font-style: normal;
