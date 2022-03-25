@@ -76,6 +76,26 @@ export default function Recorder(props) {
       skill = "Bark";
       return skill;
     }
+    if (witString.includes("shake") || witString.includes("Shake")) {
+      console.log("skill set to shake");
+      skill = "Shake";
+      return skill;
+    }
+    if (witString.includes("roll over") || witString.includes("rollover")) {
+      console.log("skill set to Roll over");
+      skill = "Roll over";
+      return skill;
+    }
+    if (witString.includes("sing") || witString.includes("Sing")) {
+      console.log("skill set to Sing");
+      skill = "Sing";
+      return skill;
+    }
+    if (witString.includes("lie") || witString.includes("down")) {
+      console.log("skill set to Lie down");
+      skill = "Lie Down";
+      return skill;
+    }
   };
 
   const send = (dataBlob) => {
@@ -198,7 +218,7 @@ export default function Recorder(props) {
         <img src={arrow} alt='' />
         <h3 className="tap-above">Tap above to start training!</h3>
         <h3 className="tap-above">Please tell us your dog's name and the skill you are training.</h3>
-        {newSesh === true && dog.length > 2 &&
+        {newSesh === true && 
           <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} id={dogID} newSesh={newSesh} setNewSesh={()=> {setNewSesh(!newSesh)}} showNewSesh={showNewSesh} setShowNewSesh={()=>{setShowNewSesh(true)}} />
         }
         {showNewSesh === true && <CreatedSession />}

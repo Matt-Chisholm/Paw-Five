@@ -44,10 +44,10 @@ export default function NewSession(props) {
 
   return (
     <div className="training-details">
+      {props.dog && <div>
       <h2 className="detail-title">Started New Session:</h2>
       <h3 className="details">Dog you are training: {props.dog}</h3>
-      <h3 className="details">Skill you are training: {props.skill}</h3>
-      <h3 className="details">Dog ID: {dogID}</h3>
+      <h3 className="details">Skill you are training: {props.skill || "Couldn't detect skill."}</h3>
 
       <form>
         <h3 className="details">Let us know how it goes:</h3>
@@ -72,6 +72,10 @@ export default function NewSession(props) {
           Done Training
         </button>
       </form>
+      </div>
+      }
+      {!props.dog &&
+      <h3>Couldn't quite catch that! Try again!</h3>}
     </div>
   );
 }
