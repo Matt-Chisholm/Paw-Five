@@ -73,11 +73,12 @@ App.get('/api/sessions', (req, res) => {
 
 App.get('/api/tutorials', (req, res) => {
   db.query('SELECT * FROM TUTORIALS;')
-    .then( (x) =>  {
-    res.send(x.rows);
+    .then( (success) =>  {
+    console.log("success api tutorials", success.rows);
+    res.send(success.rows);
   })
   .catch( (err) => {
-    console.log(err);
+    console.log("error in api/tutorial: ", err);
   })
 });
 
@@ -144,6 +145,7 @@ App.use("/api/profile", profileRoute(db));
 const sessionRoute = require("./routes/session");
 App.use("/api/session", sessionRoute(db));
 const homeRoute = require("./routes/home");
+const { log } = require('node-wit');
 App.use("/api/home", homeRoute(db));
 
 App.listen(PORT, () => {

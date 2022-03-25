@@ -119,7 +119,7 @@ export default function Recorder(props) {
 
   // viewport
   return (
-    <div class="training-page">
+    <div className="training-page">
       <button
         className="tut-button"
         onClick={() => {

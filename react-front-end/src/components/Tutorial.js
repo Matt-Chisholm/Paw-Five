@@ -12,9 +12,13 @@ export default function Tutorial(props) {
   
   useEffect(() => {
     axios.get(`/api/tutorials`).then((response) => {
-      console.log(response.data);
+      console.log("success from Tutorial.js component useEffect:", response.data);
       setTutorials(response.data);
-    });
+    })
+    .catch(error => {
+      console.log("error from Tutorial.js component useEffect: ", error);
+    })
+    ;
   }, []);
 
   
@@ -42,19 +46,19 @@ export default function Tutorial(props) {
   const renderTutorials = () => {
     return tutorials.map((tut, index) => {
       return (
-				<>
 					<div key={index} className="tutorial">
             <TutorialItem tutorial_id={tut.id} onChange={setSelectedTutorial} /> {/* name, level, description, icon, video */}
 					</div>
-				</>
 			);
     });
   }
 
+  // VIEW
   return (
     <div>
       {/* <button type='reset' onClick={()=>props.onChange("nothing")} >Reset</button> */}
       <div className='tut-container' >
+        
           {/* {props.selected} */}
           {selectedTutorial ? <TutorialDetails tutorial_id={selectedTutorial} onChange={() => setSelectedTutorial(null)} /> : renderTutorials()}
       </div>

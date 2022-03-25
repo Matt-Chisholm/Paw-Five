@@ -26,7 +26,7 @@ export default function Home (props) {
     axios
       .get(`api/home/users/${props.user_id}`)
         .then(success => {
-          console.log("HOME COMPONENT success", success.data[0]);
+          // console.log("HOME COMPONENT success", success.data[0]);
           const currentUser = success.data[0];
           // exclude sensitive info like password and email
           setUser({
