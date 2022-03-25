@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { RadialBarChart, RadialBar, Legend, Tooltip } from "recharts";
+import { RadialBarChart, RadialBar, Legend, Tooltip, Label, LabelList } from "recharts";
 import './Rainbow.scss'
 import axios from 'axios'
 
 export default function Rainbow (){
-  const [days, setDays] = useState([]);
+  const [days, setDays] = useState([]); // days, with an 's'
+  // days example: [{id: 1, name: 'monday', uv: 100, pv: 2000, fill: '#8884d8', ...]
   const [ day, setDay ] = useState("");
  
   // CONSTANTS
@@ -45,14 +46,14 @@ export default function Rainbow (){
   }, [day]);
 
 
-
+function test() {
+}
   // VIEW
   return (
     <div>
-      {/* <p> HELLO {day}</p> */}
       <RadialBarChart
         className="radialBarChart"
-        width={375}
+        width={380}
         height={400}
         // height={270}
         // cx={150}
@@ -61,30 +62,40 @@ export default function Rainbow (){
         outerRadius={350}
         barSize={80}
         data={days}
-        startAngle={0}
-        endAngle={360}
+        startAngle={200}
+        endAngle={340}
       >
       <RadialBar
-        minAngle={23}
-        label={{ position: "insideStart", fill: `#${days.fill}` }}
+        // minAngle={23}
+        label={{ 
+          position: "insideBottom", 
+          fill: `#FFD873`, 
+          dataKey: "name",
+          fontFamily: "Futura",
+        }}
         background
         clockWise
         dataKey="uv"
-      />
-      <Legend
+      >
+</RadialBar>
+
+      {/* <Label>
+        130
+        </Label> */}
+      {/* <Legend
         iconSize={50}
         width={150}
         height={100}
         layout="horizontal"
         verticalAlign="top"
         // wrapperStyle={style}
-      />
+      /> */}
       <Tooltip/>
       </RadialBarChart>
     </div>
-  )
+  );
 
-}
+};
 
 /*
 NOTE

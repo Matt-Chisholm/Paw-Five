@@ -22,27 +22,6 @@ export default function Tutorial(props) {
   }, []);
 
   
-  // const renderTutorials = () => {
-  //   return tutorials.map((tut, index) => {
-  //     const selectedVideo = classname('video-responsive', {'video-responsive-selected': props.selected === index})
-  //     return (
-	// 			<>
-	// 				<div key={index} className={selectedVideo} onClick={()=>props.onChange(index)}>
-	// 					<iframe
-	// 						src={tut.video_path}
-	// 						frameBorder='0'
-	// 						allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-	// 						allowFullScreen
-	// 						title='tutorial'
-	// 						poster=''
-  //             />
-  //             <h3>{tut.description}</h3>
-	// 				</div>
-	// 			</>
-	// 		);
-  //   });
-  // }
-
   {/* name, level, description, icon, video */}
   const renderTutorials = () => {
     return tutorials.map((tut) => {

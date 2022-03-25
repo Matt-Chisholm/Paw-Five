@@ -15,7 +15,7 @@ import Home from "./components/Home";
 
 export default function App(props) {
   const tabs = ["Home", "Training", "Profile"];
-  const [tab, setTab] = useState("Training");
+  const [tab, setTab] = useState("Home");
   const [cookies, setCookie, removeCookie] = useCookies(["user_id"]);
   const [isLoading, setIsLoading] = useState(false);
 
