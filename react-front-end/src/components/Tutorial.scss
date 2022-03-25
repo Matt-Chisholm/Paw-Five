@@ -47,11 +47,11 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
   background-color: blue;
   
   // font
-  padding-right: 6.5em;
   line-height: 24px;
   text-align: center;
   letter-spacing: 0.15em;
   color: rgba(0, 0, 0, 0.65);
+  padding-right: 6.5em;
 
   font: {
     family: "Futura";
@@ -60,12 +60,8 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
     size: 2.5em;
   }
 }
-.level {
-  height: 4.7vh;
-  background-color: green;
-}
-@media only screen and (max-width: 775px) {
 
+@media only screen and (max-width: 775px) {
   .tut-container {
     flex-direction: column;
     justify-content: flex-start;
@@ -82,12 +78,50 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
     white-space: normal;
     background-color: blue;
     padding-right: 1.3em;
-    
     font: {
       family: "Futura-Bold";
       style: normal;
       weight: 700;
       size: 1.3em;
+    }
+  }
+}
+
+.level {
+  height: 4.7vh;
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: green;
+  color: rgba(0, 0, 0, 10);
+
+  // font
+  line-height: 16px;
+  letter-spacing: 0.15em;
+  padding-right: 2.5em;
+  font: {
+    family: 'Futura';
+    style: italic;
+    weight: 500;
+    size: 1.6em;
+  }
+}
+@media only screen and (max-width: 775px) {
+  .level {
+    height: 4.7vh;
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: green;
+    color: rgba(0, 0, 0, 10);
+  
+    // font
+    line-height: 16px;
+    letter-spacing: 0.15em;
+    padding-right: 0.8em;
+    font: {
+      family: 'Futura';
+      style: italic;
+      weight: 400;
+      size: 0.8em;
     }
   }
 }

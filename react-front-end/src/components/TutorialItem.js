@@ -12,7 +12,7 @@ console.log("tutorialitems props", props);
           {props.name}
         </div>
         <div className="level">
-          {props.level}
+          <p>Level: {props.level}</p>
         </div>
       </div >
     </div>
