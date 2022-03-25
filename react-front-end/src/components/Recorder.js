@@ -124,7 +124,6 @@ export default function Recorder(props) {
   }, [dog]);
 
   const changeTutorialsButton = (currentText) => {
-    console.log("cur", currentText);
     switch (currentText) {
       case "tutorials":
         setViewTut("recorder");
@@ -161,6 +160,17 @@ export default function Recorder(props) {
         selectedTutorial={selectedTutorial}
         setSelectedTutorial={setSelectedTutorial}
         setViewTut={setViewTut}
+        viewTut={viewTut}
+        onChange={setSelected}
+        selected={selected}
+        changeBackButtonText={setTutorialsButtonText}
+      />}
+      {viewTut === "tutorial-details" && 
+      <Tutorial
+        selectedTutorial={selectedTutorial}
+        setSelectedTutorial={setSelectedTutorial}
+        setViewTut={setViewTut}
+        viewTut={viewTut}
         onChange={setSelected}
         selected={selected}
         changeBackButtonText={setTutorialsButtonText}

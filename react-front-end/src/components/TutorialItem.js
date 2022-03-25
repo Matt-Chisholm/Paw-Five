@@ -7,7 +7,6 @@ export default function TutorialItem(props) {
     <div
       className={`tutorial-item ${props.level}`}
       onClick={() => {
-        console.log("tut", props.tutorial_id);
         props.onClick();
         props.changeBackButtonAction();
         props.changeBackButtonText("Back to Tutorials");
@@ -24,7 +23,7 @@ export default function TutorialItem(props) {
         <div className="level">
           <p>Level: {props.level}</p>
         </div>
-      </div >
+      </div>
     </div>
   )
 }

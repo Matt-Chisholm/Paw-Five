@@ -8,11 +8,10 @@ import TutorialDetails from './TutorialDetails';
 
 export default function Tutorial(props) {
   const [tutorials, setTutorials] = useState([]);
-  const {selectedTutorial, setSelectedTutorial} = props;
+  const { selectedTutorial, setSelectedTutorial } = props;
 
   useEffect(() => {
     axios.get(`/api/tutorials`).then((response) => {
-      console.log("success from Tutorial.js component useEffect:", response.data);
       setTutorials(response.data);
     })
       .catch(error => {
@@ -31,7 +30,7 @@ export default function Tutorial(props) {
           name={tut.name}
           level={tut.level}
           icon={tut.icon}
-          onClick={() => {setSelectedTutorial(tut.id); console.log('tut.id', tut.id) }}
+          onClick={() => { setSelectedTutorial(tut.id) }}
           changeBackButtonAction={() => {
             props.setViewTut("tutorial-details")
           }}
@@ -41,7 +40,6 @@ export default function Tutorial(props) {
     });
   }
 
-  console.log("sel", selectedTutorial);
 
   // VIEW
   return (
@@ -49,7 +47,10 @@ export default function Tutorial(props) {
 
       {selectedTutorial ? <TutorialDetails
         tutorial_id={selectedTutorial}
-        /> : renderTutorials()}
+      /> : renderTutorials()}
+      {/* {props.viewTut === "tutorial-details" && <TutorialDetails
+        tutorial_id={selectedTutorial}
+        />} */}
     </div>
   )
 }
