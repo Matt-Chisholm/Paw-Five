@@ -18,6 +18,7 @@ export default function Recorder(props) {
   const [newSesh, setNewSesh] = useState(false);
   const [selected, setSelected ] = useState( selected || "nothing")
   const [dogID, setDogID] = useState();
+  const [tutorialsButtonText, setTutorialsButtonText] = useState("Tutorials");
 
   const start = () => {
     setRecordState(RecordState.START);
@@ -116,14 +117,15 @@ export default function Recorder(props) {
 
   // viewport
   return (
-    <div>
+    <div class="training-page">
       <button
         className="tut-button"
         onClick={() => {
           setViewTut(!viewTut);
+          setTutorialsButtonText(tutorialsButtonText === "Tutorials" ? "Back" : "Tutorials");
         }}
       >
-      Tutorials
+      {tutorialsButtonText}
       </button>
         {viewTut === true && <Tutorial 
           onChange={setSelected}
