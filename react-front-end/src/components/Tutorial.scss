@@ -1,5 +1,17 @@
 $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255, 216, 115, 0.15) 84.37%, rgba(255, 216, 115, 0.15) 89.06%);
 
+// CONDITIONAL COLORS FOR TUTORIAL ITEMS
+.easy {
+  background: linear-gradient(180deg, rgba(13, 196, 121, 0.52) 0%, #FFD873 100%);
+}
+.medium {
+  background: linear-gradient(180deg, rgba(196, 13, 13, 0.52) 0%, #FFD873 100%);
+}
+.expert {
+  background: linear-gradient(180deg, rgba(13, 20, 196, 0.52) 0%, #FFD873 100%);
+}
+
+
 .tut-container {
   width: 100%;
   height: 100%;
@@ -52,7 +64,6 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
   letter-spacing: 0.15em;
   color: rgba(0, 0, 0, 0.65);
   padding-right: 6.5em;
-
   font: {
     family: "Futura";
     style: normal;
@@ -87,6 +98,7 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
   }
 }
 
+// TEXT IN TUTORIAL ITEM. EXAMPLE: "LEVEL: EASY"
 .level {
   height: 4.7vh;
   display: flex;
