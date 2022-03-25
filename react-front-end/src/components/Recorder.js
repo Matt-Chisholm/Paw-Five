@@ -19,13 +19,14 @@ export default function Recorder(props) {
   const [recordState, setRecordState] = useState(null);
   const [audioData, setAudioData] = useState(null);
   const [witData, setWitData] = useState("nothing");
-  const [viewTut, setViewTut] = useState(false);
+  const [viewTut, setViewTut] = useState("recorder");
   const [play, setPlay] = useState(false);
   const [newSesh, setNewSesh] = useState(false);
   const [showNewSesh, setShowNewSesh] = useState(false);
   const [selected, setSelected ] = useState( selected || "nothing")
   const [dogID, setDogID] = useState();
   const [tutorialsButtonText, setTutorialsButtonText] = useState("Tutorials");
+  const [selectedTutorial, setSelectedTutorial] = useState();
 
   const start = () => {
     setRecordState(RecordState.START);
@@ -122,26 +123,58 @@ export default function Recorder(props) {
     });
   }, [dog]);
 
+  const changeTutorialsButton = (currentText) => {
+    switch (currentText) {
+      case "tutorials":
+        setViewTut("recorder");
+        setTutorialsButtonText("Tutorials");
+        break;
+      case "recorder":
+        setTutorialsButtonText("Back to Training");
+        setSelectedTutorial(null);
+        setViewTut("tutorials")
+        break;
+      case "tutorial-details":
+        setViewTut("tutorials")
+        setTutorialsButtonText("Back to Training");
+        setSelectedTutorial(null);
+        break;
+    }
+  };
+
   // VIEW
   return (
     <div className="training-page">
-
       <button
         className="tut-button"
         onClick={() => {
-          setViewTut(!viewTut);
-          setTutorialsButtonText(tutorialsButtonText === "Tutorials" ? "Back" : "Tutorials");
+          changeTutorialsButton(viewTut);
         }}
       >
       {tutorialsButtonText}
       </button>
 
-      {viewTut === true && 
-      <Tutorial 
+      {viewTut === "tutorials" && 
+      <Tutorial
+        selectedTutorial={selectedTutorial}
+        setSelectedTutorial={setSelectedTutorial}
+        setViewTut={setViewTut}
+        viewTut={viewTut}
         onChange={setSelected}
         selected={selected}
+        changeBackButtonText={setTutorialsButtonText}
       />}
-      {viewTut === false && 
+      {viewTut === "tutorial-details" && 
+      <Tutorial
+        selectedTutorial={selectedTutorial}
+        setSelectedTutorial={setSelectedTutorial}
+        setViewTut={setViewTut}
+        viewTut={viewTut}
+        onChange={setSelected}
+        selected={selected}
+        changeBackButtonText={setTutorialsButtonText}
+      />}
+      {viewTut === "recorder" && 
       <div>
         <div className="recorder">
           <div className="overlay">

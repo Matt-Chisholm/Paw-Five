@@ -11,6 +11,9 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
   background: linear-gradient(180deg, rgba(13, 20, 196, 0.52) 0%, #FFD873 100%);
 }
 
+.training-page {
+  margin-bottom: 11vh;
+}
 
 .tut-container {
   width: 100%;
@@ -28,6 +31,7 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
   margin-top: 2vh;
   margin-bottom: 10vh;
   position: relative;
+  padding: 1vh 0;
 }
 
 //
@@ -46,6 +50,7 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
   height: 12vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   img {
     width: 8vw;
     height: auto;

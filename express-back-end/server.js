@@ -71,8 +71,20 @@ App.get('/api/sessions', (req, res) => {
   })
 });
 
+// tutorials
 App.get('/api/tutorials', (req, res) => {
   db.query('SELECT * FROM TUTORIALS;')
+    .then( (success) =>  {
+    console.log("success api tutorials", success.rows);
+    res.send(success.rows);
+  })
+  .catch( (err) => {
+    console.log("error in api/tutorial: ", err);
+  })
+});
+
+App.get('/api/tutorial/details/:id', (req, res) => {
+  db.query('SELECT * FROM TUTORIALS WHERE id=$1;', [req.params.id])
     .then( (success) =>  {
     console.log("success api tutorials", success.rows);
     res.send(success.rows);

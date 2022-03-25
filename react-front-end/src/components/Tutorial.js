@@ -8,41 +8,49 @@ import TutorialDetails from './TutorialDetails';
 
 export default function Tutorial(props) {
   const [tutorials, setTutorials] = useState([]);
-  const [selectedTutorial, setSelectedTutorial] = useState();
-  
+  const { selectedTutorial, setSelectedTutorial } = props;
+
   useEffect(() => {
     axios.get(`/api/tutorials`).then((response) => {
-      console.log("success from Tutorial.js component useEffect:", response.data);
       setTutorials(response.data);
     })
-    .catch(error => {
-      console.log("error from Tutorial.js component useEffect: ", error);
-    })
-    ;
+      .catch(error => {
+        console.log("error from Tutorial.js component useEffect: ", error);
+      })
+      ;
   }, []);
 
-  
-  {/* name, level, description, icon, video */}
   const renderTutorials = () => {
-    return tutorials.map((tut) => {
+    return tutorials.map((tut, index) => {
       return (
-            <TutorialItem 
-              tutorial_id={tut.id} 
-              name={tut.name} 
-              level={tut.level}
-              icon={tut.icon}
-              onChange={setSelectedTutorial} 
-            /> 
-			);
+        <TutorialItem
+          key={index}
+          tutorial_id={tut.id}
+          name={tut.name}
+          level={tut.level}
+          icon={tut.icon}
+          onClick={() => { setSelectedTutorial(tut.id) }}
+          changeBackButtonAction={() => {
+            props.setViewTut("tutorial-details")
+          }}
+          changeBackButtonText={props.changeBackButtonText}
+        />
+      );
     });
   }
 
+
   // VIEW
   return (
-      <div className='tut-container'>
+    <div className='tut-container'>
 
-        {selectedTutorial ? <TutorialDetails tutorial_id={selectedTutorial} onChange={() => setSelectedTutorial(null)} /> : renderTutorials()}
-      </div>
+      {selectedTutorial ? <TutorialDetails
+        tutorial_id={selectedTutorial}
+      /> : renderTutorials()}
+      {/* {props.viewTut === "tutorial-details" && <TutorialDetails
+        tutorial_id={selectedTutorial}
+        />} */}
+    </div>
   )
 }
 
