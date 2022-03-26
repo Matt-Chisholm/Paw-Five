@@ -18,9 +18,8 @@ export default function Memuries(props) {
   const renderMemuries = (memuries) => {
     return memuries.reverse().map((mem, index) => {
       return (
-        <div key={index} className="memury-container">
-          <h3>{mem.name}</h3>
-          <img src={mem.photo} alt="" />
+        <div key={index} className="memury-unit">
+          <img name={mem.name} src={mem.photo} alt={index} />
         </div>
       );
     });
@@ -31,9 +30,9 @@ export default function Memuries(props) {
     <div className="memuries-component">
       <section className="memuries__top">
         <NewMemury render={render} setRender={() => setRender(!render)} />
+        <h1 className="mem-text"> Keep going!</h1>
       </section>
       <section className="memuries__bottom">
-        <h1 className="mem-text">Your pups memuries!</h1>
         {renderMemuries(memuries)}
       </section>
     </div>

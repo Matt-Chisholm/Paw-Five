@@ -37,22 +37,18 @@ export default function NewMemury(props) {
         <form className='memuries-form'>
           <h2>Paws & Save</h2>
           <h4>training memuries</h4>
-          {/* <label for="userId">Pup's Name</label> */}
           <input
             placeholder="Doggo's name here"
             type="text"
             value={dogName}
             onChange={(e) => setDogName(e.target.value)}
             />
-          
-          {/* <label for="userId">Image URL</label> */}
           <input
             placeholder="URL goes here"
             type="text"
             value={image}
             onChange={(e) => setImage(e.target.value)}
           />
-          
           <button type="submit" onClick={(e) => {postMemury(); e.preventDefault(); }}>Create</button>
         </form>
       // </div>
