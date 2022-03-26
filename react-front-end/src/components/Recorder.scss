@@ -9,7 +9,7 @@
 
 // TUTORIAL BUTTON 
 .tut-button {
-  width: 20vw;
+  width: 60vw;
   height: auto;
   background: rgba(255, 216, 115, 0.75);
   box-shadow: inset 0px -3px 4px rgba(0, 0, 0, 0.25);
@@ -19,19 +19,12 @@
   font-style: normal;
   font-weight: 700;
   font-size: 1.5em;
-  line-height: 1em;
+  // line-height: 1.5em;
   text-align: center;
   letter-spacing: 0.15em;
   // margin-top: 2em;
   color: rgba(0, 0, 0, 0.8);
-  margin-bottom: 2vw;
-}
-@media only screen and (max-width: 775px) {
-  .tut-button {  
-    width: 60vw;
-    height: 6.3vh;
-    // margin-top: 1em;
-  }  
+  // margin-bottom: 2vw;
 }
 
 .dropdown-menu {
