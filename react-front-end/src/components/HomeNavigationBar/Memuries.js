@@ -29,9 +29,13 @@ export default function Memuries(props) {
 
   return (
     <div className="memuries-component">
-      <NewMemury render={render} setRender={() => setRender(!render)} />
-      <h1 className="mem-text">Your pups memuries!</h1>
-      {renderMemuries(memuries)}
+      <section className="memuries__top">
+        <NewMemury render={render} setRender={() => setRender(!render)} />
+      </section>
+      <section className="memuries__bottom">
+        <h1 className="mem-text">Your pups memuries!</h1>
+        {renderMemuries(memuries)}
+      </section>
     </div>
   );
 }
