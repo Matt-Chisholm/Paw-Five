@@ -35,6 +35,8 @@ export default function Memuries(props) {
       <section className="memuries__bottom">
         {renderMemuries(memuries)}
       </section>
+      <br/>
+      <h3 className="mem-text">You've dug to the bottom. Woof.</h3>
     </div>
   );
 }
