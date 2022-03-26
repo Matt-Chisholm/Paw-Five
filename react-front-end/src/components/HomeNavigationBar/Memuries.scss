@@ -15,19 +15,40 @@
   align-items: center;
   border-radius: 20px;
   background: rgba(13, 163, 196, 0.15);
-  margin: 0.1vw;
+
   padding: 1vw;
+  margin: 2vh 0.1vw 2vh 0.1vw;
 
   font-family: $primary_font;
-  color: $primary_2;
+    color: $primary_2;
+  letter-spacing: 0.10em;
+  h2 {
+    font: {
+      weight: medium;
+      style: normal;
+    }
+  }
+  
+  button {
+    width: 55vw;
+    height: auto;
+    background: rgba(255, 216, 115, 0.75);
+    box-shadow: inset 0px -3px 4px rgba(0, 0, 0, 0.25);
+    border-color: beige;
+    border-radius: 20px;
+    font-family: $primary_font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5em;
+    // font-size: 1.2em;
+    text-align: center;
+    letter-spacing: 0.15em;
+    color: rgba(0, 0, 0, 0.48);
+    padding:1.2vw;
+    margin: 2.5vw;
+  }
 }
 
-.new-memury h1 {
-  font-family: "Futura";
-  font-weight: medium;
-  font-style: normal;
-  margin: 2vw;
-}
 
 .memury-container img {
   width: 400px;
@@ -50,23 +71,6 @@
   margin: 2vw;
 }
 
-.mem-button {
-  width: 20vw;
-  height: auto;
-  background: rgba(255, 216, 115, 0.75);
-  box-shadow: inset 0px -3px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  border-color: beige;
-  font-family: "Futura";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.2em;
-  text-align: center;
-  letter-spacing: 0.15em;
-  color: rgba(0, 0, 0, 0.8);
-  padding:1.2vw;
-  margin: 2.5vw;
-}
               
 .mem-text {
   font-family: "Boogaloo", cursive;

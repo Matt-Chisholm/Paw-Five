@@ -55,7 +55,7 @@ export default function NewMemury(props) {
           
           <br />
           
-          <button className='mem-button' type="submit" onClick={(e) => {postMemury(); e.preventDefault(); }}>Create</button>
+          <button type="submit" onClick={(e) => {postMemury(); e.preventDefault(); }}>Create</button>
         </form>
       // </div>
   )
