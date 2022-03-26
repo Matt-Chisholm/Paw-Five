@@ -14,7 +14,7 @@ export default function Social(props) {
 
   const renderArticles = () => {
     return articles.map((article, index) => {
-      return <div key={index} className="articleItem" onClick={()=> window.open(`${article.url}`, "_blank")}>
+      return <div key={index} className="articleItem" onClick={() => window.open(`${article.url}`, "_blank")}>
         <h3 className="articleTitle">{article.title}</h3>
         <img className="articleImage" src={article.urlToImage} />
       </div>
@@ -22,8 +22,12 @@ export default function Social(props) {
   }
 
   return (
-    <div className="social-component">
-      {articles.length > 0 && renderArticles()}
-    </div>
+    <>
+      {articles.length > 0 &&
+        <div className="social-component">
+          {renderArticles()}
+        </div>
+      }
+    </>
   )
 }

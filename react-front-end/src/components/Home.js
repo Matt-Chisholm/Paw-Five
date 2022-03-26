@@ -52,7 +52,7 @@ export default function Home (props) {
   return (
     <div className='homeComponent'>
       <HomeNavigationBar tab={selected} tabs={tabs} onChange={setSelected}/>
-      {selected === "Stats" && 
+      {selected === "Stats" && user.id &&
         <>
           <div className='home-top' >
             <img className='ring' src={ring} alt="home-profile-ring" onClick={() => playClick()}/>
