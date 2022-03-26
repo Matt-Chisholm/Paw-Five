@@ -17,10 +17,12 @@ export default function Session(props) {
   }, [props.name]);
 
   useEffect(() => {
-    axios.get(`/api/session/${props.name}/${dogID}`).then((response) => {
-      setSessions(response.data);
-      console.log("SESSIONS", response.data);
-    });
+    if (props.name !== undefined && dogID !== undefined) {
+      axios.get(`/api/session/${props.name}/${dogID}`).then((response) => {
+        setSessions(response.data);
+        console.log("SESSIONS", response.data);
+      });
+    }
   }, [dogID]);
 
   const renderSessions = (sessions) => {
