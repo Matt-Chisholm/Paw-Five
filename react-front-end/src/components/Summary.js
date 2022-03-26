@@ -1,57 +1,111 @@
 import react, { useState, useEffect } from 'react';
+import './Summary.scss'
 import axios from 'axios';
+
+import whistle from './images/stat-whistle.svg';
+import graduate from './images/stat-graduate.svg';
+import heart from './images/stat-heart.svg';
+
 
 
 export default function Summary () {
-const [ sessionCount, setSessionCount ] = useState(0)
-const [ skillCount, setSkillCount ] = useState(0)
-const [ memuryCount, setMemuryCount ] = useState(0)
+const [ summaryTotal, setSummaryTotal ] = useState({
+  sessions: 0,
+  skills: 0,
+  memuries: 0,
+});
 
-// can try to combine state later
-// const [ summaryTotal, setSummaryTotal ] = useState({
-//   sessions: 0,
-//   skills: 0,
-//   memuries: 0,
-// });
-
-
-
-  // request for total skills
-  // request for total memuries. will have to make db for that
-  
-  
-// request for total sessions
-// update on first load and everytime a session is created
+// retrieves statistics
 useEffect(() => {
+  const getSessionsTotalURL = axios.get('/api/home/summary/sessions');
+  const getSkillsTotalURL = axios.get('/api/home/summary/skills');
+  const getMemuriesTotalURL = axios.get('api/home/summary/memuries');
+  
+  const promises = [ 
+    getSessionsTotalURL,
+    getSkillsTotalURL, 
+    getMemuriesTotalURL 
+  ];
 
-  const getSessionsTotalURL = axios.get('/api/home/sessions-total');
-  const getSkillsTotalURL = axios.get('/api/home/skills-total');
-  const getMemuriesTotalURL = axios.get('api/home/memuries-total');
-
-  const promises = [ getSessionsTotalURL, getSkillsTotalURL, getMemuriesTotalURL ];
-
-  Promise.all(promises)
+Promise.all(promises)
     .then(all => {
-
-      // once figured out which data is which set the state
-      // setSessionCount();
-      // setSkillCount();
-      // setMemuryCount();
-      console.log("success for Promise.all summary component", all)
+      setSummaryTotal(prev => {
+        const sessions = all[0].data[0].count;
+        const skills = all[1].data[0].count;
+        const memuries = all[2].data[0].count;
+        return {
+          ...prev,
+          sessions,
+          skills,
+          memuries
+        };
+      });
     })
     .catch(error => {
-      console.log("Summary component Promise.all error ", error.data);
-    });
-
-}, [])
-
+      console.log("Summary component Promise.all error ", error);
+    });  
+}, []);
 
   return (
+    <div>
+
+    {/* <img src={cross}/> */}
     <div className='summary'>
-      Sessions: {sessionCount} 
-      Skills: {skillCount} 
-      Memuries: {memuryCount}
-      <p>HELLO SUMMARY</p>
+      <section>
+        <h1>
+          {summaryTotal.sessions}
+        </h1>
+        <h4>
+          <p>
+            Sessions 
+          </p>
+          <p>
+            completed
+          </p>
+        </h4>
+      </section>
+      <section>
+        <h1>
+          {summaryTotal.skills} 
+        </h1>
+        <h4>
+          <p>
+            Skills 
+          </p>
+          <p>
+            mastered
+          </p>
+        </h4>
+      </section>
+      <section>
+        <h1>
+          {summaryTotal.memuries}
+        </h1>
+        <h4>
+          <p>
+            Memuries 
+          </p>
+          <p>
+            created
+          </p>
+        </h4>
+      </section>
+      <section>
+        <h1>
+            0
+        </h1>
+        <h4>
+          <p>
+            shits
+          </p>
+          <p>
+            taken
+          </p>
+        </h4>
+      </section>
     </div>
+
+    </div>
+
   );
 };

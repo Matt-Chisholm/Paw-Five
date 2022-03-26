@@ -1,2 +1,24 @@
 @import 'colors';
 
+// #root > div > div > div.home-bottom > article > div > div > svg > g > g.recharts-layer.recharts-radial-bar-background
+
+
+// rainbow chart background
+.recharts-wrapper .radialBarChart {
+  // overflow: hidden;
+}
+// .recharts-radial-barCch
+.recharts-radial-bar-sectors {
+  // opacity: 45%;
+}
+
+
+// this is for each bar
+.recharts-layer {
+  path {
+    // background: linear-gradient(180deg, white 20%, black 100%);
+    // fill: url($primary_3);
+    // opacity: 60%;
+  }
+
+}

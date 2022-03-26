@@ -1,4 +1,4 @@
-$backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255, 216, 115, 0.15) 84.37%, rgba(255, 216, 115, 0.15) 89.06%);
+@import 'colors';
 
 // CONDITIONAL COLORS FOR TUTORIAL ITEMS
 .easy {
@@ -63,7 +63,6 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
     }
   }
 }
-
 
 
 .right-side {

@@ -82,7 +82,7 @@ export default function Rainbow (){
         label={{ 
           position: "inside",
           offset: 1, 
-          fill: `#FFD873`, 
+          fill: `#0DA4C5`, 
           dataKey: "name",
           fontFamily: "Futura",
           fontSize: "1.5em",
@@ -90,7 +90,6 @@ export default function Rainbow (){
         background
         clockWise
         dataKey="uv"
-        animationEasing='ease-out'
       >
       </RadialBar>
       <Tooltip
