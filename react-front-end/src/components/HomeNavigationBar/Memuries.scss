@@ -20,33 +20,59 @@
   margin: 2vh 0.1vw 2vh 0.1vw;
 
   font-family: $primary_font;
-    color: $primary_2;
+  color: $primary_2;
   letter-spacing: 0.10em;
+
   h2 {
     font: {
       weight: medium;
       style: normal;
+      size: 2.0em;
     }
   }
   
+  input {
+    width: 55vw;
+    height: 8vh;
+    background-color: $primary_3;
+    opacity: 50%;
+    border-radius: 0px;
+    margin: 1em;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    letter-spacing: 0.15em;
+    border: white;
+    font: {
+      family: 'Boogaloo';
+      size: 20px;
+      // color: black;
+    }
+
+  }
   button {
     width: 55vw;
     height: auto;
+    padding:1.2vw;
+    margin: 2.5vw;
+    margin-top: 3.0vh;
+
     background: rgba(255, 216, 115, 0.75);
     box-shadow: inset 0px -3px 4px rgba(0, 0, 0, 0.25);
     border-color: beige;
     border-radius: 20px;
-    font-family: $primary_font;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1.5em;
-    // font-size: 1.2em;
+
     text-align: center;
     letter-spacing: 0.15em;
     color: rgba(0, 0, 0, 0.48);
-    padding:1.2vw;
-    margin: 2.5vw;
+    font: {
+      family: $primary_font;
+      style: normal;
+      weight: 700;
+      size: 1.5em;
+    }
   }
+
 }
 
 
