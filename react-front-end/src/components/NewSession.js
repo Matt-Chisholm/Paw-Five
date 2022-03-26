@@ -53,6 +53,7 @@ export default function NewSession(props) {
           <h3 className="details">Let us know how it goes:</h3>
           <div className="dropdown-menu">
             <select
+              value="select"
               type="text"
               id="result"
               name="result"
@@ -60,7 +61,7 @@ export default function NewSession(props) {
                 setResult(event.target.value);
                 event.preventDefault();
               }}>
-              <option selected>Select your option</option>
+              <option value="select">Select your option</option>
               <option value="Great!">Great!</option>
               <option value="Good">Good</option>
               <option value="Ok...">Ok...</option>
