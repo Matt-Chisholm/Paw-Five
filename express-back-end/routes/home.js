@@ -163,7 +163,8 @@ module.exports = (db) => {
       .catch((error) => {
         console.log("home route error memuries: ", error);
       });
-=======
+    });
+    
   router.get("/summary/sessions", (req, res) => {
     db.query(`
       SELECT COUNT(*)
