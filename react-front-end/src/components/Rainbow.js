@@ -10,7 +10,7 @@ export default function Rainbow (){
  
   const [ viewPort, setViewPort ] = useState(null);
   const [ mobileView, setMobileView ] = useState("true");
-  const [ rainbowWidth, setRainbowWidth ] = useState(380);
+  const [ rainbowWidth, setRainbowWidth ] = useState(410);
   
   
   // CONSTANTS

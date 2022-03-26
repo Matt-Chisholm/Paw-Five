@@ -42,20 +42,15 @@
   height: 12vh;
   border-radius: 20px;
   display: flex;
+  svg {
+    width: inherit;
+    height: inherit;
+    padding: 1em;
+  }
 }
 
-svg {
-  width: inherit;
-  height: inherit;
-  padding: 1em;
-}
 
 // FOR ICON IN TUTORIAL ITEM BOX. used 40px/40px svg
-// .__Sitting {
-//   background: center / contain no-repeat url('./images/sit.svg');
-//   background-size: initial;
-// }
-
 .icon {
   width: 20vw;
   height: 12vh;
@@ -68,16 +63,13 @@ svg {
   // }
 }
 @media only screen and (max-width: 775px) {
-  // .icon {
-  //   img {
-  //     width: auto;
-  //   }
-  // }
 }
 
 
 .right-side {
   width: 53vw;  
+  white-space: nowrap;
+
 }
 .title {
   height: 7.3vh;
