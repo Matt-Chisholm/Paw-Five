@@ -1,0 +1,28 @@
+.social-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em 0;
+  gap: 0.5em;
+
+  .articleItem {
+    position: relative;
+    text-align: left;
+    width: 90vw;
+    
+    .articleTitle {
+      position: absolute;
+      bottom: 0;
+      margin: 0.8em;
+      color: white;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+    
+    .articleImage {
+      width: 100%;
+      height: auto;
+      border: 2px solid black;
+      border-radius: 20px;
+    }
+  }
+}
