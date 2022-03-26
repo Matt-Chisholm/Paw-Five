@@ -45,37 +45,43 @@ export default function NewSession(props) {
   return (
     <div className="training-details">
       {props.dog && <div>
-      <h2 className="detail-title">Started New Session:</h2>
-      <h3 className="details">Dog you are training: {props.dog}</h3>
-      <h3 className="details">Skill you are training: {props.skill || "Couldn't detect skill."}</h3>
+        <h2 className="detail-title">Started New Session:</h2>
+        <h3 className="details">Dog you are training: {props.dog}</h3>
+        <h3 className="details">Skill you are training: {props.skill || "Couldn't detect skill."}</h3>
 
-      <form>
-        <h3 className="details">Let us know how it goes:</h3>
-        <input
-          type="text"
-          id="result"
-          name="result"
-          onChange={(event) => {
-            setResult(event.target.value);
-            event.preventDefault();
-          }}
-        />
-        <button
-          type="submit"
-          className="tut-button"
-          onClick={(event) => {
-            newSession();
-            event.preventDefault();
-            props.setNewSesh();
-          }}
-        >
-          Done Training
-        </button>
-      </form>
+        <form>
+          <h3 className="details">Let us know how it goes:</h3>
+          <div className="dropdown-menu">
+            <select
+              type="text"
+              id="result"
+              name="result"
+              onChange={(event) => {
+                setResult(event.target.value);
+                event.preventDefault();
+              }}>
+              <option selected>Select your option</option>
+              <option value="Great!">Great!</option>
+              <option value="Good">Good</option>
+              <option value="Ok...">Ok...</option>
+            </select>
+          </div>
+          <button
+            type="submit"
+            className="tut-button"
+            onClick={(event) => {
+              newSession();
+              event.preventDefault();
+              props.setNewSesh();
+            }}
+          >
+            Done Training
+          </button>
+        </form>
       </div>
       }
       {!props.dog &&
-      <h3>Couldn't quite catch that! Try again!</h3>}
+        <h3>Couldn't quite catch that! Try again!</h3>}
     </div>
   );
 }

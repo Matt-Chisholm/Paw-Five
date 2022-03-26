@@ -19,7 +19,7 @@ export default function Sessions(props) {
 
 
   let sessionRows = () => {
-    return sessions.map((session, index) => {
+    const temp = sessions.map((session, index) => {
       const okClass = classNames('result', {'selected': session.result.toLowerCase() === 'ok...'});
       const goodClass = classNames('result', {'selected': session.result.toLowerCase() === 'good'});
       const greatClass = classNames('result', {'selected': session.result.toLowerCase() === 'great!'});
@@ -41,6 +41,7 @@ export default function Sessions(props) {
         </div>
       </li>
     });
+    return temp.reverse();
   }
   
   return (
