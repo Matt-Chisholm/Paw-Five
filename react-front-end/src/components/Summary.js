@@ -7,6 +7,15 @@ const [ sessionCount, setSessionCount ] = useState(0)
 const [ skillCount, setSkillCount ] = useState(0)
 const [ memuryCount, setMemuryCount ] = useState(0)
 
+// can try to combine state later
+// const [ summaryTotal, setSummaryTotal ] = useState({
+//   sessions: 0,
+//   skills: 0,
+//   memuries: 0,
+// });
+
+
+
   // request for total skills
   // request for total memuries. will have to make db for that
   
@@ -28,10 +37,10 @@ useEffect(() => {
       // setSessionCount();
       // setSkillCount();
       // setMemuryCount();
-      console.log("success for all summary component", all)
+      console.log("success for Promise.all summary component", all)
     })
     .catch(error => {
-      console.log("Summary component error ", error.data);
+      console.log("Summary component Promise.all error ", error.data);
     });
 
 }, [])
@@ -39,9 +48,9 @@ useEffect(() => {
 
   return (
     <div className='summary'>
-      {/* {sessionCount} */}
-      {/* {skillCount} */}
-      {/* {memuryCount} */}
+      Sessions: {sessionCount} 
+      Skills: {skillCount} 
+      Memuries: {memuryCount}
       <p>HELLO SUMMARY</p>
     </div>
   );

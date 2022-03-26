@@ -101,5 +101,46 @@ module.exports = (db) => {
     })
   })
 
+  // GET TOTAL COUNT OF SESSIONS, dep: Summary.js
+  router.get("/sessions-total", (req, res) => {
+    db.query(`
+      SELECT COUNT(*)
+      FROM sessions;
+    `)
+    .then(total => {
+      console.log("success", total);
+    })
+    .catch(error => {
+      console.log("home route error sessions total: ", error);
+    })
+  });
+  // GET TOTAL COUNT OF SKILLS, dep: Summary.js
+  router.get("/skills-total", (req, res) => {
+    db.query(`
+      SELECT COUNT(DISTINCT skills)
+      FROM sessions;
+    `)
+    .then(total => {
+      console.log("success", total);
+    })
+    .catch(error => {
+      console.log("home route error skills total: ", error);
+    })
+  });
+  // GET TOTAL COUNT OF MEMURIES (photos), dep: Summary.js
+  router.get("/memuries-total", (req, res) => {
+    db.query(`
+      SELECT COUNT(*)
+      FROM memuries;
+    `)
+    .then(total => {
+      console.log("success", total);
+    })
+    .catch(error => {
+      console.log("home route error memuries: ", error);
+    })
+  });
+
+
   return router;
 };
