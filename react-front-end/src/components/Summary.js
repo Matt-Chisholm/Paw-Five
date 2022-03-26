@@ -1,4 +1,5 @@
 import react, { useState, useEffect } from 'react';
+import './Summary.scss'
 import axios from 'axios';
 
 
@@ -42,9 +43,18 @@ Promise.all(promises)
 
   return (
     <div className='summary'>
-      Sessions: {summaryTotal.sessions} 
-      Skills: {summaryTotal.skills} 
-      Memuries: {summaryTotal.memuries}
+      <section>
+        Sessions: {summaryTotal.sessions} 
+      </section>
+      <section>
+        Skills: {summaryTotal.skills} 
+      </section>
+      <section>
+        Memuries: {summaryTotal.memuries}
+      </section>
+      <section>
+        Empty
+      </section>
     </div>
   );
 };

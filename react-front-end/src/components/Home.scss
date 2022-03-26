@@ -30,14 +30,14 @@
   justify-content: center;
 }
 .home-bottom {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
   background: 
-    // $backgroundgrad_1_reverse,
   linear-gradient(0deg, rgba(13, 163, 196, 0.6) 0%, rgba(255, 216, 115, 0) 84.37%, rgba(255, 255, 255, 0.5) 50.06%);
     // linear-gradient(0deg, rgba(13, 163, 196, 0.85) 100%, rgba(255, 255, 255, 1), 100%);
     // url("https://www.transparenttextures.com/patterns/foggy-birds.png");
-  display: flex;
-  flex-direction: column;
   min: {
     width: 375px;
   } 
