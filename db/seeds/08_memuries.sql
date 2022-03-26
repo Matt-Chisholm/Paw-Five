@@ -1,0 +1,1 @@
+INSERT INTO memuries (name, dog_id, photo) VALUES ('Doogy ');

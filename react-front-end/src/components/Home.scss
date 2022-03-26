@@ -7,6 +7,9 @@
 .homeComponent {
   width: 100%;
   height: 100%;
+  // to float above navbar:
+  margin-bottom: 10.4vh;
+  
 }
 
 .header {
@@ -27,6 +30,8 @@
   justify-content: center;
 }
 .home-bottom {
+  display: flex;
+  flex-direction: column;
   min: {
     height: 61vh;
     width: 375px;
@@ -36,10 +41,13 @@
     image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
   }
   // opacity: 16%;
-  border-radius: 20px;
+  border-radius: 20px 20px 0px 0px;
+
+  // parent of Rainbow component
   article {
     display: flex;
     justify-content: center;
+    width: 100%;
   }
 }
 .user-image {

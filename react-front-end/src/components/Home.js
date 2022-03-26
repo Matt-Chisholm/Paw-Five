@@ -10,7 +10,7 @@ import Health from './HomeNavigationBar/Health';
 import Memuries from './HomeNavigationBar/Memuries';
 import Social from './HomeNavigationBar/Social';
 import Stats from './HomeNavigationBar/Stats';
-
+import Summary from './Summary';
 
 export default function Home (props) {
   const [selected, setSelected] = useState("Stats");
@@ -61,6 +61,7 @@ export default function Home (props) {
             <article>
               <Rainbow />
             </article>
+              <Summary />
           </div>
         </>
       }
