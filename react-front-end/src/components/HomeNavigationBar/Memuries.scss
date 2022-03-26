@@ -1,0 +1,22 @@
+.memury-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 40%;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255, 216, 115, 0.15) 84.37%, rgba(255, 216, 115, 0.15) 89.06%);
+  border-radius: 62px;
+  width: 90%;
+  margin: 2em;
+  padding: 1em;
+}
+
+.memury-container img {
+  width: 400px;
+  border-radius: 30%;
+  box-shadow: 2px 2px 5px rgba(#000, .2), 
+							2px 2px 17px rgba(#000, .35), 
+							2px 2px 25px rgba(#000, .5);     
+}
+              
