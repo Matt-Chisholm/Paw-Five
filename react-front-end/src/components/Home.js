@@ -4,12 +4,13 @@ import axios from 'axios'
 import useSound from 'use-sound';
 import ring from './images/home-profile-ring.svg'
 import audio from "../sounds/squeeze4.mp3"
-import Rainbow from './Rainbow';
 import HomeNavigationBar from './HomeNavigationBar/HomeNavigationBar';
 import Health from './HomeNavigationBar/Health';
 import Memuries from './HomeNavigationBar/Memuries';
 import Social from './HomeNavigationBar/Social';
 import Stats from './HomeNavigationBar/Stats';
+
+import Rainbow from './Rainbow';
 import Summary from './Summary';
 
 export default function Home (props) {
