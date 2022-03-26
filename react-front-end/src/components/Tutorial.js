@@ -12,9 +12,9 @@ export default function Tutorial(props) {
   const { selectedTutorial, setSelectedTutorial } = props;
 
   useEffect(() => {
-      axios.get(`/api/tutorials`).then((response) => {
-        setTutorials(response.data);
-      })
+    axios.get(`/api/tutorials`).then((response) => {
+      setTutorials(response.data);
+    })
       .catch(error => {
         console.log("error from Tutorial.js component useEffect: ", error);
       });
@@ -43,26 +43,19 @@ export default function Tutorial(props) {
   // VIEW
   return (
     <>
+      {selectedTutorial &&
 
-
-      {
-        props.isLoading ? <div className='tutorial-spinner'><LoadingSpinner /></div> :
-          <>
-            {selectedTutorial &&
-
-              <div className='tut-container'>
-                <TutorialDetails
-                  tutorial_id={selectedTutorial}
-                />
-              </div>
-            }
-          </>
+        <div className='tut-container'>
+          <TutorialDetails
+            tutorial_id={selectedTutorial}
+          />
+        </div>
       }
-            {!selectedTutorial && tutorials.length > 0 &&
-              <div className='tut-container'>
-                {renderTutorials()}
-              </div>
-            }
+      {!selectedTutorial && tutorials.length > 0 &&
+        <div className='tut-container'>
+          {renderTutorials()}
+        </div>
+      }
     </>
   )
 }

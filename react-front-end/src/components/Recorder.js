@@ -117,10 +117,10 @@ export default function Recorder(props) {
       })
       .then((witResponse) => {
         console.log(witResponse.data, typeof witResponse.data);
+        props.setIsLoading(false);
         if (typeof witResponse.data === "string") {
           setWitData(witResponse.data);
           setNewSesh(true);
-          props.setIsLoading(false);
         }
       })
       .catch((error) => {
@@ -184,8 +184,6 @@ export default function Recorder(props) {
 
       {viewTut.includes("tutorial") &&
         <Tutorial
-          isLoading={props.isLoading} 
-          setIsLoading={props.setIsLoading}
           selectedTutorial={selectedTutorial}
           setSelectedTutorial={setSelectedTutorial}
           setViewTut={setViewTut}
@@ -221,7 +219,7 @@ export default function Recorder(props) {
               <h3 className="tap-above">Tap above to start training!</h3>
               <h3 className="tap-above">Please tell us your dog's name and the skill you are training.</h3>
               {newSesh === true &&
-                <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} id={dogID} newSesh={newSesh} setNewSesh={() => { setNewSesh(!newSesh) }} showNewSesh={showNewSesh} setShowNewSesh={() => { setShowNewSesh(true) }} />
+                <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} id={dogID} newSesh={newSesh} setNewSesh={() => { setNewSesh(!newSesh) }} showNewSesh={showNewSesh} setShowNewSesh={() => { setShowNewSesh(true) }} witData={witData} />
               }
               {showNewSesh === true && <CreatedSession />}
               {dog.length > 2 && <Session name={dogFinder(witData)} />}
