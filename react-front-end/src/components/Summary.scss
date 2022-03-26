@@ -2,8 +2,23 @@
 @import 'colors';
 
 .summary {
-  width: 82.4vw;
+  width: 82.99vw;
   height: 32.7vh;
   border-style: dashed;
   border-color: black;
+  margin: 5px;
+
+  display: flex;
+  flex-wrap: wrap;
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    min-width: 154px;
+    min-height: 123px;
+    width: 41.0vw;
+    height: 16.3vh;
+    background-color: green;
+  }
 }

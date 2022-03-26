@@ -44,16 +44,54 @@ Promise.all(promises)
   return (
     <div className='summary'>
       <section>
-        Sessions: {summaryTotal.sessions} 
+        <h1>
+          {summaryTotal.sessions}
+        </h1>
+        <h4>
+          <p>
+            Sessions 
+          </p>
+          <p>
+            completed
+          </p>
+        </h4>
       </section>
       <section>
-        Skills: {summaryTotal.skills} 
+        <h1>
+          {summaryTotal.skills} 
+        </h1>
+        <h4>
+          <p>
+            Skills 
+          </p>
+          <p>
+            mastered
+          </p>
+        </h4>
       </section>
       <section>
-        Memuries: {summaryTotal.memuries}
+        <h1>
+          {summaryTotal.memuries}
+        </h1>
+        <h4>
+          <p>
+            Memuries 
+          </p>
+          <p>
+            created
+          </p>
+        </h4>
       </section>
       <section>
-        Empty
+        <h1>
+          <p>
+            Empty
+          </p>
+          <p>
+          </p>
+        </h1>
+        <h4>
+        </h4>
       </section>
     </div>
   );
