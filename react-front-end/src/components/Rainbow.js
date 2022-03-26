@@ -66,7 +66,7 @@ export default function Rainbow (){
         className="radialBarChart"
         // viewBox={{x: "100%", y: "100%"}}
         width={rainbowWidth}
-        height={400}
+        height={360}
         // height={270}
         // cx={150}
         cy={-30}
