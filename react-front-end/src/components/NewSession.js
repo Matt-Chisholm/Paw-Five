@@ -73,6 +73,7 @@ export default function NewSession(props) {
               newSession();
               event.preventDefault();
               props.setNewSesh();
+              props.setShowNewSesh();
             }}
           >
             Done Training
