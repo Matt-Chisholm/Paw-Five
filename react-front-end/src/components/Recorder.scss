@@ -33,6 +33,22 @@
   }  
 }
 
+.dropdown-menu {
+  position: relative;
+
+  #result {
+    width: 70%;
+    margin: 1vh 0;
+
+    option {
+      position: absolute;
+      right: 0;
+      top: 50;
+      width: 50vw;
+    }
+  }
+}
+
 
 // RECORDING BUTTON 
 .audiobar {
