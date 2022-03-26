@@ -137,10 +137,12 @@ export default function Recorder(props) {
   const recording = audioData;
 
   useEffect(() => {
-    axios.get(`/api/session/${dog}`).then((response) => {
-      setDogID(response.data[0]['id']);
-      console.log("Dog id", response.data[0]['id'],'dogID:', dogID);
-    });
+    if(dog !== '') {
+      axios.get(`/api/session/${dog}`).then((response) => {
+        setDogID(response.data[0]['id']);
+        console.log("Dog id", response.data[0]['id'],'dogID:', dogID);
+      });
+    }
   }, [dog]);
 
   const changeTutorialsButton = (currentText) => {
