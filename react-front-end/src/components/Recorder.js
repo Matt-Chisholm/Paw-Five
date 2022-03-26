@@ -8,6 +8,7 @@ import "./Recorder.scss";
 import Session from "./Session";
 import Tutorial from "./Tutorial";
 import CreatedSession from "./CreatedSession";
+import LoadingSpinner from "./LoadingSpinner";
 // MEDIA
 import playbtn from "./images/play.png";
 import pause from "./images/pause.png";
@@ -23,7 +24,7 @@ export default function Recorder(props) {
   const [play, setPlay] = useState(false);
   const [newSesh, setNewSesh] = useState(false);
   const [showNewSesh, setShowNewSesh] = useState(false);
-  const [selected, setSelected ] = useState( selected || "nothing")
+  const [selected, setSelected] = useState(selected || "nothing")
   const [dogID, setDogID] = useState();
   const [tutorialsButtonText, setTutorialsButtonText] = useState("Tutorials");
   const [selectedTutorial, setSelectedTutorial] = useState();
@@ -99,6 +100,7 @@ export default function Recorder(props) {
   };
 
   const send = (dataBlob) => {
+    props.setIsLoading(true);
     console.log("sending dataBlob", dataBlob);
     var buffer = dataBlob;
 
@@ -118,9 +120,11 @@ export default function Recorder(props) {
         if (typeof witResponse.data === "string") {
           setWitData(witResponse.data);
           setNewSesh(true);
+          props.setIsLoading(false);
         }
       })
       .catch((error) => {
+        props.setIsLoading(true);
         if (error.response) {
           console.log(error.response);
           //do something
@@ -137,10 +141,12 @@ export default function Recorder(props) {
   const recording = audioData;
 
   useEffect(() => {
-    if(dog !== '') {
+    if (dog !== '') {
+      props.setIsLoading(true);
       axios.get(`/api/session/${dog}`).then((response) => {
+        props.setIsLoading(false);
         setDogID(response.data[0]['id']);
-        console.log("Dog id", response.data[0]['id'],'dogID:', dogID);
+        console.log("Dog id", response.data[0]['id'], 'dogID:', dogID);
       });
     }
   }, [dog]);
@@ -173,59 +179,55 @@ export default function Recorder(props) {
           changeTutorialsButton(viewTut);
         }}
       >
-      {tutorialsButtonText}
+        {tutorialsButtonText}
       </button>
 
-      {viewTut === "tutorials" && 
-      <Tutorial
-        selectedTutorial={selectedTutorial}
-        setSelectedTutorial={setSelectedTutorial}
-        setViewTut={setViewTut}
-        viewTut={viewTut}
-        onChange={setSelected}
-        selected={selected}
-        changeBackButtonText={setTutorialsButtonText}
-      />}
-      {viewTut === "tutorial-details" && 
-      <Tutorial
-        selectedTutorial={selectedTutorial}
-        setSelectedTutorial={setSelectedTutorial}
-        setViewTut={setViewTut}
-        viewTut={viewTut}
-        onChange={setSelected}
-        selected={selected}
-        changeBackButtonText={setTutorialsButtonText}
-      />}
-      {viewTut === "recorder" && 
-      <div>
-        <div className="recorder">
-          <div className="overlay">
-            <audio
-              className="audiobar"
-              controls
-              src={recording ? recording.url : null}
-            ></audio>
-            <AudioReactRecorder
-              className="recording-view"
-              state={recordState}
-              onStop={onStop}
-              backgroundColor={"rgb(255, 255, 255)"}
-            />
-            <div>
-              {play === false && <img className="record-button" src={playbtn} onClick={() => start()} />}
-              {play === true && <img className="record-button" src={pause} onClick={() => stop()} />}
+      {viewTut.includes("tutorial") &&
+        <Tutorial
+          isLoading={props.isLoading} 
+          setIsLoading={props.setIsLoading}
+          selectedTutorial={selectedTutorial}
+          setSelectedTutorial={setSelectedTutorial}
+          setViewTut={setViewTut}
+          viewTut={viewTut}
+          onChange={setSelected}
+          selected={selected}
+          changeBackButtonText={setTutorialsButtonText}
+        />}
+      {viewTut === "recorder" &&
+        <div>
+          <div className="recorder">
+            <div className="overlay">
+              <audio
+                className="audiobar"
+                controls
+                src={recording ? recording.url : null}
+              ></audio>
+              <AudioReactRecorder
+                className="recording-view"
+                state={recordState}
+                onStop={onStop}
+                backgroundColor={"rgb(255, 255, 255)"}
+              />
+              <div>
+                {play === false && <img className="record-button" src={playbtn} onClick={() => start()} />}
+                {play === true && <img className="record-button" src={pause} onClick={() => stop()} />}
+              </div>
             </div>
           </div>
-        </div>
-        <img src={arrow} alt='' />
-        <h3 className="tap-above">Tap above to start training!</h3>
-        <h3 className="tap-above">Please tell us your dog's name and the skill you are training.</h3>
-        {newSesh === true && 
-          <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} id={dogID} newSesh={newSesh} setNewSesh={()=> {setNewSesh(!newSesh)}} showNewSesh={showNewSesh} setShowNewSesh={()=>{setShowNewSesh(true)}} />
-        }
-        {showNewSesh === true && <CreatedSession />}
-        {dog.length > 2 && <Session name={dogFinder(witData)} />}
-      </div>}
+          {props.isLoading ? <div className='recorder-spinner'><LoadingSpinner /></div> :
+            <>
+              <img src={arrow} alt='' />
+              <h3 className="tap-above">Tap above to start training!</h3>
+              <h3 className="tap-above">Please tell us your dog's name and the skill you are training.</h3>
+              {newSesh === true &&
+                <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} id={dogID} newSesh={newSesh} setNewSesh={() => { setNewSesh(!newSesh) }} showNewSesh={showNewSesh} setShowNewSesh={() => { setShowNewSesh(true) }} />
+              }
+              {showNewSesh === true && <CreatedSession />}
+              {dog.length > 2 && <Session name={dogFinder(witData)} />}
+            </>
+          }
+        </div>}
 
     </div>
   );

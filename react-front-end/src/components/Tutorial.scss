@@ -216,3 +216,30 @@
 
 
 }
+
+
+
+.tutorial-spinner {
+  display: flex;
+  justify-content: center;
+  height: 70vh;
+  align-items: center;
+
+  .loading-spinner {
+    width: 50vw;
+    height: 50vw;
+    border: 10px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid #0DA4C5; /* Black */
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
+  }
+  
+  .spinner_container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
