@@ -1,10 +1,37 @@
-import react from "react";
+import react, { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+import "./Memuries.scss";
+import NewMemury from "./NewMemury";
 
 export default function Memuries(props) {
+  const [memuries, setMemuries] = useState([]);
+  const [render, setRender] = useState(false);
+
+  useEffect(() => {
+    axios.get(`/api/home/memuries`).then((response) => {
+      setMemuries(response.data);
+      console.log("MEMURIES", response.data);
+    });
+  }, [render]);
+
+  const renderMemuries = (memuries) => {
+    return memuries.reverse().map((mem, index) => {
+      return (
+        <div key={index} className="memury-container">
+          <h3>{mem.name}</h3>
+          <img src={mem.photo} alt="" />
+        </div>
+      );
+    });
+  };
+
 
   return (
     <div className="memuries-component">
-      Memuries!  
+      <NewMemury render={render} setRender={() => setRender(!render)} />
+      <h1>Your pups memuries!</h1>
+      {renderMemuries(memuries)}
     </div>
-  )
+  );
 }
