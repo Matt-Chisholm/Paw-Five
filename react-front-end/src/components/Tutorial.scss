@@ -1,4 +1,4 @@
-$backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255, 216, 115, 0.15) 84.37%, rgba(255, 216, 115, 0.15) 89.06%);
+@import 'colors';
 
 // CONDITIONAL COLORS FOR TUTORIAL ITEMS
 .easy {
@@ -63,7 +63,6 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
     }
   }
 }
-
 
 
 .right-side {
@@ -216,4 +215,31 @@ $backgroundgrad_1: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255
   }
 
 
+}
+
+
+
+.tutorial-spinner {
+  display: flex;
+  justify-content: center;
+  height: 70vh;
+  align-items: center;
+
+  .loading-spinner {
+    width: 50vw;
+    height: 50vw;
+    border: 10px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid #0DA4C5; /* Black */
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
+  }
+  
+  .spinner_container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

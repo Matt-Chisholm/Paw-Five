@@ -26,9 +26,9 @@ export default function App(props) {
         <div className="App">
           <HeaderBar />
           {tab === "Home" && <Home user_id={cookies["user_id"]}/>}
-          {tab === "Training" && <Recorder />}
+          {tab === "Training" && <Recorder isLoading={isLoading} setIsLoading={setIsLoading} />}
 
-          {tab === "Profile" && <Profile user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={(p) => setIsLoading(p)}/>}
+          {tab === "Profile" && <Profile user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={setIsLoading} />}
           <NavBar tab={tab} tabs={tabs} onChange={setTab} />
         </div> : <LogIn setCookie={setCookie} />
       }

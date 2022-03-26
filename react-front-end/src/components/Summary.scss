@@ -1,6 +1,65 @@
 @import 'fonts';
 @import 'colors';
 
+
 .summary {
-  background-color: red;
+  width: 82.99vw;
+  height: 32.7vh;
+  margin: 5px;
+  display: flex;
+  flex-wrap: wrap;
+
+  background: center / contain no-repeat url('./images/container-cross.svg');
+
+  border-top: 2px solid $primary_2;
+  border-bottom: 2px solid $primary_2;
+
+  section {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    min-width: 154px;
+    min-height: 123px;
+    width: 41.0vw;
+    height: 16.3vh;
+    
+    
+    
+    color: $primary_2;
+    
+    font-family: 'Futura';
+    font-style: normal;
+    h1 {
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 64px;
+      text-align: center;
+    }
+    h4 {
+      font-weight: 500;
+      font-size: 11px;
+      line-height: 15px;
+      text-align: center;
+      letter-spacing: 0.15em;
+    }
+    
+  }
+}
+
+
+.stats {
+  &__sessions {
+    background: center / contain no-repeat url('./images/stat-whistle.svg');  
+    background-size: auto;
+  }
+  &__skills {
+    background: center / contain no-repeat url('./images/stat-graduate.svg');  
+    background-size: auto;
+  }
+  &__memuries {
+    background: center / contain no-repeat url('./images/stat-heart.svg');  
+    background-size: auto;
+  }
 }

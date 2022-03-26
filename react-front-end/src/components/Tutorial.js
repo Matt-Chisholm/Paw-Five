@@ -5,6 +5,7 @@ import './Tutorial.scss';
 import classname from 'classnames'
 import TutorialItem from './TutorialItem';
 import TutorialDetails from './TutorialDetails';
+import LoadingSpinner from './LoadingSpinner';
 
 export default function Tutorial(props) {
   const [tutorials, setTutorials] = useState([]);
@@ -16,8 +17,7 @@ export default function Tutorial(props) {
     })
       .catch(error => {
         console.log("error from Tutorial.js component useEffect: ", error);
-      })
-      ;
+      });
   }, []);
 
   const renderTutorials = () => {
@@ -42,15 +42,21 @@ export default function Tutorial(props) {
 
   // VIEW
   return (
-    <div className='tut-container'>
+    <>
+      {selectedTutorial &&
 
-      {selectedTutorial ? <TutorialDetails
-        tutorial_id={selectedTutorial}
-      /> : renderTutorials()}
-      {/* {props.viewTut === "tutorial-details" && <TutorialDetails
-        tutorial_id={selectedTutorial}
-        />} */}
-    </div>
+        <div className='tut-container'>
+          <TutorialDetails
+            tutorial_id={selectedTutorial}
+          />
+        </div>
+      }
+      {!selectedTutorial && tutorials.length > 0 &&
+        <div className='tut-container'>
+          {renderTutorials()}
+        </div>
+      }
+    </>
   )
 }
 

@@ -116,7 +116,10 @@ module.exports = (db) => {
       });
   });
 
+  // -------Summary Component ------
+
   // GET TOTAL COUNT OF SESSIONS, dep: Summary.js
+
   router.get("/sessions-total", (req, res) => {
     db.query(
       `
@@ -160,6 +163,44 @@ module.exports = (db) => {
       .catch((error) => {
         console.log("home route error memuries: ", error);
       });
+=======
+  router.get("/summary/sessions", (req, res) => {
+    db.query(`
+      SELECT COUNT(*)
+      FROM sessions;
+    `)
+    .then(total => {
+      res.send(total.rows)
+    })
+    .catch(error => {
+      console.log("home route error sessions total: ", error);
+    })
+  });
+  // GET TOTAL COUNT OF SKILLS, dep: Summary.js
+  router.get("/summary/skills", (req, res) => {
+    db.query(`
+      SELECT COUNT (DISTINCT skill_name)
+      FROM sessions;
+    `)
+    .then(total => {
+      res.send(total.rows)
+    })
+    .catch(error => {
+      console.log("home route error skills total: ", error);
+    })
+  });
+  // GET TOTAL COUNT OF MEMURIES (photos), dep: Summary.js
+  router.get("/summary/memuries", (req, res) => {
+    db.query(`
+      SELECT COUNT (*)
+      FROM memuries;
+    `)
+    .then(total => {
+      res.send(total.rows)
+    })
+    .catch(error => {
+      console.log("home route error memuries: ", error);
+    })
   });
 
   router.get("/memuries", (req, res) => {
