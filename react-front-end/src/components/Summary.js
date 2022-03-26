@@ -2,7 +2,10 @@ import react, { useState, useEffect } from 'react';
 import './Summary.scss'
 import axios from 'axios';
 
-import cross from './images/container-cross.svg'
+import whistle from './images/stat-whistle.svg';
+import graduate from './images/stat-graduate.svg';
+import heart from './images/stat-heart.svg';
+
 
 
 export default function Summary () {
