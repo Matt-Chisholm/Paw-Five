@@ -2,6 +2,8 @@ import react, { useState, useEffect } from 'react';
 import './Summary.scss'
 import axios from 'axios';
 
+import cross from './images/container-cross.svg'
+
 
 export default function Summary () {
 const [ summaryTotal, setSummaryTotal ] = useState({
@@ -42,6 +44,9 @@ Promise.all(promises)
 }, []);
 
   return (
+    <div>
+
+    {/* <img src={cross}/> */}
     <div className='summary'>
       <section>
         <h1>
@@ -84,15 +89,20 @@ Promise.all(promises)
       </section>
       <section>
         <h1>
-          <p>
-            Empty
-          </p>
-          <p>
-          </p>
+            0
         </h1>
         <h4>
+          <p>
+            shits
+          </p>
+          <p>
+            taken
+          </p>
         </h4>
       </section>
     </div>
+
+    </div>
+
   );
 };
