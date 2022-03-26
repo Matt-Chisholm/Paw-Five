@@ -48,10 +48,8 @@ Promise.all(promises)
 
   return (
     <div>
-
-    {/* <img src={cross}/> */}
     <div className='summary'>
-      <section>
+      <section className='stats__sessions'>
         <h1>
           {summaryTotal.sessions}
         </h1>
@@ -64,7 +62,7 @@ Promise.all(promises)
           </p>
         </h4>
       </section>
-      <section>
+      <section className='stats__skills'>
         <h1>
           {summaryTotal.skills} 
         </h1>
@@ -77,7 +75,7 @@ Promise.all(promises)
           </p>
         </h4>
       </section>
-      <section>
+      <section className='stats__memuries'>
         <h1>
           {summaryTotal.memuries}
         </h1>
