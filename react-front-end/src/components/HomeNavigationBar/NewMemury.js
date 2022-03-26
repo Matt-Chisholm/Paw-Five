@@ -34,22 +34,14 @@ export default function NewMemury(props) {
     <div className="new-memury">
         <h1>Post new memury!</h1>
         <form>
-<<<<<<< HEAD
           <label for="userId">Pup's Name  </label>
-=======
-          <label htmlFor="userId">Pup's Name : </label>
->>>>>>> master
           <input
             type="text"
             value={dogName}
             onChange={(e) => setDogName(e.target.value)}
           />
-<<<<<<< HEAD
           <br />
           <label for="userId">Image URL  </label>
-=======
-          <label htmlFor="userId">Image URL : </label>
->>>>>>> master
           <input
             type="text"
             value={image}
