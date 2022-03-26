@@ -28,7 +28,7 @@ export default function Tutorial(props) {
           tutorial_id={tut.id}
           name={tut.name}
           level={tut.level}
-          icon={tut.icon}
+          logo={tut.logo}
           onClick={() => { setSelectedTutorial(tut.id) }}
           changeBackButtonAction={() => {
             props.setViewTut("tutorial-details")

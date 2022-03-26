@@ -44,5 +44,7 @@ UPDATE tutorials SET logo = '<svg width="40" height="40" viewBox="0 0 40 40" fil
 </svg>
 ' WHERE name = 'Lie Down';
 
-UPDATE tutorials SET logo = '' WHERE name = '';
+UPDATE tutorials SET logo = './images/sit.svg
+' WHERE name = 'Sitting';
+
 UPDATE tutorials SET logo = '' WHERE name = '';
