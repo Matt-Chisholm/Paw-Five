@@ -20,9 +20,10 @@ module.exports = (db) => {
   router.get("/skills/:id", (req, res) => {
     const dog_id = req.params.id;
     db.query(`
-      SELECT skills.name, rating
-      FROM skills
-      WHERE dog_id = $1;
+      SELECT skill_name as name, COUNT(*) as rating
+      FROM sessions
+      WHERE dog_id = $1
+      GROUP BY skill_name;
     `, [dog_id])
       .then(result => {
         res.send(result.rows);
@@ -54,8 +55,8 @@ module.exports = (db) => {
       .then(result => {
         stats.sessions = result.rows[0].count;
         db.query(`
-          SELECT COUNT(*)
-          FROM skills
+          SELECT COUNT(DISTINCT skill_name)
+          FROM sessions
           WHERE dog_id = $1;
         `, [dog_id])
           .then(result => {
