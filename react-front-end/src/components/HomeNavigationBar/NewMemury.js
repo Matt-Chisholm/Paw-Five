@@ -31,22 +31,24 @@ export default function NewMemury(props) {
       });
   };
   return (
-    <div className="memury-container">
+    <div className="new-memury">
         <h1>Post new memury!</h1>
         <form>
-          <label for="userId">Pup's Name : </label>
+          <label for="userId">Pup's Name  </label>
           <input
             type="text"
             value={dogName}
             onChange={(e) => setDogName(e.target.value)}
           />
-          <label for="userId">Image URL : </label>
+          <br />
+          <label for="userId">Image URL  </label>
           <input
             type="text"
             value={image}
             onChange={(e) => setImage(e.target.value)}
           />
-          <button type="submit" onClick={(e) => {postMemury(); e.preventDefault(); }}>Create</button>
+          <br />
+          <button className='mem-button' type="submit" onClick={(e) => {postMemury(); e.preventDefault(); }}>Create</button>
         </form>
       </div>
   )
