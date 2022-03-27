@@ -12,8 +12,8 @@ export default function Skills(props) {
         <div className='skill_details'>
           <label className='skill_label'>{skill.name}</label>
           <div className='progress_container'>
-            <div className='progress_bar' style={{width: `${skill.rating * 5 > 20 ? skill.rating * 5 : 20}%`}}>
-              <span className='percent_completed'>{`${skill.rating * 5 > 20 ? skill.rating * 5 : 20}%`}</span>
+            <div className='progress_bar' style={{width: `${skill.rating * 5 > 20 ? (skill.rating * 5 > 100 ? 100 : skill.rating * 5) : 20}%`}}>
+              <span className='percent_completed'>{`${skill.rating * 5 > 20 ? (skill.rating * 5 > 100 ? 100 : skill.rating * 5) : 20}%`}</span>
             </div>
           </div>
           {skill.rating * 5 === 100 && <span className='skill_star'>🏅</span>}
