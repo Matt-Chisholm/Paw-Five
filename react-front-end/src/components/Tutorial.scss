@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'fonts';
 
 // CONDITIONAL COLORS FOR TUTORIAL ITEMS
 .easy {
@@ -32,6 +33,13 @@
   margin-bottom: 12vh;
   position: relative;
   padding: 1vh 0;
+
+  .guide {
+    color: $primary_2;
+    font: {
+      family: $primary_font;
+    }
+  }
 }
 
 //
@@ -95,6 +103,7 @@
   .tut-container {
     flex-direction: column;
     justify-content: flex-start;
+
   }
   .title {
     height: 7.3vh;
