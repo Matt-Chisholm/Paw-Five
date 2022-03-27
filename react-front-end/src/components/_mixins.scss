@@ -6,3 +6,14 @@
   from {opacity: 0%;} 
   }
 }
+
+@mixin wake {
+  animation-name: wake;
+  animation-duration: 4s;
+
+  @keyframes wake {
+    0% {background-color: white;}
+    20% {background-color:$primary_3;}
+    100% {left: 0px }
+  }
+}
