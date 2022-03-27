@@ -55,11 +55,17 @@
     padding: 3.0em;
 
     color: #000000;
-
+    span {
+      font-weight: 900;
+      font-size: 2em;
+    }
     &:hover {
       background-color: $primary_3;
       @include wake;
   
+    }
+    &:focus{
+      background-color: $primary_3;
     }
   }
 }

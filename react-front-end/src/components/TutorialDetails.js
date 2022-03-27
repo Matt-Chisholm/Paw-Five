@@ -23,7 +23,7 @@ export default function TutorialDetails(props) {
 
   const renderedSteps = () => tutorial.description.map((step, index) => {
     return <p key={index} className="tutorial-step">
-      {index + 1}. {step}
+      <span>{index + 1}.</span> {step}
     </p>
   });
   const logos = {
