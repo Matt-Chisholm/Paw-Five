@@ -1,0 +1,55 @@
+.lvlup {
+  width: 8vw;
+  animation: Wiggle;
+}
+
+.arrow {
+  text-align: center;
+  margin: 8% 0;
+}
+.bounce {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.sesh-text {
+  font-family: "Boogaloo", cursive;
+  font-style: normal;
+  font-weight: 1000;
+  font-size: 5vw;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  color: rgb(0 86 129 / 61%);
+  -webkit-filter: blur(0.5px);
+  filter: blur(0.2px);
+}
+
+.created {
+  display: flex;
+  flex-direction: row;
+}
+
+.created-img {
+  width: 30vw;
+  height: auto;
+  border-radius: 1.5em;
+  margin: 3vw;
+}
