@@ -17,7 +17,7 @@ export default function CreatedSession(props) {
       {typeof displayedSesh === "object" && (
         <div className="session-container">
           <h2 className="sesh-title">Created Session!</h2>
-          <img className="session-image" src={displayedSesh.avatar} alt="" />
+          <img className="created-img" src={displayedSesh.avatar} alt="" />
           <h3 className="sesh-text">Well Done!</h3>
           <h3 className="sesh-text">
             {displayedSesh.dog_name}'s {displayedSesh.skill_name} skill has

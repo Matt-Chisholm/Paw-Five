@@ -216,7 +216,7 @@ export default function Recorder(props) {
           {props.isLoading ? <><span>Session is loading, you have some time to hug your dog...</span><div className='recorder-spinner'><LoadingSpinner /></div></> :
             <>
               <img src={arrow} alt='' />
-              <h3 className="tap-above">Tap above to start training!</h3>
+              <h1 className="tap-prompt">Tap above to start training!</h1>
               <h3 className="tap-above">Please tell us your dog's name and the skill you are training.</h3>
               {newSesh === true &&
                 <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} id={dogID} newSesh={newSesh} setNewSesh={() => { setNewSesh(!newSesh) }} showNewSesh={showNewSesh} setShowNewSesh={() => { setShowNewSesh(true) }} witData={witData} />

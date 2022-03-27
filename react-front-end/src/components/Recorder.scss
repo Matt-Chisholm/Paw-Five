@@ -1,13 +1,13 @@
 // TRAINING PAGE
 //
-@import 'fonts';
-@import 'colors';
+@import "fonts";
+@import "colors";
 
 .training-page {
   margin-top: 2vh;
 }
 
-// TUTORIAL BUTTON 
+// TUTORIAL BUTTON
 .tut-button {
   width: 60vw;
   height: auto;
@@ -42,8 +42,7 @@
   }
 }
 
-
-// RECORDING BUTTON 
+// RECORDING BUTTON
 .audiobar {
   opacity: 0%;
   width: 100%;
@@ -56,7 +55,7 @@
 
 // MEDIA RECORDER/PLAYER CONTAINER, flexbox not working due to parent div, maybe.
 .recorder {
-  background: center / contain no-repeat url("./images/pawteam.png"), 
+  background: center / contain no-repeat url("./images/pawteam.png"),
     linear-gradient(180deg, #0da3c4 0%, #ffd873 100%);
   box-shadow: inset 0px -4px 10px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
@@ -89,7 +88,7 @@ audio::-webkit-media-controls-panel {
 .record-button {
   border-radius: 50%;
   box-shadow: 0 0 0 0 $primary_3;
-	transform: scale(1);
+  transform: scale(1);
   animation: pulse 1.2s infinite;
 }
 @keyframes pulse {
@@ -97,12 +96,12 @@ audio::-webkit-media-controls-panel {
     transform: scale(0.95);
     box-shadow: 0 0 0 0 $primary_2;
   }
-  
+
   70% {
     transform: scale(1);
     box-shadow: 0 0 0 10px $primary_3;
   }
-  
+
   100% {
     transform: scale(0.95);
     box-shadow: 0 0 0 0 $primary_2;
@@ -138,7 +137,6 @@ audio::-webkit-media-controls-panel {
   outline-offset: 1px;
 }
 
-
 .training-details {
   display: flex;
   flex-direction: column;
@@ -156,6 +154,7 @@ audio::-webkit-media-controls-panel {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   margin: 5vw;
+  padding: 5vw;
 }
 
 .detail-title {
@@ -191,7 +190,6 @@ audio::-webkit-media-controls-panel {
   }
 }
 
-
 .tap-above {
   font-family: "Boogaloo", cursive;
   font-style: normal;
@@ -222,11 +220,11 @@ audio::-webkit-media-controls-panel {
     width: 50vw;
     height: 50vw;
     border: 10px solid #f3f3f3; /* Light grey */
-    border-top: 10px solid #0DA4C5; /* Black */
+    border-top: 10px solid #0da4c5; /* Black */
     border-radius: 50%;
     animation: spinner 1.5s linear infinite;
   }
-  
+
   .spinner_container {
     width: 100%;
     height: 100%;
@@ -240,4 +238,17 @@ audio::-webkit-media-controls-panel {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.tap-prompt {
+  font-family: "Boogaloo", cursive;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  color: rgba(13, 163, 196, 0.5);
+  -webkit-filter: blur(0.5px);
+  filter: blur(0.5px);
+  font-size: 8vw;
+  padding: 2vw;
 }
