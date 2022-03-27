@@ -37,6 +37,7 @@
     align-items: flex-start;
     justify-content: flex-start;
 
+ 
     padding: 5%;
   }
 
@@ -56,6 +57,14 @@
 
     &:hover {
       background-color: $primary_3;
+      animation-name: wake;
+      animation-duration: 4s;
+  
     }
+  }
+  @keyframes wake {
+    0% {background-color: white; left: 0px;}
+    20% {background-color:$primary_3;left: 30 }
+    100% {left: 0px }
   }
 }
