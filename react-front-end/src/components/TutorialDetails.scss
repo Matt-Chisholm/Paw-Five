@@ -68,4 +68,7 @@
       background-color: $primary_3;
     }
   }
+  .footer {
+    @include footer;
+  }
 }

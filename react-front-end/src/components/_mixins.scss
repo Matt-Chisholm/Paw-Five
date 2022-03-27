@@ -17,3 +17,16 @@
     100% {left: 0px }
   }
 }
+
+
+@mixin footer {
+    font-family: "Boogaloo", cursive;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 5vw;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.15em;
+    color: rgba(13, 163, 196, 0.5);
+    filter: blur(0.5px);
+}

@@ -81,6 +81,7 @@ export default function TutorialDetails(props) {
               </video>
               }
           </div>
+          <h3 className="footer">You did it. Pawfive!</h3>
         </div>
       }
     </>
