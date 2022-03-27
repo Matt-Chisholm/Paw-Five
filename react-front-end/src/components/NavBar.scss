@@ -1,7 +1,7 @@
 
 @import 'colors';
 @import 'fonts';
-
+@import 'mixins';
 
 html {
   box-sizing: border-box;
@@ -42,7 +42,9 @@ html {
       height: 4.86vh;
       mix-blend-mode: darken;
       object-fit: cover;
-
+    }
+    &:hover {
+      
     }
   }
   .tab__item {

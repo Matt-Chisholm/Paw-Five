@@ -1,6 +1,6 @@
 @import 'fonts';
 @import 'colors';
-
+@import 'mixins';
 
 .summary {
   width: 82.99vw;
@@ -33,16 +33,22 @@
     font-style: normal;
     h1 {
       font-weight: 700;
-      font-size: 48px;
+      font-size: 58px;
       line-height: 64px;
       text-align: center;
+      color: $primary_2_dark;
+      &:hover {
+        @include wake-text;
+      }
+
     }
     h4 {
       font-weight: 500;
-      font-size: 11px;
+      font-size: 16px;
       line-height: 15px;
       text-align: center;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.25em;
+      color: $primary_2_dark;
     }
     
   }
