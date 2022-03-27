@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap');
+@import 'colors';
+@import 'mixins';
 
 .tutorial-details {
   background: linear-gradient(180deg, rgba(214, 214, 214, 0.53) 0%, rgba(214, 214, 214, 0) 100%);
@@ -36,6 +38,7 @@
     align-items: flex-start;
     justify-content: flex-start;
 
+ 
     padding: 5%;
   }
 
@@ -49,9 +52,20 @@
     line-height: 1.5em;
     letter-spacing: 0.2em;
     text-align: left;
-    padding: 2.5%;
-    padding-right: 0;
+    padding: 3.0em;
 
     color: #000000;
+    span {
+      font-weight: 900;
+      font-size: 2em;
+    }
+    &:hover {
+      background-color: $primary_3;
+      @include wake;
+  
+    }
+    &:focus{
+      background-color: $primary_3;
+    }
   }
 }

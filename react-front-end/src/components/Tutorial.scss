@@ -1,4 +1,6 @@
 @import 'colors';
+@import 'fonts';
+@import 'mixins';
 
 // CONDITIONAL COLORS FOR TUTORIAL ITEMS
 .easy {
@@ -32,6 +34,14 @@
   margin-bottom: 12vh;
   position: relative;
   padding: 1vh 0;
+
+  .guide {
+    color: $primary_2;
+    font: {
+      family: $primary_font;
+    }
+    @include fade-in;
+  }
 }
 
 //
@@ -42,6 +52,7 @@
   height: 12vh;
   border-radius: 20px;
   display: flex;
+
   img {
     width: inherit;
     height: inherit;
@@ -78,16 +89,18 @@
   white-space: normal;
   
   // font
-  line-height: 24px;
+  line-height: 15px;
+  white-space:nowrap;
   text-align: center;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.10em;
   color: rgba(0, 0, 0, 0.65);
+
   padding-right: 6.5em;
   font: {
     family: "Futura";
     style: normal;
     weight: 700;
-    size: 2.5em;
+    size: 1.5em;
   }
 }
 
@@ -95,6 +108,7 @@
   .tut-container {
     flex-direction: column;
     justify-content: flex-start;
+
   }
   .title {
     height: 7.3vh;
@@ -104,14 +118,17 @@
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-    justify-content: center;
-    white-space: normal;
-    padding-right: 1.3em;
+    justify-content: flex-start;
+    white-space: nowrap;
+    padding: {
+      right: 1.3em;
+      bottom: 0.2em;
+    }
     font: {
       family: "Futura-Bold";
       style: normal;
       weight: 700;
-      size: 1.3em;
+      size: 1.6em;
     }
   }
 }
@@ -131,7 +148,7 @@
     family: 'Futura';
     style: italic;
     weight: 500;
-    size: 1.6em;
+    size: 1.0em;
   }
 }
 @media only screen and (max-width: 775px) {
@@ -144,12 +161,15 @@
     // font
     line-height: 16px;
     letter-spacing: 0.15em;
-    padding-right: 0.8em;
+    padding: {
+      top: 0.5em;
+      right: 1.0em;
+    }
     font: {
       family: 'Futura';
       style: italic;
       weight: 400;
-      size: 0.8em;
+      size: 0.9em;
     }
   }
 }

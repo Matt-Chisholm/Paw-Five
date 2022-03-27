@@ -158,13 +158,13 @@ export default function Recorder(props) {
         setTutorialsButtonText("Tutorials");
         break;
       case "recorder":
-        setTutorialsButtonText("Back to Training");
+        setTutorialsButtonText("Return to Training");
         setSelectedTutorial(null);
         setViewTut("tutorials")
         break;
       case "tutorial-details":
         setViewTut("tutorials")
-        setTutorialsButtonText("Back to Training");
+        setTutorialsButtonText("Return to Training");
         setSelectedTutorial(null);
         break;
     }

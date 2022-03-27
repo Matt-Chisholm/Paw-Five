@@ -7,6 +7,8 @@ import down from "./images/down.svg";
 import come from "./images/come.svg";
 import sing from "./images/sing.svg";
 import paw from "./images/paw.svg";
+
+
 export default function TutorialDetails(props) {
   const [tutorial, setTutorial] = useState({});
 
@@ -15,13 +17,13 @@ export default function TutorialDetails(props) {
       setTutorial(response.data[0]);
     })
       .catch(error => {
-        console.log("error from Tutorial.js component useEffect: ", error);
+        console.log("error from TutorialDetails.js component useEffect: ", error);
       });
   }, []);
 
   const renderedSteps = () => tutorial.description.map((step, index) => {
     return <p key={index} className="tutorial-step">
-      {index + 1}. {step}
+      <span>{index + 1}.</span> {step}
     </p>
   });
   const logos = {

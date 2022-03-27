@@ -44,7 +44,6 @@ export default function Tutorial(props) {
   return (
     <>
       {selectedTutorial &&
-
         <div className='tut-container'>
           <TutorialDetails
             tutorial_id={selectedTutorial}
@@ -53,6 +52,7 @@ export default function Tutorial(props) {
       }
       {!selectedTutorial && tutorials.length > 0 &&
         <div className='tut-container'>
+          <h2 className='guide'>Tap a skill below for human instructions</h2>
           {renderTutorials()}
         </div>
       }
