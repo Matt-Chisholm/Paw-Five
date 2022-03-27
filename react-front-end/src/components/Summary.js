@@ -94,7 +94,7 @@ Promise.all(promises)
         </h1>
         <h4>
           <p>
-            shits
+            Poops
           </p>
           <p>
             taken

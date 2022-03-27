@@ -11,6 +11,8 @@ import Clicker from "./components/Clicker";
 import Squeaker from "./components/Squeaker";
 import LogIn from "./components/LogIn";
 
+import './csshake.scss'; 
+import './wickedcss.min.css'
 import Home from "./components/Home";
 
 export default function App(props) {

@@ -7,13 +7,26 @@
   }
 }
 
+
 @mixin wake {
   animation-name: wake;
   animation-duration: 4s;
 
   @keyframes wake {
-    0% {background-color: white;}
+    0% {color: white;}
     20% {background-color:$primary_3;}
+    100% {left: 0px }
+  }
+}
+
+
+@mixin wake-text {
+  animation-name: wake;
+  animation-duration: 400ms;
+
+  @keyframes wake {
+    0% {color: white;}
+    20% {color:$primary_3;}
     100% {left: 0px }
   }
 }
@@ -29,4 +42,46 @@
     letter-spacing: 0.15em;
     color: rgba(13, 163, 196, 0.5);
     filter: blur(0.5px);
+}
+
+@mixin pulse {
+  box-shadow: 0 0 0 0 $primary_3;
+	transform: scale(1);
+  animation: pulse 1.2s infinite;
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 $primary_2;
+    }
+    
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px $primary_3;
+    }
+    
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 $primary_2;
+    }
+  }
+}
+
+@mixin echo {
+  box-shadow: 0 0 1 1 $primary_1;
+  animation: pulse 1.2s;
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 $primary_1;
+    }
+    
+    70% {
+      box-shadow: 0 0 0 0 $primary_1;
+    }
+    
+    100% {
+      box-shadow: 0 0 0 0 $primary_1;
+    }
+  }
 }

@@ -8,7 +8,7 @@ import profile from './images/profile.png'
 
 export default function NavBarItem(props) {
   let tabClass = classNames('tab__item', {
-    'tab__item--selected': props.selected
+    'tab__item--selected floater': props.selected
   });
 
   return (
