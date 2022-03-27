@@ -19,9 +19,10 @@ export default function Health(props) {
       </div>
       <h2 className='dog-art'>Dog Health Articles for You:</h2>
       <div className="blog-posts">
-        <LinkPreview url='https://www.akc.org/expert-advice/health/kennel-cough-symptoms-treatment-and-prevention/' width='40vw' />
-        <LinkPreview url='https://www.medicalnewstoday.com/articles/322868' width='40vw' />
-        <LinkPreview url='https://pursuit.unimelb.edu.au/articles/science-can-help-dogs-enjoy-their-best-life' width='40vw' />
+        <div className=""></div>
+        <LinkPreview url='https://www.akc.org/expert-advice/health/kennel-cough-symptoms-treatment-and-prevention/' width='80%' />
+        <LinkPreview url='https://www.medicalnewstoday.com/articles/322868' width='80%' />
+        <LinkPreview url='https://pursuit.unimelb.edu.au/articles/science-can-help-dogs-enjoy-their-best-life' width='80%' />
       </div>
     </div>
   )

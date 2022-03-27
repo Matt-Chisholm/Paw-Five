@@ -5,13 +5,18 @@
   align-items: center;
   border-radius: 40%;
   border-radius: 10px;
-  background: linear-gradient(180deg, rgba(136, 241, 255, 0.153) 0%, rgba(0, 148, 255, 0.25) 51.04%, rgba(0, 68, 255, 0.173) 97.92%);
+  background: linear-gradient(
+    180deg,
+    rgba(136, 241, 255, 0.153) 0%,
+    rgba(0, 148, 255, 0.25) 51.04%,
+    rgba(0, 68, 255, 0.173) 97.92%
+  );
   border-radius: 62px;
   width: 80%;
   font-family: "Boogaloo", cursive;
   font-style: normal;
   font-weight: 500;
-  color:royalblue;
+  color: royalblue;
   margin: 2vw;
 }
 
@@ -25,7 +30,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
 
 .dog-art {
@@ -39,4 +43,10 @@
   color: rgba(13, 163, 196, 0.5);
   filter: blur(0.5px);
   margin: 2vw;
+}
+
+.blog-posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
