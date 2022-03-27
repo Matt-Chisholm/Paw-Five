@@ -13,6 +13,7 @@ html {
   margin: 0;
 }
 
+// the nav bar container
 .mainNavBar {
   position: fixed;
   bottom: 0;
@@ -25,6 +26,7 @@ html {
   align-items: center;
   z-index: 10;
   
+  // 'button' container
   span {
     background-color: $primary_1;
     border-radius: 15px;
@@ -34,9 +36,10 @@ html {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    padding: 15px;
     img {
-      width: 62px;
-      height: 50px;
+      width: 13.05vw;
+      height: 4.86vh;
       mix-blend-mode: darken;
       object-fit: cover;
 
