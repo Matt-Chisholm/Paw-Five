@@ -67,7 +67,7 @@ export default function Home (props) {
         </>
       }
       {selected === "Health" && <Health />}
-      {selected === "Social" && <Social />}
+      {selected === "Social" && <Social isLoading={props.isLoading} setIsLoading={props.setIsLoading} />}
       {selected === "Memuries" && <Memuries />}
 
       
