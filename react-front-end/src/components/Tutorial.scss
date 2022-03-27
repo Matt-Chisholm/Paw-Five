@@ -42,7 +42,7 @@
   height: 12vh;
   border-radius: 20px;
   display: flex;
-  svg {
+  img {
     width: inherit;
     height: inherit;
     padding: 1em;
@@ -57,10 +57,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // img {
-  //   width: 8vw;
-  //   height: auto;
-  // }
+  align-items: center;
 }
 @media only screen and (max-width: 775px) {
 }
