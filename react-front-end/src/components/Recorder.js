@@ -213,7 +213,7 @@ export default function Recorder(props) {
               </div>
             </div>
           </div>
-          {props.isLoading ? <div className='recorder-spinner'><LoadingSpinner /></div> :
+          {props.isLoading ? <><span>Session is loading, you have some time to hug your dog...</span><div className='recorder-spinner'><LoadingSpinner /></div></> :
             <>
               <img src={arrow} alt='' />
               <h3 className="tap-above">Tap above to start training!</h3>
