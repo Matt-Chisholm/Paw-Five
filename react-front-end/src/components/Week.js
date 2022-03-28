@@ -19,14 +19,18 @@ export default function Week () {
 
   }, [])
 
-  
-  const renderDays = daysOfTheWeekAbbr.map(day => {
-  
-    return 
+  // if the id of the day matches with the abbr day, AND the data uv value is > 0, then render
+  const renderDays = daysOfTheWeekAbbr.map( (day, index) => { 
+    return <div key={index +1} className="day-abbr">
+      {day}
+    </div>
   })
+
+
+// VIEW
   return (
     <div className="week">
-      WEEEK
+      {renderDays}
     </div>
   )
 };
