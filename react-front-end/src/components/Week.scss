@@ -1,0 +1,22 @@
+@import 'mixins';
+@import 'fonts';
+@import 'colors';
+
+.week {
+  width: 90%;
+  height: auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  
+  border-radius: 20px;
+  background-color: $primary_2;
+  color: $primary_1;
+
+  font: {
+    family: $primary_font;
+
+  }
+
+}

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect } from 'react';
+import './Week.scss';
 
 export default function Week () {
 
