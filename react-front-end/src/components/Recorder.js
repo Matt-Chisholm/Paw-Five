@@ -43,9 +43,7 @@ export default function Recorder(props) {
   const onStop = (data) => {
     setAudioData(data);
     console.log("Data onStop", data);
-    // send(data.blob);
-    setWitData('');
-    setNewSesh(true);
+    send(data.blob);
   };
 
   let dog = "";
@@ -136,6 +134,9 @@ export default function Recorder(props) {
         props.setIsLoading(false);
         if (typeof witResponse.data === "string") {
           setWitData(witResponse.data);
+          setNewSesh(true);
+        } else {
+          setWitData('');
           setNewSesh(true);
         }
       })
