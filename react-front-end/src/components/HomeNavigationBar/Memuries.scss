@@ -1,91 +1,88 @@
-@import '../colors';
-@import '../fonts';
-
 .memury-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 100%;
-
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 40%;
+  border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 163, 196, 0.15) 0%,
+    rgba(255, 216, 115, 0.15) 84.37%,
+    rgba(255, 216, 115, 0.15) 89.06%
+  );
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  margin: 5vw;
+  padding: 1vw;
 }
 
-.memuries-form {
-  
+.new-memury {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  border-radius: 40%;
+  border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 163, 196, 0.15) 0%,
+    rgba(255, 216, 115, 0.15) 84.37%,
+    rgba(255, 216, 115, 0.15) 89.06%
+  );
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  margin: 5vw;
+  padding: 3vw;
+}
+
+.new-memury h1 {
+  font-family: "Futura";
+  font-style: normal;
+  margin: 2vw;
+}
+
+.memury-container img {
+  width: 400px;
+  border-radius: 30%;
+  box-shadow: 2px 2px 5px rgba(#000, .2), 
+							2px 2px 17px rgba(#000, .35), 
+							2px 2px 25px rgba(#000, .5);     
+}
+
+.memury-container h3 {
+  font-family: "Boogaloo", cursive;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 5vw;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  color: rgba(13, 163, 196, 0.5);
+  filter: blur(0.5px);
+  margin: 2vw;
+}
+
+.mem-button {
+  width: 20vw;
+  height: auto;
+  background: rgba(255, 216, 115, 0.75);
+  box-shadow: inset 0px -3px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  background: rgba(13, 163, 196, 0.15);
-
-  padding: 1vw;
-  margin: 2vh 0.1vw 1vh 0.1vw;
-
-  font-family: $primary_font;
-  color: $primary_2;
-  letter-spacing: 0.10em;
-
-  h2 {
-    font: {
-      weight: medium;
-      style: normal;
-      size: 2.0em;
-    }
-  }
-  
-  input {
-    width: 55vw;
-    height: 8vh;
-    background-color: $primary_3;
-    opacity: 50%;
-    border-radius: 0px;
-    margin: 0.5em;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    letter-spacing: 0.15em;
-    border: white;
-    font: {
-      family: 'Boogaloo';
-      size: 20px;
-      // color: black;
-    }
-
-  }
-  button {
-    width: 55vw;
-    height: auto;
-    padding:1.2vw;
-    margin: 2.5vw;
-    margin-top: 0.5vh;
-
-    background: rgba(255, 216, 115, 0.75);
-    box-shadow: inset 0px -3px 4px rgba(0, 0, 0, 0.25);
-    border-color: beige;
-    border-radius: 20px;
-
-    text-align: center;
-    letter-spacing: 0.15em;
-    color: rgba(0, 0, 0, 0.48);
-    font: {
-      family: $primary_font;
-      style: normal;
-      weight: 700;
-      size: 1.5em;
-    }
-  }
-
+  border-color: beige;
+  font-family: "Futura";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2em;
+  text-align: center;
+  letter-spacing: 0.15em;
+  color: rgba(0, 0, 0, 0.8);
+  padding:1.2vw;
+  margin: 2.5vw;
 }
-
-.memuries__bottom {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content:flex-start;
-  width: 100%;
-  margin: 4vw;
-
-}
-
+              
 .mem-text {
   font-family: "Boogaloo", cursive;
   font-style: normal;
@@ -97,15 +94,3 @@
   color: rgba(13, 163, 196, 0.5);
   filter: blur(0.5px);
 }
-
-.memury-unit {
-  max-width: 95px;
-  max-height: 95px;
-  
-  img {
-    width: 100%;
-    height: 100%;
-  }
-
-}
-              

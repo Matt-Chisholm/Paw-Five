@@ -66,7 +66,7 @@ export default function Rainbow (){
         className="radialBarChart"
         // viewBox={{x: "100%", y: "100%"}}
         width={rainbowWidth}
-        height={330}
+        height={500}
         // height={270}
         // cx={150}
         cy={-30}
@@ -83,7 +83,7 @@ export default function Rainbow (){
           position: "inside",
           offset: 1, 
           fill: `#0DA4C5`, 
-          dataKey: "name",
+          dataKey: "",
           fontFamily: "Futura",
           fontSize: "1.5em",
         }}
@@ -92,9 +92,6 @@ export default function Rainbow (){
         dataKey="uv"
       >
       </RadialBar>
-      <Tooltip
-      
-      />
     </RadialBarChart>
     {/* </ResponsiveContainer> */}
 
