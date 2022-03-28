@@ -126,12 +126,14 @@ export default function Recorder(props) {
           setWitData(witResponse.data);
           setNewSesh(true);
         } else {
-          dogFinder('');
-          skillFinder('');
+          setWitData('');
+          setNewSesh(true);
         }
       })
       .catch((error) => {
         props.setIsLoading(true);
+        setWitData('');
+        setNewSesh(true);
         if (error.response) {
           console.log(error.response);
           //do something
