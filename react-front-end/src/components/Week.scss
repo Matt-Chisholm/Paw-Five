@@ -11,6 +11,7 @@
     opacity: 30%;
   }
 }
+
 .week-heading {
 
   color: $primary_2;
@@ -29,21 +30,27 @@
   }
 }
 
+
 .week {
   width: 90%;
   height: auto;
-
+  
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   
   border-radius: 20px;
-  background-color: $primary_2;
   color: $primary_1;
-
+  &.top {
+    background-color: $primary_2;
+  }
+  &.bottom {
+    background-color: initial;
+    .trainedDay {
+    }
+  }
   font: {
-    family: $primary_font;
-
+    family: $primary_font;  
   }
 
 }
