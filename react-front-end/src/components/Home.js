@@ -21,7 +21,7 @@ export default function Home (props) {
     username: "",
     image: ""
   }) 
-  const tabs = ["Stats", "Health", "Social", "Memuries"];
+  const tabs = ["Stats", "Health", "News", "Memuries"];
   
   // get current user id, name, and image
   useEffect(() =>{
@@ -71,7 +71,7 @@ export default function Home (props) {
         </>
       }
       {selected === "Health" && <Health />}
-      {selected === "Social" && <Social isLoading={props.isLoading} setIsLoading={props.setIsLoading} />}
+      {selected === "News" && <Social isLoading={props.isLoading} setIsLoading={props.setIsLoading} />}
       {selected === "Memuries" && <Memuries />}
 
       
