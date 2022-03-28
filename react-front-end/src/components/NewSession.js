@@ -53,7 +53,7 @@ export default function NewSession(props) {
           <h3 className="details">Let us know how it goes:</h3>
           <div className="dropdown-menu">
             <select
-              value="select"
+              defaultValue="select"
               type="text"
               id="result"
               name="result"
