@@ -55,3 +55,16 @@
   margin: 3vw;
 }
 
+.created-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 40%;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(81, 196, 221, 0.25) 0%, rgba(66, 0, 255, 0.25) 97.4%);
+  border-radius: 62px;
+  width: 90%;
+  margin: 2em;
+}
+

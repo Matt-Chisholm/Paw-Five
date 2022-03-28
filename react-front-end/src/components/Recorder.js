@@ -64,6 +64,8 @@ export default function Recorder(props) {
       dog = "Bolt";
       return dog;
     }
+    dog = "Birdie";
+    return dog;
   };
 
   const skillFinder = (witString) => {
@@ -97,6 +99,8 @@ export default function Recorder(props) {
       skill = "Lie Down";
       return skill;
     }
+    skill = "Sit";
+    return skill;
   };
 
   const send = (dataBlob) => {
@@ -121,6 +125,9 @@ export default function Recorder(props) {
         if (typeof witResponse.data === "string") {
           setWitData(witResponse.data);
           setNewSesh(true);
+        } else {
+          dogFinder('');
+          skillFinder('');
         }
       })
       .catch((error) => {
@@ -213,7 +220,7 @@ export default function Recorder(props) {
               </div>
             </div>
           </div>
-          {props.isLoading ? <><span>Session is loading, you have some time to hug your dog...</span><div className='recorder-spinner'><LoadingSpinner /></div></> :
+          {props.isLoading ? <><h3 className="loading-text">Session is loading, take time to hug your dog!</h3><div className='recorder-spinner'><LoadingSpinner /></div></> :
             <>
               <img src={arrow} alt='' />
               <h1 className="tap-prompt">Tap above to start training!</h1>

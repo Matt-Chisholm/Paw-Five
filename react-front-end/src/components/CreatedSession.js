@@ -15,7 +15,7 @@ export default function CreatedSession(props) {
   return (
     <div className="created">
       {typeof displayedSesh === "object" && (
-        <div className="session-container">
+        <div className="created-container">
           <h2 className="sesh-title">Created Session!</h2>
           <img className="created-img" src={displayedSesh.avatar} alt="" />
           <h3 className="sesh-text">Well Done!</h3>
