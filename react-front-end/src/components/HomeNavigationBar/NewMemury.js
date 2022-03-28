@@ -44,7 +44,7 @@ export default function NewMemury(props) {
             onChange={(e) => setDogName(e.target.value)}
             />
           <input
-            placeholder="URL goes here"
+            placeholder="Photo URL goes here"
             type="text"
             value={image}
             onChange={(e) => setImage(e.target.value)}
