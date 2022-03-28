@@ -41,9 +41,12 @@ export default function Recorder(props) {
 
   //audioData contains blob and blobUrl
   const onStop = (data) => {
-    setAudioData(data);
+    setAudioData(data.blob);
     console.log("Data onStop", data);
-    send(data.blob);
+    console.log("HERE IS SIZE", data.blob.size);
+    if (data.blob.size > 1000) {
+      send(data.blob);
+    }
   };
 
   let dog = "";
@@ -136,12 +139,14 @@ export default function Recorder(props) {
           setWitData(witResponse.data);
           setNewSesh(true);
         } else {
-          setWitData('');
+          setWitData("");
           setNewSesh(true);
         }
       })
       .catch((error) => {
         props.setIsLoading(true);
+        setWitData("");
+        setNewSesh(true);
         if (error.response) {
           console.log(error.response);
           //do something
