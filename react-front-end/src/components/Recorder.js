@@ -14,7 +14,7 @@ import playbtn from "./images/play.png";
 import pause from "./images/pause.png";
 import NewSession from "./NewSession";
 import arrow from "./images/arrow.png";
-import pawTeam from "./images/pawteam.png"
+import pawTeam from "./images/pawteam.png";
 
 export default function Recorder(props) {
   const [recordState, setRecordState] = useState(null);
@@ -24,7 +24,7 @@ export default function Recorder(props) {
   const [play, setPlay] = useState(false);
   const [newSesh, setNewSesh] = useState(false);
   const [showNewSesh, setShowNewSesh] = useState(false);
-  const [selected, setSelected] = useState(selected || "nothing")
+  const [selected, setSelected] = useState(selected || "nothing");
   const [dogID, setDogID] = useState();
   const [tutorialsButtonText, setTutorialsButtonText] = useState("Tutorials");
   const [selectedTutorial, setSelectedTutorial] = useState();
@@ -43,7 +43,9 @@ export default function Recorder(props) {
   const onStop = (data) => {
     setAudioData(data);
     console.log("Data onStop", data);
-    send(data.blob);
+    // send(data.blob);
+    setWitData('');
+    setNewSesh(true);
   };
 
   let dog = "";
@@ -54,7 +56,12 @@ export default function Recorder(props) {
       dog = "Birdie";
       return dog;
     }
-    if (witString.includes("Bailee") || witString.includes("bailee") || witString.includes("Bailey") || witString.includes("bailey")) {
+    if (
+      witString.includes("Bailee") ||
+      witString.includes("bailee") ||
+      witString.includes("Bailey") ||
+      witString.includes("bailey")
+    ) {
       console.log("dog set to bailey");
       dog = "Bailey";
       return dog;
@@ -69,7 +76,12 @@ export default function Recorder(props) {
   };
 
   const skillFinder = (witString) => {
-    if (witString.includes("sit") || witString.includes("set") || witString.includes("Sit") || witString.includes("Set")) {
+    if (
+      witString.includes("sit") ||
+      witString.includes("set") ||
+      witString.includes("Sit") ||
+      witString.includes("Set")
+    ) {
       console.log("skill set to sit");
       skill = "Sit";
       return skill;
@@ -125,15 +137,10 @@ export default function Recorder(props) {
         if (typeof witResponse.data === "string") {
           setWitData(witResponse.data);
           setNewSesh(true);
-        } else {
-          setWitData('');
-          setNewSesh(true);
         }
       })
       .catch((error) => {
         props.setIsLoading(true);
-        setWitData('');
-        setNewSesh(true);
         if (error.response) {
           console.log(error.response);
           //do something
@@ -150,12 +157,12 @@ export default function Recorder(props) {
   const recording = audioData;
 
   useEffect(() => {
-    if (dog !== '') {
+    if (dog !== "") {
       props.setIsLoading(true);
       axios.get(`/api/session/${dog}`).then((response) => {
         props.setIsLoading(false);
-        setDogID(response.data[0]['id']);
-        console.log("Dog id", response.data[0]['id'], 'dogID:', dogID);
+        setDogID(response.data[0]["id"]);
+        console.log("Dog id", response.data[0]["id"], "dogID:", dogID);
       });
     }
   }, [dog]);
@@ -169,10 +176,10 @@ export default function Recorder(props) {
       case "recorder":
         setTutorialsButtonText("Return to Training");
         setSelectedTutorial(null);
-        setViewTut("tutorials")
+        setViewTut("tutorials");
         break;
       case "tutorial-details":
-        setViewTut("tutorials")
+        setViewTut("tutorials");
         setTutorialsButtonText("Return to Training");
         setSelectedTutorial(null);
         break;
@@ -191,7 +198,7 @@ export default function Recorder(props) {
         {tutorialsButtonText}
       </button>
 
-      {viewTut.includes("tutorial") &&
+      {viewTut.includes("tutorial") && (
         <Tutorial
           selectedTutorial={selectedTutorial}
           setSelectedTutorial={setSelectedTutorial}
@@ -200,8 +207,9 @@ export default function Recorder(props) {
           onChange={setSelected}
           selected={selected}
           changeBackButtonText={setTutorialsButtonText}
-        />}
-      {viewTut === "recorder" &&
+        />
+      )}
+      {viewTut === "recorder" && (
         <div>
           <div className="recorder">
             <div className="overlay">
@@ -217,26 +225,61 @@ export default function Recorder(props) {
                 backgroundColor={"rgb(255, 255, 255)"}
               />
               <div>
-                {play === false && <img className="record-button" src={playbtn} onClick={() => start()} />}
-                {play === true && <img className="record-button" src={pause} onClick={() => stop()} />}
+                {play === false && (
+                  <img
+                    className="record-button"
+                    src={playbtn}
+                    onClick={() => start()}
+                  />
+                )}
+                {play === true && (
+                  <img
+                    className="record-button"
+                    src={pause}
+                    onClick={() => stop()}
+                  />
+                )}
               </div>
             </div>
           </div>
-          {props.isLoading ? <><h3 className="loading-text">Session is loading, take time to hug your dog!</h3><div className='recorder-spinner'><LoadingSpinner /></div></> :
+          {props.isLoading ? (
             <>
-              <img src={arrow} alt='' />
+              <h3 className="loading-text">
+                Session is loading, take time to hug your dog!
+              </h3>
+              <div className="recorder-spinner">
+                <LoadingSpinner />
+              </div>
+            </>
+          ) : (
+            <>
+              <img src={arrow} alt="" />
               <h1 className="tap-prompt">Tap above to start training!</h1>
-              <h3 className="tap-above">Please tell us your dog's name and the skill you are training.</h3>
-              {newSesh === true &&
-                <NewSession dog={dogFinder(witData)} skill={skillFinder(witData)} id={dogID} newSesh={newSesh} setNewSesh={() => { setNewSesh(!newSesh) }} showNewSesh={showNewSesh} setShowNewSesh={() => { setShowNewSesh(true) }} witData={witData} />
-              }
+              <h3 className="tap-above">
+                Please tell us your dog's name and the skill you are training.
+              </h3>
+              {newSesh === true && (
+                <NewSession
+                  dog={dogFinder(witData)}
+                  skill={skillFinder(witData)}
+                  id={dogID}
+                  newSesh={newSesh}
+                  setNewSesh={() => {
+                    setNewSesh(!newSesh);
+                  }}
+                  showNewSesh={showNewSesh}
+                  setShowNewSesh={() => {
+                    setShowNewSesh(true);
+                  }}
+                  witData={witData}
+                />
+              )}
               {showNewSesh === true && <CreatedSession />}
               {dog.length > 2 && <Session name={dogFinder(witData)} />}
             </>
-          }
-        </div>}
-
+          )}
+        </div>
+      )}
     </div>
   );
-
 }
