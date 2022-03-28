@@ -2,6 +2,15 @@
 @import 'fonts';
 @import 'colors';
 
+.arrow {
+  opacity: 30%;
+  filter: grayscale(10);
+}
+.rainbow {
+  span {
+    opacity: 30%;
+  }
+}
 .week-heading {
 
   color: $primary_2;
@@ -14,10 +23,12 @@
     weight: 500;
     size: 1.0em;
   }
-  .span {
-    font-weight: 900;
+  .key {
+    font-weight: bold;
+
   }
 }
+
 .week {
   width: 90%;
   height: auto;

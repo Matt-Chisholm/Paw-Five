@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from 'react';
 import './Week.scss';
+import arrow from './images/arrow.png';
 
 export default function Week () {
 
@@ -31,11 +32,14 @@ export default function Week () {
 // VIEW
   return (
     <>
-      <img src="sit" />
-      <h2 className="week-heading">Consistency is <span>Key</span>. One day at a time:</h2>
+      <img src={arrow} className="arrow"/>
+      <h2 className="week-heading rainbow"> Train <span>e</span>very<span>day</span>. Much colors</h2>
+      <h2 className="week-heading">Consistency is <span className="key">Key</span>. One day at a time:</h2>
+      <br/>
       <div className="week">
         {renderDays}
       </div>
+      <br/>
     </>
   )
 };

@@ -1,5 +1,6 @@
 @import 'colors';
 @import 'fonts';
+@import 'mixins';
 
 // html {
 //   box-sizing: border-box;
@@ -33,30 +34,30 @@
   position: relative;
 
 }
-.test {
-  background-color: black;
-  width: 120px;
-  height: 400px;
-  z-index: 3;
-  position: absolute;
-}
+// .test {
+//   background-color: black;
+//   width: 120px;
+//   height: 400px;
+//   z-index: 3;
+//   position: absolute;
+// }
 
 .home-bottom {
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: auto;
+  height: 100vh;
   background: 
   linear-gradient(0deg, rgba(13, 163, 196, 0.6) 0%, rgba(255, 216, 115, 0) 84.37%, rgba(255, 255, 255, 0.5) 50.06%);
   min: {
-    width: 375px;
+    width: 428px;
   } 
   border-radius: 20px 20px 0px 0px;
   position: absolute;
   z-index: 2;
   
-  .rainbow-img {
+  .rainbow-pawteam {
     max-width: 428px;
     width: 93%;
     display: flex;
@@ -67,8 +68,11 @@
     position: absolute;
     z-index: 3;
     opacity: 50%;
-    padding-bottom: 36vh;
+    padding-bottom: 13.0vh;
     filter: brightness(430);
+    &:hover {
+
+    }
 
   }
   // parent of Rainbow component

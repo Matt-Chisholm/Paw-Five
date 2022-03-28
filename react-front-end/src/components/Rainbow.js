@@ -12,7 +12,7 @@ export default function Rainbow (){
  
   const [ viewPort, setViewPort ] = useState(null);
   const [ mobileView, setMobileView ] = useState("true");
-  const [ rainbowWidth, setRainbowWidth ] = useState(390);
+  const [ rainbowWidth, setRainbowWidth ] = useState(420);
   
   
   // CONSTANTS
@@ -62,7 +62,7 @@ export default function Rainbow (){
   // VIEW
   return (
     <>
-    <img className='rainbow-img' src={pawteam} />
+    <img className='rainbow-pawteam' src={pawteam} />
     <div className='rainbow-div'>
     {/* <ResponsiveContainer width={'99%'} height={345}> */}
   
@@ -70,7 +70,7 @@ export default function Rainbow (){
         className="radialBarChart"
         // viewBox={{x: "100%", y: "100%"}}
         width={rainbowWidth}
-        height={500}
+        height={300}
         // height={270}
         // cx={150}
         cy={-30}
