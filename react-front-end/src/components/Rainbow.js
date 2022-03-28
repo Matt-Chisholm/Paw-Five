@@ -3,6 +3,8 @@ import { RadialBarChart, RadialBar, Tooltip, Label, LabelList, ResponsiveContain
 import './Rainbow.scss'
 import axios from 'axios'
 
+import pawteam from './images/pawteam.png';
+
 export default function Rainbow (){
   const [days, setDays] = useState([]); // days, with an 's'
   // days example: [{id: 1, name: 'monday', uv: 100, pv: 2000, fill: '#8884d8', ...]
@@ -10,7 +12,7 @@ export default function Rainbow (){
  
   const [ viewPort, setViewPort ] = useState(null);
   const [ mobileView, setMobileView ] = useState("true");
-  const [ rainbowWidth, setRainbowWidth ] = useState(390);
+  const [ rainbowWidth, setRainbowWidth ] = useState(420);
   
   
   // CONSTANTS
@@ -59,14 +61,16 @@ export default function Rainbow (){
 
   // VIEW
   return (
-    <div>
+    <>
+    <img className='rainbow-pawteam' src={pawteam} />
+    <div className='rainbow-div'>
     {/* <ResponsiveContainer width={'99%'} height={345}> */}
   
       <RadialBarChart
         className="radialBarChart"
         // viewBox={{x: "100%", y: "100%"}}
         width={rainbowWidth}
-        height={330}
+        height={300}
         // height={270}
         // cx={150}
         cy={-30}
@@ -77,13 +81,14 @@ export default function Rainbow (){
         startAngle={180}
         endAngle={360}
       >
+
       <RadialBar
         // minAngle={23}
         label={{ 
           position: "inside",
           offset: 1, 
           fill: `#0DA4C5`, 
-          dataKey: "name",
+          dataKey: "",
           fontFamily: "Futura",
           fontSize: "1.5em",
         }}
@@ -92,13 +97,11 @@ export default function Rainbow (){
         dataKey="uv"
       >
       </RadialBar>
-      <Tooltip
-      
-      />
     </RadialBarChart>
     {/* </ResponsiveContainer> */}
-
     </div>
+    </>
+
   );
 
 };

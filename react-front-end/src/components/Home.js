@@ -12,6 +12,7 @@ import Stats from './HomeNavigationBar/Stats';
 
 import Rainbow from './Rainbow';
 import Summary from './Summary';
+import Week from './Week';
 
 export default function Home (props) {
   const [selected, setSelected] = useState("Stats");
@@ -59,8 +60,11 @@ export default function Home (props) {
             <img className='user-image' src={user.image} />
           </div>
           <div className='home-bottom'>
+              {/* <div className='test'>
+              </div> */}
             <article>
               <Rainbow />
+                <Week />
             </article>
               <Summary />
           </div>

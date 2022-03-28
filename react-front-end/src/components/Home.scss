@@ -1,5 +1,6 @@
 @import 'colors';
 @import 'fonts';
+@import 'mixins';
 
 // html {
 //   box-sizing: border-box;
@@ -26,30 +27,69 @@
   min-height: 22vh;
   min-width: 375px;
   width: 100%;
+  height: fit-content;
   display: flex;
   justify-content: center;
+  z-index: 3;
+  position: relative;
+
 }
+// .test {
+//   background-color: black;
+//   width: 120px;
+//   height: 400px;
+//   z-index: 3;
+//   position: absolute;
+// }
+
 .home-bottom {
   display: flex;
   align-items: center;
   flex-direction: column;
-
+  width: 100%;
+  height: 120vh;
   background: 
   linear-gradient(0deg, rgba(13, 163, 196, 0.6) 0%, rgba(255, 216, 115, 0) 84.37%, rgba(255, 255, 255, 0.5) 50.06%);
-    // linear-gradient(0deg, rgba(13, 163, 196, 0.85) 100%, rgba(255, 255, 255, 1), 100%);
-    // url("https://www.transparenttextures.com/patterns/foggy-birds.png");
   min: {
-    width: 375px;
+    width: 428px;
   } 
   border-radius: 20px 20px 0px 0px;
+  position: absolute;
+  z-index: 2;
+  &:hover {
+  }
   
+  .rainbow-pawteam {
+    max-width: 428px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: auto;
+    position: absolute;
+    z-index: 3;
+    opacity: 50%;
+    padding-bottom: 23.0vh;
+    filter: brightness(430);
+
+  }
   // parent of Rainbow component
   article {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100%;
+    height: auto;
+    // position: relative;
+    // z-index: 4;
+    
+
   }
 }
+
+
 .user-image {
   // position: relative;
   margin-top: 3.6vh;
