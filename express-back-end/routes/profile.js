@@ -1,8 +1,8 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (db) => {
-// Route: /api/profile/
+  // Route: /api/profile/
   router.get("/dog/:id", (req, res) => {
     const user_id = req.params.id;
     db.query(`
@@ -61,7 +61,16 @@ module.exports = (db) => {
         `, [dog_id])
           .then(result => {
             stats.skills = result.rows[0].count;
-            res.send(stats);
+            db.query(`
+              SELECT COUNT(*)
+              FROM memuries
+              JOIN dogs ON dogs.name = memuries.name
+              WHERE dogs.id = $1;
+        `, [dog_id])
+              .then(result => {
+                stats.memuries = result.rows[0].count;
+                res.send(stats);
+              })
           })
       })
       .catch(err => console.log("error", err));
