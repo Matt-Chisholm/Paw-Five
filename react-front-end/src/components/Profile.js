@@ -84,8 +84,8 @@ export default function Profile(props) {
                 <label className='bubble_label'>skills</label>
               </div>
               <div className='stats_bubble'>
-                <span className='bubble_data'>78</span>
-                <label className='bubble_label'>memories</label>
+                <span className='bubble_data'>{dogsStats[index] ? dogsStats[index].data.memuries : 0}</span>
+                <label className='bubble_label'>memuries</label>
               </div>
             </div>
           </div>
