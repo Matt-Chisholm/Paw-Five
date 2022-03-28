@@ -3,6 +3,8 @@ import { RadialBarChart, RadialBar, Tooltip, Label, LabelList, ResponsiveContain
 import './Rainbow.scss'
 import axios from 'axios'
 
+import pawteam from './images/pawteam.png';
+
 export default function Rainbow (){
   const [days, setDays] = useState([]); // days, with an 's'
   // days example: [{id: 1, name: 'monday', uv: 100, pv: 2000, fill: '#8884d8', ...]
@@ -59,7 +61,9 @@ export default function Rainbow (){
 
   // VIEW
   return (
-    <div>
+    <>
+    <img className='rainbow-img' src={pawteam} />
+    <div className='rainbow-div'>
     {/* <ResponsiveContainer width={'99%'} height={345}> */}
   
       <RadialBarChart
@@ -77,6 +81,7 @@ export default function Rainbow (){
         startAngle={180}
         endAngle={360}
       >
+
       <RadialBar
         // minAngle={23}
         label={{ 
@@ -94,8 +99,9 @@ export default function Rainbow (){
       </RadialBar>
     </RadialBarChart>
     {/* </ResponsiveContainer> */}
-
     </div>
+    </>
+
   );
 
 };

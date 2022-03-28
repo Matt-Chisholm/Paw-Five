@@ -2,6 +2,22 @@
 @import 'fonts';
 @import 'colors';
 
+.week-heading {
+
+  color: $primary_2;
+  letter-spacing: 0.10em;
+  text-align: center;
+  margin: 0.1em;
+
+  font: {
+    family: $primary_font;
+    weight: 500;
+    size: 1.0em;
+  }
+  .span {
+    font-weight: 900;
+  }
+}
 .week {
   width: 90%;
   height: auto;

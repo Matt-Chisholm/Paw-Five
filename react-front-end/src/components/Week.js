@@ -30,8 +30,12 @@ export default function Week () {
 
 // VIEW
   return (
-    <div className="week">
-      {renderDays}
-    </div>
+    <>
+      <img src="sit" />
+      <h2 className="week-heading">Consistency is <span>Key</span>. One day at a time:</h2>
+      <div className="week">
+        {renderDays}
+      </div>
+    </>
   )
 };
