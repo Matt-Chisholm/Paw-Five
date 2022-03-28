@@ -1,3 +1,6 @@
+@import 'colors';
+@import 'fonts';
+
 @mixin fade-in {
   animation-name: fade-in;
   animation-duration: 1200ms;
@@ -20,6 +23,17 @@
   }
 }
 
+@mixin wake-yellow {
+  animation-name: wake;
+  animation-duration: 4s;
+  animation-direction: alternate;
+
+  @keyframes wake {
+    0% {color: $primary_3;}
+    20% {background-color:$primary_3;}
+    100% {}
+  }
+}
 
 @mixin wake-text {
   animation-name: wake;
@@ -28,7 +42,7 @@
   @keyframes wake {
     0% {color: white;}
     20% {color:$primary_3;}
-    100% {left: 0px }
+    100% {}
   }
 }
 
@@ -86,3 +100,33 @@
     }
   }
 }
+
+
+// @mixin shine {
+//   background: 
+//   linear-gradient(0deg, rgba(13, 163, 196, 0.6) 0%, rgba(255, 216, 115, 0) 84.37%, rgba(255, 255, 255, 0.5) 50.06%);
+//   background-image: linear-gradient(down, rgba(13, 163, 196, 0.6) 0%, rgba(255, 216, 115, 0) 84.37%, rgba(255, 255, 255, 0.5) 50.06%);
+//   background-repeat: no-repeat;
+//   z-index: 5;
+  
+//   -webkit-animation-duration: 0.5s;
+//   -webkit-animation-fill-mode:both; 
+//   -webkit-animation-iteration-count: 1;
+//   -webkit-animation-name: placeholderShimmer;
+//   -webkit-animation-timing-function: linear;
+
+//   @keyframes placeholderShimmer {
+//     0% {
+//       background-position: 0 926px;
+//     }
+    
+//     100% {
+//       background-position: 0 -5000px; 
+//     }
+
+//     // 100% {
+//     //   background-position: 0 0px;
+//     // }
+//   }
+  
+  // }

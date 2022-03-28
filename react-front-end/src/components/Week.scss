@@ -37,20 +37,41 @@
   
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
   
   border-radius: 20px;
   color: $primary_1;
   &.top {
     background-color: $primary_2;
+
+    .day-abbr {
+      white-space: nowrap;
+      overflow: hidden;
+      width: 2.5em;
+      &:hover {
+        @include wake-yellow;
+      }
+    }
   }
   &.bottom {
     background-color: initial;
+    // width: 85%;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-grow: 1;
     .trainedDay {
+      &__missing {
+        // margin: 1.6vw;
+        // align-self: flex-end;
+      }
+      &__success {
+        // align-self: flex-end;
+        // margin: 1.6vw;
+      }
     }
   }
   font: {
     family: $primary_font;  
   }
-
 }

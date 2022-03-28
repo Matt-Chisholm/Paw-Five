@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import './Week.scss';
 import arrow from './images/blue-arrow.svg';
 import squirrel from './images/squirrel.svg';
+import question from './images/question.svg';
 
 export default function Week () {
   const [ daysData, setDaysData ] = useState();
@@ -36,9 +37,13 @@ export default function Week () {
 
   const renderTrainedDays = (data) => {
     return data.map((datum, index) => { 
-      return  <div key={index +1} className="trainedDay">
+      if (daysOfTheWeekAbbr[datum.id + 1] && datum.uv > 0) {
+      return  <div key={index +1} className="trainedDay__success">
         <img src={squirrel} />
-        {/* <p className={datum.id}> hell</p> */}
+        </div>
+      }
+      return  <div key={index +1} className="trainedDay__missing">
+        <img src={question} />
         </div>
     })
   }
@@ -54,8 +59,8 @@ export default function Week () {
         {renderDays}
       </div>
         <div className="week bottom">
-           {daysData && renderTrainedDays(daysData)}
-          </div>
+          {daysData && renderTrainedDays(daysData)}
+        </div>
       <br/>
       <h2 className="week-heading">Consistency is <span className="key">Key</span>. One day at a time:</h2>
       <br/>
