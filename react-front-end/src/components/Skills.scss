@@ -1,3 +1,4 @@
+@import 'colors';
 .skills {
   background: linear-gradient(180deg, rgba(255, 216, 115, 0.15) 10.42%, rgba(255, 216, 115, 0.15) 33.33%, rgba(13, 163, 196, 0.15) 51.04%);
   border-radius: 15px;
@@ -69,6 +70,12 @@
     mix-blend-mode: luminosity;
   }
 
+@media only screen and (width > 505px) {
+  h2 {
+    font-size: 2.0em;  
+  }
+}
+
   .scroll_down_text {
     font-family: 'Futura';
     font-style: normal;
@@ -98,6 +105,15 @@
       
     }
   } 
+}
+
+@media only screen and (width > 505px) {
+  .skill_details {
+    font: {
+      size: 1.4em;
+    }
+    margin: 0.2em;
+  }
 }
 
 .progress_container {
@@ -130,7 +146,7 @@
   font-family: 'Futura';
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 1.1em;
   line-height: 19px;
   /* identical to box height */
 
@@ -142,3 +158,12 @@
 
 }
 
+@media only screen and (width > 505px) {
+  .skill_label {
+    color: $primary_2;
+    font: {
+      size: 1.4em;
+    }
+  }
+
+}
