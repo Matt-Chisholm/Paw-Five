@@ -51,6 +51,15 @@ This is version 1.0. Any features you think should do amazing things for dogs? D
 
 
 
-> *Training doesn't get easier. You just become stronger.*
+~*Training doesn't get easier. You just become stronger.*
 
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+
+![Home Page](https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/pawfive-home.png?raw=true)
+![Home-bottom of page](https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/pawfive-home-bottom.png?raw=true)
+![Photos/Memuries](https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/pawfive-home-memuries.png?raw=true)
+![Training Page](https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/pawfive-training.png?raw=true)
+![Dog's Profile Page](https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/pawfive-profile.gif?raw=true)
+![Training Session](https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/pawfive-training-session.gif?raw=true)
+![Training Tutorial](https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/pawfive-training-tutorial.gif?raw=true)
+
+*Woof*
