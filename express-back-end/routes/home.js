@@ -117,6 +117,7 @@ module.exports = (db) => {
   });
 
 
+  // WHERE name = $1;
   // UPDATE PROGRESS FOR DEMO-ING RAINBOW CHART 
   router.post("/session/demo/:id", (req, res) => {
     const id = req.params.id;
