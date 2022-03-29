@@ -36,10 +36,10 @@
 }
 
 @mixin wake-text {
-  animation-name: wake;
+  animation-name: wake-text;
   animation-duration: 400ms;
 
-  @keyframes wake {
+  @keyframes wake-text {
     0% {color: white;}
     20% {color:$primary_3;}
     100% {}
