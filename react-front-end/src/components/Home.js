@@ -49,6 +49,7 @@ export default function Home (props) {
 
   
 
+
   // VIEW
   return (
     <div className='homeComponent'>

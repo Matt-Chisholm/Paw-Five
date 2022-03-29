@@ -13,6 +13,7 @@ export default function Rainbow (){
   const [ viewPort, setViewPort ] = useState(null);
   const [ mobileView, setMobileView ] = useState("true");
   const [ rainbowWidth, setRainbowWidth ] = useState(420);
+  const [ demo, setDemo ] = useState(100);
   
   
   // CONSTANTS
@@ -20,15 +21,19 @@ export default function Rainbow (){
   const daysOfTheWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   const todaysDate = `${now.getFullYear()}-${(now.getMonth() + 1) < 10 && 0}${now.getMonth() + 1}-${now.getDate()}`
 
+  
   // GETS DATABASE FOR DAY*S* STATE (dep: RadialBarChart)
   useEffect(()=>{
     axios
       .get('api/home/days')
       .then(success => setDays(success.data))
       .catch(error => console.log("error in Rainbow Comp useE1: ", error));
-      return () => setDays([]);
-  }, [])
+      return () => {
+        setDays([]);
+      };
+  }, [demo])
   
+
   // 1. SETS TODAY DAY OF THE WEEK, e.g. 'monday'
   // 2. GETS SESSIONS FOR DAY*S* STATE (dep: RadialBarChart)
   useEffect(() => {
@@ -57,6 +62,24 @@ export default function Rainbow (){
       return setRainbowWidth(900);
     };
   }, [])
+
+
+// manipulate the database using buttons to show off colors adding to rainbow: make an axios request to update uv to 0
+const handleDemoButton = () => {
+  if (day) {
+    console.log("handleDemoB responsive", demo);
+    demo === 100 ? setDemo(0) : setDemo(100);
+
+    axios
+    .post(`api/home/session/demo/${demo}`)
+    .then(success => {
+      console.log("Success handleDemoButton", success);
+    })
+    .catch(error => {
+      console.log("Error handleDemoButton", error);
+    });
+  };
+};
 
 
   // VIEW
@@ -100,6 +123,7 @@ export default function Rainbow (){
     </RadialBarChart>
     {/* </ResponsiveContainer> */}
     </div>
+        <button name='demo'  className='demoButton' onClick={()=>handleDemoButton()}>DEMO</button>
     </>
 
   );
