@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import lvlup from "./images/levelup.png";
+import lvlup from "./images/lvlup.png";
 import './CreatedSession.scss';
 
 export default function CreatedSession(props) {
@@ -23,9 +23,7 @@ export default function CreatedSession(props) {
             {displayedSesh.dog_name}'s {displayedSesh.skill_name} skill has
             leveled up!
           </h3>
-          <div className="arrow bounce">
-            <img className="lvlup" src={lvlup} alt="" />
-          </div>
+          <img className="lvlup" src={lvlup} alt="" />
         </div>
       )}
     </div>
