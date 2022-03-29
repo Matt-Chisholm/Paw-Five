@@ -28,6 +28,7 @@ export default function Recorder(props) {
   const [dogID, setDogID] = useState();
   const [tutorialsButtonText, setTutorialsButtonText] = useState("Tutorials");
   const [selectedTutorial, setSelectedTutorial] = useState();
+  const [recorderError, setRecorderError] = useState(false);
 
   const start = () => {
     setRecordState(RecordState.START);
@@ -45,7 +46,11 @@ export default function Recorder(props) {
     console.log("Data onStop", data);
     console.log("HERE IS SIZE", data.blob.size);
     if (data.blob.size > 1000) {
+      setRecorderError(false);
       send(data.blob);
+    }
+    if (data.blob.size < 1000) {
+      setRecorderError(true);
     }
   };
 
@@ -259,6 +264,7 @@ export default function Recorder(props) {
             </>
           ) : (
             <>
+              {recorderError === true && <h1 className="record-error">Whoops, the AI had a hiccup! Please try again!</h1>}
               <img src={arrow} alt="" />
               <h1 className="tap-prompt">Tap above to start training!</h1>
               <h3 className="tap-above">
