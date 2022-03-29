@@ -74,7 +74,6 @@ const handleDemoButton = () => {
     .post(`api/home/session/demo/${demo}`)
     .then(success => {
       console.log("Success handleDemoButton", success);
-      // setDemo("true");
     })
     .catch(error => {
       console.log("Error handleDemoButton", error);
@@ -124,9 +123,7 @@ const handleDemoButton = () => {
     </RadialBarChart>
     {/* </ResponsiveContainer> */}
     </div>
-    <div className='demoButton'>
-        <button type="button" name='demo' onClick={()=>handleDemoButton()}>DEMO</button>
-    </div>
+        <button name='demo'  className='demoButton' onClick={()=>handleDemoButton()}>DEMO</button>
     </>
 
   );

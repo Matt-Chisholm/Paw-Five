@@ -27,8 +27,21 @@
 }
 
 .demoButton {
-  background-color: yellow;
-  position: fixed;
-  top: 0%;
+  position: absolute;
   z-index: 5;
+  top: 0%;
+  width: 60vw;
+  height: auto;
+  background: rgba(255, 216, 115, 0.75);
+  box-shadow: inset 0px -3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  border-color: beige;
+  font-family: "Futura";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5em;
+  text-align: center;
+  letter-spacing: 0.15em;
+  color: rgba(0, 0, 0, 0.8);
+
 }
