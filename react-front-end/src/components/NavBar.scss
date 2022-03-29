@@ -46,6 +46,35 @@ html {
       
     }
   }
+    @media only screen and (width > 505px) {
+      span {     
+        padding: 0px;
+        img {
+          width: 65px;
+          height: 50px;
+          object-fit: contain;
+          mix-blend-mode: darken;
+          object-fit: cover;
+        }
+      }
+      
+      
+        .tab__item {
+          padding: 0em;
+          color: white;
+          &.tab__item--selected {
+            background-color: $primary_3;
+            border: {
+              color: $primary_1;
+              size: 1em;
+              style: dotted;
+              width: 1.0em;
+            }
+          }
+        }
+    }
+
+
   .tab__item {
     padding: 1em;
     color: white;

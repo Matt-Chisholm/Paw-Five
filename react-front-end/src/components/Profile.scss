@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Boogaloo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
+@import 'colors';
 
 .loading_spinner {
   height: 80vh;
@@ -67,7 +68,19 @@ div.license {
       // margin: 3vh 0vw;
       margin-left: 8.3vw;
     }
-    
+    @media only screen and (width > 505px) {
+      .avatar {
+        background-color: $primary_1;
+        width: 60%;
+        height: 65%;
+        object-fit: scale-down;
+        max-width: 200px;
+        max-height: 200px;
+        margin-left: 0.5vw;
+
+      }
+    }
+
     div.dog_breed_and_stats {
       // position: relative;
       display: flex;
@@ -136,6 +149,15 @@ div.license {
     }
   }
 }
+
+@media only screen and (width > 505px) {
+  div.license {
+    width: 70%;
+    max-width: 600px;
+  }
+}
+
+
 
 .exit-button {
   position: absolute;

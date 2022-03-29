@@ -1,3 +1,5 @@
+@import 'colors';
+
 .sessions {
   background: linear-gradient(180deg, rgba(13, 163, 196, 0.15) 0%, rgba(255, 255, 255, 0.15) 100%);
   border-radius: 15px;
@@ -74,7 +76,11 @@
 
     mix-blend-mode: luminosity;
   }
-
+  @media only screen and (width > 505px) {
+    h2 {
+      font-size: 2.0em;  
+    }
+  }
   .scroll_down_text {
     font-family: 'Futura';
     font-style: normal;
@@ -103,14 +109,33 @@
         font-family: 'Futura';
         font-style: normal;
         font-weight: 500;
-        font-size: 12px;
+        font-size: 1.0em;
         line-height: 16px;
         letter-spacing: 0.1em;
 
         color: rgba(0, 0, 0, 0.59);
       }
     }
-    
+    @media only screen and (width > 505px) {
+      li.session_row {
+        justify-content: space-evenly;
+      }
+      .timestamp_component {
+        display: flex;
+        align-items: center;
+  
+        span {
+          font-family: 'Futura';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 1.8em;
+          line-height: 10px;
+          letter-spacing: 0.05em;
+          color: $primary_2;
+        }
+      }
+    }
+
     .results_component {
       
       display: flex;
