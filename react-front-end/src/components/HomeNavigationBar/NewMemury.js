@@ -7,7 +7,8 @@ export default function NewMemury(props) {
   const [image, setImage] = useState();
 
   // FOR VALIDATING FORM SUBMISSION
-  const [ submit, setSubmit ] = useState("");
+  const [ submitName, setSubmitName ] = useState("");
+  const [ submitURL, setSubmitURL ] = useState("");
 
 
 
@@ -24,7 +25,8 @@ export default function NewMemury(props) {
         setDogName('');
         setImage('');
         props.setRender();
-        setSubmit("");
+        setSubmitName("");
+        setSubmitURL("");
       })
       .catch((error) => {
         if (error.response) {
@@ -42,14 +44,20 @@ export default function NewMemury(props) {
 
 
   const handleChange = (event) => {
-    console.log("typing into the form you get: ", submit);
-    setSubmit(event.target.value);
+    console.log("typing into the form you get: ", event.target.name);
+    const inputName = event.target.name  
+    inputName === "name" && setSubmitName(event.target.value);
+    inputName === "url"  && setSubmitURL(event.target.value)
   };
   const handleSubmit = (event) => {
-    console.log("TJTJ");
+    // console.log("TJTJ", event.target);
     event.preventDefault();
-    if (submit.length === 0) {
-      alert("cannot be empty");
+    if (submitName.length === 0) {
+      alert("Name cannot be empty");
+      return;
+    }
+    if (submitURL.length === 0) {
+      alert("Photo URL cannot be empty");
       return;
     }
   };
@@ -61,6 +69,7 @@ export default function NewMemury(props) {
           <h2>Paws & Save</h2>
           <h4>training memuries</h4>
           <input
+            name="name"
             placeholder="Doggo's name here"
             type="text"
             value={dogName}
@@ -70,6 +79,7 @@ export default function NewMemury(props) {
             }}
             />
           <input
+            name="url"
             placeholder="Photo URL goes here"
             type="text"
             value={image}
