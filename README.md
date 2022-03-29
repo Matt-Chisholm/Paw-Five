@@ -52,3 +52,5 @@ This is version 1.0. Any features you think should do amazing things for dogs? D
 
 
 > *Training doesn't get easier. You just become stronger.*
+
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
