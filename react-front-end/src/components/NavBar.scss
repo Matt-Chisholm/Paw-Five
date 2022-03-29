@@ -37,10 +37,10 @@ html {
     justify-content: space-around;
     align-items: center;
     img {
-      width: 10.05vw;
+      width: 14.05vw;
       height: 4.86vh;
       mix-blend-mode: darken;
-      object-fit: cover;
+      object-fit: scale-down;
     }
     &:hover {
       
