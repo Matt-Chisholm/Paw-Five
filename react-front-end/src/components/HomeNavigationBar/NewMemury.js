@@ -6,9 +6,14 @@ export default function NewMemury(props) {
   const [dogName, setDogName] = useState();
   const [image, setImage] = useState();
 
-  const [ submit, setSubmit ] = useState();
+  // FOR VALIDATING FORM SUBMISSION
+  const [ submit, setSubmit ] = useState("");
 
-  const postMemury = () => {
+
+
+  const postMemury = (event) => {
+    handleSubmit(event)
+
     axios
       .post(`/api/home/memuries/new`, {
         dogName: dogName,
@@ -19,6 +24,7 @@ export default function NewMemury(props) {
         setDogName('');
         setImage('');
         props.setRender();
+        setSubmit("");
       })
       .catch((error) => {
         if (error.response) {
@@ -33,18 +39,24 @@ export default function NewMemury(props) {
         }
       });
   };
+
+
   const handleChange = (event) => {
-    console.log("TJhandleChange", submit);
+    console.log("typing into the form you get: ", submit);
     setSubmit(event.target.value);
-  }
+  };
   const handleSubmit = (event) => {
-    console.log("TJhandlesubmit", event.target.value);
-    alert(`Yummah ${submit}`);
+    console.log("TJTJ");
     event.preventDefault();
-  }
+    if (submit.length === 0) {
+      alert("cannot be empty");
+      return;
+    }
+  };
+
+
   // VIEW
   return (
-    // <div className="new-memury">
         <form className='memuries-form'>
           <h2>Paws & Save</h2>
           <h4>training memuries</h4>
@@ -66,8 +78,11 @@ export default function NewMemury(props) {
               handleChange(e)
             }}
           />
-          <button type="submit" value="Submit" onClick={(e) => {postMemury(); e.preventDefault(); handleSubmit(e)}}>Create</button>
+          <button type="submit" value="Submit" onClick={(e) => {
+            // handleSubmit(e);
+            postMemury(e);
+            e.preventDefault(); 
+          }}>Create</button>
         </form>
-      // </div>
   )
 }
