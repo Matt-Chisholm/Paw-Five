@@ -28,8 +28,9 @@
 
 .demoButton {
   position: absolute;
+  margin-top: 5vh;
+  opacity: 50%;
   z-index: 5;
-  top: 0%;
   width: 60vw;
   height: auto;
   background: rgba(255, 216, 115, 0.75);
