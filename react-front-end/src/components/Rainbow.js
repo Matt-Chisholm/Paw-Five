@@ -13,7 +13,7 @@ export default function Rainbow (){
   const [ viewPort, setViewPort ] = useState(null);
   const [ mobileView, setMobileView ] = useState("true");
   const [ rainbowWidth, setRainbowWidth ] = useState(420);
-  const [ demo, setDemo ] = useState("false");
+  const [ demo, setDemo ] = useState(100);
   
   
   // CONSTANTS
@@ -30,7 +30,6 @@ export default function Rainbow (){
       .catch(error => console.log("error in Rainbow Comp useE1: ", error));
       return () => {
         setDays([]);
-        setDemo("false");
       };
   }, [demo])
   
@@ -68,13 +67,14 @@ export default function Rainbow (){
 // manipulate the database using buttons to show off colors adding to rainbow: make an axios request to update uv to 0
 const handleDemoButton = () => {
   if (day) {
-    console.log("handleDemoB responsive", day);
-    
+    console.log("handleDemoB responsive", demo);
+    demo === 100 ? setDemo(0) : setDemo(100);
+
     axios
-    .post(`api/home/session/demo/thursday`)
+    .post(`api/home/session/demo/${demo}`)
     .then(success => {
       console.log("Success handleDemoButton", success);
-      setDemo("true");
+      // setDemo("true");
     })
     .catch(error => {
       console.log("Error handleDemoButton", error);

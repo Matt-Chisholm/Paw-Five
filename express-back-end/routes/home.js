@@ -123,8 +123,8 @@ module.exports = (db) => {
     const id = req.params.id;
     db.query(`
       UPDATE days
-      SET uv = 0
-      WHERE name = $1;
+      SET uv = $1
+      WHERE id > 0;
     `, [id])
     .then((result) => {
       res.send(result.rows);
