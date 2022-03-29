@@ -9,7 +9,7 @@ export default function NewMemury(props) {
   // FOR VALIDATING FORM SUBMISSION
   const [ submitName, setSubmitName ] = useState("");
   const [ submitURL, setSubmitURL ] = useState("");
-
+  const [ error, setError ] = useState("false");
 
 
   const postMemury = (event) => {
@@ -43,12 +43,29 @@ export default function NewMemury(props) {
   };
 
 
+  // work in progress: goal is to prevent symbols in name.
   const handleChange = (event) => {
     console.log("typing into the form you get: ", event.target.name);
-    const inputName = event.target.name  
-    inputName === "name" && setSubmitName(event.target.value);
-    inputName === "url"  && setSubmitURL(event.target.value)
+    const inputName = event.target.name;
+    const inputGeneral = event.target.value;
+
+    inputName === "name" && setSubmitName(inputGeneral);
+    inputName === "url"  && setSubmitURL(inputGeneral);
+    
+    const pattern = "?!";
+
+  
+    if (inputName === "name" && inputGeneral.length > 0 ) {
+
+      inputGeneral.forEach(char => {
+        if (pattern.includes(char)) {
+          return setError("true")
+        } 
+      });
+      return setError("false")
+    } 
   };
+
   const handleSubmit = (event) => {
     // console.log("TJTJ", event.target);
     event.preventDefault();
@@ -63,6 +80,18 @@ export default function NewMemury(props) {
   };
 
 
+  const handleBlur = (event) => {
+    // just trying out both options on handling blur with inline pattern attribute, and function
+    event.target.validity.patternMismatch ? setError("true") : setError("true");
+  };
+
+  function style(error) {
+    if (error === "true") {
+      return {
+        backgroundColor: "rgba(255, 0, 0, 0.5)"
+      }
+    }
+  }
   // VIEW
   return (
         <form className='memuries-form'>
@@ -72,6 +101,9 @@ export default function NewMemury(props) {
             name="name"
             placeholder="Doggo's name here"
             type="text"
+            // pattern='[a-z]?'
+            // onBlur={handleBlur}
+            style={style(error)}
             value={dogName}
             onChange={(e) => {
               setDogName(e.target.value);
