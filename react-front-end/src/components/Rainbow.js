@@ -60,14 +60,16 @@ export default function Rainbow (){
 
 // manipulate the database using buttons to show off colors adding to rainbow: make an axios request to update uv to 0
 const handleDemoButton = () => {
-  axios
-    .post('api/home/session/demo')
+  if (day) {
+    axios
+    .post(`api/home/session/demo/${day}`)
     .then(success => {
       console.log("Success handleDemoButton", success);
     })
     .catch(error => {
       console.log("Error handleDemoButton", error);
-    })
+    });
+  };
 };
 
 
