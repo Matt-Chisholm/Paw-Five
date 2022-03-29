@@ -60,6 +60,7 @@ export default function Rainbow (){
 
 // manipulate the database using buttons to show off colors adding to rainbow: make an axios request to update uv to 0
 const handleDemoButton = () => {
+  console.log("handleDemoB responsive");
   if (day) {
     axios
     .post(`api/home/session/demo/${day}`)
@@ -112,10 +113,10 @@ const handleDemoButton = () => {
       >
       </RadialBar>
     </RadialBarChart>
-    <div>
-
-    </div>
     {/* </ResponsiveContainer> */}
+    </div>
+    <div className='demoButton'>
+        <button type="button" name='demo' onClick={()=>handleDemoButton()}>DEMO</button>
     </div>
     </>
 
