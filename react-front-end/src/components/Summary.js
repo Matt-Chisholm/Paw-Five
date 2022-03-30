@@ -88,7 +88,7 @@ Promise.all(promises)
           </p>
         </h4>
       </section>
-      <section>
+      <section className='stats__poops'>
         <h1>
             0
         </h1>
