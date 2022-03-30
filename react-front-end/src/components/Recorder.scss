@@ -200,6 +200,8 @@ audio::-webkit-media-controls-panel {
   letter-spacing: 0.15em;
   color: rgba(13, 163, 196, 0.5);
   filter: blur(0.5px);
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 
 // loading spinner
