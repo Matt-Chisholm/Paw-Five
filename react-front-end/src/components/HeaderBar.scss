@@ -7,12 +7,13 @@ html {
 
 header {
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   background-color: $primary_2;
   height: 6.4vh;
-  justify-content: center;
   min-width: 375px;
-  padding: 0 13.1px;
+  // padding: 0 13.1px;
   width: 100%;
   font: {
     family: $primary_font;
@@ -25,13 +26,21 @@ header {
     letter-spacing: 2.7px;
     min-height: 24px;
     min-width: 94px;
+    flex-grow: 2;
   }
   .setting {
-    position: absolute;
+    // position: absolute;
     right: 0;
     height: 24px;
     margin-bottom: 0.07px;
     margin-right: 2vw;
     width: 24px;
   }
+}
+
+.header-menu {
+  z-index: 9;
+  // position: absolute;
+  // align-items: flex-start;
+  flex-shrink: 1;
 }
