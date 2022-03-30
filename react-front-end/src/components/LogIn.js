@@ -8,7 +8,7 @@ export default function LogIn(props) {
 
   const footprintClass = classNames('footprint', {'cover': cover}, {'uncover': !cover});
   const logInClass = classNames('log_in_btn', {'uncovered': !cover});
-  const logoClass = classNames('logo', {'uncovered': !cover});
+  const logoClass = classNames('logo', {'uncovered shake-chunk shake-chunk--hover': !cover});
 
   return (
     <div className="login-page" onClick={() => setCover(!cover)}>
