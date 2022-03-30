@@ -8,11 +8,13 @@ export default function Health(props) {
   return (
     <div className="health-component">
       <div className="vet-div">
-        <h2>Vet Information:</h2>
+        <h2>Dr. Nick Cage's Uncaged Veterinary Clinic</h2>
+        <br/>
         <div>
-        <h3>Johnson Street Vet Clinic -- 299 Johnson Street, Victoria BC</h3>
+        <h3>The Dr. Nicholas Cage - DVM</h3>
+        <h3>299 Alva Street, Victoria BC</h3>
         <h3>(250)-666-9000</h3>
-        <h3>Dr. Nicholas Cage - DVM</h3>
+        <br/>
         <h3>Last Visit : March 9th, 2022</h3>
         </div>
         <img src='https://www.theglobeandmail.com/resizer/hFcYqOk-HRF8un0VP13NuvTy6xM=/1200x1040/filters:quality(80)/arc-anglerfish-tgam-prod-tgam.s3.amazonaws.com/public/DHT56337DVHSPPNLOYVOOU6LXI' alt='' />

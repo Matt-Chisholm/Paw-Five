@@ -8,7 +8,6 @@
   background-color: $primary_2;
 
 
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,13 +15,13 @@
 
   .log_in_btn {
     width: 30%;
-    font-size: 2em;
+    font-size: 1.5em;
     margin-bottom: 10%;
     background-color: #31eaea;
     border: none;
     color: azure;
     border-radius: 20px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Futura', sans-serif;
 
     &.uncovered {
       z-index: 1;
@@ -34,6 +33,7 @@
     color: $primary_1;
     letter-spacing: 2.7px;
     width: 50%;
+    font-family: "Futura";
     font-size: 3em;
     margin-bottom: 10%;
 
