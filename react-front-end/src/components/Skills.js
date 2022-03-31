@@ -16,7 +16,7 @@ export default function Skills(props) {
               <span className='percent_completed'>{`${skill.rating * 5 > 20 ? (skill.rating * 5 > 100 ? 100 : skill.rating * 5) : 20}%`}</span>
             </div>
           </div>
-          {skill.rating * 5 === 100 && <span className='skill_star'>🏅</span>}
+          {skill.rating * 5 >= 100 && <span className='skill_star'>🏅</span>}
         </div>
       </div>
     });
