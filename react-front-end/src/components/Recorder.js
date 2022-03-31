@@ -77,7 +77,7 @@ export default function Recorder(props) {
       dog = "Bolt";
       return dog;
     }
-    dog = "Birdie";
+    dog = "No dog detected";
     return dog;
   };
 
@@ -117,7 +117,7 @@ export default function Recorder(props) {
       skill = "Lie Down";
       return skill;
     }
-    skill = "Sit";
+    skill = "No skill detected";
     return skill;
   };
 
@@ -143,15 +143,10 @@ export default function Recorder(props) {
         if (typeof witResponse.data === "string") {
           setWitData(witResponse.data);
           setNewSesh(true);
-        } else {
-          setWitData("");
-          setNewSesh(true);
         }
       })
       .catch((error) => {
         props.setIsLoading(true);
-        setWitData("");
-        setNewSesh(true);
         if (error.response) {
           console.log(error.response);
           //do something
