@@ -10,6 +10,9 @@ import Memuries from './HomeNavigationBar/Memuries';
 import Social from './HomeNavigationBar/Social';
 import Stats from './HomeNavigationBar/Stats';
 
+
+
+
 import Rainbow from './Rainbow';
 import Summary from './Summary';
 import Week from './Week';
@@ -50,9 +53,12 @@ export default function Home (props) {
   
 
 
+ 
+
   // VIEW
   return (
     <div className='homeComponent'>
+  
       <HomeNavigationBar tab={selected} tabs={tabs} onChange={setSelected}/>
       {selected === "Stats" && user.id &&
         <>
