@@ -5,10 +5,11 @@ import classNames from "classnames";
 
 export default function LogIn(props) {
   const [cover, setCover] = useState(true);
+  const [view, setView] = useState("landing");
 
-  const footprintClass = classNames('footprint', {'cover': cover}, {'uncover': !cover});
-  const logInClass = classNames('log_in_btn', {'uncovered': !cover});
-  const logoClass = classNames('logo', {'uncovered shake-chunk shake-chunk--hover': !cover});
+  const footprintClass = classNames('footprint', { 'cover': cover }, { 'uncover': !cover });
+  const logInClass = classNames('log_in_btn', { 'uncovered': !cover });
+  const logoClass = classNames('logo', { 'uncovered shake-chunk shake-chunk--hover': !cover });
 
   return (
     <div className="login-page" onClick={() => setCover(!cover)}>
@@ -22,8 +23,16 @@ export default function LogIn(props) {
       <img id='foot_4' className={footprintClass} src={footprint} />
       <img id='foot_5' className={footprintClass} src={footprint} />
 
-      <button className={logInClass} onClick={() => {props.setCookie("user_id", 1);}}>
+      <button className={logInClass} onClick={() => {
+        setView("login");
+        props.setCookie("user_id", 1);
+      }}>
         LOG IN
+      </button>
+      <button className={logInClass} onClick={() => {
+        setView("signup");
+      }}>
+        SIGN UP
       </button>
     </div>
   )
