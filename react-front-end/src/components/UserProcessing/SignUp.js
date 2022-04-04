@@ -10,25 +10,21 @@ export default function SignUp(props) {
   const [password, setPassword] = useState('');
 
   // States for checking the errors
-  const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
 
   // Handling the name change
   const handleName = (e) => {
     setName(e.target.value);
-    // setSubmitted(false);
   };
 
   // Handling the email change
   const handleEmail = (e) => {
     setEmail(e.target.value);
-    // setSubmitted(false);
   };
 
   // Handling the password change
   const handlePassword = (e) => {
     setPassword(e.target.value);
-    // setSubmitted(false);
   };
 
   // Handling the form submission
@@ -37,7 +33,9 @@ export default function SignUp(props) {
     if (name.length < 8 || email.length < 8 || !email.includes("@") || password.length < 8) {
       setError(true);
     } else {
-      setSubmitted(true);
+      props.setCookie("user_id", 1);
+      // set a cookie in the right way
+
       setError(false);
       axios.post("/api/userProcessing/register/", {
         username: name,
@@ -45,16 +43,6 @@ export default function SignUp(props) {
         password: password
       })
     }
-  };
-
-  // Showing success message
-  const successMessage = () => {
-    return (
-      <div
-        className="message success">
-        <h1>User {name} is successfully registered!!</h1>
-      </div>
-    );
   };
 
   // Showing error message if error is true
@@ -78,11 +66,6 @@ export default function SignUp(props) {
         {error &&
           <div className="messages" onClick={() => setError(false)}>
             {errorMessage()}
-          </div>
-        }
-        {submitted &&
-          <div className="messages" onClick={() => setError(false)}>
-            {successMessage()}
           </div>
         }
       </div>
