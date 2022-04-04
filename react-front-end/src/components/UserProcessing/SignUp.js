@@ -74,38 +74,49 @@ export default function SignUp(props) {
   };
 
   return (
-    <div className="message form">
-      <div>
+    <div className="form">
+      <div className="user-registration">
         <h1>User Registration</h1>
       </div>
 
-      <div className="messages">
-        {error &&
-          errorMessage()
-        }
-        {submitted &&
-          successMessage()
-        }
-      </div>
+      {error &&
+        <div className="messages">
+          {errorMessage()}
+        </div>
+      }
+      {submitted &&
+        <div className="messages">
+          {successMessage()}
+        </div>
+      }
 
       <form>
         {/* Labels and inputs for form data */}
-        <label className="label">Username</label>
-        <input onChange={handleName} className="input"
-          value={name} type="text" />
+        <div className="text-field">
+          <label className="label">Username</label>
+          <input onChange={handleName} className="input"
+            value={name} type="text" />
+        </div>
 
-        <label className="label">Email</label>
-        <input onChange={handleEmail} className="input"
-          value={email} type="email" />
+        <div className="text-field">
+          <label className="label">Email</label>
+          <input onChange={handleEmail} className="input"
+            value={email} type="email" />
+        </div >
 
-        <label className="label">Password</label>
-        <input onChange={handlePassword} className="input"
-          value={password} type="password" />
+        <div className="text-field">
+          <label className="label">Password</label>
+          <input onChange={handlePassword} className="input"
+            value={password} type="password" />
+        </div >
 
-        <button onClick={handleSubmit} className="btn" type="submit">
-          Submit
-        </button>
-      </form>
-    </div>
+        <div id="submit">
+          <button onClick={handleSubmit} className="btn" type="submit">
+            Submit
+          </button>
+        </div>
+        
+      </form >
+    </div >
   );
 }

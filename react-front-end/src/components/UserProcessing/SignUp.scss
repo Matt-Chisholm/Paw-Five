@@ -1,29 +1,68 @@
+// @import 'colors';
+// @import 'fonts';
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+
 .form {
-  background-color: #0DA4C5;
-  height: 100vh;
+  form {
+    background-color: #0DA4C5;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+    gap: 1vh;
+  }
+
+  .user-registration {
+    position: absolute;
+    top: 10vh;
+    width: 100vw;
+    font-size: 1.5em;
+    h1 {
+      text-align: center;
+    }
+  }
+
+  .text-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+    .label {
+      display: block;
+      text-align: center;
+      width: 30%;
+      font-size: 1.3em;
+      color: azure;
+    }
+      
+    .input {
+      width: 80%;
+      font-size: larger;
+      text-align: center;
+      padding: 0.4em;
+      border-radius: 20px;
+      border: none;
+    }
+  }
 }
 
-.label{
-  display: block;
-  font-size: larger;
-  color: white;
-  padding: 5px;
-  }
-  
-  .input{
-  font-size: larger;
-  padding: 5px;
-  margin: 2px;
-  
-  }
+#submit {
+  display: flex;
+  justify-content: center;
+
   .btn{
-  color: white;
-  background-color: rgb(194, 62, 62);
-  border-radius: 5px;
-  font-size: larger;
-  display: block;
-  padding: 5px;
-  margin: 10px auto;
+    width: 30%;
+    font-size: 1.5em;
+    background-color: #31eaea;
+    border: none;
+    color: azure;
+    border-radius: 20px;
+    font-family: 'Futura', sans-serif;
+    // text-align: center;
+  }
   }
   
   .messages{
