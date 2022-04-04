@@ -206,7 +206,6 @@ const [ skills, setSkills ] = useState({sit: 0});
     {
       command: "sit",
       callback: () => setSkills(
-
         
       )
     },
