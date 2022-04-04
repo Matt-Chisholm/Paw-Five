@@ -69,8 +69,13 @@
     // text-align: center;
     margin-left: 0;
   }
-  }
+}
   
+.messages-container {
+
+  display: flex;
+  justify-content: center;
+
   .messages{
     position: fixed;
     z-index: 100;
@@ -78,11 +83,14 @@
     border: 2px solid black;
     height: 20vh;
     border-radius: 30px;
+    width: 90%;
     background-color: aquamarine;
     display: flex;
     align-items: center;
-
-    .message {
-      text-align: center;
+    justify-content: center;
+    
+      .message {
+        text-align: center;
+      }
     }
   }
