@@ -1,5 +1,6 @@
 .form {
   background-color: #0DA4C5;
+  height: 100vh;
 }
 
 .label{
@@ -17,7 +18,7 @@
   }
   .btn{
   color: white;
-  background-color: red;
+  background-color: rgb(194, 62, 62);
   border-radius: 5px;
   font-size: larger;
   display: block;
@@ -26,24 +27,17 @@
   }
   
   .messages{
-  display: flex;
-  justify-content: center;
-  }
-  
-  .error{
-  display: block;
-  background-color: red;
-  color: white;
-  width: fit-content;
-  height: 50px;
-  padding: 5px;
-  }
-  
-  .success{
-  display: block;
-  background-color: lightblue;
-  color: black;
-  width: fit-content;
-  height: 50px;
-  padding: 5px;
+    position: fixed;
+    z-index: 100;
+    top: 45vh;
+    border: 2px solid black;
+    height: 20vh;
+    border-radius: 30px;
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+
+    .message {
+      text-align: center;
+    }
   }

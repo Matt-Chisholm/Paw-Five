@@ -51,9 +51,9 @@ export default function SignUp(props) {
   const successMessage = () => {
     return (
       <div
-        className="success"
+        className="message success"
         style={{
-          display: submitted ? '' : 'none',
+          display: '',
         }}>
         <h1>User {name} successfully registered!!</h1>
       </div>
@@ -64,9 +64,9 @@ export default function SignUp(props) {
   const errorMessage = () => {
     return (
       <div
-        className="error"
+        className="message error"
         style={{
-          display: error ? '' : 'none',
+          display: '',
         }}>
         <h1>Please enter all the fields</h1>
       </div>
@@ -74,7 +74,7 @@ export default function SignUp(props) {
   };
 
   return (
-    <div className="form">
+    <div className="message form">
       <div>
         <h1>User Registration</h1>
       </div>
