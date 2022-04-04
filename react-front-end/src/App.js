@@ -9,7 +9,7 @@ import HeaderBar from "./components/HeaderBar";
 import Tutorial from "./components/Tutorial";
 import Clicker from "./components/Clicker";
 import Squeaker from "./components/Squeaker";
-import LogIn from "./components/LogIn";
+import Landing from "./components/Landing";
 
 import './csshake.scss'; 
 import './wickedcss.min.css'
@@ -32,7 +32,7 @@ export default function App(props) {
 
           {tab === "Profile" && <Profile user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={setIsLoading} />}
           <NavBar tab={tab} tabs={tabs} onChange={setTab} />
-        </div> : <LogIn setCookie={setCookie} />
+        </div> : <Landing setCookie={setCookie} />
       }
     </>
   );
