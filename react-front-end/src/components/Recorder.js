@@ -33,7 +33,8 @@ export default function Recorder(props) {
   const [selectedTutorial, setSelectedTutorial] = useState();
   const [recorderError, setRecorderError] = useState(false);
 
-const [message, setMessage] = useState('empry')
+const [message, setMessage] = useState('empry');
+const [ skills, setSkills ] = useState({sit: 0});
 
 
   const start = () => {
@@ -203,6 +204,13 @@ const [message, setMessage] = useState('empry')
 
   const commands = [
     {
+      command: "sit",
+      callback: () => setSkills(
+
+        
+      )
+    },
+    {
       command: 'I would like to order *',
       callback: (food) => setMessage(`Your order is for: ${food}`)
     },
@@ -278,6 +286,7 @@ if (!isMicrophoneAvailable) {
     <button onClick={SpeechRecognition.startListening}>Start</button>
     <button onClick={SpeechRecognition.stopListening}>Stop</button>
     <button onClick={resetTranscript}>Reset</button>
+    <p>{skills.sit}</p>
     <p>{message}</p>
     <p>{transcript}</p>
   </div>
