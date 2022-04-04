@@ -154,6 +154,8 @@ App.post("/upload", upload.single("myfile"), (req, res) => {
 
 const profileRoute = require("./routes/profile");
 App.use("/api/profile", profileRoute(db));
+const userProcessing = require("./routes/userProcessing");
+App.use("/api/userProcessing", userProcessing(db));
 const sessionRoute = require("./routes/session");
 App.use("/api/session", sessionRoute(db));
 const homeRoute = require("./routes/home");
