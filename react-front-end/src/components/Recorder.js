@@ -36,6 +36,8 @@ export default function Recorder(props) {
 const [message, setMessage] = useState('empry');
 const [ skills, setSkills ] = useState({sit: 0});
 
+const [ transcription, setTranscription ] = useState("nothing");
+
 
   const start = () => {
     setRecordState(RecordState.START);
@@ -202,6 +204,21 @@ const [ skills, setSkills ] = useState({sit: 0});
 
   // todo
 
+  const handlePress = ()=> {
+    console.log("HandlePress");
+    axios
+      .get('/api/recorder/test')
+      .then(success => {
+        console.log("transcribe success", success);
+        setTranscription(success)
+        console.log("transcribe transcription", transcription);
+      })
+      .then(error => {
+        console.log("transcribe error", error);
+      })
+  }
+
+
   const commands = [
     {
       command: "sit",
@@ -279,7 +296,10 @@ if (!isMicrophoneAvailable) {
       >
         {tutorialsButtonText}
       </button>
-
+        <button onClick={()=> handlePress()}>
+          Test for Transcribing to wit.ai
+        </button>
+          {transcription}
       <div>
     <p>Microphone: {listening ? 'on' : 'off'}</p>
     <button onClick={SpeechRecognition.startListening}>Start</button>

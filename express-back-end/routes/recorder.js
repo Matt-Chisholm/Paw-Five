@@ -13,21 +13,15 @@ module.exports = (db) => {
     const q = encodeURIComponent('sit');
     const uri = 'https://api.wit.ai/message?v=20210928&q=' + q;
     const auth = 'Bearer ' + process.env.REACT_APP_WIT_clientAccessToken;
-    fetch(uri, {headers: {Authorization: auth}})
+    fetch(uri, {headers: {Authorization: auth, method: 'GET'}})
       .then(res => {
-        // console.log("recorder success", res.body)        
-        // res.entities && console.log("recorder entities", res.entities)        
-        // res.intents && console.log("recorder intents", res.intents)        
+        console.log("recorder success", res.body)            
         res.json()
+        return res;
       })
-      // .then(res => console.log(res))
+      .then(res => console.log(res))
+      .catch(err => console.log("err", err))
     })
-    // .then(success => {
-    //   console.log("recorder success", success)        
-    // })
-    // .catch(error => {
-    //   console.log("recorder error ", error);
-    // });
     
 
 
