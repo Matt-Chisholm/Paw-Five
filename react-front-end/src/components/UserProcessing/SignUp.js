@@ -55,8 +55,16 @@ export default function SignUp(props) {
     );
   };
 
+  const handleBack = () => {
+    props.setView("landing");
+    props.setCover(false);
+  }
+
   return (
     <div className="form">
+      <button className="back-button" onClick={handleBack}>
+        Go Back
+      </button>
       <div className="user-registration">
         <h1>User Registration</h1>
       </div>
