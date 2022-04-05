@@ -1,3 +1,5 @@
+// EXPRESS BACKEND
+
 const Express = require('express');
 const App = Express();
 const BodyParser = require('body-parser');
@@ -111,14 +113,6 @@ App.get('/latest', (req, res) => {
 
 App.use(fileUpload({}));
 
-// const upload = multer({
-//   limits: {
-//     // 2 MB upload limit.  Should just fall under wit's 20-second limit
-//     fileSize: 2 * 1024 * 1024,
-//     files: 1 // 1 file
-//   },
-//   dest: 'uploads/'
-
 const upload = multer({ dest: 'uploads/' })
 
 App.post("/upload", upload.single("myfile"), (req, res) => {
@@ -159,6 +153,8 @@ App.use("/api/session", sessionRoute(db));
 const homeRoute = require("./routes/home");
 const { log } = require('node-wit');
 App.use("/api/home", homeRoute(db));
+const recorderRoute = require("./routes/recorder")
+App.use("/api/recorder", recorderRoute(db));
 
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console
