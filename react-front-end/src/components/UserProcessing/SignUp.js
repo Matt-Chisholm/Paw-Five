@@ -33,14 +33,13 @@ export default function SignUp(props) {
     if (name.length < 8 || email.length < 8 || !email.includes("@") || password.length < 8) {
       setError(true);
     } else {
-      props.setCookie("user_id", 1);
-      // set a cookie in the right way
-
       setError(false);
       axios.post("/api/userProcessing/register/", {
         username: name,
         email: email,
         password: password
+      }).then((response) => {
+        props.setCookie("user_id", response.data.id);
       })
     }
   };

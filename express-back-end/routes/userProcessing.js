@@ -9,11 +9,12 @@ module.exports = (db) => {
     const password = req.body.password;
     db.query(`
       INSERT INTO users
-      (username, email, password)
-      VALUES ($1, $2, $3);
+      (username, email, password, image)
+      VALUES ($1, $2, $3, 'https://media.discordapp.net/attachments/952978925259206699/956228105884799046/avatar-test_1.jpeg')
+      RETURNING id;
     `, [username, email, password])
       .then(result => {
-        console.log("registration results:", result);
+        res.send(result.rows[0]);
       })
       .catch(err => console.log("error", err));
   });
