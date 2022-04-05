@@ -10,7 +10,7 @@ export default function SignUp(props) {
   const [password, setPassword] = useState('');
 
   // States for checking the errors
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("ok");
 
   // Handling the name change
   const handleName = (e) => {
@@ -31,41 +31,54 @@ export default function SignUp(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.length < 8 || email.length < 8 || !email.includes("@") || password.length < 8) {
-      setError(true);
+      setError("input-error");
     } else {
-      props.setCookie("user_id", 1);
-      // set a cookie in the right way
-
-      setError(false);
       axios.post("/api/userProcessing/register/", {
         username: name,
         email: email,
         password: password
+      }).then((response) => {
+        console.log(response.data.id);
+        if (Number(response.data.id) === -1) {
+          setError("existing-user");
+        } else {
+          props.setCookie("user_id", response.data.id);
+        }
       })
     }
   };
 
   // Showing error message if error is true
-  const errorMessage = () => {
+  const errorMessage = (message) => {
     return (
       <div
         className="message error">
-        <h1>Please enter all the fields</h1>
+        <h1>{message}</h1>
       </div>
     );
   };
 
+  const handleBack = () => {
+    props.setView("landing");
+    props.setCover(false);
+  }
+
   return (
     <div className="form">
+      <button className="back-button" onClick={handleBack}>
+        Go Back
+      </button>
       <div className="user-registration">
         <h1>User Registration</h1>
       </div>
 
       <div className="messages-container">
 
-        {error &&
-          <div className="messages" onClick={() => setError(false)}>
-            {errorMessage()}
+        {error !== "ok" &&
+          <div className="messages" onClick={() => setError("ok")}>
+            {(error === "input-error") ?
+              errorMessage("Please enter all the fields") : errorMessage("User already exists")
+            }
           </div>
         }
       </div>

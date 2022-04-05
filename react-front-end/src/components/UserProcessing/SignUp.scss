@@ -4,6 +4,22 @@
 
 
 .form {
+
+  .back-button {
+    position: absolute;
+    top: 5vw;
+    left: 3vw;
+
+    width: 30vw;
+    font-size: 1.3em;
+    line-height: 5vh;
+    background-color: #31eaea;
+    border: none;
+    color: azure;
+    border-radius: 10px;
+    font-family: 'Futura', sans-serif;
+  }
+
   form {
     background-color: #0DA4C5;
     height: 100vh;
@@ -22,6 +38,7 @@
     h1 {
       text-align: center;
       font-family: 'Merriweather', serif;
+      color: azure;
     }
   }
 
