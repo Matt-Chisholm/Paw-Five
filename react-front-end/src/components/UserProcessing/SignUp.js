@@ -15,16 +15,19 @@ export default function SignUp(props) {
   // Handling the name change
   const handleName = (e) => {
     setName(e.target.value);
+    setError("ok");
   };
 
   // Handling the email change
   const handleEmail = (e) => {
     setEmail(e.target.value);
+    setError("ok");
   };
 
   // Handling the password change
   const handlePassword = (e) => {
     setPassword(e.target.value);
+    setError("ok");
   };
 
   // Handling the form submission
@@ -38,11 +41,11 @@ export default function SignUp(props) {
         email: email,
         password: password
       }).then((response) => {
-        console.log(response.data.id);
         if (Number(response.data.id) === -1) {
           setError("existing-user");
         } else {
-          props.setCookie("user_id", response.data.id);
+          localStorage.setItem("username", name);
+          props.setCookie("user_id", Number(response.data.id));
         }
       })
     }
@@ -69,7 +72,7 @@ export default function SignUp(props) {
         Go Back
       </button>
       <div className="user-registration">
-        <h1>User Registration</h1>
+        <h1>Signup Page</h1>
       </div>
 
       <div className="messages-container">

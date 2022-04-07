@@ -16,7 +16,7 @@ export default function Landing(props) {
   return (
     <>
       {view === "signup" && <SignUp setCookie={props.setCookie} setView={setView} setCover={setCover} />}
-      {view === "login" && <LogIn />}
+      {view === "login" && <LogIn setCookie={props.setCookie} setView={setView} setCover={setCover} />}
       {view === "landing" &&
         <div className="login-page" onClick={() => setCover(!cover)}>
 
@@ -32,7 +32,7 @@ export default function Landing(props) {
 
           <button className={logInClass} onClick={() => {
             setView("login");
-            props.setCookie("user_id", 1);
+            // props.setCookie("user_id", 1);
           }}>
             LOG IN
           </button>
