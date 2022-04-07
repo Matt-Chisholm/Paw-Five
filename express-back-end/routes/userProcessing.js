@@ -42,10 +42,10 @@ module.exports = (db) => {
       WHERE email = $1;
     `, [email])
       .then(result => {
-        if (result.rows[0].password === password) {
-          res.send({id: result.rows[0].id});
-        } else {
+        if (!result.rows[0] || result.rows[0].password !== password) {
           res.send({id: -1});
+        } else {
+          res.send({id: result.rows[0].id});
         }
       })
   });

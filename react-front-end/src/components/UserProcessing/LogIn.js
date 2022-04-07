@@ -11,11 +11,13 @@ export default function LogIn(props) {
   // Handling the email change
   const handleEmail = (e) => {
     setEmail(e.target.value);
+    setError("ok");
   };
 
   // Handling the password change
   const handlePassword = (e) => {
     setPassword(e.target.value);
+    setError("ok");
   };
 
   // Handling the form submission

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@1&display=swap');
 
 .form {
 
@@ -95,12 +95,12 @@
 
   .messages{
     position: fixed;
-    z-index: 100;
-    top: 45vh;
-    border: 2px solid black;
+    z-index: 5;
+    top: 70vh;
+    border: 2px dashed #0DA3C4;
     height: 20vh;
     border-radius: 30px;
-    width: 90%;
+    width: 80%;
     background-color: aquamarine;
     display: flex;
     align-items: center;
@@ -108,6 +108,11 @@
     
       .message {
         text-align: center;
+        padding: 1em;
+
+        h1 {
+          font-family: 'Source Sans Pro', sans-serif;
+        }
       }
     }
   }

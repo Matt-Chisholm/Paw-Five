@@ -15,16 +15,19 @@ export default function SignUp(props) {
   // Handling the name change
   const handleName = (e) => {
     setName(e.target.value);
+    setError("ok");
   };
 
   // Handling the email change
   const handleEmail = (e) => {
     setEmail(e.target.value);
+    setError("ok");
   };
 
   // Handling the password change
   const handlePassword = (e) => {
     setPassword(e.target.value);
+    setError("ok");
   };
 
   // Handling the form submission
