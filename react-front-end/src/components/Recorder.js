@@ -296,11 +296,11 @@ if (!isMicrophoneAvailable) {
       >
         {tutorialsButtonText}
       </button>
-        <button onClick={()=> handlePress()}>
+        {/* <button onClick={()=> handlePress()}>
           Test for Transcribing to wit.ai
         </button>
-          {transcription}
-      <div>
+          {transcription} */}
+      {/* <div>
     <p>Microphone: {listening ? 'on' : 'off'}</p>
     <button onClick={SpeechRecognition.startListening}>Start</button>
     <button onClick={SpeechRecognition.stopListening}>Stop</button>
@@ -308,7 +308,7 @@ if (!isMicrophoneAvailable) {
     <p>{skills.sit}</p>
     <p>{message}</p>
     <p>{transcript}</p>
-  </div>
+  </div> */}
 
       {viewTut.includes("tutorial") && (
         <Tutorial
