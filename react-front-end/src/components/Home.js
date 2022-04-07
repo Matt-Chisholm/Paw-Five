@@ -17,32 +17,32 @@ import Rainbow from './Rainbow';
 import Summary from './Summary';
 import Week from './Week';
 
-export default function Home (props) {
+export default function Home(props) {
   const [selected, setSelected] = useState("Stats");
-  const [ user, setUser ] = useState({
+  const [user, setUser] = useState({
     id: "",
     username: "",
     image: ""
-  }) 
+  })
   const tabs = ["Stats", "Health", "News", "Memuries"];
-  
+
   // get current user id, name, and image
-  useEffect(() =>{
+  useEffect(() => {
     axios
       .get(`api/home/users/${props.user_id}`)
-        .then(success => {
-          // console.log("HOME COMPONENT success", success.data[0]);
-          const currentUser = success.data[0];
-          // exclude sensitive info like password and email
-          setUser({
-            id: currentUser.id,
-            username: currentUser.username,
-            image: currentUser.image
-          });
-        })
-        .catch(error => {
-          console.log("Home Component error, check if cookies are set", error);
-        }); 
+      .then(success => {
+        // console.log("HOME COMPONENT success", success.data[0]);
+        const currentUser = success.data[0];
+        // exclude sensitive info like password and email
+        setUser({
+          id: currentUser.id,
+          username: currentUser.username,
+          image: currentUser.image
+        });
+      })
+      .catch(error => {
+        console.log("Home Component error, check if cookies are set", error);
+      });
   }, []);
 
   // For squaker sound on user image
@@ -50,33 +50,33 @@ export default function Home (props) {
     audio
   )
 
-  
 
 
- 
+
+
 
   // VIEW
   return (
     <div className='homeComponent'>
-      <span id="username">
-        {localStorage.getItem("username")}
-      </span>
-  
-      <HomeNavigationBar tab={selected} tabs={tabs} onChange={setSelected}/>
+
+      <HomeNavigationBar tab={selected} tabs={tabs} onChange={setSelected} />
       {selected === "Stats" && user.id &&
         <>
           <div className='home-top' >
-            <img className='ring' src={ring} alt="home-profile-ring" onClick={() => playClick()}/>
+            <span id="username">
+              Welcome, {localStorage.getItem("username")}!
+            </span>
+            <img className='ring' src={ring} alt="home-profile-ring" onClick={() => playClick()} />
             <img className='user-image' src={user.image} />
           </div>
           <div className='home-bottom'>
-              {/* <div className='test'>
+            {/* <div className='test'>
               </div> */}
             <article>
               <Rainbow />
-                <Week />
+              <Week />
             </article>
-              <Summary />
+            <Summary />
           </div>
         </>
       }
@@ -84,7 +84,7 @@ export default function Home (props) {
       {selected === "News" && <Social isLoading={props.isLoading} setIsLoading={props.setIsLoading} />}
       {selected === "Memuries" && <Memuries />}
 
-      
+
     </div>
-    )
+  )
 }

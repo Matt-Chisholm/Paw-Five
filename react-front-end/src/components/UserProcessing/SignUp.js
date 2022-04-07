@@ -44,7 +44,8 @@ export default function SignUp(props) {
         if (Number(response.data.id) === -1) {
           setError("existing-user");
         } else {
-          props.setCookie("user_id", response.data.id);
+          localStorage.setItem("username", name);
+          props.setCookie("user_id", Number(response.data.id));
         }
       })
     }
