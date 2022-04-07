@@ -37,14 +37,15 @@ export default function SignUp(props) {
       noErrors = false;
     }
     if (noErrors) {
-      axios.post("/api/userProcessing/login/", {
+      axios.post("/api/userProcessing/register/", {
+        username: name,
         email: email,
         password: password
       }).then((response) => {
         if (Number(response.data.id) === -1) {
-          setError("wrong-data");
+          setError("existing-user");
         } else {
-          localStorage.setItem("username", response.data.username);
+          localStorage.setItem("username", name);
           props.setCookie("user_id", Number(response.data.id));
         }
       })

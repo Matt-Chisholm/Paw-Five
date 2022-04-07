@@ -15,6 +15,15 @@ export default function useUserProcessing(props) {
   const handleName = (e) => {
     setName(e.target.value);
     setError("ok");
+    if (e.target.value.length >= 8) {
+      const index = labelError.indexOf("name-error");
+      // deleting pasword-error from errors array
+      if (index !== -1) {
+        const copyErrors = [...labelError];
+        copyErrors.splice(index, 1);
+        setLabelError(copyErrors);
+      }
+    }
   };
 
   // Handling the email change
