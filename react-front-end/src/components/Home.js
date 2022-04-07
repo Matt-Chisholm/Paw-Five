@@ -58,6 +58,9 @@ export default function Home (props) {
   // VIEW
   return (
     <div className='homeComponent'>
+      <span id="username">
+        {localStorage.getItem("username")}
+      </span>
   
       <HomeNavigationBar tab={selected} tabs={tabs} onChange={setSelected}/>
       {selected === "Stats" && user.id &&

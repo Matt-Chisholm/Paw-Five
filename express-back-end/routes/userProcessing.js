@@ -37,7 +37,7 @@ module.exports = (db) => {
     const email = req.body.email;
     const password = req.body.password;
     db.query(`
-      SELECT id, password
+      SELECT id, username, password
       FROM users
       WHERE email = $1;
     `, [email])
@@ -45,7 +45,7 @@ module.exports = (db) => {
         if (!result.rows[0] || result.rows[0].password !== password) {
           res.send({id: -1});
         } else {
-          res.send({id: result.rows[0].id});
+          res.send({id: result.rows[0].id, username: result.rows[0].username});
         }
       })
   });

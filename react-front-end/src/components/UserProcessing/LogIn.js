@@ -33,6 +33,7 @@ export default function LogIn(props) {
         if (Number(response.data.id) === -1) {
           setError("wrong-data");
         } else {
+          localStorage.setItem("username", response.data.username);
           props.setCookie("user_id", Number(response.data.id));
         }
       })
