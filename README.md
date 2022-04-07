@@ -53,8 +53,9 @@ This is version 1.0. Any features you think should do amazing things for dogs? D
 
 ~*Training doesn't get easier. You just become stronger.*
 
-
-![Landing Page](https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/landing.png?raw=true)
+<p align="center">
+ ![Landing Page](https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/landing.png?raw=true)
+</p>
 ![SignUp](https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/signup.png?raw=true)
 ![Home](https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/home.gif?raw=true)
 ![Tutorials](https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/tutorials.gif?raw=true)
