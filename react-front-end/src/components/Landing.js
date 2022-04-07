@@ -10,6 +10,7 @@ export default function Landing(props) {
   const [view, setView] = useState("landing");
 
   const footprintClass = classNames('footprint', { 'cover': cover }, { 'uncover': !cover });
+  const landingClass = classNames('landing__paws', { 'landing__paws covered': cover }, { 'landing__paws uncovered': !cover });
   const logInClass = classNames('log_in_btn', { 'uncovered': !cover });
   const logoClass = classNames('logo', { 'uncovered shake-chunk shake-chunk--hover': !cover });
 
@@ -18,17 +19,20 @@ export default function Landing(props) {
       {view === "signup" && <SignUp setCookie={props.setCookie} />}
       {view === "login" && <LogIn />}
       {view === "landing" &&
-        <div className="login-page" onClick={() => setCover(!cover)}>
+        <div className="login-page" >
 
-          <div className={logoClass}>
-            PAWFIVE
-          </div>
-
+          <div className={landingClass} onClick={() => setCover(!cover)}>
           <img id='foot_1' className={footprintClass} src={footprint} />
           <img id='foot_2' className={footprintClass} src={footprint} />
           <img id='foot_3' className={footprintClass} src={footprint} />
           <img id='foot_4' className={footprintClass} src={footprint} />
           <img id='foot_5' className={footprintClass} src={footprint} />
+          </div>
+
+          <div className={logoClass}>
+            PAWFIVE
+          </div>
+
 
           <button className={logInClass} onClick={() => {
             setView("login");
@@ -36,12 +40,14 @@ export default function Landing(props) {
           }}>
             LOG IN
           </button>
+          
           <button className={logInClass} onClick={() => {
             setView("signup");
           }}>
             SIGN UP
           </button>
-        </div>}
+        </div>
+      }
     </>
   )
 }
