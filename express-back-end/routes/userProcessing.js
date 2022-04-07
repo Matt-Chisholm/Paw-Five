@@ -33,6 +33,25 @@ module.exports = (db) => {
 
   });
 
+
+  router.post("/login", (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+    db.query(`
+      SELECT id, password
+      FROM users
+      WHERE email = $1;
+    `, [email])
+      .then(result => {
+        console.log(result.rows[0]);
+        if (result.rows[0].password === password) {
+          res.send({id: result.rows[0].id});
+        } else {
+          res.send({id: -1});
+        }
+      })
+  });
+
 // router.get("/exist/check", (req, res) => {
 //   const username = req.body.username;
 //   const email = req.body.email;

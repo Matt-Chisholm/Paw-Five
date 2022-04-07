@@ -69,7 +69,7 @@ export default function SignUp(props) {
         Go Back
       </button>
       <div className="user-registration">
-        <h1>User Registration</h1>
+        <h1>Signup Page</h1>
       </div>
 
       <div className="messages-container">

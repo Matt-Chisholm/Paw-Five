@@ -1,4 +1,5 @@
-import react, {useState} from "react";
+import axios from "axios";
+import react, { useState } from "react";
 
 export default function LogIn(props) {
   const [email, setEmail] = useState('');
@@ -23,7 +24,17 @@ export default function LogIn(props) {
     if (email.length < 8 || !email.includes("@") || password.length < 8) {
       setError("input-error");
     } else {
-      // axios
+      axios.post("/api/userProcessing/login/", {
+        email: email,
+        password: password
+      }).then((response) => {
+        console.log(response.data.id);
+        if (Number(response.data.id) === -1) {
+          setError("wrong-data");
+        } else {
+          props.setCookie("user_id", Number(response.data.id));
+        }
+      })
     }
   };
 
@@ -48,7 +59,7 @@ export default function LogIn(props) {
         Go Back
       </button>
       <div className="user-registration">
-        <h1>User Registration</h1>
+        <h1>Login Page</h1>
       </div>
 
       <div className="messages-container">
@@ -56,7 +67,7 @@ export default function LogIn(props) {
         {error !== "ok" &&
           <div className="messages" onClick={() => setError("ok")}>
             {(error === "input-error") ?
-              errorMessage("Please enter all the fields") : errorMessage("User already exists")
+              errorMessage("Please enter all the fields") : errorMessage("User doesn't exist or data is incorrect")
             }
           </div>
         }
