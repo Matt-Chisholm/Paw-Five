@@ -118,14 +118,17 @@ export default function Profile(props) {
           <div id='profile'>
             {(dogs.length > 0 && dogsStats.length > 0) && dogsLicenses(dogs)}
           </div>
-          {props.isDetailsLoading || isDetailsLoading ? <div className='loading_spinner'><LoadingSpinner /></div> :
-            <div>
-              {detailsDisplay && <Skills dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} skills={skills} />}
-              {detailsDisplay && <Sessions dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} sessions={sessions} />}
-              {detailsDisplay && <button className='exit-button' onClick={() => {
-                renderDogLicense(dogs[0])
-              }}>EXIT</button>}
-            </div>
+          {isDetailsLoading ? <div className='loading_spinner'><LoadingSpinner /></div> :
+            <>
+            {dogs.length === 0 && <span>Add a dog</span>}
+              <div>
+                {detailsDisplay && <Skills dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} skills={skills} />}
+                {detailsDisplay && <Sessions dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} sessions={sessions} />}
+                {detailsDisplay && <button className='exit-button' onClick={() => {
+                  renderDogLicense(dogs[0])
+                }}>EXIT</button>}
+              </div>
+            </>
           }
         </div>
       }
