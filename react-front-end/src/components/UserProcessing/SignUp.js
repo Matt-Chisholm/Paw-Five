@@ -1,70 +1,55 @@
 import axios from "axios";
-import react, { useState } from "react";
+import useUserProcessing from "./Hooks/useUserProcessing";
 import "./SignUp.scss";
 
-export default function SignUp(props) {
+export default function SignUp(props) { 
 
-  // States for registration
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  // States for checking the errors
-  const [error, setError] = useState("ok");
-
-  // Handling the name change
-  const handleName = (e) => {
-    setName(e.target.value);
-    setError("ok");
-  };
-
-  // Handling the email change
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-    setError("ok");
-  };
-
-  // Handling the password change
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-    setError("ok");
-  };
+  const {
+    error,
+    setError,
+    name,
+    email,
+    password,
+    labelError,
+    setLabelError,
+    errorMessage,
+    handleName,
+    handleBack,
+    handleEmail,
+    handlePassword
+  } = useUserProcessing(props);
 
   // Handling the form submission
   const handleSubmit = (e) => {
+    setLabelError([]);
+    let noErrors = true;
     e.preventDefault();
-    if (name.length < 8 || email.length < 8 || !email.includes("@") || password.length < 8) {
-      setError("input-error");
-    } else {
-      axios.post("/api/userProcessing/register/", {
-        username: name,
+    if (name.length < 8) {
+      setLabelError(prev => [...prev, "name-error"]);
+      noErrors = false;
+    }
+    if (email.length < 8 || !email.includes("@")) {
+      setLabelError(prev => [...prev, "email-error"]);
+      noErrors = false;
+    }
+    if (password.length < 8) {
+      setLabelError(prev => [...prev, "password-error"]);
+      noErrors = false;
+    }
+    if (noErrors) {
+      axios.post("/api/userProcessing/login/", {
         email: email,
         password: password
       }).then((response) => {
         if (Number(response.data.id) === -1) {
-          setError("existing-user");
+          setError("wrong-data");
         } else {
-          localStorage.setItem("username", name);
+          localStorage.setItem("username", response.data.username);
           props.setCookie("user_id", Number(response.data.id));
         }
       })
     }
   };
-
-  // Showing error message if error is true
-  const errorMessage = (message) => {
-    return (
-      <div
-        className="message error">
-        <h1>{message}</h1>
-      </div>
-    );
-  };
-
-  const handleBack = () => {
-    props.setView("landing");
-    props.setCover(false);
-  }
 
   return (
     <div className="form">
@@ -79,9 +64,7 @@ export default function SignUp(props) {
 
         {error !== "ok" &&
           <div className="messages" onClick={() => setError("ok")}>
-            {(error === "input-error") ?
-              errorMessage("Please enter all the fields") : errorMessage("User already exists")
-            }
+            {(error === "existing-user") && errorMessage("User already exists")}
           </div>
         }
       </div>
@@ -92,18 +75,21 @@ export default function SignUp(props) {
           <label className="label">Username</label>
           <input onChange={handleName} className="input"
             value={name} type="text" />
+          {(labelError.includes("name-error")) && <label className="label-error">Name should contain at least 8 characters</label>}
         </div>
 
         <div className="text-field">
           <label className="label">Email</label>
           <input onChange={handleEmail} className="input"
             value={email} type="email" />
+          {(labelError.includes("email-error")) && <label className="label-error">Email should contain '@' sign and at least 8 characters</label>}
         </div >
 
         <div className="text-field">
           <label className="label">Password</label>
           <input onChange={handlePassword} className="input"
             value={password} type="password" />
+          {(labelError.includes("password-error")) && <label className="label-error">Password should contain at least 8 characters</label>}
         </div >
 
         <div id="submit">

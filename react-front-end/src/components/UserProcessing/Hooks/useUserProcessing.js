@@ -2,12 +2,20 @@ import axios from "axios";
 import { useState } from "react";
 
 export default function useUserProcessing(props) {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   // States for checking the errors
   const [error, setError] = useState("ok");
   const [labelError, setLabelError] = useState([]);
+
+
+  // Handling the name change
+  const handleName = (e) => {
+    setName(e.target.value);
+    setError("ok");
+  };
 
   // Handling the email change
   const handleEmail = (e) => {
@@ -83,5 +91,5 @@ export default function useUserProcessing(props) {
   }
 
 
-  return {error, setError, email, password, labelError, handleEmail, handlePassword, handleBack, handleSubmit, errorMessage};
+  return {error, setError, name, email, password, labelError, setLabelError, handleName, handleEmail, handlePassword, handleBack, handleSubmit, errorMessage};
 }
