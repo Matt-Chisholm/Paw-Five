@@ -13,7 +13,7 @@ export default function LogIn(props) {
   const handleEmail = (e) => {
     setEmail(e.target.value);
     setError("ok");
-    if (email.length >= 8 && email.includes("@")) {
+    if (e.target.value.length >= 8 && e.target.value.includes("@")) {
       const index = labelError.indexOf("email-error");
       // deleting email-error from errors array
       if (index !== -1) {
@@ -28,7 +28,7 @@ export default function LogIn(props) {
   const handlePassword = (e) => {
     setPassword(e.target.value);
     setError("ok");
-    if (password.length > 7) {
+    if (e.target.value.length >= 8) {
       const index = labelError.indexOf("password-error");
       // deleting pasword-error from errors array
       if (index !== -1) {
