@@ -13,7 +13,6 @@ module.exports = (db) => {
       WHERE username = $1 OR email = $2;
     `, [username, email])
       .then(result => {
-        console.log(result.rows[0]);
         if (result.rows[0].count == 0) {
 
           db.query(`
@@ -43,7 +42,6 @@ module.exports = (db) => {
       WHERE email = $1;
     `, [email])
       .then(result => {
-        console.log(result.rows[0]);
         if (result.rows[0].password === password) {
           res.send({id: result.rows[0].id});
         } else {
@@ -51,21 +49,6 @@ module.exports = (db) => {
         }
       })
   });
-
-// router.get("/exist/check", (req, res) => {
-//   const username = req.body.username;
-//   const email = req.body.email;
-//   db.query(`
-//       SELECT count(*)
-//       FROM users
-//       WHERE username = $1 OR email = $2;
-//     `, [username, email])
-//     .then(result => {
-//       res.send(result.rows[0]);
-//       console.log(result.rows[0]);
-//     })
-// })
-
 
 
 return router;

@@ -28,7 +28,6 @@ export default function LogIn(props) {
         email: email,
         password: password
       }).then((response) => {
-        console.log(response.data.id);
         if (Number(response.data.id) === -1) {
           setError("wrong-data");
         } else {
