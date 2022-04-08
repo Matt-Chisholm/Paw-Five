@@ -53,23 +53,28 @@ This is version 1.0. Any features you think should do amazing things for dogs? D
 
 ~*Training doesn't get easier. You just become stronger.*
 
+### Landing page / LogIn
 <p align="center">
  <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/landing.gif?raw=true" />
 </p>
+### SignUp page
 <p align="center">
  <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/signup.png?raw=true" />
 </p>
+### Home page
 <p align="center">
  <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/home.gif?raw=true" />
 </p>
+### Tutorials page
 <p align="center">
  <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/tutorials.gif?raw=true" />
 </p>
+### Dog profile
 <p align="center">
  <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/dogs_list.gif?raw=true" />
 </p>
+### Voice recognition API
 <p align="center">
- <i>Voice recognition API</i>
  <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/training.gif?raw=true" />
 </p>
 
