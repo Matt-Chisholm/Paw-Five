@@ -2,6 +2,7 @@
 @import 'fonts';
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 
+
 .login-page {
   width: 100vw;
   height: 100vh;
@@ -31,9 +32,11 @@
   }
 
   .log_in_btn {
-    width: 30%;
+    width: 20%;
     font-size: 1.5em;
     background-color: #31eaea;
+    padding: 5px;
+    margin-bottom: 25px;
     border: none;
     color: azure;
     border-radius: 20px;
@@ -44,21 +47,34 @@
     }
   }
 
+@media only screen and (max-width: 700px) {
+  .log_in_btn {
+    width: 35%;
+  }
+  .footprint {
+    width: 40vw;
+  }
+}
 
   .landing__paws {
     width: 80%;
     height: 80%;
     position: absolute;
     z-index: 1;
+    transition: 0.2s;
+
     &.uncovered {
       z-index: 0;
+      transform: translateY(-300px);
+
     }
   }
 
   .footprint {
     position: absolute;
-		width: 40vw;
-		height: 40vw;
+		width: 35vw;
+		height: 30vw;
+    
     
     &#foot_1 {
       width: fit-content;
@@ -105,9 +121,9 @@
       -webkit-animation-timing-function: linear;
       -webkit-animation-fill-mode: forwards;
       
-      z-index: 0;
     }
 	}
+
   
   @-webkit-keyframes slam-animation {
     0% {
