@@ -2,22 +2,41 @@
 @import 'fonts';
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 
+
 .login-page {
   width: 100vw;
   height: 100vh;
   background-color: $primary_2;
-
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+  .logo {
+    // text-align: center;
+    color: $primary_1;
+    letter-spacing: 2.7px;
+    width: 50%;
+    font-family: "Futura";
+    font-weight: medium;
+    font-size: 4.5em;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    &.uncovered {
+      z-index: 1;
+    }
+  }
 
   .log_in_btn {
-    width: 30%;
+    width: 20%;
     font-size: 1.5em;
-    margin-bottom: 10%;
     background-color: #31eaea;
+    padding: 5px;
+    margin-bottom: 25px;
     border: none;
     color: azure;
     border-radius: 20px;
@@ -28,48 +47,63 @@
     }
   }
 
-  .logo {
-    text-align: center;
-    color: $primary_1;
-    letter-spacing: 2.7px;
-    width: 50%;
-    font-family: "Futura";
-    font-size: 3em;
-    margin-bottom: 10%;
+@media only screen and (max-width: 700px) {
+  .log_in_btn {
+    width: 35%;
+  }
+  .footprint {
+    width: 40vw;
+  }
+}
+
+  .landing__paws {
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    z-index: 1;
+    transition: 0.2s;
 
     &.uncovered {
-      z-index: 1;
+      z-index: 0;
+      transform: translateY(-300px);
+
     }
   }
 
   .footprint {
     position: absolute;
-		width: 40vw;
-		height: 40vw;
+		width: 35vw;
+		height: 30vw;
+    
     
     &#foot_1 {
-      bottom: 50vh;
-      left: 15vw;
+      width: fit-content;
+      bottom: 35.0%;
+      left: 12.5vw;
       -webkit-animation-duration: 0.25s;
     }
     &#foot_2 {
-      bottom: 43vh;
-      right: 15vw;
+      width: fit-content;
+      bottom: 8vh;
+      left: 1.5vw;
       -webkit-animation-duration: 0.35s;
     }
     &#foot_3 {
-      bottom: 40vh;
-      right: 33vw;
+      width: fit-content;
+      bottom: 60%;
+      left: 3.3vw;
       -webkit-animation-duration: 0.45s;
     }
     &#foot_4 {
-      bottom: 55vh;
-      right: 10vw;
+      width: fit-content;
+      bottom: 55.5%;
+      right: 1.0%;
       -webkit-animation-duration: 0.55s;
     }
     &#foot_5 {
-      bottom: 35vh;
-      right: 60vw;
+      width: fit-content;
+      bottom: 0.5vh;
+      right: 6.0%;
       -webkit-animation-duration: 0.55s;
     }
 
@@ -86,6 +120,7 @@
       -webkit-animation-direction: normal;
       -webkit-animation-timing-function: linear;
       -webkit-animation-fill-mode: forwards;
+      
     }
 	}
 
