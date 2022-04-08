@@ -79,6 +79,7 @@ This is version 1.0. Any features you think should do amazing things for dogs? D
 </p>
 <br>
 <h3 align="center">Training / Voice recognition API</h3>
+<p>Voice Command: "[Dog Name] - [Skill]"
 <p align="center">
  <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/training.gif?raw=true" />
 </p>
