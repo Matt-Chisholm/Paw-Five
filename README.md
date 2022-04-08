@@ -53,7 +53,7 @@ This is version 1.0. Any features you think should do amazing things for dogs? D
 
 ~*Training doesn't get easier. You just become stronger.*
 
-<h3 style="text-align: center">Landing page / LogIn</h3>
+<h3 align="center">Landing page / LogIn</h3>
 <p align="center">
  <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/landing.gif?raw=true" />
 </p>
