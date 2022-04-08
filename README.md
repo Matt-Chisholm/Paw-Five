@@ -57,23 +57,28 @@ This is version 1.0. Any features you think should do amazing things for dogs? D
 <p align="center">
  <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/landing.gif?raw=true" />
 </p>
-### SignUp page
+<br>
+<h3 align="center">SignUp page</h3>
 <p align="center">
  <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/signup.png?raw=true" />
 </p>
-### Home page
+<br>
+<h3 align="center">Home page</h3>
 <p align="center">
  <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/home.gif?raw=true" />
 </p>
-### Tutorials page
+<br>
+<h3 align="center">Tutorials page</h3>
 <p align="center">
  <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/tutorials.gif?raw=true" />
 </p>
-### Dog profile
+<br>
+<h3 align="center">Dog profile</h3>
 <p align="center">
  <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/dogs_list.gif?raw=true" />
 </p>
-### Voice recognition API
+<br>
+<h3 align="center">Voice recognition API</h3>
 <p align="center">
  <img src="https://github.com/Matt-Chisholm/Paw-Five/blob/master/docs/readme.md/training.gif?raw=true" />
 </p>
