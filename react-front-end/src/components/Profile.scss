@@ -3,26 +3,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
 @import 'colors';
 
-.add-dog-button {
+.zero-dogs {
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 70vh;
-  gap: 1vh;
-
-  .plus-button {
-    width: 25vw;
-    height: 25vw;
-    color: #193252;
-    background-color: #FFD873;
-    padding: 0.2em;
-    border-radius: 50%;
-  }
-
-  .add-a-dog {
-    font-family: 'Boogaloo', cursive;
-    font-size: 2em;
+  
+  
+  .add-dog-button {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    .plus-button {
+      width: 25vw;
+      height: 25vw;
+      color: #193252;
+      background-color: #FFD873;
+      padding: 0.2em;
+      border-radius: 50%;
+      margin-bottom: 1vh;
+    }
+    
+    .add-a-dog {
+      font-family: 'Boogaloo', cursive;
+      font-size: 2em;
+    }
   }
 }
 

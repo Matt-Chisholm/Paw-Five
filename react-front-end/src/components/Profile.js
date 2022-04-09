@@ -15,6 +15,7 @@ export default function Profile(props) {
   const [isDetailsLoading, setIsDetailsLoading] = useState(false);
   const [skills, setSkills] = useState([]);
   const [sessions, setSessions] = useState([]);
+  const [addDogDisplay, setAddDogDisplay] = useState(false);
 
 
 
@@ -121,7 +122,22 @@ export default function Profile(props) {
           </div>
           {isDetailsLoading ? <div className='loading_spinner'><LoadingSpinner /></div> :
             <>
-              {dogs.length === 0 && <div className='add-dog-button'><FontAwesomeIcon icon={faPlus} className="plus-button fa-7x" /><span className='add-a-dog'>Add a dog</span></div>}
+              {dogs.length === 0 &&
+                <div className="zero-dogs">
+                  {addDogDisplay === false &&
+                    <div className='add-dog-button' onClick={() => setAddDogDisplay(true)} >
+                      <FontAwesomeIcon icon={faPlus} className="plus-button fa-7x" />
+                      <span className='add-a-dog'>Add a dog</span>
+                    </div>
+                  }
+                  {addDogDisplay === true &&
+                    <div className='add-dog-form' >
+                      
+                      <span className='add-a-dog'>Add a dog form</span>
+                    </div>
+                  }
+                </div>
+              }
               <div>
                 {detailsDisplay && <Skills dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} skills={skills} />}
                 {detailsDisplay && <Sessions dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} sessions={sessions} />}
