@@ -121,7 +121,7 @@ export default function Profile(props) {
           </div>
           {isDetailsLoading ? <div className='loading_spinner'><LoadingSpinner /></div> :
             <>
-              {dogs.length === 0 && <div className='add-dog-button'><FontAwesomeIcon icon={faPlus} className="fa-7x" /><span>Add a dog</span></div>}
+              {dogs.length === 0 && <div className='add-dog-button'><FontAwesomeIcon icon={faPlus} className="plus-button fa-7x" /><span className='add-a-dog'>Add a dog</span></div>}
               <div>
                 {detailsDisplay && <Skills dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} skills={skills} />}
                 {detailsDisplay && <Sessions dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} sessions={sessions} />}

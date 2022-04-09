@@ -9,6 +9,21 @@
   justify-content: center;
   align-items: center;
   height: 70vh;
+  gap: 1vh;
+
+  .plus-button {
+    width: 25vw;
+    height: 25vw;
+    color: #193252;
+    background-color: #FFD873;
+    padding: 0.2em;
+    border-radius: 50%;
+  }
+
+  .add-a-dog {
+    font-family: 'Boogaloo', cursive;
+    font-size: 2em;
+  }
 }
 
 .loading_spinner {
