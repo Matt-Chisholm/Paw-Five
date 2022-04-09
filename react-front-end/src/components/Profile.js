@@ -1,11 +1,12 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
 import './Profile.scss';
 import Skills from './Skills';
 import Sessions from './Sessions';
 import LoadingSpinner from './LoadingSpinner';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/fontawesome-free-solid';
 
 export default function Profile(props) {
   const [dogs, setDogs] = useState([]);
@@ -14,6 +15,7 @@ export default function Profile(props) {
   const [isDetailsLoading, setIsDetailsLoading] = useState(false);
   const [skills, setSkills] = useState([]);
   const [sessions, setSessions] = useState([]);
+  const [addDogDisplay, setAddDogDisplay] = useState(false);
 
 
 
@@ -120,7 +122,22 @@ export default function Profile(props) {
           </div>
           {isDetailsLoading ? <div className='loading_spinner'><LoadingSpinner /></div> :
             <>
-            {dogs.length === 0 && <span>Add a dog</span>}
+              {dogs.length === 0 &&
+                <div className="zero-dogs">
+                  {addDogDisplay === false &&
+                    <div className='add-dog-button' onClick={() => setAddDogDisplay(true)} >
+                      <FontAwesomeIcon icon={faPlus} className="plus-button fa-7x" />
+                      <span className='add-a-dog'>Add a dog</span>
+                    </div>
+                  }
+                  {addDogDisplay === true &&
+                    <div className='add-dog-form' >
+                      
+                      <span className='add-a-dog'>Add a dog form</span>
+                    </div>
+                  }
+                </div>
+              }
               <div>
                 {detailsDisplay && <Skills dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} skills={skills} />}
                 {detailsDisplay && <Sessions dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} sessions={sessions} />}
