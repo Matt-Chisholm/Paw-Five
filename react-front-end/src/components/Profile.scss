@@ -3,6 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
 @import 'colors';
 
+.add-dog-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
 .loading_spinner {
   height: 80vh;
   display: flex;
