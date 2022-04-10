@@ -29,7 +29,7 @@ npm start
 
 5. Use the db folder to help you generate your own dogs, users, and tutorials. We used pswl hosted on Heroku.
 
-We strongly suggest using a mobile view while exploring our application. We recommend this [extension](https://chrome.google.com/webstore/detail/mobile-simulator-responsi/ckejmhbmlajgoklhgbapkiccekfoccmk) (iPhone 12 PRO MAX view): 
+**We strongly suggest using a mobile view while exploring our application. We recommend this [extension](https://chrome.google.com/webstore/detail/mobile-simulator-responsi/ckejmhbmlajgoklhgbapkiccekfoccmk) (iPhone 12 PRO MAX view)**
 
 Enjoy!
 
