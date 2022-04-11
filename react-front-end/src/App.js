@@ -35,7 +35,7 @@ export default function App(props) {
               <span className="logOut-confirm-text">
                 Are you sure you want to Log Out?
               </span>
-              <button className="logOut-button" onClick={() => removeCookie("user_id")}>Log Out</button>
+              <button className="logOut-button" onClick={() => { removeCookie("user_id"); setLogOutMenu(false) }}>Log Out</button>
               <button className="logOut-cancel" onClick={() => setLogOutMenu(false)}>Cancel</button>
             </div>}
           <div className={appClass}>
