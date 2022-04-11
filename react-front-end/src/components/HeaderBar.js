@@ -3,7 +3,7 @@ import './HeaderBar.scss';
 import setting from './images/setting.svg'
 import menu from './images/hamburger-menu.svg';
 
-export default function HeaderBar() {
+export default function HeaderBar(props) {
 
   return (
     <header>
@@ -11,7 +11,7 @@ export default function HeaderBar() {
       <div className="logo">
         PAWFIVE
       </div>
-      <img className="setting" src={setting} />
+      <img className="setting" src={setting} onClick={props.showLogOutMenu} />
     </header>
   )
 }
