@@ -32,19 +32,16 @@ export default function NewDogForm(props) {
       setLabelError(prev => [...prev, "breed-error"]);
       noErrors = false;
     }
-    // if (photo.length === 0 && noErrors) {
-    //   setPhoto("https://static.vecteezy.com/system/resources/previews/005/055/092/original/cute-australian-shepherd-dog-avatar-cartoon-icon-illustration-vector.jpg");
-    // }
-    // if (noErrors) {
-    //   axios.post("/api/userProcessing/register/", {
-    //     username: name,
-    //     email: email,
-    //     photo: photo.length === 0 ? "https://static.vecteezy.com/system/resources/previews/005/055/092/original/cute-australian-shepherd-dog-avatar-cartoon-icon-illustration-vector.jpg" : photo
-    //   }).then((response) => {
-    //     localStorage.setItem("username", name);
-    //     props.setCookie("user_id", Number(response.data.id));
-    //   })
-    // }
+    if (noErrors) {
+      axios.post("/api/profile/add-dog", {
+        name: name,
+        breed: breed,
+        photo: photo,
+        user_id: props.user_id
+      }).then((response) => {
+        props.setAddDogDisplay(false);
+      })
+    }
 
   }
 
