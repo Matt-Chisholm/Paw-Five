@@ -21,7 +21,7 @@ export default function Profile(props) {
 
 
   useEffect(() => {
-    props.setIsLoading(true);
+    !props.isLoading && props.setIsLoading(true);
     axios.get(`/api/profile/dog/${props.user_id}`).then((response) => {
       const dogs = response.data;
       setDogs(dogs);
@@ -30,7 +30,7 @@ export default function Profile(props) {
   }, []);
 
   useEffect(() => {
-    props.setIsLoading(true);
+    !props.isLoading && props.setIsLoading(true);
     let promiseArray = [];
     dogs
       .map(dog => {

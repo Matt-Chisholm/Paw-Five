@@ -33,7 +33,6 @@ export default function NewDogForm(props) {
       noErrors = false;
     }
     if (noErrors) {
-      props.setIsLoading(true);
       axios.post("/api/profile/add-dog", {
         name: name,
         breed: breed,

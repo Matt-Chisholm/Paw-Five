@@ -20,10 +20,11 @@ export default function App(props) {
   const tabs = ["Home", "Training", "Profile"];
   const [tab, setTab] = useState("Home");
   const [cookies, setCookie, removeCookie] = useCookies(["user_id"]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [logOutMenu, setLogOutMenu] = useState(false);
 
   const appClass = classNames('App', { 'low-opacity': logOutMenu });
+  console.log(isLoading);
 
 
   return (
