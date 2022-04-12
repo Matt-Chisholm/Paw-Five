@@ -40,7 +40,6 @@ export default function NewDogForm(props) {
         photo: photo,
         user_id: props.user_id
       }).then((response) => {
-        // props.setIsLoading(false);
         props.setTab("");
         props.setTab("Profile");
       })

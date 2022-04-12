@@ -121,29 +121,25 @@ export default function Profile(props) {
           <div id='profile'>
             {(dogs.length > 0 && dogsStats.length > 0) && dogsLicenses(dogs)}
           </div>
-          {isDetailsLoading ? <div className='loading_spinner'><LoadingSpinner /></div> :
-            <>
-              {dogs.length === 0 &&
-                <div className="zero-dogs">
-                  {addDogDisplay === false &&
-                    <div className='add-dog-button' onClick={() => setAddDogDisplay(true)} >
-                      <FontAwesomeIcon icon={faPlus} className="plus-button fa-7x" />
-                      <span className='add-a-dog'>Add a dog</span>
-                    </div>
-                  }
-                  {addDogDisplay === true &&
-                    <NewDogForm setAddDogDisplay={setAddDogDisplay} user_id={props.user_id} setTab={props.setTab} setIsLoading={props.setIsLoading}/>
-                  }
-                </div>
-              }
-              <div>
-                {detailsDisplay && <Skills dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} skills={skills} />}
-                {detailsDisplay && <Sessions dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} sessions={sessions} />}
-                {detailsDisplay && <button className='exit-button' onClick={() => {
-                  renderDogLicense(dogs[0])
-                }}>EXIT</button>}
+          <div className="zero-dogs">
+            {addDogDisplay === false &&
+              <div className='add-dog-button' onClick={() => setAddDogDisplay(true)} >
+                <FontAwesomeIcon icon={faPlus} className="plus-button fa-7x" />
+                <span className='add-a-dog'>Add a dog</span>
               </div>
-            </>
+            }
+            {addDogDisplay === true &&
+              <NewDogForm setAddDogDisplay={setAddDogDisplay} user_id={props.user_id} setTab={props.setTab} setIsLoading={props.setIsLoading} />
+            }
+          </div>
+          {isDetailsLoading ? <div className='loading_spinner'><LoadingSpinner /></div> :
+            <div>
+              {detailsDisplay && <Skills dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} skills={skills} />}
+              {detailsDisplay && <Sessions dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} sessions={sessions} />}
+              {detailsDisplay && <button className='exit-button' onClick={() => {
+                renderDogLicense(dogs[0])
+              }}>EXIT</button>}
+            </div>
           }
         </div>
       }
