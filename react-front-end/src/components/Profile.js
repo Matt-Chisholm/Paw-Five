@@ -131,7 +131,7 @@ export default function Profile(props) {
                     </div>
                   }
                   {addDogDisplay === true &&
-                    <div className='add-dog-form' >
+                    <div className='add-dog-form' onClick={() => setAddDogDisplay(false)}>
                       
                       <span className='add-a-dog'>Add a dog form</span>
                     </div>
