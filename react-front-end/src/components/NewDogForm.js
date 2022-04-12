@@ -33,13 +33,16 @@ export default function NewDogForm(props) {
       noErrors = false;
     }
     if (noErrors) {
+      props.setIsLoading(true);
       axios.post("/api/profile/add-dog", {
         name: name,
         breed: breed,
         photo: photo,
         user_id: props.user_id
       }).then((response) => {
-        props.setAddDogDisplay(false);
+        // props.setIsLoading(false);
+        props.setTab("");
+        props.setTab("Profile");
       })
     }
 

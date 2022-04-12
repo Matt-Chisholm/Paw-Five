@@ -132,7 +132,7 @@ export default function Profile(props) {
                     </div>
                   }
                   {addDogDisplay === true &&
-                    <NewDogForm setAddDogDisplay={setAddDogDisplay} user_id={props.user_id} />
+                    <NewDogForm setAddDogDisplay={setAddDogDisplay} user_id={props.user_id} setTab={props.setTab} setIsLoading={props.setIsLoading}/>
                   }
                 </div>
               }

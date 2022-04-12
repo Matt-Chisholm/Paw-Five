@@ -47,7 +47,7 @@ export default function App(props) {
             <HeaderBar showLogOutMenu={() => setLogOutMenu(true)} />
             {tab === "Home" && <Home user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={setIsLoading} />}
             {tab === "Training" && <Recorder isLoading={isLoading} setIsLoading={setIsLoading} />}
-            {tab === "Profile" && <Profile user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={setIsLoading} />}
+            {tab === "Profile" && <Profile user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={setIsLoading} setTab={setTab} />}
             <NavBar tab={tab} tabs={tabs} onChange={setTab} />
           </div>
         </> : <Landing setCookie={setCookie} />
