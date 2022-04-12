@@ -122,7 +122,7 @@ export default function Profile(props) {
             {(dogs.length > 0 && dogsStats.length > 0) && dogsLicenses(dogs)}
           </div>
           <div className="zero-dogs">
-            {addDogDisplay === false &&
+            {addDogDisplay === false && !detailsDisplay &&
               <div className='add-dog-button' onClick={() => setAddDogDisplay(true)} >
                 <FontAwesomeIcon icon={faPlus} className="plus-button fa-7x" />
                 <span className='add-a-dog'>Add a dog</span>
