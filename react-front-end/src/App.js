@@ -31,13 +31,18 @@ export default function App(props) {
       {cookies["user_id"] ?
         <>
           {logOutMenu &&
-            <div id="logOut-menu">
-              <span className="logOut-confirm-text">
-                Are you sure you want to Log Out?
-              </span>
-              <button className="logOut-button" onClick={() => { removeCookie("user_id"); setLogOutMenu(false) }}>Log Out</button>
-              <button className="logOut-cancel" onClick={() => setLogOutMenu(false)}>Cancel</button>
-            </div>}
+            <>
+              <div className="covering-container">
+              </div>
+              <div id="logOut-menu">
+                <span className="logOut-confirm-text">
+                  Are you sure you want to Log Out?
+                </span>
+                <button className="logOut-button" onClick={() => { removeCookie("user_id"); setLogOutMenu(false) }}>Log Out</button>
+                <button className="logOut-cancel" onClick={() => setLogOutMenu(false)}>Cancel</button>
+              </div>
+            </>
+          }
           <div className={appClass}>
             <HeaderBar showLogOutMenu={() => setLogOutMenu(true)} />
             {tab === "Home" && <Home user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={setIsLoading} />}
