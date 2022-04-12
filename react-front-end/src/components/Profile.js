@@ -5,6 +5,7 @@ import './Profile.scss';
 import Skills from './Skills';
 import Sessions from './Sessions';
 import LoadingSpinner from './LoadingSpinner';
+import NewDogForm from './NewDogForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/fontawesome-free-solid';
 
@@ -131,10 +132,7 @@ export default function Profile(props) {
                     </div>
                   }
                   {addDogDisplay === true &&
-                    <div className='add-dog-form' onClick={() => setAddDogDisplay(false)}>
-                      
-                      <span className='add-a-dog'>Add a dog form</span>
-                    </div>
+                    <NewDogForm />
                   }
                 </div>
               }
