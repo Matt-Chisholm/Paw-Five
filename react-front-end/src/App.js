@@ -11,28 +11,46 @@ import Clicker from "./components/Clicker";
 import Squeaker from "./components/Squeaker";
 import Landing from "./components/Landing";
 
-import './csshake.scss'; 
+import './csshake.scss';
 import './wickedcss.min.css'
 import Home from "./components/Home";
+import classNames from "classnames";
 
 export default function App(props) {
   const tabs = ["Home", "Training", "Profile"];
   const [tab, setTab] = useState("Home");
   const [cookies, setCookie, removeCookie] = useCookies(["user_id"]);
   const [isLoading, setIsLoading] = useState(false);
+  const [logOutMenu, setLogOutMenu] = useState(false);
+
+  const appClass = classNames('App', { 'low-opacity': logOutMenu });
 
 
   return (
     <>
       {cookies["user_id"] ?
-        <div className="App">
-          <HeaderBar />
-          {tab === "Home" && <Home user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={setIsLoading} />}
-          {tab === "Training" && <Recorder isLoading={isLoading} setIsLoading={setIsLoading} />}
-
-          {tab === "Profile" && <Profile user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={setIsLoading} />}
-          <NavBar tab={tab} tabs={tabs} onChange={setTab} />
-        </div> : <Landing setCookie={setCookie} />
+        <>
+          {logOutMenu &&
+            <>
+              <div className="covering-container">
+              </div>
+              <div id="logOut-menu">
+                <span className="logOut-confirm-text">
+                  Are you sure you want to Log Out?
+                </span>
+                <button className="logOut-button" onClick={() => { removeCookie("user_id"); setLogOutMenu(false) }}>Log Out</button>
+                <button className="logOut-cancel" onClick={() => setLogOutMenu(false)}>Cancel</button>
+              </div>
+            </>
+          }
+          <div className={appClass}>
+            <HeaderBar showLogOutMenu={() => setLogOutMenu(true)} />
+            {tab === "Home" && <Home user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={setIsLoading} />}
+            {tab === "Training" && <Recorder isLoading={isLoading} setIsLoading={setIsLoading} />}
+            {tab === "Profile" && <Profile user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={setIsLoading} />}
+            <NavBar tab={tab} tabs={tabs} onChange={setTab} />
+          </div>
+        </> : <Landing setCookie={setCookie} />
       }
     </>
   );

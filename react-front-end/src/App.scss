@@ -6,6 +6,11 @@
   min-width: 428px;
   // min-height: 926px;
   width: 100%;
+
+  &.low-opacity {
+    filter: alpha(opacity=30);
+    opacity: 0.5;
+  }
 }
 
 .App-logo {
@@ -35,5 +40,57 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+.covering-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+}
+
+
+#logOut-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #61dafb;
+  width: 80vw;
+  height: auto;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  border-radius: 20px;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  padding: 1em 0;
+
+  span.logOut-confirm-text {
+    font-family: "Futura";
+    font-weight: medium;
+    font-size: 2em;
+    text-align: center;
+    margin: 0 0.5em;
+  }
+
+  button {
+    width: 90%;
+    font-size: 1em;
+    padding: 5px;
+    border: none;
+    margin-top: 1em;
+    border-radius: 20px;
+    font-family: 'Futura', sans-serif;
+    font-weight: 500;
+    color: #000000;
+  }
+
+  button.logOut-button {
+    background-color: #de5248;
+  }
+
+  button.logOut-cancel {
+    background-color: #FFD873;
   }
 }
