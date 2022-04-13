@@ -64,7 +64,7 @@ export default function NewDogForm(props) {
         <input className='dog-photo-input' value={photo} type="text" onChange={handlePhoto} />
       </div>
       <button id="submit" onClick={handleSubmit}>Submit</button>
-      <span onClick={() => props.setAddDogDisplay(false)}>Cancel</span>
+      <button id="submit" onClick={() => props.setAddDogDisplay(false)}>Cancel</button>
     </form>
   )
 }
