@@ -24,7 +24,6 @@ export default function App(props) {
   const [logOutMenu, setLogOutMenu] = useState(false);
 
   const appClass = classNames('App', { 'low-opacity': logOutMenu });
-  console.log(isLoading);
 
 
   return (
