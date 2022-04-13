@@ -10,10 +10,28 @@ export default function NewDogForm(props) {
 
   const handleName = (e) => {
     setName(e.target.value);
+    if (e.target.value.length >= 1) {
+      const index = labelError.indexOf("name-error");
+      // deleting name-error from errors array
+      if (index !== -1) {
+        const copyErrors = [...labelError];
+        copyErrors.splice(index, 1);
+        setLabelError(copyErrors);
+      }
+    }
   }
 
   const handleBreed = (e) => {
     setBreed(e.target.value);
+    if (e.target.value.length >= 4) {
+      const index = labelError.indexOf("breed-error");
+      // deleting breed-error from errors array
+      if (index !== -1) {
+        const copyErrors = [...labelError];
+        copyErrors.splice(index, 1);
+        setLabelError(copyErrors);
+      }
+    }
   }
 
   const handlePhoto = (e) => {
@@ -48,7 +66,7 @@ export default function NewDogForm(props) {
 
   return (
     <form className='add-dog-form'>
-      <span className='add-a-dog'>Add a dog form</span>
+      <span className='add-dog'>Add a dog form</span>
       <div className='text-field'>
         <label className='dog-name'>Dog Name</label>
         <input className='dog-name-input' value={name} type="text" onChange={handleName} />
@@ -63,8 +81,8 @@ export default function NewDogForm(props) {
         <label className='dog-photo'>Photo</label>
         <input className='dog-photo-input' value={photo} type="text" onChange={handlePhoto} />
       </div>
-      <button id="submit" onClick={handleSubmit}>Submit</button>
-      <span onClick={() => props.setAddDogDisplay(false)}>Cancel</span>
+      <button className="dog-form-submit" onClick={handleSubmit}>Submit</button>
+      <button className="dog-form-cancel" onClick={() => props.setAddDogDisplay(false)}>Cancel</button>
     </form>
   )
 }
