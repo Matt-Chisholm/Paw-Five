@@ -4,14 +4,37 @@ form.add-dog-form {
   align-items: center;
   justify-content: center;
 
-  background-color: #0DA4C5;
+  background-color: #61dafb;
+  width: 90%;
+  height: auto;
   border-radius: 20px;
-  width: 80%;
 
   .text-field {
+    width: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    label {
+      text-align: center;
+      width: 100%;
+      font-size: 1.3em;
+      color: azure;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 400;
+    }
+
+    input {
+      width: 100%;
+      font-size: 1em;
+      border: none;
+      border-radius: 20px;
+      font-family: 'Futura', sans-serif;
+      font-weight: 500;
+      color: #000000;
+    }
   }
+
+
 }
