@@ -184,12 +184,18 @@ div.license {
   }
 }
 
-@media only screen and (width > 505px) {
-  div.license {
-    width: 70%;
-    max-width: 600px;
-  }
+div.sessions-skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+// @media only screen and (width > 505px) {
+//   div.license {
+//     width: 70%;
+//     max-width: 600px;
+//   }
+// }
 
 
 
