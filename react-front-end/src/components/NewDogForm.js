@@ -10,10 +10,28 @@ export default function NewDogForm(props) {
 
   const handleName = (e) => {
     setName(e.target.value);
+    if (e.target.value.length >= 1) {
+      const index = labelError.indexOf("name-error");
+      // deleting name-error from errors array
+      if (index !== -1) {
+        const copyErrors = [...labelError];
+        copyErrors.splice(index, 1);
+        setLabelError(copyErrors);
+      }
+    }
   }
 
   const handleBreed = (e) => {
     setBreed(e.target.value);
+    if (e.target.value.length >= 4) {
+      const index = labelError.indexOf("breed-error");
+      // deleting breed-error from errors array
+      if (index !== -1) {
+        const copyErrors = [...labelError];
+        copyErrors.splice(index, 1);
+        setLabelError(copyErrors);
+      }
+    }
   }
 
   const handlePhoto = (e) => {
