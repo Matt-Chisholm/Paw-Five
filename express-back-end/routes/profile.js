@@ -77,6 +77,23 @@ module.exports = (db) => {
   });
 
 
+  router.post("/add-dog", (req, res) => {
+    const name = req.body.name;
+    const breed = req.body.breed;
+    const photo = req.body.photo.length === 0 ? "https://static.vecteezy.com/system/resources/previews/005/055/092/original/cute-australian-shepherd-dog-avatar-cartoon-icon-illustration-vector.jpg" : req.body.photo;
+    const user_id = req.body.user_id;
+    db.query(`
+          INSERT INTO dogs
+          (name, breed, avatar, user_id)
+          VALUES ($1, $2, $3, $4);
+        `, [name, breed, photo, user_id])
+      .then(result => {
+        res.send(200);
+      })
+      .catch(err => console.log("error", err));
+  });
+
+
 
   return router;
 };

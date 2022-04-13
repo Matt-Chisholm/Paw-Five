@@ -5,6 +5,7 @@ import './Profile.scss';
 import Skills from './Skills';
 import Sessions from './Sessions';
 import LoadingSpinner from './LoadingSpinner';
+import NewDogForm from './NewDogForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/fontawesome-free-solid';
 
@@ -20,7 +21,7 @@ export default function Profile(props) {
 
 
   useEffect(() => {
-    props.setIsLoading(true);
+    !props.isLoading && props.setIsLoading(true);
     axios.get(`/api/profile/dog/${props.user_id}`).then((response) => {
       const dogs = response.data;
       setDogs(dogs);
@@ -29,7 +30,7 @@ export default function Profile(props) {
   }, []);
 
   useEffect(() => {
-    props.setIsLoading(true);
+    !props.isLoading && props.setIsLoading(true);
     let promiseArray = [];
     dogs
       .map(dog => {
@@ -120,32 +121,25 @@ export default function Profile(props) {
           <div id='profile'>
             {(dogs.length > 0 && dogsStats.length > 0) && dogsLicenses(dogs)}
           </div>
-          {isDetailsLoading ? <div className='loading_spinner'><LoadingSpinner /></div> :
-            <>
-              {dogs.length === 0 &&
-                <div className="zero-dogs">
-                  {addDogDisplay === false &&
-                    <div className='add-dog-button' onClick={() => setAddDogDisplay(true)} >
-                      <FontAwesomeIcon icon={faPlus} className="plus-button fa-7x" />
-                      <span className='add-a-dog'>Add a dog</span>
-                    </div>
-                  }
-                  {addDogDisplay === true &&
-                    <div className='add-dog-form' onClick={() => setAddDogDisplay(false)}>
-                      
-                      <span className='add-a-dog'>Add a dog form</span>
-                    </div>
-                  }
-                </div>
-              }
-              <div>
-                {detailsDisplay && <Skills dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} skills={skills} />}
-                {detailsDisplay && <Sessions dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} sessions={sessions} />}
-                {detailsDisplay && <button className='exit-button' onClick={() => {
-                  renderDogLicense(dogs[0])
-                }}>EXIT</button>}
+          <div className="zero-dogs">
+            {addDogDisplay === false && !detailsDisplay &&
+              <div className='add-dog-button' onClick={() => setAddDogDisplay(true)} >
+                <FontAwesomeIcon icon={faPlus} className="plus-button fa-7x" />
+                <span className='add-a-dog'>Add a dog</span>
               </div>
-            </>
+            }
+            {addDogDisplay === true &&
+              <NewDogForm setAddDogDisplay={setAddDogDisplay} user_id={props.user_id} setTab={props.setTab} setIsLoading={props.setIsLoading} />
+            }
+          </div>
+          {isDetailsLoading ? <div className='loading_spinner'><LoadingSpinner /></div> :
+            <div>
+              {detailsDisplay && <Skills dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} skills={skills} />}
+              {detailsDisplay && <Sessions dog_id={dogs[0].id} setIsDetailsLoading={(p) => setIsDetailsLoading(p)} sessions={sessions} />}
+              {detailsDisplay && <button className='exit-button' onClick={() => {
+                renderDogLicense(dogs[0])
+              }}>EXIT</button>}
+            </div>
           }
         </div>
       }
