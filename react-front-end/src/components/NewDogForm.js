@@ -48,7 +48,7 @@ export default function NewDogForm(props) {
 
   return (
     <form className='add-dog-form'>
-      <span className='add-a-dog'>Add a dog form</span>
+      <span className='add-dog'>Add a dog form</span>
       <div className='text-field'>
         <label className='dog-name'>Dog Name</label>
         <input className='dog-name-input' value={name} type="text" onChange={handleName} />
@@ -63,8 +63,8 @@ export default function NewDogForm(props) {
         <label className='dog-photo'>Photo</label>
         <input className='dog-photo-input' value={photo} type="text" onChange={handlePhoto} />
       </div>
-      <button id="submit" onClick={handleSubmit}>Submit</button>
-      <button id="submit" onClick={() => props.setAddDogDisplay(false)}>Cancel</button>
+      <button className="dog-form-submit" onClick={handleSubmit}>Submit</button>
+      <button className="dog-form-cancel" onClick={() => props.setAddDogDisplay(false)}>Cancel</button>
     </form>
   )
 }
