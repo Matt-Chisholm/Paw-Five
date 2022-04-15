@@ -4,11 +4,7 @@ import "./App.scss";
 import NavBar from "./components/NavBar";
 import Profile from "./components/Profile";
 import Recorder from "./components/Recorder";
-// import Session from './components/Session';
 import HeaderBar from "./components/HeaderBar";
-import Tutorial from "./components/Tutorial";
-import Clicker from "./components/Clicker";
-import Squeaker from "./components/Squeaker";
 import Landing from "./components/Landing";
 
 import './csshake.scss';
@@ -23,10 +19,7 @@ export default function App(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [logOutMenu, setLogOutMenu] = useState(false);
 
-  // useContext Hook
-  const lowOpacity = false;
-
-  const appClass = classNames('App', { 'low-opacity': (logOutMenu || lowOpacity) });
+  const appClass = classNames('App', { 'low-opacity': (logOutMenu) });
 
 
   return (
