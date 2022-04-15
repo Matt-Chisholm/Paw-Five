@@ -4,13 +4,7 @@
 .App {
   text-align: center;
   min-width: 428px;
-  // min-height: 926px;
   width: 100%;
-
-  &.low-opacity {
-    filter: alpha(opacity=30);
-    opacity: 0.5;
-  }
 }
 
 .App-logo {
@@ -44,9 +38,13 @@
 }
 .covering-container {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 5;
+  z-index: 10;
+  background-color: gray;
+  opacity: 70%;
 }
 
 

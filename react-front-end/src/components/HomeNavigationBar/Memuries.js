@@ -7,6 +7,7 @@ import NewMemury from "./NewMemury";
 export default function Memuries(props) {
   const [memuries, setMemuries] = useState([]);
   const [render, setRender] = useState(false);
+  const [fullScreenImage, setFullScreenImage] = useState(null);
 
   useEffect(() => {
     axios.get(`/api/home/memuries`).then((response) => {
@@ -16,13 +17,14 @@ export default function Memuries(props) {
   }, [render]);
 
   const renderMemuries = (memuries) => {
-    return memuries.reverse().map((mem, index) => {
+    const prepMemuries = memuries.map((mem, index) => {
       return (
-        <div key={index} className="memury-unit">
+        <div key={index} className="memury-unit" onClick={() => setFullScreenImage(index)}>
           <img name={mem.name} src={mem.photo} alt={index} />
         </div>
       );
     });
+    return prepMemuries;
   };
 
 
@@ -32,10 +34,16 @@ export default function Memuries(props) {
         <NewMemury render={render} setRender={() => setRender(!render)} />
         <h1 className="mem-text"> Keep going!</h1>
       </section>
+      {fullScreenImage !== null &&
+        <>
+          <div className="covering-container" onClick={() => setFullScreenImage(null)}>
+          </div>
+          <img className="full-screen-image" src={memuries[fullScreenImage].photo} onClick={() => setFullScreenImage(null)} />
+        </>}
       <section className="memuries__bottom">
-        {renderMemuries(memuries)}
+        {renderMemuries(memuries).reverse()}
       </section>
-      <br/>
+      <br />
       <h3 className="mem-text">You've dug to the bottom. Woof.</h3>
     </div>
   );
