@@ -23,7 +23,10 @@ export default function App(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [logOutMenu, setLogOutMenu] = useState(false);
 
-  const appClass = classNames('App', { 'low-opacity': logOutMenu });
+  // useContext Hook
+  const lowOpacity = false;
+
+  const appClass = classNames('App', { 'low-opacity': (logOutMenu || lowOpacity) });
 
 
   return (
