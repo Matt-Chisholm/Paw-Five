@@ -17,13 +17,14 @@ export default function Memuries(props) {
   }, [render]);
 
   const renderMemuries = (memuries) => {
-    return memuries.reverse().map((mem, index) => {
+    const prepMemuries = memuries.map((mem, index) => {
       return (
         <div key={index} className="memury-unit" onClick={() => setFullScreenImage(index)}>
           <img name={mem.name} src={mem.photo} alt={index} />
         </div>
       );
     });
+    return prepMemuries;
   };
 
 
@@ -35,7 +36,7 @@ export default function Memuries(props) {
       </section>
       {fullScreenImage !== null && <img className="full-screen-image" src={memuries[fullScreenImage].photo} onClick={() => setFullScreenImage(null)} />}
       <section className="memuries__bottom">
-        {renderMemuries(memuries)}
+        {renderMemuries(memuries).reverse()}
       </section>
       <br />
       <h3 className="mem-text">You've dug to the bottom. Woof.</h3>
