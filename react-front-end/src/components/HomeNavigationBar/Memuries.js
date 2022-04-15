@@ -34,7 +34,12 @@ export default function Memuries(props) {
         <NewMemury render={render} setRender={() => setRender(!render)} />
         <h1 className="mem-text"> Keep going!</h1>
       </section>
-      {fullScreenImage !== null && <img className="full-screen-image" src={memuries[fullScreenImage].photo} onClick={() => setFullScreenImage(null)} />}
+      {fullScreenImage !== null &&
+        <>
+          <div className="covering-container">
+          </div>
+          <img className="full-screen-image" src={memuries[fullScreenImage].photo} onClick={() => setFullScreenImage(null)} />
+        </>}
       <section className="memuries__bottom">
         {renderMemuries(memuries).reverse()}
       </section>
