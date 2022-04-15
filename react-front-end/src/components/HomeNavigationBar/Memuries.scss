@@ -9,6 +9,15 @@
 
 }
 
+.full-screen-image {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80vw;
+  max-height: 80vw;
+}
+
 .memuries-form {
   
   display: flex;
