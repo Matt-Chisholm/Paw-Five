@@ -10,7 +10,6 @@ import Landing from "./components/Landing";
 import './csshake.scss';
 import './wickedcss.min.css'
 import Home from "./components/Home";
-import classNames from "classnames";
 
 export default function App(props) {
   const tabs = ["Home", "Training", "Profile"];
@@ -18,9 +17,6 @@ export default function App(props) {
   const [cookies, setCookie, removeCookie] = useCookies(["user_id"]);
   const [isLoading, setIsLoading] = useState(true);
   const [logOutMenu, setLogOutMenu] = useState(false);
-
-  const appClass = classNames('App', { 'low-opacity': (logOutMenu) });
-
 
   return (
     <>
@@ -39,7 +35,7 @@ export default function App(props) {
               </div>
             </>
           }
-          <div className={appClass}>
+          <div className="App">
             <HeaderBar showLogOutMenu={() => setLogOutMenu(true)} />
             {tab === "Home" && <Home user_id={cookies["user_id"]} isLoading={isLoading} setIsLoading={setIsLoading} />}
             {tab === "Training" && <Recorder isLoading={isLoading} setIsLoading={setIsLoading} />}

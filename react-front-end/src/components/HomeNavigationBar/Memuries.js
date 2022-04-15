@@ -36,7 +36,7 @@ export default function Memuries(props) {
       </section>
       {fullScreenImage !== null &&
         <>
-          <div className="covering-container">
+          <div className="covering-container" onClick={() => setFullScreenImage(null)}>
           </div>
           <img className="full-screen-image" src={memuries[fullScreenImage].photo} onClick={() => setFullScreenImage(null)} />
         </>}
